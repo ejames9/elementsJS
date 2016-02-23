@@ -1,0 +1,25 @@
+{
+  "name": "alias.js",
+  "version": "1.0.0",
+  "description": "A JavaScript Alias Library for Commonly Used Functions.",
+  "main": "alias.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JavaScript",
+    "alias",
+    "DOM",
+    "functions",
+    "xhr"
+  ],
+  "author": "Eric James Foster",
+  "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    " url" : "https://github.com/ejames9/alias.js"
+  },
+  "dependencies" : {
+    "babel-polyfill": "^6.3.14"
+  }
+}
