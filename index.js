@@ -2,6 +2,7 @@
 Elements.js
 
 A JavaScript DOM manipulation/Alias function Library.
+This is the index file for the library.
 
 Author: Eric James Foster
 EMail: maniphestival@gmail.com
@@ -11,11 +12,12 @@ URL: ""
 */
 
 
-//TODO:10 functions: err(), info(), warn().
-//DONE:80 Complete all standalone style functions.
+//TODO: Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
-var colors = require('clivi'),
-             require('babel-polyfill');
+
+var element = require('./Element.js'),
+     colors = require('clivi'),
+              require('babel-polyfill');
 
 
 
@@ -36,33 +38,6 @@ var functions = function(funcs, module) {                                      /
 };
 
 
-
-var element = function(el) {                                                   //TODO:0 Add All necessary functions.
-  this.backgroundColor = function(val) {
-    el.style.backgroundColor = val;
-    return this;
-  };
-  this.height = function(val) {
-    el.style.height = val;
-    return this;
-  };
-  this.width = function(val) {
-    el.style.width = val;
-    return this;
-  };
-  this.border = function(val) {
-    el.style.border = val;
-    return this;
-  };
-  this.zIndex = function(val) {
-    el.style.zIndex = val;
-    return this;
-  };
-  this.position = function() {
-    el.style.position = val;
-    return this;
-  };
-};
 
 var css = function(l) {
   if (l[0] === '#') {
@@ -126,7 +101,7 @@ var query = function(l) {
 
 
 //Function for appending elements to other elements.
-var put = function(el, mom) {                                                  //DONE:70 Make sure this works.
+var put = function(el, mom) {                                                  //DONE:80 Make sure this works.
   if (typeof el === 'string') {                                                //IDEA:0 If el doesn't exist, create it and give it id/class.
     if (el[0] === '#') {
       el = el.slice(1);
@@ -211,7 +186,7 @@ var kill = function(el) {
 
 //Function for setting css style properties of elements.
 // var style = function(el) {
-//   if (el[0] === '#') {     //DONE:60 Give this chaining functionality.
+//   if (el[0] === '#') {     //DONE:70 Give this chaining functionality.
 //     el = el.slice(1);
 //     return document.getElementById(el).style;
 //   } else if (el[0] === '.') {
@@ -259,7 +234,7 @@ var off = function(event, el, callback) {
 };
 
 
-var once = function(event, el, callback) {                                     //DONE:10 Finish once function.
+var once = function(event, el, callback) {                                     //DONE:20 Finish once function.
                                                                                //TEST:30 Test once function.
   var callBack = function() {
     callback();
@@ -291,8 +266,8 @@ var once = function(event, el, callback) {                                     /
 
 
 
-//Console.log alias function.                                                  //DONE:90 Make sure date is logging properly.
-var log = (text, style, tyme)=> {                                              //DONE:40 Add second argument for log ID purposes, figure best way to approach this.
+//Console.log alias function.                                                  //DONE:100 Make sure date is logging properly.
+var log = (text, style, tyme)=> {                                              //DONE:50 Add second argument for log ID purposes, figure best way to approach this.
   var colr = Array.isArray(style) ? style[0] : style,
       styl = Array.isArray(style) ? style[1] : null,
        tym = tyme || false;
@@ -308,7 +283,7 @@ var log = (text, style, tyme)=> {                                              /
         mins = '0' + String(mins);
       }
   var abbr = hours >= 12 ? 'pm' : 'am';
-  var stan = hours >= 13 ? hours - 12 : hours;                                 //DONE:0 Either fix singular hours, or choose alternate.
+  var stan = hours >= 13 ? hours - 12 : hours;                                 //DONE:10 Either fix singular hours, or choose alternate.
       if (stan === 0) {
         hours = stan + 12;
       } else {
@@ -330,6 +305,129 @@ var log = (text, style, tyme)=> {                                              /
 };
 
 
+//Console.error alias function.
+var err = (text, tyme)=> {
+  var colr = 'black',
+      styl = 'bold',
+       tym = tyme || false;
+
+  var time = new Date(),
+     hours = time.getHours(),
+      mins = time.getMinutes(),
+      secs = time.getSeconds();
+      if (secs <= 9) {
+        secs = '0' + String(secs);
+      }
+      if (mins <= 9) {
+        mins = '0' + String(mins);
+      }
+  var abbr = hours >= 12 ? 'pm' : 'am';
+  var stan = hours >= 13 ? hours - 12 : hours;
+      if (stan === 0) {
+        hours = stan + 12;
+      } else {
+        hours = stan;
+      }
+      time = hours + ':' + mins + ':' + secs + abbr;
+
+      t = tym ? time : '';
+
+  if (typeof module !== 'undefined' && module.exports) {
+    return console.log(colors(text, {fg: colr, style: styl}) + '   '.repeat(10) + t);
+  } else {
+    var color = colr,
+      bgColor = 'red',
+          css = 'background: ' + bgColor + '; color: ' + color;
+
+    return console.log('%c<b>' + text %s, css, '</b>' + '   '.repeat(10) + t);
+  }
+};
+
+
+//Console.info alias function.
+var info = (text, tyme)=> {
+  var colr = 'white',
+      styl = 'bold',
+       tym = tyme || false;
+
+  var time = new Date(),
+     hours = time.getHours(),
+      mins = time.getMinutes(),
+      secs = time.getSeconds();
+      if (secs <= 9) {
+        secs = '0' + String(secs);
+      }
+      if (mins <= 9) {
+        mins = '0' + String(mins);
+      }
+  var abbr = hours >= 12 ? 'pm' : 'am';
+  var stan = hours >= 13 ? hours - 12 : hours;
+      if (stan === 0) {
+        hours = stan + 12;
+      } else {
+        hours = stan;
+      }
+      time = hours + ':' + mins + ':' + secs + abbr;
+
+      t = tym ? time : '';
+
+  if (typeof module !== 'undefined' && module.exports) {
+    colr = 'blueBright';
+    return console.log(colors(text, {fg: colr, style: styl}) + '   '.repeat(10) + t);
+  } else {
+    var color = colr,
+      bgColor = 'blue',
+          css = 'background: ' + bgColor + '; color: ' + color;
+
+    return console.log('%c<b>' + text %s, css, '</b>' + '   '.repeat(10) + t);
+  }
+};
+
+
+
+//Console.warn alias function.
+var warn = (text, tyme)=> {
+  var colr = 'orange',
+      styl = 'bold',
+       tym = tyme || false;
+
+  var time = new Date(),
+     hours = time.getHours(),
+      mins = time.getMinutes(),
+      secs = time.getSeconds();
+      if (secs <= 9) {
+        secs = '0' + String(secs);
+      }
+      if (mins <= 9) {
+        mins = '0' + String(mins);
+      }
+  var abbr = hours >= 12 ? 'pm' : 'am';
+  var stan = hours >= 13 ? hours - 12 : hours;
+      if (stan === 0) {
+        hours = stan + 12;
+      } else {
+        hours = stan;
+      }
+      time = hours + ':' + mins + ':' + secs + abbr;
+
+      t = tym ? time : '';
+
+  if (typeof module !== 'undefined' && module.exports) {
+    colr = 'yellow';
+    colr = 'blueBright';
+    return console.log(colors(text, {fg: colr, style: styl}) + '   '.repeat(10) + t);
+  } else {
+    var color = colr,
+      bgColor = 'yellow',
+          css = 'background: ' + bgColor + '; color: ' + color;
+
+    return console.log('%c<b>' + text %s, css, '</b>' + '   '.repeat(10) + t);
+  }
+};
+
+
+
+
 //This practically useless function will lock up the browser for a preset amount of time.
 var sleep = function(milliseconds) {
   var start = new Date().getTime();
@@ -341,10 +439,10 @@ var sleep = function(milliseconds) {
 };
 
 //This is an alias function for XMLHttpRequests.
-var xhr = function(url, fd, method) {                                          //DONE:30 Perfect this function.
+var xhr = function(url, fd, method) {                                          //DONE:40 Perfect this function.
     var formData;
-                                                                               //DONE:50 Build FormData in function from object that user passes as an argument.
-    if (fd) {                                                                  //DONE:20 Need async ajax function
+                                                                               //DONE:60 Build FormData in function from object that user passes as an argument.
+    if (fd) {                                                                  //DONE:30 Need async ajax function
       if (Object.getOwnPropertyNames(fd).length === 0) {
         formData = fd;                                   log(Object.getOwnPropertyNames(fd).length);
       } else {
@@ -430,3 +528,8 @@ module.exports = {
               xhr: xhr,
              ajax: ajax
                  };
+
+
+
+//DONE:0 functions: err(), info(), warn().
+//DONE:90 Complete all standalone style functions.
