@@ -16,10 +16,15 @@
       "XXX",
       "IDEA",
       "NOTE",
+      "TEST",
       "REVIEW"
     ]
   },
   "lists": [
+    {
+      "name": "TEST",
+      "hidden": false
+    },
     {
       "name": "TODO",
       "hidden": false
@@ -31,6 +36,10 @@
     {
       "name": "DONE",
       "hidden": false
+    },
+    {
+      "name": "IDEA",
+      "hidden": false
     }
   ],
   "marked": {
@@ -40,5 +49,6 @@
     "pedantic": false,
     "smartLists": true,
     "langPrefix": "language-"
-  }
+  },
+  "keepEmptyPriority": false
 }

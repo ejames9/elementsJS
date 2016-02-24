@@ -10,13 +10,16 @@ Version: 1.0.0
 URL: ""
 */
 
-require('babel-polyfill');
 
-//TODO: functions: err(), info(), warn().
+//TODO:10 functions: err(), info(), warn().
+//DONE:80 Complete all standalone style functions.
 
-//DONE:70 Complete all standalone style functions.
+var colors = require('clivi'),
+             require('babel-polyfill');
 
-var functions = function(funcs, module) { //DOING:10 Test this with other node_modules.
+
+
+var functions = function(funcs, module) {                                      //TEST:40 Test this with other node_modules.
   var context = module || this;
 
   if (Array.isArray(funcs)) {
@@ -34,7 +37,7 @@ var functions = function(funcs, module) { //DOING:10 Test this with other node_m
 
 
 
-var element = function(el) {                  //TODO:0 Add All necessary functions.
+var element = function(el) {                                                   //TODO:0 Add All necessary functions.
   this.backgroundColor = function(val) {
     el.style.backgroundColor = val;
     return this;
@@ -123,12 +126,12 @@ var query = function(l) {
 
 
 //Function for appending elements to other elements.
-var put = function(el, mom) {       //DONE:60 Make sure this works.
-  if (typeof el === 'string') {     //DOING:0 If el doesn't exist, create it and give it id/class.
+var put = function(el, mom) {                                                  //DONE:70 Make sure this works.
+  if (typeof el === 'string') {                                                //IDEA:0 If el doesn't exist, create it and give it id/class.
     if (el[0] === '#') {
       el = el.slice(1);
       if (typeof mom === 'string') {
-        if (mom[0] === '#') {               //TODO:30 Test this function thoroughly.
+        if (mom[0] === '#') {                                                  //TEST:0 Test this function thoroughly.
           mom = mom.slice(1);
           return document.getElementById(mom).appendChild(document.getElementById(el));
         } else if (mom[0] === '.') {
@@ -208,7 +211,7 @@ var kill = function(el) {
 
 //Function for setting css style properties of elements.
 // var style = function(el) {
-//   if (el[0] === '#') {     //DONE:50 Give this chaining functionality.
+//   if (el[0] === '#') {     //DONE:60 Give this chaining functionality.
 //     el = el.slice(1);
 //     return document.getElementById(el).style;
 //   } else if (el[0] === '.') {
@@ -256,8 +259,8 @@ var off = function(event, el, callback) {
 };
 
 
-var once = function(event, el, callback) {      //DONE:0 Finish once function.
-                                                       //TODO:20 Test once function.
+var once = function(event, el, callback) {                                     //DONE:10 Finish once function.
+                                                                               //TEST:30 Test once function.
   var callBack = function() {
     callback();
     document.getElementById(el).removeEventListener(event, callBack);
@@ -288,8 +291,8 @@ var once = function(event, el, callback) {      //DONE:0 Finish once function.
 
 
 
-//Console.log alias function. //DONE:80 Make sure date is logging properly.
-function log(text, style, tyme) {          //DONE:40 Add second argument for log ID purposes, figure best way to approach this.
+//Console.log alias function.                                                  //DONE:90 Make sure date is logging properly.
+var log = (text, style, tyme)=> {                                              //DONE:40 Add second argument for log ID purposes, figure best way to approach this.
   var colr = Array.isArray(style) ? style[0] : style,
       styl = Array.isArray(style) ? style[1] : null,
        tym = tyme || false;
@@ -305,7 +308,7 @@ function log(text, style, tyme) {          //DONE:40 Add second argument for log
         mins = '0' + String(mins);
       }
   var abbr = hours >= 12 ? 'pm' : 'am';
-  var stan = hours >= 13 ? hours - 12 : hours; //TODO:10 Either fix singular hours, or choose alternate.
+  var stan = hours >= 13 ? hours - 12 : hours;                                 //DONE:0 Either fix singular hours, or choose alternate.
       if (stan === 0) {
         hours = stan + 12;
       } else {
@@ -324,8 +327,7 @@ function log(text, style, tyme) {          //DONE:40 Add second argument for log
 
     return console.log('%c' + text %s, css, '   '.repeat(10) + t);
   }
-}
-
+};
 
 
 //This practically useless function will lock up the browser for a preset amount of time.
@@ -339,15 +341,15 @@ var sleep = function(milliseconds) {
 };
 
 //This is an alias function for XMLHttpRequests.
-var xhr = function(url, fd, method) {           //DONE:20 Perfect this function.
+var xhr = function(url, fd, method) {                                          //DONE:30 Perfect this function.
     var formData;
-                                                //DONE:30 Build FormData in function from object that user passes as an argument.
-    if (fd) {                                   //DONE:10 Need async ajax function
+                                                                               //DONE:50 Build FormData in function from object that user passes as an argument.
+    if (fd) {                                                                  //DONE:20 Need async ajax function
       if (Object.getOwnPropertyNames(fd).length === 0) {
         formData = fd;                                   log(Object.getOwnPropertyNames(fd).length);
       } else {
         formData = new FormData();
-        for (var key in fd) {                 //TODO:40 Test this function.
+        for (var key in fd) {                                                  //TEST:10 Test this function.
           formData.append(key, fd[key]);
         }
       }
@@ -378,7 +380,7 @@ var xhr = function(url, fd, method) {           //DONE:20 Perfect this function.
 };
 
 
-var ajax = function(url, fd, callback, method) {     //TODO:50 Test this function.
+var ajax = function(url, fd, callback, method) {                               //TEST:20 Test this function.
   var formData;
 
     if (fd) {
