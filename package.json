@@ -1,25 +1,32 @@
 {
-  "name": "alias.js",
+  "name": "elementsJS",
   "version": "1.0.0",
-  "description": "A JavaScript Alias Library for Commonly Used Functions.",
-  "main": "alias.js",
+  "description": "A JavaScript DOM manipulation/Alias function Library.",
+  "main": "index.js",
+  "dependencies": {
+    "babel-polyfill": "^6.3.14",
+    "clivi": "^0.1.2"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejames9/elementsJS.git"
   },
   "keywords": [
     "JavaScript",
     "alias",
     "DOM",
     "functions",
-    "xhr"
+    "xhr",
+    "sugar"
   ],
   "author": "Eric James Foster",
-  "license": "MIT",
-  "repository" : {
-    "type" : "git",
-    " url" : "https://github.com/ejames9/alias.js"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejames9/elementsJS/issues"
   },
-  "dependencies" : {
-    "babel-polyfill": "^6.3.14"
-  }
+  "homepage": "https://github.com/ejames9/elementsJS#readme"
 }
