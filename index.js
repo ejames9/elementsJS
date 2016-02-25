@@ -18,12 +18,12 @@ URL: ""
 //DOING:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
 
-var element = require('./Element'),
-   requests = require('./httpRequests'),
-     events = require('./events'),
-     consol = require('./logger'),
-      utils = require('./utilities'),
-        dom = require('./DOM'),
+var element = require('./lib/Element'),
+   requests = require('./lib/httpRequests'),
+     events = require('./lib/events'),
+     consol = require('./lib/logger'),
+      utils = require('./lib/utilities'),
+        dom = require('./lib/DOM'),
               require('babel-polyfill');
 
 
