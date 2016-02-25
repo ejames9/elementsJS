@@ -1,7 +1,7 @@
 {
   "name": "elementsJS",
   "version": "1.0.0",
-  "description": "A JavaScript DOM manipulation/Alias function Library.",
+  "description": "A JavaScript DOM Manipulation/Alias Function Library.",
   "main": "index.js",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
