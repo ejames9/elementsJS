@@ -15,7 +15,7 @@ URL: ""
 
 
 
-//DOING:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
+//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
 
 var element = require('./lib/Element'),
@@ -81,23 +81,6 @@ var kill = function(el) {
 };
 
 
-//Function for setting event listeners.
-var on = function(event, el, callback) {
-  return events.on(event, el, callback);
-};
-
-
-//Function for removing event listeners.
-var off = function(event, el, callback) {
-  return events.off(event, el, callback);
-};
-
-
-var once = function(event, el, callback) {                                     //DONE:20 Finish once function.
-  return events.once(event, el, callback);                                     //TEST:30 Test once function.
-};
-
-
 //console.log alias function.
 var log = (text, style, tyme)=> {
   return consol.log(text, style, tyme);
@@ -145,6 +128,180 @@ var ajax = function(url, fd, callback, method) {
 
 
 
+/*---------Event Functions-----------*/
+
+
+//Function for setting event listeners.
+var on = function(event, el, callback) {
+  if (el.addEventListener) {
+    return events.on(event, el, callback);
+  } else {
+    return events.onIE(event, el, callback);
+  }
+};
+
+
+//Function for removing event listeners.
+var off = function(event, el, callback) {
+  if (el.addEventListener) {
+    return events.off(event, el, callback);
+  } else {
+    return events.offIE(event, el, callback);
+  }
+};
+
+
+var once = function(event, el, callback) {                                     //DONE:50 Finish once function.
+  if (el.addEventListener) {
+    return events.once(event, el, callback);
+  } else {
+    return events.onceIE(event, el, callback);
+  }                                                                            //TEST:30 Test once function.
+};
+
+
+var blur = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.blur(el, cb);
+  } else {
+    return events.blurIE(el, cb);
+  }
+};
+
+
+var click = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.click(el, cb);
+  } else {
+    return events.clickIE(el, cb);
+  }
+};
+
+
+var dblClick = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.dblClick(el, cb);
+  } else {
+    return events.dblClickIE(el, cb);
+  }
+};
+
+
+var error = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.error(el, cb);
+  } else {
+    return events.errorIE(el, cb);
+  }
+};
+
+
+var focus = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.focus(el, cb);
+  } else {
+    return events.focusIE(el, cb);
+  }
+};
+
+
+var focusIn = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.focusIn(el, cb);
+  } else {
+    return events.focusInIE(el, cb);
+  }
+};
+
+
+var focusOut = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.focusOut(el, cb);
+  } else {
+    return events.focusOut(el, cb);
+  }
+};
+
+
+var keyUp = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.keyUp(el, cb);
+  } else {
+    return events.keyUpIE(el, cb);
+  }
+};
+
+
+var keyDown = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.keyDown(el, cb);
+  } else {
+    return events.keyDownIE(el, cb);
+  }
+};
+
+
+var load = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.load(el, cb);
+  } else {
+    return events.loadIE(el, cb);
+  }
+};
+
+
+var unLoad = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.unLoad(el, cb);
+  } else {
+    return events.unLoadIE(el, cb);
+  }
+};
+
+
+var mouse = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.mouse(el, cb);
+  } else {
+    return events.mouseIE(el, cb);
+  }
+};
+
+
+var resize = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.resize(el, cb);
+  } else {
+    return events.resizeIE(el, cb);
+  }
+};
+
+
+var scroll = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.scroll(el, cb);
+  } else {
+    return events.scrollIE(el, cb);
+  }
+};
+
+
+var select = function(el, cb=null) {
+  if (el.addEventListener) {
+    return events.select(el, cb);
+  } else {
+    return events.selectIE(el, cb);
+  }
+};
+
+
+
+
+
+
+
+
+
 
 module.exports = {
              make: make,
@@ -160,7 +317,22 @@ module.exports = {
             style: style,
               log: log,
               xhr: xhr,
-             ajax: ajax
-                 };
-//DONE:0 functions: err(), info(), warn().
-//DONE:90 Complete all standalone style functions.
+             ajax: ajax,
+             blur: blur,
+            click: click,
+         dblClick: dblClick,
+            error: error,
+            focus: focus,
+          focusIn: focusIn,
+         focusOut: focusOut,
+            keyUp: keyUp,
+          keyDown: keyDown,
+             load: load,
+           unLoad: unLoad,
+            mouse: mouse,
+           resize: resize,
+           scroll: scroll,
+           select: select,
+                };
+//DONE:30 functions: err(), info(), warn().
+//DONE:130 Complete all standalone style functions.
