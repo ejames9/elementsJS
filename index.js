@@ -61,12 +61,29 @@ var functions = function(funcs, mod) {                                      //TE
           evil.call(context);
     }).apply(context);
   }
+<<<<<<< HEAD
+=======
 };
 
 
+var $ = function(el) {
+  var l = (null !== utils.queryDOM(el));
+  return l;
+>>>>>>> master
+};
+
+//This function queries the dom, getting one element for each query (i.e. class/tags), creates
+//an Element object with it and returns it, so that it may be easily styled.
+var dom = function(el) {
+  el = utils.queryDOM(el);
+
+<<<<<<< HEAD
 var _$ = function(el) {
   var l = (null !== utils.queryDOM(el));
   return l;
+=======
+  return new Element(el);
+>>>>>>> master
 };
 
 //This function queries the dom, getting one element for each query (i.e. class/tags), creates
@@ -410,7 +427,11 @@ var select = function(el, cb=null) {
 
 
 module.exports = {
+<<<<<<< HEAD
                _$: _$,
+=======
+                $: $,
+>>>>>>> master
                 x: x,
                go: go,
           shifter: shifter,
