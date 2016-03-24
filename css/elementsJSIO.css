@@ -1,5 +1,111 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:700|Poiret+One|Exo+2:900|Quicksand:700|Maven+Pro:900|Orbitron:500|Rubik:500|Economica:700|Philosopher:700|Permanent+Marker|Rock+Salt|Jura:600|Voltaire|Special+Elite|Gochi+Hand|Just+Another+Hand|Homemade+Apple|Homenaje|Nixie+One|Fredericka+the+Great|Cabin+Sketch:700|Chelsea+Market|Monoton|Baumans|Prosto+One|Happy+Monkey|Aladin|NTR|Ruslan+Display|Amarante|Raleway+Dots|Henny+Penny|Monofett|Sonsie+One|Mystery+Quest|Akronim|Londrina+Shadow|Warnes|Londrina+Sketch|Atomic+Age|Original+Surfer|Fascinate|Modak);
+#navbar {
+  background-color: #52218A;
+  height: 70px;
+  border: none;
+}
+
+
+
+
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
   padding-bottom: 20px;
+}
+
+h2 {
+  font-family: londrina sketch;
+  color: #52218A;
+}
+
+p {
+  font-family: poiret one;
+  color: #52218A;
+}
+
+#nav-logo {
+  position: absolute;;
+  top: 5px;
+  left: 40px;
+  height: 60px;
+  width: 60px;
+  border: 3px solid #39175E;
+  border-radius: 7px;
+  font-family: ;
+  font-size: 32px;
+  text-align: center;
+  color: #39175E;
+}
+#nav-logo-ptxt {
+  position: absolute;
+  bottom: -3px;
+  left: 6px;
+  font-size: 9px;
+  text-align: center;
+  color: #FF8A22;
+}
+#nav-logo-hsh {
+  position: absolute;
+  top: -3px;
+  left: 4px;
+  font-size: 14px;
+  color: #cda6ec;
+}
+#nav-logo-px {
+  position: absolute;
+  bottom: -10px;
+  left: 2px;
+  font-size: 6px;
+  color: #cda6ec;
+}
+
+#logo {
+  position: absolute;;
+  z-index: 9999;
+  height: 135px;
+  width: 851px;
+  vertical-align: middle;
+  float: right;
+  display: none;
+
+}
+
+#logo-text {
+  font-family: fascinate, modak, londrina shadow;
+  font-size: 128px;
+  color: #FF8A22;
+  text-align: center;
+  text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
+}
+
+#desc {
+  font-family: poiret one;
+  color: #FF8A22;
+}
+
+/*#api-butn {
+  background-color: #FF8A22;
+  color: #52218A;
+  border: none;
+}*/
+/*#api-butn:hover {
+  background-color: #52218A;
+  color: #FF8A22;
+}*/
+
+.jumbotron {
+  background-color: #39175E;
+}
+
+.btn {
+  font-family: poiret one;
+  background-color: #52218A;
+  color: #FF8A22;
+  border: none;
+}
+.btn:hover {
+  background-color: #FF8A22;
+  color: #52218A;
+  border: none;
 }
