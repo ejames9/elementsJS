@@ -19,18 +19,52 @@ nothing you could do, annie use your telescope, berkshire swash, life savers,
 
 kristi,
 */
-#logo-text {
-  font-family: kristi;
 
-  font-size: 100px;
+
+/*------------------------------- Logo Styles -----------*/
+#fork {
+  position: absolute;
+  left: 0;
+  top: 70px;
+}
+
+.dropdown-menu > li > a {
+  color: #FF8A22;
+}
+#logo-text {
+  font-family: helvetica neue;
+  font-size: 78px;
   color: #FF8A22;
   text-align: center;
   text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
 }
 
+#r-brack {
+  position: relative;
+  color: #9d2635;
+  top: -7px;
+  left: -45px;
+  font-weight: bold;
 
+}
+#l-brack {
+  position: relative;
+  color: #9d2635;
+  top: -7px;
+  right: -18px;
+  font-weight: bold;
+}
+.slsh {
+  position: relative;
+  color: #9d2635;
+  left: -25px;
+  font-weight: bold;
+}
 
-
+a {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
 
 
 #navbar {
@@ -38,6 +72,20 @@ kristi,
   height: 70px;
   border: none;
 }
+#navbar2 {
+  position: relative;
+  float: right;
+  right: -60px;
+  background-color: #52218A;
+  height: 70px;
+  width: 330px;
+}
+#navbar3 {
+  background-color: #52218A;
+  height: 70px;
+  width: 1000px;
+}
+
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
@@ -46,20 +94,24 @@ body {
 }
 
 h2 {
-  font-family: poiret one;
-  font-weight: bold;
+  font-family: helvetica neue;
+  font-weight: 500;
   color: #52218A;
 }
 
 p {
-  font-family: poiret one;
+  font-family: helvetica neue;
+  font-weight: 300;
   color: #52218A;
+}
+#dropd {
+  background-color:
 }
 
 #nav-logo {
   position: absolute;;
   top: 5px;
-  left: 40px;
+  left: 30px;
   height: 60px;
   width: 60px;
   border: 3px solid #39175E;
@@ -74,6 +126,7 @@ p {
   bottom: -3px;
   left: 6px;
   font-size: 9px;
+  font-weight: 200;
   text-align: center;
   color: #FF8A22;
 }
@@ -106,7 +159,8 @@ p {
 
 
 #desc {
-  font-family: poiret one;
+  font-family: helvetica neue
+  font-weight: 200;
   color: #FF8A22;
 }
 
@@ -125,7 +179,8 @@ p {
 }
 
 .btn {
-  font-family: poiret one;
+  font-family: helvetica neue;
+  font-weight: 200;
   background-color: #52218A;
   color: #FF8A22;
   border: none;
