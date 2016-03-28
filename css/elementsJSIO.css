@@ -68,15 +68,15 @@ kristi,
     font-size: 12px;
   }
   #l-brack {
-    top: 10px;
+    top: -4px;
     left: 9px;
   }
   #r-brack {
-    top: 15px;
-    right: 20px;
+    top: -4px;
+    right: -10px;
   }
   .slsh {
-    left: 10px;
+    left: -10px;
   }
 
   #fork {
