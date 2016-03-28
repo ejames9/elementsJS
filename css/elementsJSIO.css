@@ -126,12 +126,12 @@ p {
 }
 #el-txt {
   position: absolute;
-  top: 7px;
-  left: 5px;
+  top: 9px;
+  left: 8px;
 }
 #nav-logo-ptxt {
   position: absolute;
-  bottom: 0px;
+  bottom: -5px;
   left: 6px;
   font-size: 9px;
   font-weight: 200;
