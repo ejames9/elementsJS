@@ -94,15 +94,15 @@ kristi,
     font-size: 18px;
   }
   #l-brack {
-    top: -7px;
-    left: 5px;
+    top: -4px;
+    right: -10px;
   }
   #r-brack {
-    top: -7px;
-    left: -30px;
+    top: -4px;
+    left: -25px;
   }
   .slsh {
-    left: -25px;
+    left: -15px;
   }
 
   #fork {
