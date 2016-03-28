@@ -42,11 +42,11 @@ kristi,
 }
 @media screen and (max-width: 414px) {
   #logo-text {
-    font-size: ;
+    font-size: 12px;
   }
   #l-brack {
-    top: -5px;
-    left: -13px;
+    top: -3px;
+    left: -15px;
   }
   #r-brack {
     top: -5px;
