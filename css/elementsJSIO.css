@@ -41,9 +41,15 @@ kristi,
   text-align: center;
   text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
 }
+@media screen and (max-width: 414px) {
+  #logo-text {
+    font-size: 32px;
+
+  }
+}
 @media screen and (max-width: 738px) {
   #logo-text {
-    font-size: 48px;
+    font-size: 40px;
 
   }
 }
