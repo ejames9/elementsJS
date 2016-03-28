@@ -126,8 +126,8 @@ p {
 }
 #el-txt {
   position: absolute;
-  text-align: center;
-  top: 5px;
+  top: 7px;
+  left: 2px;
 }
 #nav-logo-ptxt {
   position: absolute;
