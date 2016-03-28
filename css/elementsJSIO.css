@@ -113,7 +113,7 @@ p {
 
 #nav-logo {
   position: absolute;;
-  top: 8px;
+  top: 5px;
   left: 30px;
   height: 60px;
   width: 60px;
@@ -123,6 +123,9 @@ p {
   font-size: 32px;
   text-align: center;
   color: #39175E;
+}
+#el-txt {
+  top: 5px;
 }
 #nav-logo-ptxt {
   position: absolute;
