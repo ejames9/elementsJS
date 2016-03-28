@@ -70,7 +70,7 @@ kristi,
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 360px) {
   #logo-text {
     font-size: 24px;
   }
@@ -91,7 +91,7 @@ kristi,
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 240px) {
   #logo-text {
     font-size: 16px;
 
