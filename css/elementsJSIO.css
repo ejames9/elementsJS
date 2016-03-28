@@ -63,6 +63,13 @@ kristi,
   font-weight: bold;
 }
 
+@media screen and (max-width: 738px) {
+  #logo-text {
+    font-size: 40px;
+
+  }
+}
+
 @media screen and (max-width: 414px) {
   #logo-text {
     font-size: 10px;
@@ -83,12 +90,15 @@ kristi,
     display: none;
   }
 }
-@media screen and (max-width: 738px) {
+
+@media screen and (max-width: 320px) {
   #logo-text {
-    font-size: 40px;
+    font-size: 6px;
 
   }
 }
+
+
 
 
 
