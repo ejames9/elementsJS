@@ -72,18 +72,18 @@ kristi,
 
 @media screen and (max-width: 414px) {
   #logo-text {
-    font-size: 22px;
+    font-size: 24px;
   }
   #l-brack {
-    top: -4px;
-    left: 9px;
+    top: -7px;
+    left: 5px;
   }
   #r-brack {
-    top: -4px;
-    left: -25px;
+    top: -7px;
+    left: -30px;
   }
   .slsh {
-    left: -15px;
+    left: -25px;
   }
 
   #fork {
@@ -93,7 +93,7 @@ kristi,
 
 @media screen and (max-width: 320px) {
   #logo-text {
-    font-size: 12px;
+    font-size: 16px;
 
   }
 }
