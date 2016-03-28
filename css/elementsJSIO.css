@@ -32,11 +32,7 @@ kristi,
   color: #FF8A22;
 }
 
-@media screen only and (max-width: 980px) {
-  #logo-text {
-    font-size:;
-  }
-}
+
 
 #logo-text {
   font-family: helvetica neue;
@@ -44,6 +40,11 @@ kristi,
   color: #FF8A22;
   text-align: center;
   text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
+}
+@media screen only and (max-width: 980px) {
+  #logo-text {
+    font-size: 22px;
+  }
 }
 
 #r-brack {
