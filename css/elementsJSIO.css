@@ -113,7 +113,7 @@ p {
 
 #nav-logo {
   position: absolute;;
-  top: 5px;
+  top: 8px;
   left: 30px;
   height: 60px;
   width: 60px;
@@ -126,7 +126,7 @@ p {
 }
 #nav-logo-ptxt {
   position: absolute;
-  bottom: -3px;
+  bottom: 0px;
   left: 6px;
   font-size: 9px;
   font-weight: 200;
@@ -142,7 +142,7 @@ p {
 }
 #nav-logo-px {
   position: absolute;
-  bottom: -10px;
+  bottom: -7px;
   left: 2px;
   font-size: 6px;
   color: #cda6ec;
