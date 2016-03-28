@@ -65,7 +65,7 @@ kristi,
 
 @media screen and (max-width: 414px) {
   #logo-text {
-    font-size: 12px;
+    font-size: 10px;
   }
   #l-brack {
     top: -4px;
@@ -73,7 +73,7 @@ kristi,
   }
   #r-brack {
     top: -4px;
-    right: -70px;
+    right: 70px;
   }
   .slsh {
     left: -15px;
