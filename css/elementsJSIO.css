@@ -80,6 +80,12 @@ kristi,
   }
 }
 
+@media screen and (max-width: 520px) {
+  #fork {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 360px) {
   #logo-text {
     font-size: 32px;
