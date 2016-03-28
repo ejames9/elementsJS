@@ -131,6 +131,16 @@ kristi,
   }
 }
 
+@media screen and (max-width: 240px) {
+  #logo-text {
+    font-size: 20px;
+  }
+  #desc {
+    font-size: 12px;
+  }
+}
+
+
 
 
 
