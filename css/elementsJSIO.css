@@ -66,6 +66,7 @@ kristi,
 @media screen and (max-width: 414px) {
   #logo-text {
     font-size: 10px;
+    color: blue;
   }
   #l-brack {
     top: -4px;
