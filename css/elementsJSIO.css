@@ -40,6 +40,29 @@ kristi,
   text-align: center;
   text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
 }
+
+#r-brack {
+  position: relative;
+  color: #9d2635;
+  top: -7px;
+  left: -45px;
+  font-weight: bold;
+
+}
+#l-brack {
+  position: relative;
+  color: #9d2635;
+  top: -7px;
+  right: -18px;
+  font-weight: bold;
+}
+.slsh {
+  position: relative;
+  color: #9d2635;
+  left: -25px;
+  font-weight: bold;
+}
+
 @media screen and (max-width: 414px) {
   #logo-text {
     font-size: 12px;
@@ -67,27 +90,7 @@ kristi,
   }
 }
 
-#r-brack {
-  position: relative;
-  color: #9d2635;
-  top: -7px;
-  left: -45px;
-  font-weight: bold;
 
-}
-#l-brack {
-  position: relative;
-  color: #9d2635;
-  top: -7px;
-  right: -18px;
-  font-weight: bold;
-}
-.slsh {
-  position: relative;
-  color: #9d2635;
-  left: -25px;
-  font-weight: bold;
-}
 
 .jumbotron {
   width: 100%;
