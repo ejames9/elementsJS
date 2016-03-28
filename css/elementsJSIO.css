@@ -33,7 +33,6 @@ kristi,
 }
 
 
-
 #logo-text {
   font-family: helvetica neue;
   font-size: 78px;
@@ -44,8 +43,19 @@ kristi,
 @media screen and (max-width: 414px) {
   #logo-text {
     font-size: ;
-
   }
+  #l-brack {
+    top: -5px;
+    left: -13px;
+  }
+  #r-brack {
+    top: -5px;
+    right: -40px;
+  }
+  .slsh {
+    left: -20px;
+  }
+
   #fork {
     display: none;
   }
