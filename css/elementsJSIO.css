@@ -61,6 +61,10 @@ kristi,
   font-weight: bold;
 }
 
+.jumbotron {
+  width: 100%;
+}
+
 a {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -145,7 +149,7 @@ p {
   color: #cda6ec;
 }
 
-#logo {
+/*#logo {
   position: absolute;;
   z-index: 9999;
   height: 135px;
@@ -154,7 +158,7 @@ p {
   float: right;
   display: none;
 
-}
+}*/
 
 
 
