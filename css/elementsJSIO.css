@@ -125,6 +125,7 @@ p {
   color: #39175E;
 }
 #el-txt {
+  position: absolute;
   top: 5px;
 }
 #nav-logo-ptxt {
