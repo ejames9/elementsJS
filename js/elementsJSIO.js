@@ -20,10 +20,12 @@ function init() {
 
   var html = document.getElementsByTagName('html')[0];
       html.addEventListener('click', function(e) {
-        
+
         if (e.target === document.getElementById('install-info')) {
           console.log("we're in");
           toggleNPMBar();
+        } else if (npmBar.style.display !== 'none') {
+          npmBar.style.display = 'none';
         }
       });
 };

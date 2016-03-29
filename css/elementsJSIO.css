@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:700|Poiret+One|Exo+2:900|Quicksand:700|Maven+Pro:900|Orbitron:500|Rubik:500|Economica:700|Philosopher:700|Permanent+Marker|Rock+Salt|Jura:600|Voltaire|Special+Elite|Gochi+Hand|Just+Another+Hand|Homemade+Apple|Homenaje|Nixie+One|Fredericka+the+Great|Cabin+Sketch:700|Chelsea+Market|Monoton|Baumans|Prosto+One|Happy+Monkey|Aladin|NTR|Ruslan+Display|Amarante|Raleway+Dots|Henny+Penny|Monofett|Sonsie+One|Mystery+Quest|Akronim|Londrina+Shadow|Warnes|Londrina+Sketch|Atomic+Age|Original+Surfer|Fascinate|Modak);
-@import url(https://fonts.googleapis.com/css?family=Poiret+One|Cabin:500|Josefin+Sans:600|Righteous|Comfortaa:700|Gloria+Hallelujah|Source+Code+Pro:500|Satisfy|Covered+By+Your+Grace|Audiowide|Viga|Boogaloo|Damion|Coda|Doppio+One|Nothing+You+Could+Do|Limelight|Sacramento|Montserrat+Alternates|Annie+Use+Your+Telescope|Aclonica|Lemon|Berkshire+Swash|Carter+One|Yesteryear|Timmana|Sue+Ellen+Francisco|Capriola|Baumans|Prosto+One|Skranji|Oleo+Script+Swash+Caps|Rationale|Balthazar|Seaweed+Script|Life+Savers|Griffy|Sail|Kristi|Maiden+Orange|Codystar|Galindo|Tulpen+One|Jolly+Lodger|Krona+One|Ribeye|Ranchers|Rum+Raisin|Fascinate+Inline|Molle:400italic|Spirax);
+/*@import url(https://fonts.googleapis.com/css?family=Ubuntu:700|Poiret+One|Exo+2:900|Quicksand:700|Maven+Pro:900|Orbitron:500|Rubik:500|Economica:700|Philosopher:700|Permanent+Marker|Rock+Salt|Jura:600|Voltaire|Special+Elite|Gochi+Hand|Just+Another+Hand|Homemade+Apple|Homenaje|Nixie+One|Fredericka+the+Great|Cabin+Sketch:700|Chelsea+Market|Monoton|Baumans|Prosto+One|Happy+Monkey|Aladin|NTR|Ruslan+Display|Amarante|Raleway+Dots|Henny+Penny|Monofett|Sonsie+One|Mystery+Quest|Akronim|Londrina+Shadow|Warnes|Londrina+Sketch|Atomic+Age|Original+Surfer|Fascinate|Modak);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One|Cabin:500|Josefin+Sans:600|Righteous|Comfortaa:700|Gloria+Hallelujah|Source+Code+Pro:500|Satisfy|Covered+By+Your+Grace|Audiowide|Viga|Boogaloo|Damion|Coda|Doppio+One|Nothing+You+Could+Do|Limelight|Sacramento|Montserrat+Alternates|Annie+Use+Your+Telescope|Aclonica|Lemon|Berkshire+Swash|Carter+One|Yesteryear|Timmana|Sue+Ellen+Francisco|Capriola|Baumans|Prosto+One|Skranji|Oleo+Script+Swash+Caps|Rationale|Balthazar|Seaweed+Script|Life+Savers|Griffy|Sail|Kristi|Maiden+Orange|Codystar|Galindo|Tulpen+One|Jolly+Lodger|Krona+One|Ribeye|Ranchers|Rum+Raisin|Fascinate+Inline|Molle:400italic|Spirax);*/
 /*
 Fonts I like for the logo.
 
@@ -44,10 +44,20 @@ h2 {
   color: #52218A;
 }
 
+h4 {
+  font-family: helvetica neue;
+  font-weight: 500;
+  color: #52218A;
+}
+
 p {
   font-family: helvetica neue;
   font-weight: 300;
   color: #52218A;
+}
+
+code {
+  border-radius: 5px;
 }
 
 
@@ -259,6 +269,10 @@ p {
   top: -10px;
   margin-top: 0px;
 }
+#install-info:active {
+  background-color: #39175E;
+  color: #FF8A22;
+}
 
 #bower {
   position: relative;
@@ -271,6 +285,31 @@ p {
 
 #desc1 {
   margin-bottom: 0px;
+}
+#img {
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+#cdn-code {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#cdn {
+  /*background-color: #39175E;*/
+  /*color: #52218A;*/
+  left: 0;
+  font-family: bpmono;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  float: left;
+
+}
+
+#preCode {
+  background-color: #52218A;
+  border-radius: 6px;
+  /*padding-bottom: 10px;*/
 }
 
 
@@ -360,4 +399,22 @@ p {
 
 .inline {
   display: inline;
+}
+
+.colorp {
+  color: #52218A;
+}
+.colory {
+  color: #FF8A22;
+}
+.colorr {
+  color: #9d2635;
+}
+.colordp {
+  color: #39175E;
+}
+
+.javascript {
+  border-radius: 5px;
+  font-family: bpmono;
 }
