@@ -21,16 +21,87 @@ kristi,
 */
 
 
-/*------------------------------- Logo Styles -----------*/
-#fork {
-  position: absolute;
-  left: 0;
-  top: 70px;
+/*--------------------------Tag Stylings----------------- */
+
+svg {
+  max-height: 80px;
+  max-width: 80px;
 }
+
+a {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+h2 {
+  font-family: helvetica neue;
+  font-weight: 500;
+  color: #52218A;
+}
+
+p {
+  font-family: helvetica neue;
+  font-weight: 300;
+  color: #52218A;
+}
+
+
+/*--------------------------NavBar Styles--------------------*/
+
+#navbar {
+  background-color: #52218A;
+  border: none;
+}
+#navbar2 {
+  position: absolute;
+  right: 60px;
+  background-color: #52218A;
+
+}
+#navbar3 {
+  background-color: #52218A;
+  width: 1000px;
+}
+
+#nav-menu > li > a {
+  color: #FF8A22;
+}
+
+#nav-menu > li > a:hover,
+#nav-menu > li > a:focus {
+  color: #ffc960;
+}
+
 
 .dropdown-menu > li > a {
   color: #FF8A22;
 }
+
+.dropdown-menu > li > a:hover {
+  color: #52218A;
+  background-color: #FF8A22;
+}
+
+#dropd {
+  color: #FF8A22;
+}
+
+#dropd:focus,
+#dropd:hover {
+  color: #ffc960;
+}
+#dropd:active,
+#dropd:focus {
+  background-color: #39175E;
+}
+
+
+/*----NavBar Logo Styles -----*/
 
 
 #logo-text {
@@ -64,52 +135,41 @@ kristi,
 }
 
 
-a {
-  padding-top: 25px;
-  padding-bottom: 25px;
+
+/*----------------------Jumbotron-------------------------*/
+
+.jumbotron {
+  background-color: #39175E;
+  margin-bottom: 0px;
 }
 
+#desc {
+  font-family: helvetica neue
+  font-weight: 200;
+  color: #FF8A22;
+}
 
-#navbar {
+.btn {
+  font-family: helvetica neue;
+  font-weight: 200;
   background-color: #52218A;
-  height: 70px;
+  color: #FF8A22;
   border: none;
 }
-#navbar2 {
-  position: relative;
-  float: right;
-  right: -60px;
-  background-color: #52218A;
-  height: 70px;
-  width: 330px;
-}
-#navbar3 {
-  background-color: #52218A;
-  height: 70px;
-  width: 1000px;
-}
-
-
-/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-  padding-top: 50px;
-  padding-bottom: 20px;
-}
-
-h2 {
-  font-family: helvetica neue;
-  font-weight: 500;
+.btn:hover {
+  background-color: #FF8A22;
   color: #52218A;
+  border: none;
 }
 
-p {
-  font-family: helvetica neue;
-  font-weight: 300;
-  color: #52218A;
+#fork {
+  position: absolute;
+  left: 0;
+  top: 70px;
 }
-#dropd {
-  background-color:
-}
+
+
+/*----Jumbotron Main Logo----*/
 
 #nav-logo {
   position: absolute;;
@@ -153,52 +213,68 @@ p {
   color: #cda6ec;
 }
 
-/*#logo {
-  position: absolute;;
-  z-index: 9999;
-  height: 135px;
-  width: 851px;
-  vertical-align: middle;
-  float: right;
+
+/*----------------------npm -----------------------------*/
+
+#npm-bar {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  right: 0;
+  left: 0;
+  background-color: #FF8A22;
+  overflow: hidden;
   display: none;
-
-}*/
-
-
-
-#desc {
-  font-family: helvetica neue
-  font-weight: 200;
-  color: #FF8A22;
 }
 
-/*#api-butn {
-  background-color: #FF8A22;
-  color: #52218A;
-  border: none;
-}*/
-/*#api-butn:hover {
-  background-color: #52218A;
+#npm-code {
+  display: inline;
+  padding: 15px 70px 15px 10px;
   color: #FF8A22;
-}*/
-
-.jumbotron {
+  /*width: 80px;*/
   background-color: #39175E;
+  font-family: bpmono;
+  box-shadow: 0 0 0.1em #9d2635, 0 0 0.1em #9d2635, 0 0 0.1em #9d2635, 0 0 0.1em #9d2635;
 }
 
-.btn {
-  font-family: helvetica neue;
-  font-weight: 200;
-  background-color: #52218A;
-  color: #FF8A22;
-  border: none;
-}
-.btn:hover {
-  background-color: #FF8A22;
-  color: #52218A;
-  border: none;
+#_npm {
+  color: #fff;
 }
 
+#elementsJS {
+  color: #9d2635;
+  text-shadow: 0 0 0.03em #FF8A22;
+}
+
+/*-----------------------Articles-------------------------*/
+
+#npm {
+  position: relative;
+  margin-right: 10px;
+  margin-left: 10px;
+  bottom: 30px;
+}
+
+#install-info {
+  position: relative;
+  top: -10px;
+  margin-top: 0px;
+}
+
+#bower {
+  position: relative;
+
+}
+#nodejs {
+  margin-right: 10px;
+  margin-bottom: 0px;
+}
+
+#desc1 {
+  margin-bottom: 0px;
+}
+
+
+/*-----------------------Media Queries--------------------*/
 
 @media screen and (max-width: 738px) {
   #logo-text {
@@ -278,4 +354,10 @@ p {
   #desc {
     font-size: 12px;
   }
+}
+
+/*-----------------------Assignable Classes------------*/
+
+.inline {
+  display: inline;
 }
