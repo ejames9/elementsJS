@@ -5,6 +5,21 @@ JavaScript file for the elementsJS project site.
 
 
 
+function getMarkDown() {
+  console.log('here.');
+  var url = 'http://cdn.rawgit.com/ejames9/elementsJS/gh-pages/js/markdown.js';
+  var xhr = new XMLHttpRequest();
+      xhr.onloadend = function() {
+        if (xhr.status === 200) {
+          console.log('200');
+          console.log(this.responseText);
+        }
+      }
+
+  xhr.open('GET', url);
+  xhr.send(null);
+};
+
 
 function toggleNPMBar() {
   var npmBar = document.getElementById('npm-bar');
@@ -38,8 +53,12 @@ function init() {
           npmBar.style.display = 'none';
         }
       });
+
+
 };
 
 
 
 document.addEventListener('DOMContentLoaded', init());
+
+getMarkDown();
