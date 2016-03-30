@@ -50,10 +50,14 @@ h4 {
   color: #52218A;
 }
 
-p {
+p, ul {
   font-family: helvetica neue;
   font-weight: 300;
   color: #52218A;
+}
+
+ul {
+
 }
 
 code {
@@ -265,7 +269,7 @@ code {
 }
 
 #install-info {
-  position: relative;
+  /*position: relative;*/
   top: -10px;
   margin-top: 0px;
 }
@@ -294,6 +298,7 @@ code {
 #cdn-code {
   padding-top: 5px;
   padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 #cdn {
   /*background-color: #39175E;*/
@@ -302,7 +307,6 @@ code {
   font-family: bpmono;
   padding-top: 0px;
   padding-bottom: 0px;
-  float: left;
 
 }
 
@@ -310,6 +314,15 @@ code {
   background-color: #52218A;
   border-radius: 6px;
   /*padding-bottom: 10px;*/
+}
+
+#editor1 {
+  /*position: absolute;*/
+  height: 160px;
+  width: 280px;
+  border-radius: 7px;
+  font-family: bpmono, source code pro, hack, monaco;
+  margin-bottom: 5px;
 }
 
 
@@ -415,6 +428,31 @@ code {
 }
 
 .javascript {
+  background-color: white;
   border-radius: 5px;
   font-family: bpmono;
+  /*padding-top: 0px;*/
+  /*padding-bottom: 0px;*/
+}
+
+.t-pad {
+  margin-top: : 5px;
+  padding-top: : 5px;
+}
+
+.b-pad {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+._t-pad {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+._b-pad {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+._t-marg {
+  margin-top: 0px;
 }

@@ -4,6 +4,7 @@
   "description": "A JavaScript DOM Manipulation/Alias Function Library.",
   "main": "./dist/index.js",
   "dependencies": {
+    "ace-editor-builds": "^1.2.0",
     "babel-polyfill": "^6.3.14",
     "clivi": "^0.1.2"
   },

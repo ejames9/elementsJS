@@ -1,4 +1,7 @@
-
+/*
+elementsJSIO.js
+JavaScript file for the elementsJS project site.
+*/
 
 
 
@@ -15,6 +18,13 @@ function toggleNPMBar() {
 
 
 function init() {
+  //initialize ace code editor
+  var editor1 = ace.edit("editor1");
+      editor1.setTheme("ace/theme/elementsJSIO");
+      editor1.renderer.setShowGutter(false);
+      editor1.getSession()
+             .setMode("ace/mode/javascript");
+
   var npmBar = document.getElementById('npm-bar');
       npmBar.style.display = 'none';
 
