@@ -7,7 +7,7 @@ JavaScript file for the elementsJS project site.
 
 function getMarkDown() {
   console.log('here.');
-  var url = 'http://cdn.rawgit.com/ejames9/elementsJS/gh-pages/js/markdown.js';
+  var url = 'https://rawgit.com/ejames9/elementsJS/gh-pages/js/markdown.js';
   var xhr = new XMLHttpRequest();
       xhr.onloadend = function() {
         if (xhr.status === 200) {
@@ -17,7 +17,7 @@ function getMarkDown() {
       }
 
   xhr.open('GET', url);
-  xhr.send(null);
+  xhr.send();
 };
 
 
