@@ -33,6 +33,8 @@ function insertDocs() {
           content.innerHTML = r;
 
           var sideNav = document.getElementById('sideNav');
+          console.log(sideNav.offsetTop);
+          console.log(document.body.scrollTop);
 
           window.onscroll = function() {
               if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
