@@ -346,6 +346,15 @@ iframe {
   margin-bottom: 5px;
 }
 
+/*-----------------------Documentation--------------------*/
+
+#sideNav {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: sticky;
+  top: 100px;
+}
+
 
 /*-----------------------Media Queries--------------------*/
 
