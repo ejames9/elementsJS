@@ -28,11 +28,12 @@ function insertDocs() {
       xhr.onloadend = function() {
         if (xhr.status === 200) {
           var r = this.responseText;
-          var sideNav = document.getElementById('sideNav');
 
           content.removeChild(columns);
           content.innerHTML = r;
-          
+
+          var sideNav = document.getElementById('sideNav');
+
           window.onscroll = function() {
               if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
                   sideNav.setAttribute("class","sticky");
