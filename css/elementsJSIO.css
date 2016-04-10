@@ -498,11 +498,3 @@ iframe {
 .sticky {
   position: fixed;
 }
-
-body, section {
-  height: 100%;
-}
-
-.hun {
-  height: 100%;
-}
