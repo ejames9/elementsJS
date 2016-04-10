@@ -22,7 +22,7 @@ window.onscroll = function() {
         sideNav.setAttribute("class","sticky");
     }
     else {
-        siteHeader.setAttribute("class","");
+        sidNav.setAttribute("class","");
     }
 }
 
