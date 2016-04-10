@@ -40,7 +40,7 @@ function insertDocs() {
                   console.log('sticky');
               }
               else {
-                  sidNav.setAttribute("class","");
+                  sideNav.setAttribute("class","");
                   console.log('not sticky');
               }
           }
