@@ -497,3 +497,11 @@ iframe {
 .sticky {
   position: fixed;
 }
+
+body, section {
+  top: 0px;
+}
+
+.top {
+  top: 0px;
+}
