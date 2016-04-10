@@ -45,7 +45,7 @@ function insertDocs() {
           //         sideNav.setAttribute("class","");
           //         console.log('not sticky');
           //     }
-          }
+          //}
         }
       }
   xhr.open('GET', url);
