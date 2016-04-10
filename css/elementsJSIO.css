@@ -498,10 +498,7 @@ iframe {
   position: fixed;
 }
 
-body, section {
-  top: 0px;
-}
+#sideNav {
+  padding-bottom: 500px;
 
-.top {
-  top: 0px;
 }
