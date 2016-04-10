@@ -37,9 +37,11 @@ function insertDocs() {
           window.onscroll = function() {
               if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
                   sideNav.setAttribute("class","sticky");
+                  console.log('sticky');
               }
               else {
                   sidNav.setAttribute("class","");
+                  console.log('not sticky');
               }
           }
         }
