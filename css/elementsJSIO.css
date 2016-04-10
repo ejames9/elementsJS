@@ -23,9 +23,15 @@ kristi,
 
 /*--------------------------Tag Stylings----------------- */
 
+
 svg {
   max-height: 80px;
-  max-width: 80px;
+  max-width: 880px;
+}
+
+path {
+  position: absolute;
+  left: 0;
 }
 
 a {
@@ -182,6 +188,20 @@ code {
   top: 70px;
 }
 
+#hide {
+  display: none;
+}
+
+iframe {
+  padding-right: 5px;
+  float: right;
+
+}
+
+/*.ghBtn {
+  background-color: blue;
+}*/
+
 
 /*----Jumbotron Main Logo----*/
 
@@ -226,6 +246,7 @@ code {
   font-size: 6px;
   color: #cda6ec;
 }
+
 
 
 /*----------------------npm -----------------------------*/
@@ -455,4 +476,11 @@ code {
 }
 ._t-marg {
   margin-top: 0px;
+}
+
+.stick {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: sticky;
+  top: 70px;
 }

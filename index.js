@@ -119,11 +119,6 @@ var el = function(l) {
 };
 
 
-//DOM querying function, same as above, but it will return an array if a tag or class name are given as argument.
-var all = function(l) {
-  return DOM.all(l);
-};
-
 
 //Function for appending elements to other elements.
 var put = function(el, mom) {
@@ -134,6 +129,35 @@ var put = function(el, mom) {
 //Function for deleting elements from the DOM tree.
 var x = function(el) {
   return DOM.kill(el);
+};
+
+
+var fore = function(ref, elem) {
+  return DOM.fore(ref, elem);
+};
+
+
+var aft = function(ref, elem) {
+  return DOM.aft(ref, elem);
+};
+
+
+var show = function(elem, disp) {
+  return DOM.show(elem);
+};
+
+
+var hide = function(elem) {
+  return DOM.hide(elem);
+};
+
+
+var size = function(elem, h, w) {
+  return DOM.size(elem, h, w);
+};
+
+var clone = function(elem, deep) {
+  return DOM.clone(elem, deep);
 };
 
 
@@ -418,8 +442,8 @@ module.exports = {
                __: __,
               dom: dom,
             proto: proto,
+            clone: clone,
         functions: functions,
-              all: all,
               put: put,
                on: on,
               off: off,
