@@ -1,11 +1,19 @@
 
 
 <div id='docsMenu-container' class='container'>
+  <style>
+    #sideNav {
+      position: -webkit-sticky;
+      position: -moz-sticky;
+      position: sticky;
+      top: 70px;
+    }
+  </style>
   <div class='row'>
     <div class='col-md-1'></div>
-    <div class='col-md-3'>
+    <div class='col-md-3' id='sideNav'>
       <!-- <nav class='nav elementsJS-docs-sidebar stick'> -->
-        <ul id='sideNav'>
+        <ul>
           <li class='nav list-head'>
             <a href='#get-started'>Getting Started</a>
             <ul>
