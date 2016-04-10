@@ -14,6 +14,19 @@ var rawGitCDN = 'https://cdn.rawgit.com/ejames9/elementsJS/' + commit +'/';
 var docsMenu = 'html/docsMenu.html';
 
 
+var siteHeader = document.getElementById('siteHeader'),
+       sideNav = document.getElementById('sideNav');
+
+window.onscroll = function() {
+    if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
+        sideNav.setAttribute("class","sticky");
+    }
+    else {
+        siteHeader.setAttribute("class","");
+    }
+}
+
+
 function _(bit1, bit2) {
   return bit1 + bit2;
 };

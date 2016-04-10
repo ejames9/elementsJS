@@ -161,6 +161,7 @@ code {
 .jumbotron {
   background-color: #39175E;
   margin-bottom: 0px;
+  overflow: auto;
 }
 
 #desc {
@@ -492,6 +493,10 @@ iframe {
   position: -moz-sticky;
   position: sticky;
   top: 70px;
+}
+
+.sticky {
+  position: fixed;
 }
 
 body, section {
