@@ -1,7 +1,7 @@
 # <a name='get-started'></a> Getting Started
 
 ## <a name='installation'></a> Installation
-There are a couple different ways to use elementsJS. The first is by simply using the function library. The second, is to make use of the new convenient elements syntax. If you would like to use the elements syntax, a simple compilation step is necessary. If you'd like to learn more, [click here)[#).
+There are a couple different ways to use elementsJS. The first is by simply using the function library. The second, is to make use of the new convenient elements syntax. If you would like to use the elements syntax, a simple compilation step is necessary. If you'd like to learn more, [click here][#).
 
 The first step, however, is to simply install the library. elementsJS can be installed using either bower or npm package managers and *required* [CommonJS](http://www.commonjs.org/) style, or *import*-ed [es6](http://exploringjs.com/es6/ch_modules.html#_importing-and-exporting-in-detail) style. You may also include the cdn link in your html.
 
@@ -83,13 +83,13 @@ go(onGo);
 
 ```
 
-Both of these options, though require an additional compilation step. To use *es6* functionality, code must be compiled with [babel)[https://babeljs.io/), and the elementsJS *imports()* function needs to be compiled using the [elementsJS-interpreter)[#interpreter-install). If you are using a build system such as [gulp)[http://gulpjs.com/) or [grunt)[http://gruntjs.com/)(coming soon), however, this step is a breeze ([Click here)[#) to learn about using a build system in your development).
+Both of these options, though require an additional compilation step. To use *es6* functionality, code must be compiled with [babel](https://babeljs.io/), and the elementsJS *imports()* function needs to be compiled using the [elementsJS-interpreter](#interpreter-install). If you are using a build system such as [gulp](http://gulpjs.com/) or [grunt](http://gruntjs.com/)(coming soon), however, this step is a breeze ([Click here](#) to learn about using a build system in your development).
 
 If you do decide to use the elementsJS *imports()* function, you can also try out the elements syntax, as the elementsJS-interpreter will parse your code for this syntax as well as the *imports()* function.
 
 ## <a name='interpreter-install'></a> Installing the elementsJS Interpreter  
 ### Using gulp.js  [<img src='http://media-cache-ak0.pinimg.com/736x/a7/7e/81/a77e816ed0b0c1ed28d60b6b9d4860b1.jpg' height='60px'/>](http://gulpjs.com/)
-If you don't know how to use gulp, you can find a nice tutorial [here)[http://www.sitepoint.com/introduction-gulp-js/). First, you will need to install the gulp-elementsJS-interpreter package (Along with gulp and any other plug-ins you'll be using). It is available on npm's registry:
+If you don't know how to use gulp, you can find a nice tutorial [here](http://www.sitepoint.com/introduction-gulp-js/). First, you will need to install the gulp-elementsJS-interpreter package (Along with gulp and any other plug-ins you'll be using). It is available on npm's registry:
 
 ```
 $ npm install gulp-elementsJS-interpreter --save-dev
@@ -127,7 +127,7 @@ var elemsJS = require('gulp-elementsJS-interpreter'),
 --
 The **`imports()`** function is a convenience function that allows the quick importing of many modules and/or module functions all at once. It is not necessary to use this function in order to use the library, it just makes it quicker/easier to import all of its' functions separately.
 
-- Note- Use of this function requires compilation by the [elementsJS-interpreter)[#).
+- Note- Use of this function requires compilation by the [elementsJS-interpreter](#).
 
 In order to use the imports function, it must first be imported from the module as such:
 
@@ -191,7 +191,7 @@ This function will query the DOM, using a CSS Selector. If the query returns onl
 
 #### Arguments
 
-1. **`elem`** (string) -  [CSS Selector)[http://www.w3schools.com/cssref/css_selectors.asp).
+1. **`elem`** (string) -  [CSS Selector](http://www.w3schools.com/cssref/css_selectors.asp).
 
 **Returns**: DOM Element Object.
 
@@ -203,11 +203,11 @@ el('#foo').addEventListener('click', onClick);
 
 ## <a name='dom-func'></a> `dom(elem)`
 
-This function is exactly like *el()* above, except that it returns an elementsJS element object instead of a built-in JavaScript one. This allows access to the [elementsJS object methods)[#).
+This function is exactly like *el()* above, except that it returns an elementsJS element object instead of a built-in JavaScript one. This allows access to the [elementsJS object methods](#).
 
 #### Arguments
 
-1. **elem** (string) -  [CSS Selector)[http://www.w3schools.com/cssref/css_selectors.asp).
+1. **elem** (string) -  [CSS Selector](http://www.w3schools.com/cssref/css_selectors.asp).
 
 **Returns**: elementsJS element Object.
 
@@ -222,11 +222,11 @@ dom('#foo')
 
 The above function is spelled with 2 underscores, so as to avoid conflict with underscore.js or lodash.js. It takes a template literal as it's first argument, and an optional element as its' second. If the second argument is omitted, the template is appended directly to the body as a default. The appending element is returned.
 
-- Note- The first argument (**`tempLit`**) is meant to be a [backtick string)[http://exploringjs.com/es6/ch_first-steps.html#_multi-line-strings), but will also take a normal string, the syntax just becomes a lot more difficult/complex.
+- Note- The first argument (**`tempLit`**) is meant to be a [backtick string](http://exploringjs.com/es6/ch_first-steps.html#_multi-line-strings), but will also take a normal string, the syntax just becomes a lot more difficult/complex.
 
 #### Arguments
 
-1. **`tempLit`** (string) - An [es6 template literal)[http://exploringjs.com/es6/ch_first-steps.html#_multi-line-strings), see below.
+1. **`tempLit`** (string) - An [es6 template literal](http://exploringjs.com/es6/ch_first-steps.html#_multi-line-strings), see below.
 2. **`elem='body'`** (string) - CSS Selector. Optional, defaults to 'body'.
 
 **Returns**: DOM Element Object.
@@ -273,7 +273,7 @@ __(`
 
 ## <a name='make-func'></a> `make(elem, tag='div')`
 
-This function takes an id/class CSS Selector as its' first argument, and a tag name as its' optional second. It will make a div and give it the class or id given in the first argument. If a tag is specified in the 2nd argument, it will be made instead of a div. The function returns an elementsJS element object, giving access to its' [methods)[#).
+This function takes an id/class CSS Selector as its' first argument, and a tag name as its' optional second. It will make a div and give it the class or id given in the first argument. If a tag is specified in the 2nd argument, it will be made instead of a div. The function returns an elementsJS element object, giving access to its' [methods](#).
 
 #### Arguments
 
@@ -393,7 +393,7 @@ This function takes an id/class CSS Selector, a variable representing a DOM Elem
 #### Arguments
 
 1. **`elem`** (string/array/variable) -  A DOM element variable, an id or class css selector, or array of the above. Hash **`'#'`** or period **`'.'`** must be present as first character in strings. **ex. `'#foo'` or `'.bar'`**.
-2. **`disp='block'`** (string) - [CSS display option)[http://www.w3schools.com/cssref/pr_class_display.asp). **ex.'s `'inline'`, `'flex'` etc.** Optional, defaults to **`'block'`**.
+2. **`disp='block'`** (string) - [CSS display option](http://www.w3schools.com/cssref/pr_class_display.asp). **ex.'s `'inline'`, `'flex'` etc.** Optional, defaults to **`'block'`**.
 
 **Returns**: uh uh.
 
@@ -848,10 +848,10 @@ flip(); // logs ON! .... and so on.
 
 # <a name='elem-obj'></a> The element Object
 --
-The element (*notice the lower-case 'e'* ) object is to elementsJS, what the jQuery object is to jQuery. It is a thin wrapper around the DOM Element object that conveniently connects the Element to a load of useful methods, and also enables chaining of function/method calls. This object is returned when an element is created with the [**`make()`**)[#make-func) function, or selected from the DOM with the [**`dom()`**)[#dom-func) function. It is also returned when the [**elements syntax**)[#) is used. The most direct way, however, is to instantiate an element by calling the element constructor.
+The element (*notice the lower-case 'e'* ) object is to elementsJS, what the jQuery object is to jQuery. It is a thin wrapper around the DOM Element object that conveniently connects the Element to a load of useful methods, and also enables chaining of function/method calls. This object is returned when an element is created with the [**`make()`**](#make-func) function, or selected from the DOM with the [**`dom()`**](#dom-func) function. It is also returned when the [**elements syntax**](#) is used. The most direct way, however, is to instantiate an element by calling the element constructor.
 
 ## <a name='element-const'></a> `element(elem)`
-This is the element object constructor, it takes a DOM Element object as its' only argument and returns an elementsJS element object instance. This function is unlike the [**`dom()`**)[#dom-func) function, in that it won't query the DOM for an existing element. It needs a reference to a valid Element object.
+This is the element object constructor, it takes a DOM Element object as its' only argument and returns an elementsJS element object instance. This function is unlike the [**`dom()`**](#dom-func) function, in that it won't query the DOM for an existing element. It needs a reference to a valid Element object.
 
 #### Arguments
 
@@ -876,7 +876,7 @@ const myElement = element(foo);
 
 ## <a name='make2-func'></a> `make(elem, tag='div' )`
 
-The two functions above have been covered already in the [DOM Manipulation Functions)[#DOM) section, and mentioned/referenced in this section, but I'm listing them here also, for the sake of clarity. These two functions are the most common functions you will use to get an element object. The first will query the DOM for an Element and create an elementsJS element from it, and the second will create a DOM Element and use it to *create* an elementsJS element. Both functions enable chaining of method calls afterward. Available methods will be detailed below.
+The two functions above have been covered already in the [DOM Manipulation Functions](#DOM) section, and mentioned/referenced in this section, but I'm listing them here also, for the sake of clarity. These two functions are the most common functions you will use to get an element object. The first will query the DOM for an Element and create an elementsJS element from it, and the second will create a DOM Element and use it to *create* an elementsJS element. Both functions enable chaining of method calls afterward. Available methods will be detailed below.
 #### Usage
 
 ```javascript
@@ -895,7 +895,7 @@ make('.item', 'li')
 
 # <a name='elem-obj-methods'></a> element Object Methods
 --
-The list of element object methods is EXTREMELY long, so I will list some of the more interesting methods, and ones that aren't quite as self-explanatory, and explain them. Just about every one of the [**style object**)[http://www.w3schools.com/jsref/dom_obj_style.asp) methods are *getters* as well as *setters*, so depending on how you use the function, you may either return a reference to the element object [**(see ex. #1)**)[#exs), which enables method chaining, or a particular property or value [(**see ex. #2)**)[#exs), so that it may be stored in a variable. **All methods are written to be Cross-browser supportive.**
+The list of element object methods is EXTREMELY long, so I will list some of the more interesting methods, and ones that aren't quite as self-explanatory, and explain them. Just about every one of the [**style object**](http://www.w3schools.com/jsref/dom_obj_style.asp) methods are *getters* as well as *setters*, so depending on how you use the function, you may either return a reference to the element object [**(see ex. #1)**](#exs), which enables method chaining, or a particular property or value [(**see ex. #2)**](#exs), so that it may be stored in a variable. **All methods are written to be Cross-browser supportive.**
 
 
 
@@ -911,7 +911,7 @@ With this method, you can set/return the following (in this order):
 5. line-height
 6. font-family
 
-The font-size and font-family are required. If one of the other values are missing, the default values will be inserted, if any. click [here)[http://www.w3schools.com/jsref/prop_style_font.asp) for more info on this function. The **`value`** argument is however, optional. If no argument is given, the function becomes a *getter* instead of a *setter*, returning the existing font information for the element. See examples 1 and 2 below.
+The font-size and font-family are required. If one of the other values are missing, the default values will be inserted, if any. click [here](http://www.w3schools.com/jsref/prop_style_font.asp) for more info on this function. The **`value`** argument is however, optional. If no argument is given, the function becomes a *getter* instead of a *setter*, returning the existing font information for the element. See examples 1 and 2 below.
 
 #### Arguments
 
@@ -935,7 +935,7 @@ let fontData = dom('#foo').font();
 * Note - As stated above, pretty much all of the *style* methods work this way.
 
 ## <a name='style-methods'></a> *Style Methods*
-Here is a list of all of the element object methods that I got from the HTML DOM Style object. I won't explain the functions, as the definitions/usage can be found [here)[http://www.w3schools.com/jsref/dom_obj_style.asp). A few of the methods have altered names for brevity's sake, which are noted below.
+Here is a list of all of the element object methods that I got from the HTML DOM Style object. I won't explain the functions, as the definitions/usage can be found [here](http://www.w3schools.com/jsref/dom_obj_style.asp). A few of the methods have altered names for brevity's sake, which are noted below.
 
 
 ## `element.bg(val)`
@@ -1173,7 +1173,7 @@ This method returns the parentNode of element.
 
 
 ## `element.children(mod)`
-The [**`.children`**)[http://www.w3schools.com/jsref/prop_element_children.asp) property becomes the [**`.childNodes`**)[http://www.w3schools.com/jsref/prop_node_childnodes.asp) property when the string **`'all'`** is given as the optional **(`mod`)** argument.
+The [**`.children`**](http://www.w3schools.com/jsref/prop_element_children.asp) property becomes the [**`.childNodes`**](http://www.w3schools.com/jsref/prop_node_childnodes.asp) property when the string **`'all'`** is given as the optional **(`mod`)** argument.
 
 #### Arguments
 
@@ -1193,7 +1193,7 @@ const nodeList = dom('#foo').children('all');
 ```
 
 ## `element.first(mod)`
-The **`.first()`** method returns the [**`.firstElementChild`**)[http://www.w3schools.com/jsref/prop_element_firstelementchild.asp) property when no argument is given, and returns the [**`.firstChild`**)[http://www.w3schools.com/jsref/prop_node_firstchild.asp) property when the string **`'all'`** is given as the optional **(`mod`)** argument.
+The **`.first()`** method returns the [**`.firstElementChild`**](http://www.w3schools.com/jsref/prop_element_firstelementchild.asp) property when no argument is given, and returns the [**`.firstChild`**](http://www.w3schools.com/jsref/prop_node_firstchild.asp) property when the string **`'all'`** is given as the optional **(`mod`)** argument.
 
 #### Arguments
 
@@ -1490,12 +1490,12 @@ In order to work properly, the function argument of the **`.forEach()`** method 
 
 The elements Syntax is a convenient way to reference existing DOM elements, or to create them. The syntax will perform the operations of many elementsJS functions all at once, with very little code to write. In many cases, you are able to eliminate the variable creation step when working with DOM elements as well, because of the brevity of the syntax. The syntax is already familiar, as it resembles HTML, but it's not HTML, so it's X-Site Attack safe.
 
-If you find that you would like to try this syntax out for yourself, you will need to learn how to install/ compile it. Learn about the **elementsJS interpreter** [**here**)[#interpreter-install).
+If you find that you would like to try this syntax out for yourself, you will need to learn how to install/ compile it. Learn about the **elementsJS interpreter** [**here**](#interpreter-install).
 
 * Note- This syntax is not intended to be used for adding large amounts of HTML to the DOM. That is what the [**```__()```**](#__-func) function is for.
 
 ## <a name='elemsyntax-func1'></a> `<elem>`, `<tag=elem>`
-The easiest way to think of this particular syntax, is to think of it as an alias for the elementsJS function [**`el()`**)[#el-func). It will query the DOM for the given CSS Selector, the (`elem`) argument, and return a DOM Element object if any matches exist. If there is no match, and the (`tag`) argument is blank, the function will **create** a `<div>` with the `id` or `class` given in the first argument, and append it to the `<body>` of the document. If you are using the function to create an element, you may use the optional second argument (`tag=null`) to assign a tag. If there are multiple matches, an array of DOM Element objects will be returned. **If there is only 1 match an array will not be returned, regardless of the CSS Selector used.**
+The easiest way to think of this particular syntax, is to think of it as an alias for the elementsJS function [**`el()`**](#el-func). It will query the DOM for the given CSS Selector, the (`elem`) argument, and return a DOM Element object if any matches exist. If there is no match, and the (`tag`) argument is blank, the function will **create** a `<div>` with the `id` or `class` given in the first argument, and append it to the `<body>` of the document. If you are using the function to create an element, you may use the optional second argument (`tag=null`) to assign a tag. If there are multiple matches, an array of DOM Element objects will be returned. **If there is only 1 match an array will not be returned, regardless of the CSS Selector used.**
 
 #### Arguments
 
@@ -1521,7 +1521,7 @@ In the above example, a reference to the element with an **`id`** of **`'foo'`**
 ## The next few functions/examples are all different usages of the same syntax, and not necessarily separate functions.
 
 ## <a name='elemsyntax-func2'></a> `<elem/>`
-Just as the above function is an alias for the **`el()`** function, this syntax a kind of alias for the [**`dom()`**)[#dom-func) **and** [**`make()`**)[#make-func) functions. Notice that a **`/`** is added to this syntax. This slash is necessary to distinguish it from the previous function. This is the simplest way to use the syntax, with simply (**`elem`**) as its' only argument. Just like above, this argument takes a CSS Selector string. Used this way, the function will search the DOM for a match to the given CSS Selector. If a match is found, it will use it to create an [**elementsJS element object**)[#elem-obj). If multiple matches are found, It will use them to create/return an array of elementsJS element objects. If no matches are found, the function will create a `<div>` element, give it the `id` or `class` given in the (**`elem`**) argument and append it to the `<body>` of the document. You will learn how to use the syntax to assign tag names and choose where to append an element below.
+Just as the above function is an alias for the **`el()`** function, this syntax a kind of alias for the [**`dom()`**](#dom-func) **and** [**`make()`**](#make-func) functions. Notice that a **`/`** is added to this syntax. This slash is necessary to distinguish it from the previous function. This is the simplest way to use the syntax, with simply (**`elem`**) as its' only argument. Just like above, this argument takes a CSS Selector string. Used this way, the function will search the DOM for a match to the given CSS Selector. If a match is found, it will use it to create an [**elementsJS element object**](#elem-obj). If multiple matches are found, It will use them to create/return an array of elementsJS element objects. If no matches are found, the function will create a `<div>` element, give it the `id` or `class` given in the (**`elem`**) argument and append it to the `<body>` of the document. You will learn how to use the syntax to assign tag names and choose where to append an element below.
 #### Examples
 
 ```javascript
@@ -1661,7 +1661,7 @@ Hopefully by now you've gotten the hang of what the above line would do. Either 
 								});
 ```
 
-##### It's best not to get too complex with this syntax, as 1. That is not its' intended use, and 2. [There are much easier ways to add a large amount of HTML to a document)[#tempLit-func).
+##### It's best not to get too complex with this syntax, as 1. That is not its' intended use, and 2. [There are much easier ways to add a large amount of HTML to a document](#tempLit-func).
 
 #### Further Examples
 
