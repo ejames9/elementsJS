@@ -10,7 +10,7 @@ var gulpWebpack = require('gulp-webpack');
 const webpackConfig = {
   entry: './dist/babel/elementsJSIO.js',
   output: {
-    filename: './dist/elementsJSIO.js'
+    filename: './elementsJSIO.js'
   }
 };
 
@@ -28,7 +28,7 @@ gulp.task('elemsJSIO-Babel', ()=> {
 gulp.task('elemsJSIO-Bundle', ()=> {
   var compiler = gulpWebpack(webpackConfig, webpack),
          jsSrc = './dist/babel/elementsJSIO.js',
-         jsDst = './dist/'
+         jsDst = './'
   return gulp.src(jsSrc)
     .pipe(compiler)
     .pipe(gulp.dest(jsDst));
