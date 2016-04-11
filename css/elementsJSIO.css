@@ -491,7 +491,7 @@ iframe {
   position: -webkit-sticky;
   position: -moz-sticky;
   position: sticky;
-  top: 70px;
+  top: 50px;
 }
 
 .sticky {
