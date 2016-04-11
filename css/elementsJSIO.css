@@ -63,12 +63,15 @@ p, ul {
 }
 
 ul {
-
+ list-style: none;
+ text-align: right;
 }
 
 code {
   border-radius: 5px;
 }
+
+
 
 
 /*--------------------------NavBar Styles--------------------*/
@@ -491,7 +494,7 @@ iframe {
   position: -webkit-sticky;
   position: -moz-sticky;
   position: sticky;
-  top: 0px;
+  top: 20px;
 }
 
 .wrapper {
