@@ -25,7 +25,7 @@ $ npm install elementsJS
 ## <a name='usage'></a> Usage
 If you used either npm or Bower, you can use the library as below:
 
-```javascript
+```js
 //import the library CommonJS style
 var elemsJS = require('elementsJS');
 //use the elementsJS log() function
