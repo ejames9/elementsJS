@@ -1,1 +1,494 @@
-"use strict";function _interopRequireWildcard(e){if(e&&e.__esModule)return e;var n={};if(null!=e)for(var t in e)Object.prototype.hasOwnProperty.call(e,t)&&(n[t]=e[t]);return n["default"]=e,n}function _interopRequireDefault(e){return e&&e.__esModule?e:{"default":e}}var _Element=require("./lib/Element"),_Element2=_interopRequireDefault(_Element),_httpRequests=require("./lib/httpRequests"),requests=_interopRequireWildcard(_httpRequests),_events=require("./lib/events"),events=_interopRequireWildcard(_events),_logger=require("./lib/logger"),consol=_interopRequireWildcard(_logger),_utilities=require("./lib/utilities"),utils=_interopRequireWildcard(_utilities),_DOM=require("./lib/DOM"),DOM=_interopRequireWildcard(_DOM),element=function(e){return new _Element2["default"]},proto=function(e,n){return utils.proto(e,n)},functions=function(e,n){var t=n||this;Array.isArray(e)?(log(n,"red"),e.forEach(function(e){var n=new Function("window."+e+" = this."+e+";");n.call(t)},t)):function(){var n=new Function("window."+e+" = this."+e+";");n.call(t)}.apply(t)},$=function(e){var n=null!==utils.queryDOM(e);return n},dom=function(e){return e=utils.queryDOM(e),new _Element2["default"](e)},make=function(e,n){return DOM.make(e,n)},el=function(e){return DOM.el(e)},all=function(e){return DOM.all(e)},put=function(e,n){return DOM.put(e,n)},x=function(e){return DOM.kill(e)},log=function(e,n,t){return consol.log(e,n,t)},err=function(e,n){return consol.err(e,n)},info=function(e,n){return consol.info(e,n)},warn=function(e,n){return consol.warn(e,n)},shifter=function(e,n){return utils.shifter(e,n)},sleep=function(e){return utils.sleep(e)},xhr=function(e,n,t){return requests.xhr(e,n,t)},ajax=function(e,n,t,r){return requests.ajax(e,n,t,r)},go=function(e){return document.addEventListener?events.go(e):events.goIE(e)},on=function(e,n,t){return document.addEventListener?events.on(e,n,t):events.onIE(e,n,t)},off=function(e,n,t){return document.addEventListener?events.off(e,n,t):events.offIE(e,n,t)},once=function(e,n,t){return document.addEventListener?events.once(e,n,t):events.onceIE(e,n,t)},spark=function(e,n){return n=utils.queryDOM(n),document.addEventListener?events.spark(e,n):events.sparkIE(e,n)},blur=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.blur(e,n):events.blurIE(e,n)},click=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.click(e,n):events.clickIE(e,n)},dblClick=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.dblClick(e,n):events.dblClickIE(e,n)},error=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.error(e,n):events.errorIE(e,n)},focus=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.focus(e,n):events.focusIE(e,n)},focusIn=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.focusIn(e,n):events.focusInIE(e,n)},focusOut=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.focusOut(e,n):events.focusOut(e,n)},keyUp=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.keyUp(e,n):events.keyUpIE(e,n)},keyDown=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.keyDown(e,n):events.keyDownIE(e,n)},load=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.load(e,n):events.loadIE(e,n)},unLoad=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.unLoad(e,n):events.unLoadIE(e,n)},mouse=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.mouse(e,n):events.mouseIE(e,n)},resize=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.resize(e,n):events.resizeIE(e,n)},scroll=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.scroll(e,n):events.scrollIE(e,n)},select=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.select(e,n):events.selectIE(e,n)};module.exports={$:$,x:x,go:go,shifter:shifter,make:make,dom:dom,proto:proto,functions:functions,all:all,put:put,on:on,off:off,once:once,el:el,log:log,xhr:xhr,err:err,info:info,warn:warn,ajax:ajax,spark:spark,blur:blur,click:click,dblClick:dblClick,error:error,focus:focus,focusIn:focusIn,focusOut:focusOut,keyUp:keyUp,keyDown:keyDown,load:load,unLoad:unLoad,mouse:mouse,resize:resize,scroll:scroll,select:select};
+'use strict';
+
+var _element = require('./lib/element');
+
+var elem = _interopRequireWildcard(_element);
+
+var _httpRequests = require('./lib/httpRequests');
+
+var requests = _interopRequireWildcard(_httpRequests);
+
+var _events = require('./lib/events');
+
+var events = _interopRequireWildcard(_events);
+
+var _logger = require('./lib/logger');
+
+var consol = _interopRequireWildcard(_logger);
+
+var _utilities = require('./lib/utilities');
+
+var utils = _interopRequireWildcard(_utilities);
+
+var _DOM = require('./lib/DOM');
+
+var DOM = _interopRequireWildcard(_DOM);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+// require('babel-polyfill');
+
+/*
+Elements.js
+
+A JavaScript DOM manipulation/Alias function Library.
+This is the index file for the library. It contains alias functions for
+all of the librarys' public functions. This makes it easy to import the
+functions without a module prefix es6 style.
+
+Author: Eric James Foster
+EMail: maniphestival@gmail.com
+License: MIT
+Version: 1.0.0
+URL: ""
+*/
+
+//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
+
+var element = function element(el) {
+  return new elem.element();
+};
+
+/*This function copies the prototype object of a superConstructor to the prototype object
+of a constructor. It functions just like nodes' util.inherits function, it copies methods only,
+not internal properties.*/
+var proto = function proto(construct, superConstruct) {
+  return utils.proto(construct, superConstruct);
+};
+
+/*This convenience function sets imported module function names as global variables, so that
+the module variable doesn't need to preface every function.*/
+var functions = function functions(funcs, mod) {
+  //TEST:110 Test this with other node_modules.
+  var context = mod || this;
+
+  if (Array.isArray(funcs)) {
+    log(mod, 'red');
+
+    funcs.forEach(function (func) {
+      var evil = new Function('window.' + func + ' = ' + 'this.' + func + ';');
+      evil.call(context);
+    }, context);
+  } else {
+    (function () {
+      var evil = new Function('window.' + funcs + ' = ' + 'this.' + funcs + ';');
+      evil.call(context);
+    }).apply(context);
+  }
+};
+
+var _$ = function _$(el) {
+  var l = null !== utils.queryDOM(el);
+  return l;
+};
+
+//This function queries the dom, getting one element for each query (i.e. class/tags), creates
+//an Element object with it and returns it, so that it may be easily styled.
+var dom = function dom(el) {
+  log('dom: ' + el, 'blue');
+  var rv = void 0;
+
+  el = utils.queryDOM(el);
+
+  if (Array.isArray(el)) {
+    rv = [];
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = el[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var l = _step.value;
+
+        rv.push(new elem.element(l));
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+  } else {
+    rv = new elem.element(el);
+  }
+  return rv;
+};
+
+/*function for insterting template literals into the DOM.
+
+bones(`
+
+<html>
+  <head></head>
+  <body></body>
+</html>
+
+`);
+
+*/
+var __ = function __(tempLit) {
+  var el = arguments.length <= 1 || arguments[1] === undefined ? 'body' : arguments[1];
+
+  return DOM.bones(tempLit, el);
+};
+
+//Create element alias function.
+var make = function make(el, tag) {
+  return DOM.make(el, tag);
+};
+
+//DOM querying alias function. Will automatically narrow class or tag queries down to one result. It will not return an array.
+var el = function el(l) {
+  return DOM.el(l);
+};
+
+//Function for appending elements to other elements.
+var put = function put(el, mom) {
+  return DOM.put(el, mom);
+};
+
+//Function for deleting elements from the DOM tree.
+var x = function x(el) {
+  return DOM.kill(el);
+};
+
+var fore = function fore(ref, elem) {
+  return DOM.fore(ref, elem);
+};
+
+var aft = function aft(ref, elem) {
+  return DOM.aft(ref, elem);
+};
+
+var show = function show(elem, disp) {
+  return DOM.show(elem);
+};
+
+var hide = function hide(elem) {
+  return DOM.hide(elem);
+};
+
+var size = function size(elem, h, w) {
+  return DOM.size(elem, h, w);
+};
+
+var clone = function clone(elem, deep) {
+  return DOM.clone(elem, deep);
+};
+
+//console.log alias function.
+var log = function log(text, style, tyme) {
+  return consol.log(text, style, tyme);
+};
+
+//console.error alias function.
+var err = function err(text, tyme) {
+  return consol.err(text, tyme);
+};
+
+//console.info alias function.
+var info = function info(text, tyme) {
+  return consol.info(text, tyme);
+};
+
+//console.warn alias function.
+var warn = function warn(text, tyme) {
+  return consol.warn(text, tyme);
+};
+
+var shifter = function shifter(onFunc, offFunc) {
+  return utils.shifter(onFunc, offFunc);
+};
+
+//This practically useless function will lock up the browser for a preset amount of time.
+var sleep = function sleep(milliseconds) {
+  return utils.sleep(milliseconds);
+};
+
+//This is a synchronous alias function for XMLHttpRequests.
+var xhr = function xhr(url, fd, method) {
+  return requests.xhr(url, fd, method);
+};
+
+//This is an asynchronous alias function for XMLHttpRequests.
+var ajax = function ajax(url, fd, callback, method) {
+  return requests.ajax(url, fd, callback, method);
+};
+
+/*---------Event Functions-----------*/
+
+var go = function go(cb) {
+  if (document.addEventListener) {
+    return events.go(cb);
+  } else {
+    return events.goIE(cb);
+  }
+};
+
+//Function for setting event listeners.
+var on = function on(event, el, callback) {
+  if (document.addEventListener) {
+    return events.on(event, el, callback);
+  } else {
+    return events.onIE(event, el, callback);
+  }
+};
+
+//Function for removing event listeners.
+var off = function off(event, el, callback) {
+  if (document.addEventListener) {
+    return events.off(event, el, callback);
+  } else {
+    return events.offIE(event, el, callback);
+  }
+};
+
+var once = function once(event, el, callback) {
+  //DONE:50 Finish once function.
+  if (document.addEventListener) {
+    return events.once(event, el, callback);
+  } else {
+    return events.onceIE(event, el, callback);
+  } //TEST:70 Test once function.
+};
+
+var spark = function spark(evt, el) {
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.spark(evt, el);
+  } else {
+    return events.sparkIE(evt, el);
+  }
+};
+
+var blur = function blur(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.blur(el, cb);
+  } else {
+    return events.blurIE(el, cb);
+  }
+};
+
+var click = function click(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.click(el, cb);
+  } else {
+    return events.clickIE(el, cb);
+  }
+};
+
+var dblClick = function dblClick(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.dblClick(el, cb);
+  } else {
+    return events.dblClickIE(el, cb);
+  }
+};
+
+var error = function error(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.error(el, cb);
+  } else {
+    return events.errorIE(el, cb);
+  }
+};
+
+var focus = function focus(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.focus(el, cb);
+  } else {
+    return events.focusIE(el, cb);
+  }
+};
+
+var focusIn = function focusIn(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.focusIn(el, cb);
+  } else {
+    return events.focusInIE(el, cb);
+  }
+};
+
+var focusOut = function focusOut(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.focusOut(el, cb);
+  } else {
+    return events.focusOut(el, cb);
+  }
+};
+
+var keyUp = function keyUp(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.keyUp(el, cb);
+  } else {
+    return events.keyUpIE(el, cb);
+  }
+};
+
+var keyDown = function keyDown(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.keyDown(el, cb);
+  } else {
+    return events.keyDownIE(el, cb);
+  }
+};
+
+var load = function load(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.load(el, cb);
+  } else {
+    return events.loadIE(el, cb);
+  }
+};
+
+var unLoad = function unLoad(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.unLoad(el, cb);
+  } else {
+    return events.unLoadIE(el, cb);
+  }
+};
+
+var mouse = function mouse(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.mouse(el, cb);
+  } else {
+    return events.mouseIE(el, cb);
+  }
+};
+
+var resize = function resize(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.resize(el, cb);
+  } else {
+    return events.resizeIE(el, cb);
+  }
+};
+
+var scroll = function scroll(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.scroll(el, cb);
+  } else {
+    return events.scrollIE(el, cb);
+  }
+};
+
+var select = function select(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+  el = utils.queryDOM(el);
+
+  if (document.addEventListener) {
+    return events.select(el, cb);
+  } else {
+    return events.selectIE(el, cb);
+  }
+};
+
+module.exports = {
+  _$: _$,
+  x: x,
+  go: go,
+  shifter: shifter,
+  make: make,
+  __: __,
+  dom: dom,
+  proto: proto,
+  clone: clone,
+  functions: functions,
+  put: put,
+  on: on,
+  off: off,
+  once: once,
+  el: el,
+  log: log,
+  xhr: xhr,
+  err: err,
+  info: info,
+  warn: warn,
+  ajax: ajax,
+  spark: spark,
+  blur: blur,
+  click: click,
+  dblClick: dblClick,
+  error: error,
+  focus: focus,
+  focusIn: focusIn,
+  focusOut: focusOut,
+  keyUp: keyUp,
+  keyDown: keyDown,
+  load: load,
+  unLoad: unLoad,
+  mouse: mouse,
+  resize: resize,
+  scroll: scroll,
+  select: select
+};
+
+//DONE:30 functions: err(), info(), warn().
+//DONE:130 Complete all standalone style functions.

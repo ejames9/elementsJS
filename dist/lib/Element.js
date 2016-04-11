@@ -1,1 +1,1336 @@
-"use strict";function _interopRequireWildcard(t){if(t&&t.__esModule)return t;var i={};if(null!=t)for(var e in t)Object.prototype.hasOwnProperty.call(t,e)&&(i[e]=t[e]);return i["default"]=t,i}function Element(t){return this.el=t,this instanceof Element?(this.backgroundColor=function(i){return void 0!==i?(t.style.backgroundColor=i,this):i=t.style.backgroundColor},this.border=function(i){return void 0!==i?(t.style.border=i,this):i=t.style.border},this.background=function(i){return void 0!==i?(t.style.background=i,this):i=t.style.background},this.backgroundColor=function(i){return void 0!==i?(t.style.backgroundColor=i,this):i=t.style.backgroundColor},this.backgroundImage=function(i){return void 0!==i?(t.style.backgroundImage=i,this):i=t.style.backgroundImage},this.backgroundSize=function(i){return void 0!==i?(t.style.backgroundSize=i,this):i=t.style.backgroundSize},this.backgroundPosition=function(i){return void 0!==i?(t.style.backgroundPosition=i,this):i=t.style.backgroundPosition},this.borderColor=function(i){return void 0!==i?(t.style.borderColor=i,this):i=t.style.borderColor},this.borderRadius=function(i){return void 0!==i?(t.style.borderRadius=i,this):i=t.style.borderRadius},this.borderWidth=function(i){return void 0!==i?(t.style.borderWidth=i,this):i=t.style.borderWidth},this.borderTop=function(i){return void 0!==i?(t.style.borderTop=i,this):i=t.style.borderTop},this.borderBottom=function(i){return void 0!==i?(t.style.borderBottom=i,this):i=t.style.borderBottom},this.borderRight=function(i){return void 0!==i?(t.style.borderRight=i,this):i=t.style.borderRight},this.borderLeft=function(i){return void 0!==i?(t.style.borderLeft=i,this):i=t.style.borderLeft},this.bottom=function(i){return void 0!==i?(t.style.bottom=i,this):i=t.style.bottom},this.boxShadow=function(i){return void 0!==i?(t.style.boxShadow=i,this):i=t.style.boxShadow},this.boxSizing=function(i){return void 0!==i?(t.style.boxSizing=i,this):i=t.style.boxSizing},this.clear=function(i){return void 0!==i?(t.style.clear=i,this):i=t.style.clear},this.color=function(i){return void 0!==i?(t.style.color=i,this):i=t.style.color},this.columns=function(i){return void 0!==i?(t.style.columns=i,this):i=t.style.columns},this.content=function(i){return void 0!==i?(t.style.content=i,this):i=t.style.content},this.cursor=function(i){return void 0!==i?(t.style.cursor=i,this):i=t.style.cursor},this.direction=function(i){return void 0!==i?(t.style.direction=i,this):i=t.style.direction},this.display=function(i){return void 0!==i?(t.style.display=i,this):i=t.style.display},this.cssFloat=function(i){return void 0!==i?(t.style.cssFloat=i,this):i=t.style.cssFloat},this.font=function(i){return void 0!==i?(t.style.font=i,this):i=t.style.font},this.fontFamily=function(i){return void 0!==i?(t.style.fontFamily=i,this):i=t.style.fontFamily},this.fontStyle=function(i){return void 0!==i?(t.style.fontStyle=i,this):i=t.style.fontStyle},this.fontSize=function(i){return void 0!==i?(t.style.fontSize=i,this):i=t.style.fontSize},this.fontWeight=function(i){return void 0!==i?(t.style.fontWeight=i,this):i=t.style.fontWeight},this.height=function(i){return void 0!==i?(t.style.height=i,this):i=t.style.height},this.lineHeight=function(i){return void 0!==i?(t.style.lineHeight=i,this):i=t.style.lineHeight},this.icon=function(i){return void 0!==i?(t.style.icon=i,this):i=t.style.icon},this.left=function(i){return void 0!==i?(t.style.left=i,this):i=t.style.left},this.listStyle=function(i){return void 0!==i?(t.style.listStyle=i,this):i=t.style.listStyle},this.margin=function(i){return void 0!==i?(t.style.margin=i,this):i=t.style.margin},this.marginRight=function(i){return void 0!==i?(t.style.marginRight=i,this):i=t.style.marginRight},this.marginLeft=function(i){return void 0!==i?(t.style.marginLeft=i,this):i=t.style.marginLeft},this.marginTop=function(i){return void 0!==i?(t.style.marginTop=i,this):i=t.style.marginTop},this.marginBottom=function(i){return void 0!==i?(t.style.marginBottom=i,this):i=t.style.marginBottom},this.maxHeight=function(i){return void 0!==i?(t.style.maxHeight=i,this):i=t.style.maxHeight},this.maxWidth=function(i){return void 0!==i?(t.style.maxWidth=i,this):i=t.style.maxWidth},this.minWidth=function(i){return void 0!==i?(t.style.minWidth=i,this):i=t.style.minWidth},this.minHeight=function(i){return void 0!==i?(t.style.minHeight=i,this):i=t.style.minHeight},this.opacity=function(i){return void 0!==i?(t.style.opacity=i,this):i=t.style.opacity},this.outline=function(i){return void 0!==i?(t.style.outline=i,this):i=t.style.outline},this.overflow=function(i){return void 0!==i?(t.style.overflow=i,this):i=t.style.overflow},this.overflowX=function(i){return void 0!==i?(t.style.overflowX=i,this):i=t.style.overflowX},this.overflowY=function(i){return void 0!==i?(t.style.overflowY=i,this):i=t.style.overflowY},this.padding=function(i){return void 0!==i?(t.style.padding=i,this):i=t.style.padding},this.paddingRight=function(i){return void 0!==i?(t.style.paddingRight=i,this):i=t.style.paddingRight},this.paddingLeft=function(i){return void 0!==i?(t.style.paddingLeft=i,this):i=t.style.paddingLeft},this.paddingTop=function(i){return void 0!==i?(t.style.paddingTop=i,this):i=t.style.paddingTop},this.paddingBottom=function(i){return void 0!==i?(t.style.paddingBottom=i,this):i=t.style.paddingBottom},this.position=function(i){return void 0!==i?(t.style.position=i,this):i=t.style.position},this.right=function(i){return void 0!==i?(t.style.right=i,this):i=t.style.right},this.top=function(i){return void 0!==i?(t.style.top=i,this):i=t.style.top},this.textAlign=function(i){return void 0!==i?(t.style.textAlign=i,this):i=t.style.textAlign},this.textDecoration=function(i){return void 0!==i?(t.style.textDecoration=i,this):i=t.style.textDecoration},this.textShadow=function(i){return void 0!==i?(t.style.textShadow=i,this):i=t.style.textShadow},this.verticalAlign=function(i){return void 0!==i?(t.style.verticalAlign=i,this):i=t.style.verticalAlign},this.visibility=function(i){return void 0!==i?(t.style.visibility=i,this):i=t.style.visibility},this.whiteSpace=function(i){return void 0!==i?(t.style.whiteSpace=i,this):i=t.style.whiteSpace},this.width=function(i){return void 0!==i?(t.style.width=i,this):i=t.style.width},this.wordSpacing=function(i){return void 0!==i?(t.style.wordSpacing=i,this):i=t.style.wordSpacing},this.zIndex=function(i){return void 0!==i?(t.style.zIndex=i,this):i=t.style.zIndex},this.alignContent=function(i){return browser.safari&&browser.version>=7?void 0!==i?(t.style.WebkitAlignContent=i,this):i=t.style.WebkitAlignContent:void 0!==i?(t.style.alignContent=i,this):i=t.style.alignContent},this.transformOrigin=function(i){return browser.webkit?void 0!==i?(t.style.WebkitTransformOrigin=i,this):i=t.style.WebkitTransformOrigin:void 0!==i?(t.style.transformOrigin=i,this):i=t.style.transformOrigin},this.transition=function(i){return browser.safari?void 0!==i?(t.style.WebkitTransition=i,this):i=t.style.WebkitTransition:void 0!==i?(t.style.transition=i,this):i=t.style.transition},this.transitionDuration=function(i){return browser.safari?void 0!==i?(t.style.WebkitTransitionDuration=i,this):i=t.style.WebkitTransitionDuration:void 0!==i?(t.style.transitionDuration=i,this):i=t.style.transitionDuration},this.animation=function(i){return browser.webkit?void 0!==i?(t.style.WebkitAnimation=i,this):i=t.style.WebkitAnimation:void 0!==i?(t.style.animation=i,this):i=t.style.animation},this.filter=function(i){return browser.webkit?void 0!==i?(t.style.WebkitFilter=i,this):i=t.style.WebkitFilter:void 0!==i?(t.style.filter=i,this):i=t.style.filter},this.flex=function(i){return browser.safari?void 0!==i?(t.style.WebkitFlex=i,this):i=t.style.WebkitFlex:void 0!==i?(t.style.flex=i,this):i=t.style.flex},this.perspective=function(i){return browser.webkit?void 0!==i?(t.style.WebkitPerspective=i,this):i=t.style.WebkitPerspective:void 0!==i?(t.style.perspective=i,this):i=t.style.perspective},this.perspectiveOrigin=function(i){return browser.webkit?void 0!==i?(t.style.WebkitPerspectiveOrigin=i,this):i=t.style.WebkitPerspectiveOrigin:void 0!==i?(t.style.perspectiveOrigin=i,this):i=t.style.perspectiveOrigin},this.transitionDelay=function(i){return browser.safari?void 0!==i?(t.style.WebkitTransitionDelay=i,this):i=t.style.WebkitTransitionDelay:void 0!==i?(t.style.transitionDelay=i,this):i=t.style.transitionDelay},this.core=function(t){return t(this.el.style),this},this.add=function(t){return this.el.appendChild(t),this},this.children=function(t){if("all"===t){this.el.childNodes}else{this.el.children}return count},this.first=function(t){var i="all"===t?this.el.firstChild:this.el.firstElementChild;return i},this.id=function(t){return void 0!==t?(this.el.id=t,this):t=this.el.id},this["class"]=function(t){return void 0!==t?(this.el.className=t,this):t=this.el.className},this.xClass=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return null!==t&&t(),this.el.className="",this},this.html=function(t){return void 0!==t?(this.el.innerHTML=t,this):t=this.el.innerHTML},this.text=function(t){return void 0!==t?(this.el.textContent=t,this):t=this.el.textContent},this.lang=function(t){return void 0!==t?(this.el.lang=t,this):t=this.el.lang},this.clone=function(){var t=this.el.cloneNode();return t},this.sib=function(t,i){var e=void 0;return"next"===t?void 0===i?e=this.el.nextElementSibling:"all"===i?e=this.el.nextSibling:(0,_logger.err)("Invalid argument."):"prev"===t?void 0===i?e=this.el.previousElementSibling:"all"===i?e=this.el.previousSibling:(0,_logger.err)("Invalid argument."):(0,_logger.err)("Invalid argument."),e},this.value=function(t){return void 0!==t?(this.el.nodeValue=t,this):t=this.el.nodeValue},this.normalize=function(){return this.el.normalize(),this},this.toString=function(){var t=this.el.toString();return t},this.tag=function(){var t=this.el.tagName();return t},this.offset=function(t){var i={};return t?"all"===t?(i.top=this.el.offsetTop,i.left=this.el.offsetLeft,i.height=this.el.offsetHeight,i.width=this.el.offsetWidth,i.parent=this.el.offsetParent):(0,_logger.err)("Invalid argument."):(i.top=this.el.offsetTop,i.left=this.el.offsetLeft),i},this.title=function(t){return void 0!==t?(this.el.title=t,this):t=this.el.title},this.attrib=function(t,i){var e=void 0!==i&&"remove"!==i?void this.el.setAttribute(t,i):void 0!==t&&"remove"!==i?this.el.getAttribute(t):void this.el.removeAttribute(t);return void 0!==e?e:this},this.put=function(t){return DOM.put(this.el,t),this},this.ma=function(){return this.el.parentNode},this.fore=function(t){var i=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return null===i?t.parentNode.insertBefore(this.el,t):this.el.parentNode.insertBefore(t,this.el),this},this.aft=function(t){var i=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return null===i?t.parentNode.insertBefore(this.el,t.nextElementSibling):this.el.parentNode.insertBefore(t,this.el.nextElementSibling),this},this.on=function(t,i){return document.addEventListener?events.on(t,this.el,i):events.onIE(t,this.el,i),this},this.off=function(t,i){return document.addEventListener?events.off(t,this.el,i):events.offIE(t,this.el,i),this},this.once=function(t,i){return document.addEventListener?events.once(t,this.el,i):events.onceIE(t,this.el,i),this},this.toggle=function(t,i){return window.toggleFlag=!0,toggleFlag?(t(),toggleFlag=!1):(i(),toggleFlag=!0),this},this.size=function(t,i){return this.el.style.height=t,this.el.style.width=i,this},this.show=function(){var t=arguments.length<=0||void 0===arguments[0]?"block":arguments[0];return this.el.style.display=t,this},this.hide=function(){return this.el.style.display="none",this},this.blur=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.blur(this.el,t):events.blurIE(this.el,t),this},this.click=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.click(this.el,t):events.clickIE(this.el,t),this},this.dblClick=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.dblClick(this.el,t):events.dblClickIE(this.el,t),this},this.error=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.error(this.el,t):events.errorIE(this.el,t),this},this.focus=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.focus(this.el,t):events.focusIE(this.el,t),this},this.focusIn=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.focusIn(this.el,t):events.focusInIE(this.el,t),this},this.focusOut=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.focusOut(this.el,t):events.focusOut(this.el,t),this},this.keyUp=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.keyUp(this.el,t):events.keyUpIE(this.el,t),this},this.keyDown=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.keyDown(this.el,t):events.keyDownIE(this.el,t),this},this.load=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.load(this.el,t):events.loadIE(this.el,t),this},this.unLoad=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.unLoad(this.el,t):events.unLoadIE(this.el,t),this},this.mouse=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.mouse(this.el,t):events.mouseIE(this.el,t),this},this.resize=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.resize(this.el,t):events.resizeIE(this.el,t),this},this.scroll=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.scroll(this.el,t):events.scrollIE(this.el,t),this},this.select=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.select(this.el,t):events.selectIE(this.el,t),this},void(this.only=function(t,i,e){return"undefined"==typeof eachCount?window.eachCount=1:eachCount++,t===eachCount?(i(),(0,_logger.log)(eachCount,["red","bold"])):(0,_logger.log)(eachCount,["blue","bold"]),eachCount===e.length&&(eachCount=""),this})):new Element}Object.defineProperty(exports,"__esModule",{value:!0}),exports["default"]=Element;var _logger=require("./logger"),_index=require("../index"),elements=_interopRequireWildcard(_index),_events=require("./events"),events=_interopRequireWildcard(_events),_DOM=require("./DOM"),DOM=_interopRequireWildcard(_DOM);
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+/*
+Element.js
+
+This is a helper file for the elements.js index, which houses
+the code for the Element Class.
+
+Author: Eric James Foster
+License: ISC
+*/
+
+exports.default = element;
+
+var _logger = require('./logger');
+
+var _index = require('../index');
+
+var elements = _interopRequireWildcard(_index);
+
+var _events = require('./events');
+
+var events = _interopRequireWildcard(_events);
+
+var _DOM = require('./DOM');
+
+var DOM = _interopRequireWildcard(_DOM);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+// require('babel-polyfill');
+
+//DOING:10 List all functions that need to be added (.textContent, innerHTML etc.)
+//DOING:20 Complete all functions for this object.
+//IDEA: A method that incorporates jquery methods into El object (animation?).
+
+function element(el) {
+  this.el = el;
+
+  if (!(this instanceof element)) {
+    return new element();
+  }
+
+  // Style methods //
+
+  this.border = function (val) {
+    if (val !== undefined) {
+      el.style.border = val;
+      return this;
+    } else {
+      val = el.style.border;
+      return val;
+    }
+  };
+  this.bg = function (val) {
+    if (val !== undefined) {
+      el.style.background = val;
+      return this;
+    } else {
+      val = el.style.background;
+      return val;
+    }
+  };
+  this.bgColor = function (val) {
+    if (val !== undefined) {
+      el.style.backgroundColor = val;
+      return this;
+    } else {
+      val = el.style.backgroundColor;
+      return val;
+    }
+  };
+  this.bgImage = function (val) {
+    if (val !== undefined) {
+      el.style.backgroundImage = val;
+      return this;
+    } else {
+      val = el.style.backgroundImage;
+      return val;
+    }
+  };
+  this.bgSize = function (val) {
+    if (val !== undefined) {
+      el.style.backgroundSize = val;
+      return this;
+    } else {
+      val = el.style.backgroundSize;
+      return val;
+    }
+  };
+  this.bgPosition = function (val) {
+    if (val !== undefined) {
+      el.style.backgroundPosition = val;
+      return this;
+    } else {
+      val = el.style.backgroundPosition;
+      return val;
+    }
+  };
+  this.borderColor = function (val) {
+    if (val !== undefined) {
+      el.style.borderColor = val;
+      return this;
+    } else {
+      val = el.style.borderColor;
+      return val;
+    }
+  };
+  this.borderRadius = function (val) {
+    if (val !== undefined) {
+      el.style.borderRadius = val;
+      return this;
+    } else {
+      val = el.style.borderRadius;
+      return val;
+    }
+  };
+  this.borderWidth = function (val) {
+    if (val !== undefined) {
+      el.style.borderWidth = val;
+      return this;
+    } else {
+      val = el.style.borderWidth;
+      return val;
+    }
+  };
+  this.borderTop = function (val) {
+    if (val !== undefined) {
+      el.style.borderTop = val;
+      return this;
+    } else {
+      val = el.style.borderTop;
+      return val;
+    }
+  };
+  this.borderBottom = function (val) {
+    if (val !== undefined) {
+      el.style.borderBottom = val;
+      return this;
+    } else {
+      val = el.style.borderBottom;
+      return val;
+    }
+  };
+  this.borderRight = function (val) {
+    if (val !== undefined) {
+      el.style.borderRight = val;
+      return this;
+    } else {
+      val = el.style.borderRight;
+      return val;
+    }
+  };
+  this.borderLeft = function (val) {
+    if (val !== undefined) {
+      el.style.borderLeft = val;
+      return this;
+    } else {
+      val = el.style.borderLeft;
+      return val;
+    }
+  };
+  this.bottom = function (val) {
+    if (val !== undefined) {
+      el.style.bottom = val;
+      return this;
+    } else {
+      val = el.style.bottom;
+      return val;
+    }
+  };
+  this.boxShadow = function (val) {
+    if (val !== undefined) {
+      el.style.boxShadow = val;
+      return this;
+    } else {
+      val = el.style.boxShadow;
+      return val;
+    }
+  };
+  this.boxSizing = function (val) {
+    if (val !== undefined) {
+      el.style.boxSizing = val;
+      return this;
+    } else {
+      val = el.style.boxSizing;
+      return val;
+    }
+  };
+  this.clear = function (val) {
+    if (val !== undefined) {
+      el.style.clear = val;
+      return this;
+    } else {
+      val = el.style.clear;
+      return val;
+    }
+  };
+  this.color = function (val) {
+    if (val !== undefined) {
+      el.style.color = val;
+      return this;
+    } else {
+      val = el.style.color;
+      return val;
+    }
+  };
+  this.columns = function (val) {
+    if (val !== undefined) {
+      el.style.columns = val;
+      return this;
+    } else {
+      val = el.style.columns;
+      return val;
+    }
+  };
+  this.content = function (val) {
+    if (val !== undefined) {
+      el.style.content = val;
+      return this;
+    } else {
+      val = el.style.content;
+      return val;
+    }
+  };
+  this.cursor = function (val) {
+    if (val !== undefined) {
+      el.style.cursor = val;
+      return this;
+    } else {
+      val = el.style.cursor;
+      return val;
+    }
+  };
+  this.direction = function (val) {
+    if (val !== undefined) {
+      el.style.direction = val;
+      return this;
+    } else {
+      val = el.style.direction;
+      return val;
+    }
+  };
+  this.display = function (val) {
+    if (val !== undefined) {
+      el.style.display = val;
+      return this;
+    } else {
+      val = el.style.display;
+      return val;
+    }
+  };
+  this.cssFloat = function (val) {
+    if (val !== undefined) {
+      el.style.cssFloat = val;
+      return this;
+    } else {
+      val = el.style.cssFloat;
+      return val;
+    }
+  };
+  this.font = function (val) {
+    if (val !== undefined) {
+      el.style.font = val;
+      return this;
+    } else {
+      val = el.style.font;
+      return val;
+    }
+  };
+  this.fontFamily = function (val) {
+    if (val !== undefined) {
+      el.style.fontFamily = val;
+      return this;
+    } else {
+      val = el.style.fontFamily;
+      return val;
+    }
+  };
+  this.fontStyle = function (val) {
+    if (val !== undefined) {
+      el.style.fontStyle = val;
+      return this;
+    } else {
+      val = el.style.fontStyle;
+      return val;
+    }
+  };
+  this.fontSize = function (val) {
+    if (val !== undefined) {
+      el.style.fontSize = val;
+      return this;
+    } else {
+      val = el.style.fontSize;
+      return val;
+    }
+  };
+  this.fontWeight = function (val) {
+    if (val !== undefined) {
+      el.style.fontWeight = val;
+      return this;
+    } else {
+      val = el.style.fontWeight;
+      return val;
+    }
+  };
+  this.height = function (val) {
+    if (val !== undefined) {
+      el.style.height = val;
+      return this;
+    } else {
+      val = el.style.height;
+      return val;
+    }
+  };
+  this.lineHeight = function (val) {
+    if (val !== undefined) {
+      el.style.lineHeight = val;
+      return this;
+    } else {
+      val = el.style.lineHeight;
+      return val;
+    }
+  };
+  this.icon = function (val) {
+    if (val !== undefined) {
+      el.style.icon = val;
+      return this;
+    } else {
+      val = el.style.icon;
+      return val;
+    }
+  };
+  this.left = function (val) {
+    if (val !== undefined) {
+      el.style.left = val;
+      return this;
+    } else {
+      val = el.style.left;
+      return val;
+    }
+  };
+  this.listStyle = function (val) {
+    if (val !== undefined) {
+      el.style.listStyle = val;
+      return this;
+    } else {
+      val = el.style.listStyle;
+      return val;
+    }
+  };
+  this.margin = function (val) {
+    if (val !== undefined) {
+      el.style.margin = val;
+      return this;
+    } else {
+      val = el.style.margin;
+      return val;
+    }
+  };
+  this.marginRight = function (val) {
+    if (val !== undefined) {
+      el.style.marginRight = val;
+      return this;
+    } else {
+      val = el.style.marginRight;
+      return val;
+    }
+  };
+  this.marginLeft = function (val) {
+    if (val !== undefined) {
+      el.style.marginLeft = val;
+      return this;
+    } else {
+      val = el.style.marginLeft;
+      return val;
+    }
+  };
+  this.marginTop = function (val) {
+    if (val !== undefined) {
+      el.style.marginTop = val;
+      return this;
+    } else {
+      val = el.style.marginTop;
+      return val;
+    }
+  };
+  this.marginBottom = function (val) {
+    if (val !== undefined) {
+      el.style.marginBottom = val;
+      return this;
+    } else {
+      val = el.style.marginBottom;
+      return val;
+    }
+  };
+  this.maxHeight = function (val) {
+    if (val !== undefined) {
+      el.style.maxHeight = val;
+      return this;
+    } else {
+      val = el.style.maxHeight;
+      return val;
+    }
+  };
+  this.maxWidth = function (val) {
+    if (val !== undefined) {
+      el.style.maxWidth = val;
+      return this;
+    } else {
+      val = el.style.maxWidth;
+      return val;
+    }
+  };
+  this.minWidth = function (val) {
+    if (val !== undefined) {
+      el.style.minWidth = val;
+      return this;
+    } else {
+      val = el.style.minWidth;
+      return val;
+    }
+  };
+  this.minHeight = function (val) {
+    if (val !== undefined) {
+      el.style.minHeight = val;
+      return this;
+    } else {
+      val = el.style.minHeight;
+      return val;
+    }
+  };
+  this.opacity = function (val) {
+    if (val !== undefined) {
+      el.style.opacity = val;
+      return this;
+    } else {
+      val = el.style.opacity;
+      return val;
+    }
+  };
+  this.outline = function (val) {
+    if (val !== undefined) {
+      el.style.outline = val;
+      return this;
+    } else {
+      val = el.style.outline;
+      return val;
+    }
+  };
+  this.overflow = function (val) {
+    if (val !== undefined) {
+      el.style.overflow = val;
+      return this;
+    } else {
+      val = el.style.overflow;
+      return val;
+    }
+  };
+  this.overflowX = function (val) {
+    if (val !== undefined) {
+      el.style.overflowX = val;
+      return this;
+    } else {
+      val = el.style.overflowX;
+      return val;
+    }
+  };
+  this.overflowY = function (val) {
+    if (val !== undefined) {
+      el.style.overflowY = val;
+      return this;
+    } else {
+      val = el.style.overflowY;
+      return val;
+    }
+  };
+  this.padding = function (val) {
+    if (val !== undefined) {
+      el.style.padding = val;
+      return this;
+    } else {
+      val = el.style.padding;
+      return val;
+    }
+  };
+  this.paddingRight = function (val) {
+    if (val !== undefined) {
+      el.style.paddingRight = val;
+      return this;
+    } else {
+      val = el.style.paddingRight;
+      return val;
+    }
+  };
+  this.paddingLeft = function (val) {
+    if (val !== undefined) {
+      el.style.paddingLeft = val;
+      return this;
+    } else {
+      val = el.style.paddingLeft;
+      return val;
+    }
+  };
+  this.paddingTop = function (val) {
+    if (val !== undefined) {
+      el.style.paddingTop = val;
+      return this;
+    } else {
+      val = el.style.paddingTop;
+      return val;
+    }
+  };
+  this.paddingBottom = function (val) {
+    if (val !== undefined) {
+      el.style.paddingBottom = val;
+      return this;
+    } else {
+      val = el.style.paddingBottom;
+      return val;
+    }
+  };
+  this.position = function (val) {
+    if (val !== undefined) {
+      el.style.position = val;
+      return this;
+    } else {
+      val = el.style.position;
+      return val;
+    }
+  };
+  this.right = function (val) {
+    if (val !== undefined) {
+      el.style.right = val;
+      return this;
+    } else {
+      val = el.style.right;
+      return val;
+    }
+  };
+  this.top = function (val) {
+    if (val !== undefined) {
+      el.style.top = val;
+      return this;
+    } else {
+      val = el.style.top;
+      return val;
+    }
+  };
+  this.textAlign = function (val) {
+    if (val !== undefined) {
+      el.style.textAlign = val;
+      return this;
+    } else {
+      val = el.style.textAlign;
+      return val;
+    }
+  };
+  this.textDecoration = function (val) {
+    if (val !== undefined) {
+      el.style.textDecoration = val;
+      return this;
+    } else {
+      val = el.style.textDecoration;
+      return val;
+    }
+  };
+  this.textShadow = function (val) {
+    if (val !== undefined) {
+      el.style.textShadow = val;
+      return this;
+    } else {
+      val = el.style.textShadow;
+      return val;
+    }
+  };
+  this.verticalAlign = function (val) {
+    if (val !== undefined) {
+      el.style.verticalAlign = val;
+      return this;
+    } else {
+      val = el.style.verticalAlign;
+      return val;
+    }
+  };
+  this.visibility = function (val) {
+    if (val !== undefined) {
+      el.style.visibility = val;
+      return this;
+    } else {
+      val = el.style.visibility;
+      return val;
+    }
+  };
+  this.whiteSpace = function (val) {
+    if (val !== undefined) {
+      el.style.whiteSpace = val;
+      return this;
+    } else {
+      val = el.style.whiteSpace;
+      return val;
+    }
+  };
+  this.width = function (val) {
+    if (val !== undefined) {
+      el.style.width = val;
+      return this;
+    } else {
+      val = el.style.width;
+      return val;
+    }
+  };
+  this.wordSpacing = function (val) {
+    if (val !== undefined) {
+      el.style.wordSpacing = val;
+      return this;
+    } else {
+      val = el.style.wordSpacing;
+      return val;
+    }
+  };
+  this.zIndex = function (val) {
+    if (val !== undefined) {
+      el.style.zIndex = val;
+      return this;
+    } else {
+      val = el.style.zIndex;
+      return val;
+    }
+  };
+  this.alignContent = function (val) {
+    if (browser.safari && browser.version >= 7) {
+      if (val !== undefined) {
+        el.style.WebkitAlignContent = val;
+        return this;
+      } else {
+        val = el.style.WebkitAlignContent;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.alignContent = val;
+        return this;
+      } else {
+        val = el.style.alignContent;
+        return val;
+      }
+    }
+  };
+  this.transformOrigin = function (val) {
+    if (browser.webkit) {
+      if (val !== undefined) {
+        el.style.WebkitTransformOrigin = val;
+        return this;
+      } else {
+        val = el.style.WebkitTransformOrigin;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.transformOrigin = val;
+        return this;
+      } else {
+        val = el.style.transformOrigin;
+        return val;
+      }
+    }
+  };
+  this.transition = function (val) {
+    if (browser.safari) {
+      if (val !== undefined) {
+        el.style.WebkitTransition = val;
+        return this;
+      } else {
+        val = el.style.WebkitTransition;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.transition = val;
+        return this;
+      } else {
+        val = el.style.transition;
+        return val;
+      }
+    }
+  };
+  this.transitionDuration = function (val) {
+    if (browser.safari) {
+      if (val !== undefined) {
+        el.style.WebkitTransitionDuration = val;
+        return this;
+      } else {
+        val = el.style.WebkitTransitionDuration;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.transitionDuration = val;
+        return this;
+      } else {
+        val = el.style.transitionDuration;
+        return val;
+      }
+    }
+  };
+  this.animation = function (val) {
+    if (browser.webkit) {
+      if (val !== undefined) {
+        el.style.WebkitAnimation = val;
+        return this;
+      } else {
+        val = el.style.WebkitAnimation;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.animation = val;
+        return this;
+      } else {
+        val = el.style.animation;
+        return val;
+      }
+    }
+  };
+  this.filter = function (val) {
+    if (browser.webkit) {
+      if (val !== undefined) {
+        el.style.WebkitFilter = val;
+        return this;
+      } else {
+        val = el.style.WebkitFilter;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.filter = val;
+        return this;
+      } else {
+        val = el.style.filter;
+        return val;
+      }
+    }
+  };
+  this.flex = function (val) {
+    if (browser.safari) {
+      if (val !== undefined) {
+        el.style.WebkitFlex = val;
+        return this;
+      } else {
+        val = el.style.WebkitFlex;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.flex = val;
+        return this;
+      } else {
+        val = el.style.flex;
+        return val;
+      }
+    }
+  };
+  this.perspective = function (val) {
+    if (browser.webkit) {
+      if (val !== undefined) {
+        el.style.WebkitPerspective = val;
+        return this;
+      } else {
+        val = el.style.WebkitPerspective;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.perspective = val;
+        return this;
+      } else {
+        val = el.style.perspective;
+        return val;
+      }
+    }
+  };
+  this.perspectiveOrigin = function (val) {
+    if (browser.webkit) {
+      if (val !== undefined) {
+        el.style.WebkitPerspectiveOrigin = val;
+        return this;
+      } else {
+        val = el.style.WebkitPerspectiveOrigin;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.perspectiveOrigin = val;
+        return this;
+      } else {
+        val = el.style.perspectiveOrigin;
+        return val;
+      }
+    }
+  };
+  this.transitionDelay = function (val) {
+    if (browser.safari) {
+      if (val !== undefined) {
+        el.style.WebkitTransitionDelay = val;
+        return this;
+      } else {
+        val = el.style.WebkitTransitionDelay;
+        return val;
+      }
+    } else {
+      if (val !== undefined) {
+        el.style.transitionDelay = val;
+        return this;
+      } else {
+        val = el.style.transitionDelay;
+        return val;
+      }
+    }
+  };
+
+  // Element object methods //
+
+  /*This function is a wrapper that allows the developer to create an anonymous function that has
+  access to the core element object and its' methods... Meaning, that methods not incuded in this library
+  can still be used in a chain-like fashion.  # example:
+  <'#header'/>
+        .height('200px')
+        .width('800px')
+        .backgroundColor('red')
+        .text('elements.js')
+        .core(el=>
+         {    el.lang = 'spanish';
+              el.jackAss();
+              el.nodeValue = this;
+              el.normalize();   }
+             )
+        .put('body')
+  */
+  this.core = function (func) {
+    var obj = arguments.length <= 1 || arguments[1] === undefined ? 'el' : arguments[1];
+
+    if (obj === 'style') func(this.el.style);else if (obj === 'el') func(this.el);else (0, _logger.err)('Invalid Argument.');
+
+    return this;
+  };
+
+  this.add = function (child) {
+    child = DOM.el(child);
+    this.el.appendChild(child);
+    return this;
+  };
+
+  this.children = function (s) {
+    if (s === 'all') {
+      var _count = this.el.childNodes;
+    } else {
+      var _count2 = this.el.children;
+    }
+    return count;
+  };
+
+  this.first = function (s) {
+    //TEST:30 Make sure this works.
+    var count = s === 'all' ? this.el.firstChild : this.el.firstElementChild;
+    return count;
+  };
+
+  this.id = function (val) {
+    if (val !== undefined) {
+      this.el.id = val;
+      return this;
+    } else {
+      val = this.el.id;
+      return val;
+    }
+  };
+
+  this.class = function (val) {
+    if (val !== undefined) {
+      this.el.className = val;
+      return this;
+    } else {
+      val = this.el.className;
+      return val;
+    }
+  };
+
+  this.x = function (elem) {
+    var child = DOM.el(elem);
+    this.el.removeChild(child);
+    return this;
+  };
+
+  this.xClass = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (cb !== null) {
+      cb();
+    }
+    this.el.className = '';
+    return this;
+  };
+
+  this.html = function (val) {
+    if (val !== undefined) {
+      this.el.innerHTML = val;
+      return this;
+    } else {
+      val = this.el.innerHTML;
+      return val;
+    }
+  };
+
+  this.text = function (val) {
+    if (val !== undefined) {
+      this.el.textContent = val;
+      return this;
+    } else {
+      val = this.el.textContent;
+      return val;
+    }
+  };
+
+  this.lang = function (val) {
+    if (val !== undefined) {
+      this.el.lang = val;
+      return this;
+    } else {
+      val = this.el.lang;
+      return val;
+    }
+  };
+
+  this.clone = function (deep) {
+    var node = this.el.cloneNode(deep);
+    return node;
+  };
+
+  this.sib = function (ord, s) {
+    var r = void 0;
+
+    if (ord === 'next') {
+      if (s === undefined) {
+        r = this.el.nextElementSibling;
+      } else if (s === 'all') {
+        r = this.el.nextSibling;
+      } else {
+        (0, _logger.err)('Invalid argument.');
+      }
+    } else if (ord === 'prev') {
+      if (s === undefined) {
+        r = this.el.previousElementSibling;
+      } else if (s === 'all') {
+        r = this.el.previousSibling;
+      } else {
+        (0, _logger.err)('Invalid argument.');
+      }
+    } else {
+      (0, _logger.err)('Invalid argument.');
+    }
+    return r;
+  };
+
+  this.value = function (val) {
+    if (val !== undefined) {
+      this.el.nodeValue = val;
+      return this;
+    } else {
+      val = this.el.nodeValue;
+      return val;
+    }
+  };
+
+  this.normalize = function () {
+    this.el.normalize();
+    return this;
+  };
+
+  this.toString = function () {
+    var r = this.el.toString();
+    return r;
+  };
+
+  this.tag = function () {
+    var r = this.el.tagName();
+    return r;
+  };
+
+  this.offset = function (s) {
+    //TODO
+    var off = {};
+
+    if (s) {
+      if (s === 'all') {
+        off.top = this.el.offsetTop;
+        off.left = this.el.offsetLeft;
+        off.height = this.el.offsetHeight;
+        off.width = this.el.offsetWidth;
+        off.parent = this.el.offsetParent;
+      } else {
+        (0, _logger.err)('Invalid argument.');
+      }
+    } else {
+      off.top = this.el.offsetTop;
+      off.left = this.el.offsetLeft;
+    }
+    return off;
+  };
+
+  this.title = function (val) {
+    if (val !== undefined) {
+      this.el.title = val;
+      return this;
+    } else {
+      val = this.el.title;
+      return val;
+    }
+  };
+
+  this.attrib = function (attrib, val) {
+    //TEST:0 Make sure this works
+    var r = val !== undefined && val !== 'remove' ? (this.el.setAttribute(attrib, val), undefined) : attrib !== undefined && val !== 'remove' ? this.el.getAttribute(attrib) : (this.el.removeAttribute(attrib), undefined);
+    // (r !== undefined) ?                                                     //TODO:10 See if you can make this work.
+    //   return r
+    // :
+    //   return this;
+    if (r !== undefined) {
+      return r;
+    } else {
+      return this;
+    }
+  };
+
+  this.put = function (mom) {
+    DOM.put(this.el, mom);
+    return this;
+  };
+
+  this.ma = function () {
+    return this.el.parentNode;
+  };
+
+  this.fore = function (el) {
+    var ref = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+    //TEST:20 Make sure this works.
+    ref === null ? el.parentNode.insertBefore(this.el, el) : this.el.parentNode.insertBefore(el, this.el);
+
+    return this;
+  };
+
+  this.aft = function (el) {
+    var ref = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+    //TEST:10 Make sure this works.
+    ref === null ? el.parentNode.insertBefore(this.el, el.nextElementSibling) : this.el.parentNode.insertBefore(el, this.el.nextElementSibling);
+
+    return this;
+  };
+
+  this.on = function (ev, callback) {
+    if (document.addEventListener) {
+      events.on(ev, this.el, callback);
+    } else {
+      events.onIE(ev, this.el, callback);
+    }
+    return this;
+  };
+
+  this.off = function (ev, callback) {
+    if (document.addEventListener) {
+      events.off(ev, this.el, callback);
+    } else {
+      events.offIE(ev, this.el, callback);
+    }
+    return this;
+  };
+
+  this.once = function (ev, callback) {
+    if (document.addEventListener) {
+      events.once(ev, this.el, callback);
+    } else {
+      events.onceIE(ev, this.el, callback);
+    }
+    return this;
+  };
+
+  // this.toggle = function(onFunc, offFunc) {                                 //NOTE: May be unnecessary.
+  //   window.toggleFlag = true;
+  //
+  //   if (toggleFlag) {
+  //     onFunc();
+  //     toggleFlag = false;
+  //   } else {
+  //     offFunc();
+  //     toggleFlag = true;
+  //   }
+  //   return this;
+  // };
+
+  this.size = function (height, width) {
+    this.el.style.height = height;
+    this.el.style.width = width;
+
+    return this;
+  };
+
+  this.show = function () {
+    var disp = arguments.length <= 0 || arguments[0] === undefined ? 'block' : arguments[0];
+
+    this.el.style.display = disp;
+
+    return this;
+  };
+
+  this.hide = function () {
+    this.el.style.display = 'none';
+
+    return this;
+  };
+
+  this.viz = function () {
+    var disp = arguments.length <= 0 || arguments[0] === undefined ? 'block' : arguments[0];
+
+    if (this.el.style.display === 'none') {
+      this.el.style.display = disp;
+    } else {
+      this.el.style.display = 'none';
+    }
+  };
+
+  //---------Event Methods-----------------//
+
+  this.blur = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.blur(this.el, cb);
+    } else {
+      events.blurIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.click = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.click(this.el, cb);
+    } else {
+      events.clickIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.dblClick = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.dblClick(this.el, cb);
+    } else {
+      events.dblClickIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.error = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.error(this.el, cb);
+    } else {
+      events.errorIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.focus = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.focus(this.el, cb);
+    } else {
+      events.focusIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.focusIn = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.focusIn(this.el, cb);
+    } else {
+      events.focusInIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.focusOut = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.focusOut(this.el, cb);
+    } else {
+      events.focusOut(this.el, cb);
+    }
+    return this;
+  };
+
+  this.keyUp = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.keyUp(this.el, cb);
+    } else {
+      events.keyUpIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.keyDown = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.keyDown(this.el, cb);
+    } else {
+      events.keyDownIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.load = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.load(this.el, cb);
+    } else {
+      events.loadIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.unLoad = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.unLoad(this.el, cb);
+    } else {
+      events.unLoadIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.mouse = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.mouse(this.el, cb);
+    } else {
+      events.mouseIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.resize = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.resize(this.el, cb);
+    } else {
+      events.resizeIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.scroll = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.scroll(this.el, cb);
+    } else {
+      events.scrollIE(this.el, cb);
+    }
+    return this;
+  };
+
+  this.select = function () {
+    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+    if (this.el.addEventListener) {
+      events.select(this.el, cb);
+    } else {
+      events.selectIE(this.el, cb);
+    }
+    return this;
+  };
+
+  /////// Experimental Methods ////////
+
+  this.only = function (num, func) {
+    var arr = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+
+    (0, _logger.log)(typeof onlyArr === 'undefined' ? 'undefined' : _typeof(onlyArr), 'yellow');
+
+    if (null !== arr) {
+      if (typeof onlyArr === 'undefined') {
+        window.onlyArr = arr;
+        window.eachCount = 1;
+      } else {
+        if (onlyArr !== arr) {
+          window.eachCount = 1;
+          window.onlyArr = arr;
+        } else {
+          eachCount++;
+        }
+      }
+    }
+    if (num === eachCount) {
+      func();
+      (0, _logger.log)(eachCount, ['red', 'bold']);
+    } else {
+      (0, _logger.log)(eachCount, ['blue', 'bold']);
+    }
+
+    // if (eachCount === onlyArr.length) {
+    //   eachCount = '';
+    // }
+    (0, _logger.log)(eachCount, 'white');
+    return this;
+  };
+};

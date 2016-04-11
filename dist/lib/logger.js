@@ -1,1 +1,177 @@
-"use strict";var colors=require("clivi"),log=function(e,r,o){var n=Array.isArray(r)?r[0]:r,t=Array.isArray(r)?r[1]:null,a=o||!1,l=new Date,g=l.getHours(),c=l.getMinutes(),s=l.getSeconds();9>=s&&(s="0"+String(s)),9>=c&&(c="0"+String(c));var u=g>=12?"pm":"am",i=g>=13?g-12:g;g=0===i?i+12:i,l=g+":"+c+":"+s+u;var d=a?l:"";if("undefined"==typeof document)return console.log(colors(e,{fg:n,style:t})+"   ".repeat(10)+d);var f=n,v=t,p="background: "+v+"; color: "+f;return console.log("%c"+e+"%s",p,"   ".repeat(10)+d)},err=function(e,r){var o="red",n="bold",t=r||!1,a=new Date,l=a.getHours(),g=a.getMinutes(),c=a.getSeconds();9>=c&&(c="0"+String(c)),9>=g&&(g="0"+String(g));var s=l>=12?"pm":"am",u=l>=13?l-12:l;l=0===u?u+12:u,a=l+":"+g+":"+c+s;var i=t?a:"";if("undefined"==typeof document)return console.log(colors(e,{fg:o,style:n})+"   ".repeat(10)+i);var d=o,f="",v="background: "+f+"; color: "+d;return console.log("%c"+e+"%s",v,"   ".repeat(10)+i)},info=function(e,r){var o="#008cff",n="bold",t=r||!1,a=new Date,l=a.getHours(),g=a.getMinutes(),c=a.getSeconds();9>=c&&(c="0"+String(c)),9>=g&&(g="0"+String(g));var s=l>=12?"pm":"am",u=l>=13?l-12:l;l=0===u?u+12:u,a=l+":"+g+":"+c+s;var i=t?a:"";if("undefined"==typeof document)return o="blueBright",console.log(colors(e,{fg:o,style:n})+"   ".repeat(10)+i);var d=o,f="",v="background: "+f+"; color: "+d;return console.log("%c"+e+"%s",v,"   ".repeat(10)+i)},warn=function(e,r){var o="orange",n="bold",t=r||!1,a=new Date,l=a.getHours(),g=a.getMinutes(),c=a.getSeconds();9>=c&&(c="0"+String(c)),9>=g&&(g="0"+String(g));var s=l>=12?"pm":"am",u=l>=13?l-12:l;l=0===u?u+12:u,a=l+":"+g+":"+c+s;var i=t?a:"";if("undefined"==typeof document)return o="yellow",o="blueBright",console.log(colors(e,{fg:o,style:n})+"   ".repeat(10)+i);var d=o,f="",v="background: "+f+"; color: "+d;return console.log("%c"+e+"%s",v,"   ".repeat(10)+i)};module.exports={log:log,err:err,info:info,warn:warn};
+'use strict';
+
+/*
+logger.js
+
+This file contains the code for the various logging functions
+of the library.
+
+Author: Eric James Foster
+License: ISC
+*/
+
+var colors = require('clivi');
+//  require('babel-polyfill');
+
+//DONE:90 Add second argument for log ID purposes, figure best way to approach this.
+//Console.log alias function.                                                  //DONE:140 Make sure date is logging properly.
+var log = function log(text, style, tyme) {
+  var colr = Array.isArray(style) ? style[0] : style,
+      styl = Array.isArray(style) ? style[1] : null,
+      tym = tyme || false;
+
+  var time = new Date(),
+      hours = time.getHours(),
+      mins = time.getMinutes(),
+      secs = time.getSeconds();
+  if (secs <= 9) {
+    secs = '0' + String(secs);
+  }
+  if (mins <= 9) {
+    mins = '0' + String(mins);
+  }
+  var abbr = hours >= 12 ? 'pm' : 'am';
+  var stan = hours >= 13 ? hours - 12 : hours; //DONE:40 Either fix singular hours, or choose alternate.
+  if (stan === 0) {
+    hours = stan + 12;
+  } else {
+    hours = stan;
+  }
+  time = hours + ':' + mins + ':' + secs + abbr;
+
+  var t = tym ? time : '';
+
+  if (typeof document === 'undefined') {
+    return console.log(colors(text, { fg: colr, style: styl }) + '   '.repeat(10) + t);
+  } else {
+    var color = colr,
+        bgColor = styl,
+        css = 'background: ' + bgColor + '; color: ' + color;
+
+    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+  }
+};
+
+//Console.error alias function.
+var err = function err(text, tyme) {
+  var colr = 'red',
+      styl = 'bold',
+      tym = tyme || false;
+
+  var time = new Date(),
+      hours = time.getHours(),
+      mins = time.getMinutes(),
+      secs = time.getSeconds();
+  if (secs <= 9) {
+    secs = '0' + String(secs);
+  }
+  if (mins <= 9) {
+    mins = '0' + String(mins);
+  }
+  var abbr = hours >= 12 ? 'pm' : 'am';
+  var stan = hours >= 13 ? hours - 12 : hours;
+  if (stan === 0) {
+    hours = stan + 12;
+  } else {
+    hours = stan;
+  }
+  time = hours + ':' + mins + ':' + secs + abbr;
+
+  var t = tym ? time : '';
+
+  if (typeof document === 'undefined') {
+    return console.log(colors(text, { fg: colr, style: styl }) + '   '.repeat(10) + t);
+  } else {
+    var color = colr,
+        bgColor = '',
+        css = 'background: ' + bgColor + '; color: ' + color;
+
+    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+  }
+};
+
+//Console.info alias function.
+var info = function info(text, tyme) {
+  var colr = '#008cff',
+      styl = 'bold',
+      tym = tyme || false;
+
+  var time = new Date(),
+      hours = time.getHours(),
+      mins = time.getMinutes(),
+      secs = time.getSeconds();
+  if (secs <= 9) {
+    secs = '0' + String(secs);
+  }
+  if (mins <= 9) {
+    mins = '0' + String(mins);
+  }
+  var abbr = hours >= 12 ? 'pm' : 'am';
+  var stan = hours >= 13 ? hours - 12 : hours;
+  if (stan === 0) {
+    hours = stan + 12;
+  } else {
+    hours = stan;
+  }
+  time = hours + ':' + mins + ':' + secs + abbr;
+
+  var t = tym ? time : '';
+
+  if (typeof document === 'undefined') {
+    colr = 'blueBright';
+    return console.log(colors(text, { fg: colr, style: styl }) + '   '.repeat(10) + t);
+  } else {
+    var color = colr,
+        bgColor = '',
+        css = 'background: ' + bgColor + '; color: ' + color;
+
+    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+  }
+};
+
+//Console.warn alias function.
+var warn = function warn(text, tyme) {
+  var colr = 'orange',
+      styl = 'bold',
+      tym = tyme || false;
+
+  var time = new Date(),
+      hours = time.getHours(),
+      mins = time.getMinutes(),
+      secs = time.getSeconds();
+  if (secs <= 9) {
+    secs = '0' + String(secs);
+  }
+  if (mins <= 9) {
+    mins = '0' + String(mins);
+  }
+  var abbr = hours >= 12 ? 'pm' : 'am';
+  var stan = hours >= 13 ? hours - 12 : hours;
+  if (stan === 0) {
+    hours = stan + 12;
+  } else {
+    hours = stan;
+  }
+  time = hours + ':' + mins + ':' + secs + abbr;
+
+  var t = tym ? time : '';
+
+  if (typeof document === 'undefined') {
+    colr = 'yellow';
+    colr = 'blueBright';
+    return console.log(colors(text, { fg: colr, style: styl }) + '   '.repeat(10) + t);
+  } else {
+    var color = colr,
+        bgColor = '',
+        css = 'background: ' + bgColor + '; color: ' + color;
+
+    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+  }
+};
+
+module.exports = {
+  log: log,
+  err: err,
+  info: info,
+  warn: warn
+};

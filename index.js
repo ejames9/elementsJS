@@ -18,7 +18,7 @@ URL: ""
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
 
-import Element from './lib/Element';
+import * as elem from './lib/element';
 import * as requests from './lib/httpRequests';
 import * as events from './lib/events';
 import * as consol from './lib/logger';
@@ -32,7 +32,7 @@ import * as DOM from './lib/DOM';
 
 
 var element = function(el) {
-  return new Element();
+  return new elem.element();
 };
 
 /*This function copies the prototype object of a superConstructor to the prototype object
@@ -80,10 +80,10 @@ var dom = function(el) {
   if (Array.isArray(el)) {
     rv = [];
     for (var l of el) {
-      rv.push(new Element(l))
+      rv.push(new elem.element(l))
     }
   } else {
-    rv = new Element(el);
+    rv = new elem.element(el);
   }
   return rv;
 };

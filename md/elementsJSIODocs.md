@@ -1,7 +1,7 @@
 # <a name='get-started'></a> Getting Started
 
 ## <a name='installation'></a> Installation
-There are a couple different ways to use elementsJS. The first is by simply using the function library. The second, is to make use of the new convenient elements syntax. If you would like to use the elements syntax, a simple compilation step is necessary. If you'd like to learn more, [click here][#).
+There are a couple different ways to use elementsJS. The first is by simply using the function library. The second, is to make use of the new convenient elements syntax. If you would like to use the elements syntax, a simple compilation step is necessary. If you'd like to learn more, [click here](#).
 
 The first step, however, is to simply install the library. elementsJS can be installed using either bower or npm package managers and *required* [CommonJS](http://www.commonjs.org/) style, or *import*-ed [es6](http://exploringjs.com/es6/ch_modules.html#_importing-and-exporting-in-detail) style. You may also include the cdn link in your html.
 
@@ -941,155 +941,155 @@ Here is a list of all of the element object methods that I got from the HTML DOM
 ## `element.bg(val)`
 * An alias for **.background()**
 
-## `element.bgColor(*val*)`
+## `element.bgColor(val)`
 * An alias for **.backgroundColor()**
 
-## `element.bgImage(*val*)`
+## `element.bgImage(val)`
 * An alias for **.backgroundImage()**
 
-## `element.bgSize(*val*)`
+## `element.bgSize(val)`
 * An alias for **.backgroundSize()**
 
-## `element.bgPosition(*val*)`
+## `element.bgPosition(val)`
 * An alias for **.backgroundPosition()**
 
-## `element.border(*val*)`
+## `element.border(val)`
 
-## `element.borderColor(*val*)`
+## `element.borderColor(val)`
 
-## `element.borderRadius(*val*)`
+## `element.borderRadius(val)`
 
-## `element.borderWidth(*val*)`
+## `element.borderWidth(val)`
 
-## `element.borderTop(*val*)`
+## `element.borderTop(val)`
 
-## `element.borderBottom(*val*)`
+## `element.borderBottom(val)`
 
-## `element.borderRight(*val*)`
+## `element.borderRight(val)`
 
-## `element.borderLeft(*val*)`
+## `element.borderLeft(val)`
 
-## `element.boxShadow(*val*)`
+## `element.boxShadow(val)`
 
-## `element.boxSizing(*val*)`
+## `element.boxSizing(val)`
 
-## `element.clear(*val*)`
+## `element.clear(val)`
 
-## `element.color(*val*)`
+## `element.color(val)`
 
-## `element.columns(*val*)`
+## `element.columns(val)`
 
-## `element.content(*val*)`
+## `element.content(val)`
 
-## `element.cursor(*val*)`
+## `element.cursor(val)`
 
-## `element.direction(*val*)`
+## `element.direction(val)`
 
-## `element.display(*val*)`
+## `element.display(val)`
 
-## `element.cssFloat(*val*)`
+## `element.cssFloat(val)`
 
-## `element.font(*val*)`
+## `element.font(val)`
 
-## `element.fontFamily(*val*)`
+## `element.fontFamily(val)`
 
-## `element.fontStyle(*val*)`
+## `element.fontStyle(val)`
 
-## `element.fontSize(*val*)`
+## `element.fontSize(val)`
 
-## `element.fontWeight(*val*)`
+## `element.fontWeight(val)`
 
-## `element.height(*val*)`
+## `element.height(val)`
 
-## `element.lineHeight(*val*)`
+## `element.lineHeight(val)`
 
-## `element.icon(*val*)`
+## `element.icon(val)`
 
-## `element.left(*val*)`
+## `element.left(val)`
 
-## `element.listStyle(*val*)`
+## `element.listStyle(val)`
 
-## `element.margin(*val*)`
+## `element.margin(val)`
 
-## `element.marginRight(*val*)`
+## `element.marginRight(val)`
 
-## `element.marginLeft(*val*)`
+## `element.marginLeft(val)`
 
-## `element.marginTop(*val*)`
+## `element.marginTop(val)`
 
-## `element.marginBottom(*val*)`
+## `element.marginBottom(val)`
 
-## `element.maxHeight(*val*)`
+## `element.maxHeight(val)`
 
-## `element.minHeight(*val*)`
+## `element.minHeight(val)`
 
-## `element.maxWidth(*val*)`
+## `element.maxWidth(val)`
 
-## `element.minWidth(*val*)`
+## `element.minWidth(val)`
 
-## `element.opacity(*val*)`
+## `element.opacity(val)`
 
-## `element.outline(*val*)`
+## `element.outline(val)`
 
-## `element.overflow(*val*)`
+## `element.overflow(val)`
 
-## `element.overflowX(*val*)`
+## `element.overflowX(val)`
 
-## `element.overflowY(*val*)`
+## `element.overflowY(val)`
 
-## `element.padding(*val*)`
+## `element.padding(val)`
 
-## `element.paddingRight(*val*)`
+## `element.paddingRight(val)`
 
-## `element.paddingLeft(*val*)`
+## `element.paddingLeft(val)`
 
-## `element.paddingTop(*val*)`
+## `element.paddingTop(val)`
 
-## `element.paddingBottom(*val*)`
+## `element.paddingBottom(val)`
 
-## `element.position(*val*)`
+## `element.position(val)`
 
-## `element.right(*val*)`
+## `element.right(val)`
 
-## `element.top(*val*)`
+## `element.top(val)`
 
-## `element.textAlign(*val*)`
+## `element.textAlign(val)`
 
-## `element.textDecoration(*val*)`
+## `element.textDecoration(val)`
 
-## `element.textShadow(*val*)`
+## `element.textShadow(val)`
 
-## `element.verticalAlign(*val*)`
+## `element.verticalAlign(val)`
 
-## `element.visibility(*val*)`
+## `element.visibility(val)`
 
-## `element.whiteSpace(*val*)`
+## `element.whiteSpace(val)`
 
-## `element.width(*val*)`
+## `element.width(val)`
 
-## `element.wordSpacing(*val*)`
+## `element.wordSpacing(val)`
 
-## `element.zIndex(*val*)`
+## `element.zIndex(val)`
 
-## `element.alignContent(*val*)`
+## `element.alignContent(val)`
 
-## `element.transformOrigin(*val*)`
+## `element.transformOrigin(val)`
 
-## `element.transition(*val*)`
+## `element.transition(val)`
 
-## `element.transitionDuration(*val*)`
+## `element.transitionDuration(val)`
 
-## `element.animation(*val*)`
+## `element.animation(val)`
 
-## `element.filter(*val*)`
+## `element.filter(val)`
 
-## `element.flex(*val*)`
+## `element.flex(val)`
 
-## `element.perspective(*val*)`
+## `element.perspective(val)`
 
-## `element.perspectiveOrigin(*val*)`
+## `element.perspectiveOrigin(val)`
 
-## `element.transitionDelay(*val*)`
+## `element.transitionDelay(val)`
 
 # <a name='core-func'></a> `element.core(func, obj='el')`
 --
@@ -1237,22 +1237,28 @@ const prevNode = dom('#foo')
 
 
 
-## `element.id(*val*)`
+## `element.id(val)`
 Pass ID name in as argument **(`val`)** to set *`.id`* property, or leave it blank to return existing value.
 
 **Returns**: **`.id`** property value or **`this`**
 
-## `element.class(*val*)`
+## `element.class(val)`
 This is an alias for the **`.className`** property. Pass Class name in as argument **(`val`)** to set *`.className`* property, or leave it blank to return existing value.
 
 **Returns**: **`.className`** DOM Element property value **or** **`this`**
 
+## `element.x(elem)`
+This is an alias for the **`.removeChild`** method. Pass a CSS Selector or a reference to a DOM Element in as argument **(`elem`)** to remove said Element.
+
+**Returns**: **`this`**
+
+
 ## `element.xClass(cb=null)`
 This method deletes the existing class name of the element. Takes an optional callback argument.
 
-**Returns**: **this**
+**Returns**: **`this`**
 
-## `element.html(*val*)`
+## `element.html(val)`
 This method is an alias for the **`Element.innerHTML()`** method. Pass a valid HTML string in as argument **(`val`)** to set HTML content of the element, or leave it blank to return existing HTML.
 
 **Returns**: HTML content **or** **`this`**
@@ -1305,17 +1311,17 @@ This method will toggle between display **`none`**, and the display option set b
 
 
 
-## `element.text(*val*)`
+## `element.text(val)`
 This method is an alias for the **`Element.textContent()`** method. Pass a string in as argument **(`val`)** to set text content of the element, or leave it blank to return existing text.
 
 **Returns**: text content **or** **`this`**
 
-## `element.value(*val*)`
+## `element.value(val)`
 This method is an alias for the **`Element.nodeValue()`** method. Pass a value in as argument **(`val`)** to set node value of the node, or leave it blank to return existing value.
 
 **Returns**: node value **or** **`this`**
 
-## `element.lang(*val*)`
+## `element.lang(val)`
 Setter and Getter for an elements' **`.lang`** (language) attribute.
 
 **Returns**: elements' lang attribute **or** **`this`**
@@ -1340,7 +1346,7 @@ An alias for **`.tagName`**, this method returns the tag name of an Element.
 
 **Returns**: `Element.tagName`.
 
-## `element.title(*val*)`
+## `element.title(val)`
 Sets or returns the **`.title`** attribute of an Element.
 
 **Returns**: title attribute **or** **`this`**.

@@ -5,6 +5,7 @@ var babel = require('gulp-babel');
 var run = require('run-sequence');
 var webpack = require('webpack');
 var gulpWebpack = require('gulp-webpack');
+var elemsJS = require('gulp-elementsJS-interpreter');
 
 
 const webpackConfig = {
@@ -14,11 +15,12 @@ const webpackConfig = {
   }
 };
 
-gulp.task('elemsJSIO-Babel', ()=> {
+gulp.task('elemsJSIO-elemsJS-Babel', ()=> {
   var srcJS = './js/elementsJSIO.js';
   var jsDst  = './dist/babel/';
 
   return gulp.src(srcJS)
+    .pipe(elemsJS())
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -35,7 +37,7 @@ gulp.task('elemsJSIO-Bundle', ()=> {
 });
 
 gulp.task('elemsJSIO', ()=> {
-  return run('elemsJSIO-Babel', 'elemsJSIO-Bundle');
+  return run('elemsJSIO-elemsJS-Babel', 'elemsJSIO-Bundle');
 });
 
 
@@ -47,7 +49,7 @@ gulp.task('dist1', ()=> {
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest(dest));
 });
 
@@ -59,7 +61,7 @@ gulp.task('dist2', ()=> {
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest(dest));
 });
 

@@ -1,1 +1,99 @@
-"use strict";var _logger=require("./logger"),xhr=function(e,n,t){var r;if(n)if(0===Object.getOwnPropertyNames(n).length)r=n;else{r=new FormData;for(var a in n)r.append(a,n[a])}else r=null;var s,o=t||"get",i=function p(){var p=new XMLHttpRequest;p.onloadend=function(){200===p.status&&(s=this.response)},p.open(o,e,!1),p.send(r)};return i(),s=JSON.parse(s)},ajax=function(e,n,t,r){var a;if(n)if(0===Object.getOwnPropertyNames(n).length)a=n;else{a=new FormData;for(var s in n)a.append(s,n[s])}else a=null;var o=r||"post",i=new XMLHttpRequest;i.onloadend=function(){if(200===i.status){var e=JSON.parse(this.response);t(e)}},i.open(o,e),i.send(a)};module.exports={ajax:ajax,xhr:xhr};
+'use strict';
+
+var _logger = require('./logger');
+
+// require('babel-polyfill');
+
+//DONE:20 Complete X-Browser support for both functions.
+
+//This is an alias function for XMLHttpRequests.
+var xhr = function xhr(url, fd, method) {
+  //DONE:80 Perfect this function.
+  var formData;
+  //DONE:100 Build FormData in function from object that user passes as an argument.
+  if (fd) {
+    //DONE:70 Need async ajax function
+    if (Object.getOwnPropertyNames(fd).length === 0) {
+      formData = fd; //log(Object.getOwnPropertyNames(fd).length);
+    } else {
+        formData = new FormData();
+        for (var key in fd) {
+          //TEST:50 Test this function.
+          formData.append(key, fd[key]);
+        }
+      }
+  } else {
+    formData = null;
+  }
+  //log('fd'); log(formData);
+  var m = method || 'get';
+  // var data = fd || null;
+  var val;
+
+  var ajax = function ajax() {
+    var ajax = new XMLHttpRequest();
+
+    ajax.onloadend = function () {
+      if (ajax.status === 200) {
+        val = this.response;
+      }
+    };
+    ajax.open(m, url, false);
+    ajax.send(formData);
+  };
+  ajax();
+  val = JSON.parse(val);
+
+  return val;
+};
+/*
+httpRequests.js
+
+This file contains code for 2 HTTP request convenience functions, 1 synchronous,
+and the other asynchronous.
+
+Author: Eric James Foster
+License: ISC
+*/
+
+//TODO:30 reWrite 'await' version of xhr().
+
+var ajax = function ajax(url, fd, callback, method) {
+  //TEST:60 Test this function.
+  var formData;
+
+  if (fd) {
+    if (Object.getOwnPropertyNames(fd).length === 0) {
+      formData = fd; //log(Object.getOwnPropertyNames(fd).length);
+    } else {
+        formData = new FormData();
+        for (var key in fd) {
+          formData.append(key, fd[key]);
+        }
+      }
+  } else {
+    formData = null;
+  }
+  //log('fd'); log(formData);
+  var m = method || 'get';
+  if (formData !== null) {
+    m = 'post';
+  }
+  // var data = fd;
+  var val;
+  var req = new XMLHttpRequest();
+
+  req.onloadend = function () {
+    if (req.status === 200) {
+      var response = JSON.parse(this.response);
+      callback(response);
+    }
+  };
+  req.open(m, url);
+  req.send(formData);
+};
+
+module.exports = {
+  ajax: ajax,
+  xhr: xhr
+};

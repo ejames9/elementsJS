@@ -1,3 +1,4 @@
+
 /*
 elementsJSIO.js
 JavaScript file for the elementsJS project site.
@@ -6,7 +7,13 @@ https://rawgit.com/ejames9/elementsJS/gh-pages/html/docsMenu.html
 https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
-var marked = require('marked');
+
+
+import { imports, go, log, xhr, ajax, on, click, scroll } from 'elementsJS';
+
+imports({
+      'marked': 'marked'
+});
 
 
 var commit = '5f9f194';
@@ -20,25 +27,36 @@ var markDown;
 
 function _(bit1, bit2) {
   return bit1 + bit2;
-};
+}
 
 
 
 function insertDocs() {
-  var content = document.getElementById('content'),
-      columns = document.getElementById('mainPageColumns');
+  // var content = document.getElementById('content'),
+  //     columns = document.getElementById('mainPageColumns');
+  //
+  // var url = _(rawGit, docsMenu);
+  // var xhr = new XMLHttpRequest();
+  //     xhr.onloadend = function() {
+  //       if (xhr.status === 200) {
+  //         var r = this.responseText;
+  //
+  //         content.removeChild(columns);
+  //         content.innerHTML = r;
+  //
+  //         var docsMain = document.getElementById('docsMain');
+  //             docsMain.innerHTML = marked(markDown);
 
-  var url = _(rawGit, docsMenu);
-  var xhr = new XMLHttpRequest();
-      xhr.onloadend = function() {
-        if (xhr.status === 200) {
-          var r = this.responseText;
+  ajax(_(rawGit, docsMenu), null, (r)=>{
+    log(window, 'blue');
 
-          content.removeChild(columns);
-          content.innerHTML = r;
+    <'#content'/>
+              .x('#mainPageColumns')
+              .html(r);
 
-          var docsMain = document.getElementById('docsMain');
-              docsMain.innerHTML = marked(markDown);
+    <'#docsMain'/>
+              .html(marked(markDown));
+  });
 
           // var sideNav = document.getElementById('sideNav');
           // console.log(sideNav.offsetTop);
@@ -53,12 +71,15 @@ function insertDocs() {
           //         sideNav.setAttribute("class","");
           //         console.log('not sticky');
           //     }
-          // }
-        }
-      }
-  xhr.open('GET', url);
-  xhr.send();
+  //         // }
+  //       }
+  //     }
+  // xhr.open('GET', url);
+  // xhr.send();
 }
+
+<body/>
+    .color('red');
 
 function getMarkDown() {
   var url = _(rawGit, markDownUrl);
@@ -72,7 +93,7 @@ function getMarkDown() {
       }
   xhr.open('GET', url);
   xhr.send();
-};
+}
 
 
 function toggleNPMBar() {
@@ -83,7 +104,7 @@ function toggleNPMBar() {
       } else {
         npmBar.style.display = 'none';
       }
-};
+}
 
 
 function init() {
@@ -116,7 +137,7 @@ function init() {
       });
 
   getMarkDown();
-};
+}
 
 
 document.addEventListener('DOMContentLoaded', init());

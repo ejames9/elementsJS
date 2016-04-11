@@ -1,1 +1,620 @@
-"use strict";function _interopRequireWildcard(e){if(e&&e.__esModule)return e;var n={};if(null!=e)for(var t in e)Object.prototype.hasOwnProperty.call(e,t)&&(n[t]=e[t]);return n["default"]=e,n}function spark(e,n){var t=new MouseEvent(e,{bubbles:!0,cancelable:!0,view:window});n.dispatchEvent(t)}function sparkIE(e,n){var t=document.createEventObject();l=document.querySelector(n),e.eventType="on"+e,n.fireEvent("on"+e,t)}function blur(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("blur",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("blur",n)}function blurIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onblur",e.fireEvent("onblur",t)}else e.attachEvent("onblur",n)}function click(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("click",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("click",n)}function clickIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onclick",e.fireEvent("onclick",t)}else e.attachEvent("onclick",n)}function dblClick(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("dblclick",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("dblclick",n)}function dblClickIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="ondblclick",e.fireEvent("ondblclick",t)}else e.attachEvent("ondblclick",n)}function error(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("error",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("error",n)}function errorIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onerror",e.fireEvent("onerror",t)}else e.attachEvent("onerror",n)}function focus(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("focus",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("focus",n)}function focusIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onfocus",e.fireEvent("onfocus",t)}else e.attachEvent("onfocus",n)}function focusIn(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("focusin",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("focusin",n)}function focusInIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onfocusin",e.fireEvent("onfocusin",t)}else e.attachEvent("onfocusin",n)}function focusOut(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("focusout",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("focusout",n)}function focusOutIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onfocusout",e.fireEvent("onfocusout",t)}else e.attachEvent("onfocusout",n)}function keyUp(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("keyup",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("keyup",n)}function keyUpIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onkeyup",e.fireEvent("onkeyup",t)}else e.attachEvent("onkeyup",n)}function keyDown(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("keydown",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("keydown",n)}function keyDownIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onkeydown",e.fireEvent("onkeydown",t)}else e.attachEvent("onkeydown",n)}function load(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("load",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("load",n)}function loadIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onload",e.fireEvent("onload",t)}else e.attachEvent("onload",n)}function unLoad(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("unload",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("unload",n)}function unLoadIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onunload",e.fireEvent("onunload",t)}else e.attachEvent("onunload",n)}function mouse(e,n){var t=arguments.length<=2||void 0===arguments[2]?null:arguments[2];if(null===t){var l=new MouseEvent("mouse"+e,{bubbles:!0,cancelable:!0,view:window});n.dispatchEvent(l)}else n.addEventListener("mouse"+e,t)}function mouseIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onmouse"+sufx,e.fireEvent("onmouse"+sufx,t)}else e.attachEvent("onmouse"+sufx,n)}function reSize(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("resize",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("resize",n)}function reSizeIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onresize",e.fireEvent("onresize",t)}else e.attachEvent("onresize",n)}function scroll(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("scroll",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("scroll",n)}function scrollIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onscroll",e.fireEvent("onscroll",t)}else e.attachEvent("onscroll",n)}function select(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("select",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("select",n)}function selectIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onselect",e.fireEvent("onselect",t)}else e.attachEvent("onselect",n)}var _logger=require("./logger"),_utilities=require("./utilities"),utils=_interopRequireWildcard(_utilities),go=function(e){return document.addEventListener("DOMContentLoaded",e())},goIE=function(e){return document.attachEvent("onDOMContentLoaded",e())},on=function(e,n,t){return"string"==typeof n?"#"===n[0]?(n=n.slice(1),document.getElementById(n).addEventListener(e,t)):"."===n[0]?(n=n.slice(1),document.getElementsByClassName(n)[0].addEventListener(e,t)):document.getElementsByTagName(n).addEventListener(e,t):n.addEventListener(e,t)},onIE=function(e,n,t){return"string"==typeof n?"#"===n[0]?(n=n.slice(1),document.getElementById(n).attachEvent("on"+e,t)):"."===n[0]?(n=n.slice(1),document.getElementsByClassName(n)[0].attachEvent("on"+e,t)):document.getElementsByTagName(n).attachEvent("on"+e,t):n.attachEvent("on"+e,t)},off=function(e,n,t){return"string"==typeof n?"#"===n[0]?(n=n.slice(1),document.getElementById(n).removeEventListener(e,t)):"."===n[0]?(n=n.slice(1),document.getElementsByClassName(n)[0].removeEventListener(e,t)):document.getElementsByTagName(n).removeEventListener(e,t):void n.removeEventListener(e,t)},offIE=function(e,n,t){return"string"==typeof n?"#"===n[0]?(n=n.slice(1),document.getElementById(n).detachEvent("on"+e,t)):"."===n[0]?(n=n.slice(1),document.getElementsByClassName(n)[0].detachEvent("on"+e,t)):document.getElementsByTagName(n).detachEvent("on"+e,t):void n.detachEvent("on"+e,t)},once=function(e,n,t){var l=function o(){t(),n.removeEventListener(e,o)};return n=utils.queryDOM(n),(0,_logger.log)(n,"red"),n.addEventListener(e,l)},onceIE=function(e,n,t){var l=function o(){t(),n.detachEvent("on"+e,o)};return n=utils.queryDOM(n),n.attachEvent("on"+e,l)};module.exports={blur:blur,blurIE:blurIE,click:click,clickIE:clickIE,dblClick:dblClick,dblClickIE:dblClickIE,error:error,errorIE:errorIE,focus:focus,focusIE:focusIE,focusIn:focusIn,focusInIE:focusInIE,focusOut:focusOut,focusOutIE:focusOutIE,keyUp:keyUp,keyUpIE:keyUpIE,keyDown:keyDown,keyDownIE:keyDownIE,load:load,loadIE:loadIE,unLoad:unLoad,unLoadIE:unLoadIE,mouse:mouse,mouseIE:mouseIE,reSize:reSize,reSizeIE:reSizeIE,scroll:scroll,scrollIE:scrollIE,select:select,selectIE:selectIE,spark:spark,sparkIE:sparkIE,go:go,goIE:goIE,on:on,onIE:onIE,off:off,offIE:offIE,once:once,onceIE:onceIE};
+'use strict';
+
+var _logger = require('./logger');
+
+var _utilities = require('./utilities');
+
+var utils = _interopRequireWildcard(_utilities);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+// require('babel-polyfill');
+
+//DONE:10 Complete X-Browser support for these 3 functions.
+
+/*
+events.js
+
+This file contains code for the librarys' convenience EventListener
+alias functions.
+
+Author: Eric James Foster
+License: ISC
+*/
+
+var go = function go(cb) {
+  return document.addEventListener('DOMContentLoaded', cb());
+};
+
+var goIE = function goIE(cb) {
+  return document.attachEvent('onDOMContentLoaded', cb());
+};
+
+//Function for setting event listeners.
+var on = function on(event, el, callback) {
+  //TODO: allow arg 'el' to be an array.
+  if (typeof el === 'string') {
+    if (el[0] === '#') {
+      el = el.slice(1);
+      return document.getElementById(el).addEventListener(event, callback);
+    } else if (el[0] === '.') {
+      el = el.slice(1);
+      return document.getElementsByClassName(el)[0].addEventListener(event, callback);
+    } else {
+      return document.getElementsByTagName(el).addEventListener(event, callback);
+    }
+  } else {
+    return el.addEventListener(event, callback);
+  }
+};
+
+var onIE = function onIE(event, el, callback) {
+  if (typeof el === 'string') {
+    if (el[0] === '#') {
+      el = el.slice(1);
+      return document.getElementById(el).attachEvent('on' + event, callback);
+    } else if (el[0] === '.') {
+      el = el.slice(1);
+      return document.getElementsByClassName(el)[0].attachEvent('on' + event, callback);
+    } else {
+      return document.getElementsByTagName(el).attachEvent('on' + event, callback);
+    }
+  } else {
+    return el.attachEvent('on' + event, callback);
+  }
+};
+
+//Function for removing event listeners.
+var off = function off(event, el, callback) {
+  if (typeof el === 'string') {
+    if (el[0] === '#') {
+      el = el.slice(1);
+      return document.getElementById(el).removeEventListener(event, callback);
+    } else if (el[0] === '.') {
+      el = el.slice(1);
+      return document.getElementsByClassName(el)[0].removeEventListener(event, callback);
+    } else {
+      return document.getElementsByTagName(el).removeEventListener(event, callback);
+    }
+  } else {
+    el.removeEventListener(event, callback);
+  }
+};
+
+//Function for removing event listeners.
+var offIE = function offIE(event, el, callback) {
+  if (typeof el === 'string') {
+    if (el[0] === '#') {
+      el = el.slice(1);
+      return document.getElementById(el).detachEvent('on' + event, callback);
+    } else if (el[0] === '.') {
+      el = el.slice(1);
+      return document.getElementsByClassName(el)[0].detachEvent('on' + event, callback);
+    } else {
+      return document.getElementsByTagName(el).detachEvent('on' + event, callback);
+    }
+  } else {
+    el.detachEvent('on' + event, callback);
+  }
+};
+
+var once = function once(event, el, callback) {
+  //DONE:60 Finish once function.
+  //DONE:80 Test once function.
+  var callBack = function callBack() {
+    callback();
+    el.removeEventListener(event, callBack);
+  };
+
+  el = utils.queryDOM(el);
+  (0, _logger.log)(el, 'red');
+  return el.addEventListener(event, callBack);
+};
+
+var onceIE = function onceIE(event, el, callback) {
+  //DONE:90 Test onceIE function.
+  var callBack = function callBack() {
+    callback();
+    el.detachEvent('on' + event, callBack);
+  };
+
+  el = utils.queryDOM(el);
+
+  return el.attachEvent('on' + event, callBack);
+};
+
+function spark(evt, el) {
+
+  var ev = new MouseEvent(evt, {
+    bubbles: true,
+    cancelable: true,
+    view: window
+  });
+  el.dispatchEvent(ev);
+}
+function sparkIE(evt, el) {
+  var ev = document.createEventObject();
+  l = document.querySelector(el);
+
+  evt.eventType = 'on' + evt;
+  el.fireEvent('on' + evt, ev);
+}
+
+function blur(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('blur', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('blur', cb);
+  }
+}
+function blurIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onblur';
+    el.fireEvent('on' + 'blur', evt);
+  } else {
+    el.attachEvent('on' + 'blur', cb);
+  }
+}
+
+function click(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('click', cb);
+  }
+}
+
+function clickIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'on' + 'click';
+    el.fireEvent('on' + 'click', evt);
+  } else {
+    el.attachEvent('on' + 'click', cb);
+  }
+}
+
+function dblClick(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('dblclick', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('dblclick', cb);
+  }
+}
+function dblClickIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'ondblclick';
+    el.fireEvent('on' + 'dblclick', evt);
+  } else {
+    el.attachEvent('on' + 'dblclick', cb);
+  }
+}
+
+function error(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('error', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('error', cb);
+  }
+}
+function errorIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onerror';
+    el.fireEvent('on' + 'error', evt);
+  } else {
+    el.attachEvent('on' + 'error', cb);
+  }
+}
+
+function focus(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('focus', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('focus', cb);
+  }
+}
+function focusIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onfocus';
+    el.fireEvent('on' + 'focus', evt);
+  } else {
+    el.attachEvent('on' + 'focus', cb);
+  }
+}
+
+function focusIn(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('focusin', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('focusin', cb);
+  }
+}
+function focusInIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onfocusin';
+    el.fireEvent('on' + 'focusin', evt);
+  } else {
+    el.attachEvent('on' + 'focusin', cb);
+  }
+}
+
+function focusOut(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('focusout', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('focusout', cb);
+  }
+}
+function focusOutIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onfocusout';
+    el.fireEvent('on' + 'focusout', evt);
+  } else {
+    el.attachEvent('on' + 'focusout', cb);
+  }
+}
+
+function keyUp(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('keyup', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('keyup', cb);
+  }
+}
+function keyUpIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onkeyup';
+    el.fireEvent('on' + 'keyup', evt);
+  } else {
+    el.attachEvent('on' + 'keyup', cb);
+  }
+}
+
+function keyDown(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('keydown', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('keydown', cb);
+  }
+}
+function keyDownIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onkeydown';
+    el.fireEvent('on' + 'keydown', evt);
+  } else {
+    el.attachEvent('on' + 'keydown', cb);
+  }
+}
+
+function load(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('load', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('load', cb);
+  }
+}
+function loadIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onload';
+    el.fireEvent('on' + 'load', evt);
+  } else {
+    el.attachEvent('on' + 'load', cb);
+  }
+}
+
+function unLoad(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('unload', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('unload', cb);
+  }
+}
+function unLoadIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onunload';
+    el.fireEvent('on' + 'unload', evt);
+  } else {
+    el.attachEvent('on' + 'unload', cb);
+  }
+}
+
+function mouse(sufx, el) {
+  var cb = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+  //sufx is string, options are 'up', 'down', 'enter', 'leave', 'over', 'out' and 'move'.
+
+  if (cb === null) {
+    var evt = new MouseEvent('mouse' + sufx, {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('mouse' + sufx, cb);
+  }
+}
+function mouseIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onmouse' + sufx;
+    el.fireEvent('on' + 'mouse' + sufx, evt);
+  } else {
+    el.attachEvent('on' + 'mouse' + sufx, cb);
+  }
+}
+
+function reSize(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('resize', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('resize', cb);
+  }
+}
+function reSizeIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onresize';
+    el.fireEvent('on' + 'resize', evt);
+  } else {
+    el.attachEvent('on' + 'resize', cb);
+  }
+}
+
+function scroll(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('scroll', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('scroll', cb);
+  }
+}
+function scrollIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onscroll';
+    el.fireEvent('on' + 'scroll', evt);
+  } else {
+    el.attachEvent('on' + 'scroll', cb);
+  }
+}
+
+function select(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = new MouseEvent('select', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    el.dispatchEvent(evt);
+  } else {
+    el.addEventListener('select', cb);
+  }
+}
+function selectIE(el) {
+  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+  if (cb === null) {
+    var evt = document.createEventObject();
+
+    evt.eventType = 'onselect';
+    el.fireEvent('on' + 'select', evt);
+  } else {
+    el.attachEvent('on' + 'select', cb);
+  }
+}
+
+module.exports = {
+  blur: blur,
+  blurIE: blurIE,
+  click: click,
+  clickIE: clickIE,
+  dblClick: dblClick,
+  dblClickIE: dblClickIE,
+  error: error,
+  errorIE: errorIE,
+  focus: focus,
+  focusIE: focusIE,
+  focusIn: focusIn,
+  focusInIE: focusInIE,
+  focusOut: focusOut,
+  focusOutIE: focusOutIE,
+  keyUp: keyUp,
+  keyUpIE: keyUpIE,
+  keyDown: keyDown,
+  keyDownIE: keyDownIE,
+  load: load,
+  loadIE: loadIE,
+  unLoad: unLoad,
+  unLoadIE: unLoadIE,
+  mouse: mouse,
+  mouseIE: mouseIE,
+  reSize: reSize,
+  reSizeIE: reSizeIE,
+  scroll: scroll,
+  scrollIE: scrollIE,
+  select: select,
+  selectIE: selectIE,
+  spark: spark,
+  sparkIE: sparkIE,
+  go: go,
+  goIE: goIE,
+  on: on,
+  onIE: onIE,
+  off: off,
+  offIE: offIE,
+  once: once,
+  onceIE: onceIE
+};
