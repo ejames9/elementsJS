@@ -491,21 +491,18 @@ iframe {
   position: -webkit-sticky;
   position: -moz-sticky;
   position: sticky;
-  top: 50px;
+  top: 0px;
 }
 
-.sticky {
-  position: fixed;
+.wrapper {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 60px;
+  margin-bottom: 200px;
 }
 
 #sideNav {
   padding-top: 50px;
 
-}
-
-.all {
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  left: 0px;
 }
