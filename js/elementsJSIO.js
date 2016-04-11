@@ -32,20 +32,20 @@ function insertDocs() {
           content.removeChild(columns);
           content.innerHTML = r;
 
-          var sideNav = document.getElementById('sideNav');
-          console.log(sideNav.offsetTop);
-          console.log(document.body.scrollTop);
-
-          window.onscroll = function(e) {
-              if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
-                  sideNav.setAttribute("class","sticky");
-                  console.log(e);
-              }
-              else {
-                  sideNav.setAttribute("class","");
-                  console.log('not sticky');
-              }
-          }
+          // var sideNav = document.getElementById('sideNav');
+          // console.log(sideNav.offsetTop);
+          // console.log(document.body.scrollTop);
+          //
+          // window.onscroll = function(e) {
+          //     if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
+          //         sideNav.setAttribute("class","sticky");
+          //         console.log(e);
+          //     }
+          //     else {
+          //         sideNav.setAttribute("class","");
+          //         console.log('not sticky');
+          //     }
+          // }
         }
       }
   xhr.open('GET', url);
