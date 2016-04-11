@@ -6,18 +6,23 @@ https://rawgit.com/ejames9/elementsJS/gh-pages/html/docsMenu.html
 https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
-var commit = '5f9f194';
+var marked = require('marked');
 
+
+var commit = '5f9f194';
 var rawGit = 'https://rawgit.com/ejames9/elementsJS/gh-pages/';
 var rawGitCDN = 'https://cdn.rawgit.com/ejames9/elementsJS/' + commit +'/';
 
 var docsMenu = 'html/docsMenu.html';
-
+var markDownUrl = 'md/elementsJSIODocs.md';
+var markDown;
 
 
 function _(bit1, bit2) {
   return bit1 + bit2;
 };
+
+
 
 function insertDocs() {
   var content = document.getElementById('content'),
@@ -31,6 +36,9 @@ function insertDocs() {
 
           content.removeChild(columns);
           content.innerHTML = r;
+
+          var docsMain = document.getElementById('docsMain');
+              docsMain.innerHTML = marked(markDown);
 
           // var sideNav = document.getElementById('sideNav');
           // console.log(sideNav.offsetTop);
@@ -53,11 +61,13 @@ function insertDocs() {
 }
 
 function getMarkDown() {
-  var url = 'https://cdn.rawgit.com/ejames9/elementsJS/324c76a/js/markdown.js';
+  var url = _(rawGit, markDownUrl);
   var xhr = new XMLHttpRequest();
       xhr.onloadend = function() {
         if (xhr.status === 200) {
-          console.log(this.responseText);
+          var r = this.responseText;
+          console.log(r);
+          markDown = r;
         }
       }
   xhr.open('GET', url);
@@ -104,6 +114,8 @@ function init() {
               console.log(e);
         }
       });
+
+  getMarkDown();
 };
 
 
