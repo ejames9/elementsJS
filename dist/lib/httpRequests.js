@@ -42,7 +42,6 @@ var xhr = function xhr(url, fd, method) {
     ajax.send(formData);
   };
   ajax();
-  val = JSON.parse(val);
 
   return val;
 };
@@ -85,7 +84,7 @@ var ajax = function ajax(url, fd, callback, method) {
 
   req.onloadend = function () {
     if (req.status === 200) {
-      var response = JSON.parse(this.response);
+      var response = this.response;
       callback(response);
     }
   };

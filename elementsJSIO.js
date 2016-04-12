@@ -56,6 +56,11 @@
 
 	https://rawgit.com/ejames9/elementsJS/gh-pages/html/docsMenu.html
 	https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
+
+	if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
+	//         sideNav.setAttribute("class","sticky");
+	//         console.log(e);
+	//     }
 	*/
 
 	var dom = __webpack_require__(1).dom;
@@ -74,61 +79,18 @@
 	var markDownUrl = 'md/elementsJSIODocs.md';
 	var markDown;
 
-	function _(bit1, bit2) {
-	  return bit1 + bit2;
-	}
-
 	function insertDocs() {
-	  // var content = document.getElementById('content'),
-	  //     columns = document.getElementById('mainPageColumns');
-	  //
-	  // var url = _(rawGit, docsMenu);
-	  // var xhr = new XMLHttpRequest();
-	  //     xhr.onloadend = function() {
-	  //       if (xhr.status === 200) {
-	  //         var r = this.responseText;
-	  //
-	  //         content.removeChild(columns);
-	  //         content.innerHTML = r;
-	  //
-	  //         var docsMain = document.getElementById('docsMain');
-	  //             docsMain.innerHTML = marked(markDown);
 
-	  (0, _elementsJS.ajax)(_(rawGit, docsMenu), null, function (r) {
-	    (0, _elementsJS.log)(window, 'blue');
-
+	  (0, _elementsJS.ajax)((0, _elementsJS.url)(rawGit, docsMenu), null, function (r) {
 	    var elem0 = _$('#content') ? dom('#content') : make('#content').put("body");
-	    elem0.x('#mainPageColumns').html(r);
-
+	    elem0.html(r);
 	    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
 	    elem1.html(marked(markDown));
 	  });
-
-	  // var sideNav = document.getElementById('sideNav');
-	  // console.log(sideNav.offsetTop);
-	  // console.log(document.body.scrollTop);
-	  //
-	  // window.onscroll = function(e) {
-	  //     if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
-	  //         sideNav.setAttribute("class","sticky");
-	  //         console.log(e);
-	  //     }
-	  //     else {
-	  //         sideNav.setAttribute("class","");
-	  //         console.log('not sticky');
-	  //     }
-	  //         // }
-	  //       }
-	  //     }
-	  // xhr.open('GET', url);
-	  // xhr.send();
 	}
 
-	var elem2 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	elem2.color('red');
-
 	function getMarkDown() {
-	  var url = _(rawGit, markDownUrl);
+	  var addy = (0, _elementsJS.url)(rawGit, markDownUrl);
 	  var xhr = new XMLHttpRequest();
 	  xhr.onloadend = function () {
 	    if (xhr.status === 200) {
@@ -137,7 +99,7 @@
 	      markDown = r;
 	    }
 	  };
-	  xhr.open('GET', url);
+	  xhr.open('GET', addy);
 	  xhr.send();
 	}
 
@@ -194,7 +156,7 @@
 
 	var _element = __webpack_require__(2);
 
-	var elem = _interopRequireWildcard(_element);
+	var _element2 = _interopRequireDefault(_element);
 
 	var _httpRequests = __webpack_require__(8);
 
@@ -218,6 +180,8 @@
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	// require('babel-polyfill');
 
 	/*
@@ -238,7 +202,7 @@
 	//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
 	var element = function element(el) {
-	  return new elem();
+	  return new _element2.default();
 	};
 
 	/*This function copies the prototype object of a superConstructor to the prototype object
@@ -292,7 +256,7 @@
 	      for (var _iterator = el[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	        var l = _step.value;
 
-	        rv.push(new elem(l));
+	        rv.push(new _element2.default(l));
 	      }
 	    } catch (err) {
 	      _didIteratorError = true;
@@ -309,7 +273,7 @@
 	      }
 	    }
 	  } else {
-	    rv = new elem(el);
+	    rv = new _element2.default(el);
 	  }
 	  return rv;
 	};
@@ -403,6 +367,14 @@
 	//This practically useless function will lock up the browser for a preset amount of time.
 	var sleep = function sleep(milliseconds) {
 	  return utils.sleep(milliseconds);
+	};
+
+	//A function for combining strings for urls
+	var url = function url(bit1, bit2) {
+	  var bit3 = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
+	  var bit4 = arguments.length <= 3 || arguments[3] === undefined ? '' : arguments[3];
+
+	  return bit1 + bit2 + bit3 + bit4;
 	};
 
 	//This is a synchronous alias function for XMLHttpRequests.
@@ -659,6 +631,7 @@
 	  once: once,
 	  el: el,
 	  log: log,
+	  url: url,
 	  xhr: xhr,
 	  err: err,
 	  info: info,
@@ -685,7 +658,6 @@
 	//DONE:30 functions: err(), info(), warn().
 	//DONE:130 Complete all standalone style functions.
 
-
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
@@ -707,7 +679,7 @@
 	License: ISC
 	*/
 
-	exports.default = element;
+	exports.default = Element;
 
 	var _logger = __webpack_require__(3);
 
@@ -731,11 +703,11 @@
 	//DOING:20 Complete all functions for this object.
 	//IDEA: A method that incorporates jquery methods into El object (animation?).
 
-	function element(el) {
+	function Element(el) {
 	  this.el = el;
 
-	  if (!(this instanceof element)) {
-	    return new element();
+	  if (!(this instanceof Element)) {
+	    return new Element();
 	  }
 
 	  // Style methods //
@@ -3345,7 +3317,6 @@
 	    ajax.send(formData);
 	  };
 	  ajax();
-	  val = JSON.parse(val);
 
 	  return val;
 	};
@@ -3388,7 +3359,7 @@
 
 	  req.onloadend = function () {
 	    if (req.status === 200) {
-	      var response = JSON.parse(this.response);
+	      var response = this.response;
 	      callback(response);
 	    }
 	  };

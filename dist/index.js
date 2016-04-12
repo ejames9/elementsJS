@@ -2,7 +2,7 @@
 
 var _element = require('./lib/element');
 
-var elem = _interopRequireWildcard(_element);
+var _element2 = _interopRequireDefault(_element);
 
 var _httpRequests = require('./lib/httpRequests');
 
@@ -26,6 +26,8 @@ var DOM = _interopRequireWildcard(_DOM);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // require('babel-polyfill');
 
 /*
@@ -46,7 +48,7 @@ URL: ""
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
 var element = function element(el) {
-  return new elem.element();
+  return new _element2.default();
 };
 
 /*This function copies the prototype object of a superConstructor to the prototype object
@@ -100,7 +102,7 @@ var dom = function dom(el) {
       for (var _iterator = el[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var l = _step.value;
 
-        rv.push(new elem.element(l));
+        rv.push(new _element2.default(l));
       }
     } catch (err) {
       _didIteratorError = true;
@@ -117,7 +119,7 @@ var dom = function dom(el) {
       }
     }
   } else {
-    rv = new elem.element(el);
+    rv = new _element2.default(el);
   }
   return rv;
 };
@@ -211,6 +213,14 @@ var shifter = function shifter(onFunc, offFunc) {
 //This practically useless function will lock up the browser for a preset amount of time.
 var sleep = function sleep(milliseconds) {
   return utils.sleep(milliseconds);
+};
+
+//A function for combining strings for urls
+var url = function url(bit1, bit2) {
+  var bit3 = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
+  var bit4 = arguments.length <= 3 || arguments[3] === undefined ? '' : arguments[3];
+
+  return bit1 + bit2 + bit3 + bit4;
 };
 
 //This is a synchronous alias function for XMLHttpRequests.
@@ -467,6 +477,7 @@ module.exports = {
   once: once,
   el: el,
   log: log,
+  url: url,
   xhr: xhr,
   err: err,
   info: info,

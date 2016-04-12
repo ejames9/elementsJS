@@ -197,6 +197,10 @@ var sleep = function(milliseconds) {
   return utils.sleep(milliseconds);
 };
 
+//A function for combining strings for urls
+var url = function(bit1, bit2, bit3='', bit4='') {
+  return bit1 + bit2 + bit3 + bit4;
+}
 
 
 //This is a synchronous alias function for XMLHttpRequests.
@@ -450,6 +454,7 @@ module.exports = {
              once: once,
                el: el,
               log: log,
+              url: url,
               xhr: xhr,
               err: err,
              info: info,

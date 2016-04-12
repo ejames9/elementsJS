@@ -10,6 +10,11 @@ JavaScript file for the elementsJS project site.
 
 https://rawgit.com/ejames9/elementsJS/gh-pages/html/docsMenu.html
 https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
+
+if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
+//         sideNav.setAttribute("class","sticky");
+//         console.log(e);
+//     }
 */
 
 var dom = require("elementsJS").dom;
@@ -28,61 +33,18 @@ var docsMenu = 'html/docsMenu.html';
 var markDownUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
-function _(bit1, bit2) {
-  return bit1 + bit2;
-}
-
 function insertDocs() {
-  // var content = document.getElementById('content'),
-  //     columns = document.getElementById('mainPageColumns');
-  //
-  // var url = _(rawGit, docsMenu);
-  // var xhr = new XMLHttpRequest();
-  //     xhr.onloadend = function() {
-  //       if (xhr.status === 200) {
-  //         var r = this.responseText;
-  //
-  //         content.removeChild(columns);
-  //         content.innerHTML = r;
-  //
-  //         var docsMain = document.getElementById('docsMain');
-  //             docsMain.innerHTML = marked(markDown);
 
-  (0, _elementsJS.ajax)(_(rawGit, docsMenu), null, function (r) {
-    (0, _elementsJS.log)(window, 'blue');
-
+  (0, _elementsJS.ajax)((0, _elementsJS.url)(rawGit, docsMenu), null, function (r) {
     var elem0 = _$('#content') ? dom('#content') : make('#content').put("body");
-    elem0.x('#mainPageColumns').html(r);
-
+    elem0.html(r);
     var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
     elem1.html(marked(markDown));
   });
-
-  // var sideNav = document.getElementById('sideNav');
-  // console.log(sideNav.offsetTop);
-  // console.log(document.body.scrollTop);
-  //
-  // window.onscroll = function(e) {
-  //     if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
-  //         sideNav.setAttribute("class","sticky");
-  //         console.log(e);
-  //     }
-  //     else {
-  //         sideNav.setAttribute("class","");
-  //         console.log('not sticky');
-  //     }
-  //         // }
-  //       }
-  //     }
-  // xhr.open('GET', url);
-  // xhr.send();
 }
 
-var elem2 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-elem2.color('red');
-
 function getMarkDown() {
-  var url = _(rawGit, markDownUrl);
+  var addy = (0, _elementsJS.url)(rawGit, markDownUrl);
   var xhr = new XMLHttpRequest();
   xhr.onloadend = function () {
     if (xhr.status === 200) {
@@ -91,7 +53,7 @@ function getMarkDown() {
       markDown = r;
     }
   };
-  xhr.open('GET', url);
+  xhr.open('GET', addy);
   xhr.send();
 }
 

@@ -15,7 +15,7 @@ Author: Eric James Foster
 License: ISC
 */
 
-exports.default = element;
+exports.default = Element;
 
 var _logger = require('./logger');
 
@@ -39,11 +39,11 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 //DOING:20 Complete all functions for this object.
 //IDEA: A method that incorporates jquery methods into El object (animation?).
 
-function element(el) {
+function Element(el) {
   this.el = el;
 
-  if (!(this instanceof element)) {
-    return new element();
+  if (!(this instanceof Element)) {
+    return new Element();
   }
 
   // Style methods //
