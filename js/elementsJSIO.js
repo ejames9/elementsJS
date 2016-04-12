@@ -12,6 +12,9 @@ if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offs
 //     }
 */
 
+import * as Help from '../../js/docsHelper.js';
+
+
 
 imports({
     'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'scroll'],
@@ -39,21 +42,25 @@ function insertDocs() {
     <'#docsMain'/>
               .html(marked(markDown));
 
-    var b = true;
-    log(el('#dom-func').offsetTop);
+    const offSets = Help.getOffSets();
 
-    scroll(window, (e)=> {
-      log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
+    log(offSets);
 
-      if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
-        if (b) {
-          log('blue', 'blue');
-          log(e);
-          b = false;
-        }
-      }
-
-    })
+    // var b = true;
+    // log(el('#dom-func').offsetTop);
+    //
+    // scroll(window, (e)=> {
+    //   log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
+    //
+    //   if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
+    //     if (b) {
+    //       log('blue', 'blue');
+    //       log(e);
+    //       b = false;
+    //     }
+    //   }
+    //
+    // })
   });
 }
 

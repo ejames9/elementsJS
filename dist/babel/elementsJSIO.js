@@ -1,5 +1,13 @@
 "use strict";
 
+var _docsHelper = require("../../js/docsHelper.js");
+
+var Help = _interopRequireWildcard(_docsHelper);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+///-------Begin Module requires---------///
+var _$ = require("elementsJS")._$;
 /*
 elementsJSIO.js
 JavaScript file for the elementsJS project site.
@@ -13,8 +21,6 @@ if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offs
 //     }
 */
 
-///-------Begin Module requires---------///
-var _$ = require("elementsJS")._$;
 var dom = require("elementsJS").dom;
 var make = require("elementsJS").make;
 ///|------------------------------------|//
@@ -51,20 +57,25 @@ function insertDocs() {
     var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
     elem1.html(marked(markDown));
 
-    var b = true;
-    log(el('#dom-func').offsetTop);
+    var offSets = Help.getOffSets();
 
-    scroll(window, function (e) {
-      log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
+    log(offSets);
 
-      if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
-        if (b) {
-          log('blue', 'blue');
-          log(e);
-          b = false;
-        }
-      }
-    });
+    // var b = true;
+    // log(el('#dom-func').offsetTop);
+    //
+    // scroll(window, (e)=> {
+    //   log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
+    //
+    //   if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
+    //     if (b) {
+    //       log('blue', 'blue');
+    //       log(e);
+    //       b = false;
+    //     }
+    //   }
+    //
+    // })
   });
 }
 

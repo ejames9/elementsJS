@@ -46,6 +46,14 @@
 
 	"use strict";
 
+	var _docsHelper = __webpack_require__(1);
+
+	var Help = _interopRequireWildcard(_docsHelper);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	///-------Begin Module requires---------///
+	var _$ = __webpack_require__(2)._$;
 	/*
 	elementsJSIO.js
 	JavaScript file for the elementsJS project site.
@@ -59,13 +67,11 @@
 	//     }
 	*/
 
-	///-------Begin Module requires---------///
-	var _$ = __webpack_require__(1)._$;
-	var dom = __webpack_require__(1).dom;
-	var make = __webpack_require__(1).make;
+	var dom = __webpack_require__(2).dom;
+	var make = __webpack_require__(2).make;
 	///|------------------------------------|//
 
-	var elementsJS = __webpack_require__(1);
+	var elementsJS = __webpack_require__(2);
 	var imports = elementsJS.imports;
 	var go = elementsJS.go;
 	var el = elementsJS.el;
@@ -76,7 +82,7 @@
 	var click = elementsJS.click;
 	var scroll = elementsJS.scroll;
 
-	var marked = __webpack_require__(9);
+	var marked = __webpack_require__(10);
 
 	///End Module requires///
 
@@ -97,20 +103,25 @@
 	    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
 	    elem1.html(marked(markDown));
 
-	    var b = true;
-	    log(el('#dom-func').offsetTop);
+	    var offSets = Help.getOffSets();
 
-	    scroll(window, function (e) {
-	      log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
+	    log(offSets);
 
-	      if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
-	        if (b) {
-	          log('blue', 'blue');
-	          log(e);
-	          b = false;
-	        }
-	      }
-	    });
+	    // var b = true;
+	    // log(el('#dom-func').offsetTop);
+	    //
+	    // scroll(window, (e)=> {
+	    //   log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
+	    //
+	    //   if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
+	    //     if (b) {
+	    //       log('blue', 'blue');
+	    //       log(e);
+	    //       b = false;
+	    //     }
+	    //   }
+	    //
+	    // })
 	  });
 	}
 
@@ -175,29 +186,121 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	
+	var el = __webpack_require__(2).el;
+
+
+
+	function getOffSets() {
+	  var offSets = {};
+
+	      offSets['get-started']         = el('#get-started').offsetTop;
+	      offSets['installation']        = el('#installation').offsetTop;
+	      offSets['usage']               = el('#usage').offsetTop;
+	      offSets['interpreter-install'] = el('#interpreter-install').offsetTop;
+	      offSets['imports']             = el('#imports').offsetTop;
+	      offSets['DOM']                 = el('#DOM').offsetTop;
+	      offSets['el-func']             = el('#el-func').offsetTop;
+	      offSets['dom-func']            = el('#dom-func').offsetTop;
+	      offSets['__-func']             = el('#__-func').offsetTop;
+	      offSets['make-func']           = el('#make-func').offsetTop;
+	      offSets['put-func']            = el('#put-func').offsetTop;
+	      offSets['x-func']              = el('#x-func').offsetTop;
+	      offSets['fore-func']           = el('#fore-func').offsetTop;
+	      offSets['aft-func']            = el('#aft-func').offsetTop;
+	      offSets['show-func']           = el('#show-func').offsetTop;
+	      offSets['hide-func']           = el('#hide-func').offsetTop;
+	      offSets['size-func']           = el('#size-func').offsetTop;
+	      offSets['event-handle']        = el('#event-handle').offsetTop;
+	      offSets['go-func']             = el('#go-func').offsetTop;
+	      offSets['on-func']             = el('#off-func').offsetTop;
+	      offSets['once-func']           = el('#once-func').offsetTop;
+	      offSets['spark-func']          = el('#spark-func').offsetTop;
+	      offSets['click-func']          = el('#click-func').offsetTop;
+	      offSets['dblClick-func']       = el('#dblClick-func').offsetTop;
+	      offSets['blur-func']           = el('#blur-func').offsetTop;
+	      offSets['error-func']          = el('#error-func').offsetTop;
+	      offSets['focus-func']          = el('#focus-func').offsetTop;
+	      offSets['focusIn-func']        = el('#focusIn-func').offsetTop;
+	      offSets['focusOut-func']       = el('#focusOut-func').offsetTop;
+	      offSets['keyUp-func']          = el('#keyUp-func').offsetTop;
+	      offSets['keyDown-func']        = el('#keyDown-func').offsetTop;
+	      offSets['load-func']           = el('#load-func').offsetTop;
+	      offSets['unLoad-func']         = el('#unLoad-func').offsetTop;
+	      offSets['mouse-func']          = el('#mouse-func').offsetTop;
+	      offSets['resize-func']         = el('#resize-func').offsetTop;
+	      offSets['scroll-func']         = el('#scroll-func').offsetTop;
+	      offSets['select-func']         = el('#select-func').offsetTop;
+	      offSets['http']                = el('#http').offsetTop;
+	      offSets['xhr-func']            = el('#xhr-func').offsetTop;
+	      offSets['ajax-func']           = el('#ajax-func').offsetTop;
+	      offSets['loggers']             = el('#loggers').offsetTop;
+	      offSets['log-func']            = el('#log-func').offsetTop;
+	      offSets['info-func']           = el('#info-func').offsetTop;
+	      offSets['warn-func']           = el('#warn-func').offsetTop;
+	      offSets['error-func']          = el('#error-func').offsetTop;
+	      offSets['utils']               = el('#utils').offsetTop;
+	      offSets['proto-func']          = el('#proto-func').offsetTop;
+	      offSets['shifter-func']        = el('#shifter-func').offsetTop;
+	      offSets['elem-obj']            = el('#elem-obj').offsetTop;
+	      offSets['element-const']       = el('#element-const').offsetTop;
+	      offSets['dom2-func']           = el('#dom2-func').offsetTop;
+	      offSets['make2-func']          = el('#make2-func').offsetTop;
+	      offSets['elem-obj-methods']    = el('#elem-obj-methods').offsetTop;
+	      offSets['element-font-ex']     = el('#element-font-ex').offsetTop;
+	      offSets['exs']                 = el('#exs').offsetTop;
+	      offSets['style-methods']       = el('#style-methods').offsetTop;
+	      offSets['core-func']           = el('#core-func').offsetTop;
+	      offSets['DOM-Elem-Methods']    = el('#DOM-Elem-Methods').offsetTop;
+	      offSets['event-methods']       = el('#event-methods').offsetTop;
+	      offSets['Util-Methods']        = el('#Util-Methods').offsetTop;
+	      offSets['elements-syntax']     = el('#elements-syntax').offsetTop;
+	      offSets['elemsyntax-func1']    = el('#elemsyntax-func1').offsetTop;
+	      offSets['elemsyntax-func2']    = el('#elemsyntax-func2').offsetTop;
+	      offSets['elemsyntax-func3']    = el('#elemsyntax-func3').offsetTop;
+	      offSets['elemsyntax-func4']    = el('#elemsyntax-func4').offsetTop;
+	      offSets['elemsyntax-func5']    = el('#elemsyntax-func5').offsetTop;
+	      offSets['elemsyntax-func6']    = el('#elemsyntax-func6').offsetTop;
+	      offSets['append-syntax']       = el('#append-syntax').offsetTop;
+	      offSets['elemsyntax-func7']    = el('#elemsyntax-func7').offsetTop;
+
+	  return offSets;
+
+	}
+
+
+	module.exports = {
+	                  getOffSets: getOffSets
+	                                         }
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
-	var _element = __webpack_require__(2);
+	var _element = __webpack_require__(3);
 
 	var _element2 = _interopRequireDefault(_element);
 
-	var _httpRequests = __webpack_require__(8);
+	var _httpRequests = __webpack_require__(9);
 
 	var requests = _interopRequireWildcard(_httpRequests);
 
-	var _events = __webpack_require__(5);
+	var _events = __webpack_require__(6);
 
 	var events = _interopRequireWildcard(_events);
 
-	var _logger = __webpack_require__(3);
+	var _logger = __webpack_require__(4);
 
 	var consol = _interopRequireWildcard(_logger);
 
-	var _utilities = __webpack_require__(6);
+	var _utilities = __webpack_require__(7);
 
 	var utils = _interopRequireWildcard(_utilities);
 
-	var _DOM = __webpack_require__(7);
+	var _DOM = __webpack_require__(8);
 
 	var DOM = _interopRequireWildcard(_DOM);
 
@@ -682,7 +785,7 @@
 	//DONE:130 Complete all standalone style functions.
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -704,17 +807,17 @@
 
 	exports.default = Element;
 
-	var _logger = __webpack_require__(3);
+	var _logger = __webpack_require__(4);
 
-	var _index = __webpack_require__(1);
+	var _index = __webpack_require__(2);
 
 	var elements = _interopRequireWildcard(_index);
 
-	var _events = __webpack_require__(5);
+	var _events = __webpack_require__(6);
 
 	var events = _interopRequireWildcard(_events);
 
-	var _DOM = __webpack_require__(7);
+	var _DOM = __webpack_require__(8);
 
 	var DOM = _interopRequireWildcard(_DOM);
 
@@ -2023,7 +2126,7 @@
 	};
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2038,7 +2141,7 @@
 	License: ISC
 	*/
 
-	var colors = __webpack_require__(4);
+	var colors = __webpack_require__(5);
 	//  require('babel-polyfill');
 
 	//DONE:90 Add second argument for log ID purposes, figure best way to approach this.
@@ -2205,7 +2308,7 @@
 	};
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2271,14 +2374,14 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _logger = __webpack_require__(3);
+	var _logger = __webpack_require__(4);
 
-	var _utilities = __webpack_require__(6);
+	var _utilities = __webpack_require__(7);
 
 	var utils = _interopRequireWildcard(_utilities);
 
@@ -2896,12 +2999,12 @@
 	};
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _logger = __webpack_require__(3);
+	var _logger = __webpack_require__(4);
 
 	// require('babel-polyfill');
 
@@ -3029,18 +3132,18 @@
 	};
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _element = __webpack_require__(2);
+	var _element = __webpack_require__(3);
 
 	var _element2 = _interopRequireDefault(_element);
 
-	var _logger = __webpack_require__(3);
+	var _logger = __webpack_require__(4);
 
-	var _utilities = __webpack_require__(6);
+	var _utilities = __webpack_require__(7);
 
 	var utils = _interopRequireWildcard(_utilities);
 
@@ -3293,12 +3396,12 @@
 	};
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _logger = __webpack_require__(3);
+	var _logger = __webpack_require__(4);
 
 	// require('babel-polyfill');
 
@@ -3396,7 +3499,7 @@
 	};
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
