@@ -46,9 +46,9 @@
 
 	"use strict";
 
-	var _docsHelper = __webpack_require__(1);
+	var _sideNavControl = __webpack_require__(1);
 
-	var Help = _interopRequireWildcard(_docsHelper);
+	var SNC = _interopRequireWildcard(_sideNavControl);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -95,7 +95,7 @@
 	var markDown;
 
 	//Documentation page change function
-	function insertDocs() {
+	function insertDocs(cb) {
 	  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
 	  ajax(url(rawGit, docsMenu), null, function (r) {
 	    var elem0 = _$('#content') ? dom('#content') : make('#content').put("body");
@@ -103,42 +103,14 @@
 	    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
 	    elem1.html(marked(markDown));
 
-	    var offSets = Help.getOffSets();
+	    var offSets = SNC.getOffSets();
 
-	    console.log(offSets);
+	    for (var el in offSets) {
+	      log('id: ' + el, 'red');
+	      log('offSet: ' + offSets[el], ['red', 'blue']);
+	    }
 
-	    document.addEventListener('scroll', function () {
-	      switch (true) {
-	        case el('html').scrollTop > 13 && el('html').scrollTop < 94:
-	          log('hello 13', 'red');
-	          var elem2 = _$('#get-started') ? dom('#get-started') : make('#get-started').put("body");
-	          elem2.bgColor('blue').color('red');
-	          break;
-	        case el('html').scrollTop > 94 && el('html').scrollTop < 180:
-	          log('hello 94', 'red');
-	          var elem3 = _$('#installation') ? dom('#installation') : make('#installation').put("body");
-	          elem3.bgColor('blue').color('red');
-	          break;
-	        default:
-	          log(el('html').scrollTop);
-	      }
-	    });
-
-	    // var b = true;
-	    // log(el('#dom-func').offsetTop);
-	    //
-	    // scroll(window, (e)=> {
-	    //   log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
-	    //
-	    //   if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
-	    //     if (b) {
-	    //       log('blue', 'blue');
-	    //       log(e);
-	    //       b = false;
-	    //     }
-	    //   }
-	    //
-	    // })
+	    cb();
 	  });
 	}
 
@@ -187,7 +159,9 @@
 	        break;
 	      case document.getElementById('api-butn'):
 	        console.log("I'm in.");
-	        insertDocs();
+	        insertDocs(function () {
+	          SNC.sideNavController();
+	        });
 	        break;
 	      default:
 	        if (npmBar.style.display !== 'none') {
@@ -203,93 +177,115 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	
-	var el = __webpack_require__(2).el;
+	"use strict";
 
+	var _elementsJS = __webpack_require__(2);
 
+	///-------elementsJS requires---------///
+	var _$ = __webpack_require__(2)._$;
+	var dom = __webpack_require__(2).dom;
+	var make = __webpack_require__(2).make;
+	///|------------------------------------|//
 
 	function getOffSets() {
-	  var offSets = {};
+	    var offSets = {};
+	    offSets['get-started'] = (0, _elementsJS.el)('#get-started').offsetTop;
+	    offSets['installation'] = (0, _elementsJS.el)('#installation').offsetTop;
+	    offSets['usage'] = (0, _elementsJS.el)('#usage').offsetTop;
+	    offSets['interpreter-install'] = (0, _elementsJS.el)('#interpreter-install').offsetTop;
+	    offSets['imports'] = (0, _elementsJS.el)('#imports').offsetTop;
+	    offSets['DOM'] = (0, _elementsJS.el)('#DOM').offsetTop;
+	    offSets['el-func'] = (0, _elementsJS.el)('#el-func').offsetTop;
+	    offSets['dom-func'] = (0, _elementsJS.el)('#dom-func').offsetTop;
+	    offSets['__-func'] = (0, _elementsJS.el)('#__-func').offsetTop;
+	    offSets['make-func'] = (0, _elementsJS.el)('#make-func').offsetTop;
+	    offSets['put-func'] = (0, _elementsJS.el)('#put-func').offsetTop;
+	    offSets['x-func'] = (0, _elementsJS.el)('#x-func').offsetTop;
+	    offSets['fore-func'] = (0, _elementsJS.el)('#fore-func').offsetTop;
+	    offSets['aft-func'] = (0, _elementsJS.el)('#aft-func').offsetTop;
+	    offSets['show-func'] = (0, _elementsJS.el)('#show-func').offsetTop;
+	    offSets['hide-func'] = (0, _elementsJS.el)('#hide-func').offsetTop;
+	    offSets['size-func'] = (0, _elementsJS.el)('#size-func').offsetTop;
+	    offSets['event-handle'] = (0, _elementsJS.el)('#event-handle').offsetTop;
+	    offSets['go-func'] = (0, _elementsJS.el)('#go-func').offsetTop;
+	    offSets['on-func'] = (0, _elementsJS.el)('#off-func').offsetTop;
+	    offSets['once-func'] = (0, _elementsJS.el)('#once-func').offsetTop;
+	    offSets['spark-func'] = (0, _elementsJS.el)('#spark-func').offsetTop;
+	    offSets['click-func'] = (0, _elementsJS.el)('#click-func').offsetTop;
+	    offSets['dblClick-func'] = (0, _elementsJS.el)('#dblClick-func').offsetTop;
+	    offSets['blur-func'] = (0, _elementsJS.el)('#blur-func').offsetTop;
+	    offSets['error-func'] = (0, _elementsJS.el)('#error-func').offsetTop;
+	    offSets['focus-func'] = (0, _elementsJS.el)('#focus-func').offsetTop;
+	    offSets['focusIn-func'] = (0, _elementsJS.el)('#focusIn-func').offsetTop;
+	    offSets['focusOut-func'] = (0, _elementsJS.el)('#focusOut-func').offsetTop;
+	    offSets['keyUp-func'] = (0, _elementsJS.el)('#keyUp-func').offsetTop;
+	    offSets['keyDown-func'] = (0, _elementsJS.el)('#keyDown-func').offsetTop;
+	    offSets['load-func'] = (0, _elementsJS.el)('#load-func').offsetTop;
+	    offSets['unLoad-func'] = (0, _elementsJS.el)('#unLoad-func').offsetTop;
+	    offSets['mouse-func'] = (0, _elementsJS.el)('#mouse-func').offsetTop;
+	    offSets['resize-func'] = (0, _elementsJS.el)('#resize-func').offsetTop;
+	    offSets['scroll-func'] = (0, _elementsJS.el)('#scroll-func').offsetTop;
+	    offSets['select-func'] = (0, _elementsJS.el)('#select-func').offsetTop;
+	    offSets['http'] = (0, _elementsJS.el)('#http').offsetTop;
+	    offSets['xhr-func'] = (0, _elementsJS.el)('#xhr-func').offsetTop;
+	    offSets['ajax-func'] = (0, _elementsJS.el)('#ajax-func').offsetTop;
+	    offSets['loggers'] = (0, _elementsJS.el)('#loggers').offsetTop;
+	    offSets['log-func'] = (0, _elementsJS.el)('#log-func').offsetTop;
+	    offSets['info-func'] = (0, _elementsJS.el)('#info-func').offsetTop;
+	    offSets['warn-func'] = (0, _elementsJS.el)('#warn-func').offsetTop;
+	    offSets['error-func'] = (0, _elementsJS.el)('#error-func').offsetTop;
+	    offSets['utils'] = (0, _elementsJS.el)('#utils').offsetTop;
+	    offSets['proto-func'] = (0, _elementsJS.el)('#proto-func').offsetTop;
+	    offSets['shifter-func'] = (0, _elementsJS.el)('#shifter-func').offsetTop;
+	    offSets['elem-obj'] = (0, _elementsJS.el)('#elem-obj').offsetTop;
+	    offSets['element-const'] = (0, _elementsJS.el)('#element-const').offsetTop;
+	    offSets['dom2-func'] = (0, _elementsJS.el)('#dom2-func').offsetTop;
+	    offSets['make2-func'] = (0, _elementsJS.el)('#make2-func').offsetTop;
+	    offSets['elem-obj-methods'] = (0, _elementsJS.el)('#elem-obj-methods').offsetTop;
+	    offSets['element-font-ex'] = (0, _elementsJS.el)('#element-font-ex').offsetTop;
+	    offSets['exs'] = (0, _elementsJS.el)('#exs').offsetTop;
+	    offSets['style-methods'] = (0, _elementsJS.el)('#style-methods').offsetTop;
+	    offSets['core-func'] = (0, _elementsJS.el)('#core-func').offsetTop;
+	    offSets['DOM-Elem-Methods'] = (0, _elementsJS.el)('#DOM-Elem-Methods').offsetTop;
+	    offSets['event-methods'] = (0, _elementsJS.el)('#event-methods').offsetTop;
+	    offSets['Util-Methods'] = (0, _elementsJS.el)('#Util-Methods').offsetTop;
+	    offSets['elements-syntax'] = (0, _elementsJS.el)('#elements-syntax').offsetTop;
+	    offSets['elemsyntax-func1'] = (0, _elementsJS.el)('#elemsyntax-func1').offsetTop;
+	    offSets['elemsyntax-func2'] = (0, _elementsJS.el)('#elemsyntax-func2').offsetTop;
+	    offSets['elemsyntax-func3'] = (0, _elementsJS.el)('#elemsyntax-func3').offsetTop;
+	    offSets['elemsyntax-func4'] = (0, _elementsJS.el)('#elemsyntax-func4').offsetTop;
+	    offSets['elemsyntax-func5'] = (0, _elementsJS.el)('#elemsyntax-func5').offsetTop;
+	    offSets['elemsyntax-func6'] = (0, _elementsJS.el)('#elemsyntax-func6').offsetTop;
+	    offSets['append-syntax'] = (0, _elementsJS.el)('#append-syntax').offsetTop;
+	    offSets['elemsyntax-func7'] = (0, _elementsJS.el)('#elemsyntax-func7').offsetTop;
 
-	      offSets['get-started']         = el('#get-started').offsetTop;
-	      offSets['installation']        = el('#installation').offsetTop;
-	      offSets['usage']               = el('#usage').offsetTop;
-	      offSets['interpreter-install'] = el('#interpreter-install').offsetTop;
-	      offSets['imports']             = el('#imports').offsetTop;
-	      offSets['DOM']                 = el('#DOM').offsetTop;
-	      offSets['el-func']             = el('#el-func').offsetTop;
-	      offSets['dom-func']            = el('#dom-func').offsetTop;
-	      offSets['__-func']             = el('#__-func').offsetTop;
-	      offSets['make-func']           = el('#make-func').offsetTop;
-	      offSets['put-func']            = el('#put-func').offsetTop;
-	      offSets['x-func']              = el('#x-func').offsetTop;
-	      offSets['fore-func']           = el('#fore-func').offsetTop;
-	      offSets['aft-func']            = el('#aft-func').offsetTop;
-	      offSets['show-func']           = el('#show-func').offsetTop;
-	      offSets['hide-func']           = el('#hide-func').offsetTop;
-	      offSets['size-func']           = el('#size-func').offsetTop;
-	      offSets['event-handle']        = el('#event-handle').offsetTop;
-	      offSets['go-func']             = el('#go-func').offsetTop;
-	      offSets['on-func']             = el('#off-func').offsetTop;
-	      offSets['once-func']           = el('#once-func').offsetTop;
-	      offSets['spark-func']          = el('#spark-func').offsetTop;
-	      offSets['click-func']          = el('#click-func').offsetTop;
-	      offSets['dblClick-func']       = el('#dblClick-func').offsetTop;
-	      offSets['blur-func']           = el('#blur-func').offsetTop;
-	      offSets['error-func']          = el('#error-func').offsetTop;
-	      offSets['focus-func']          = el('#focus-func').offsetTop;
-	      offSets['focusIn-func']        = el('#focusIn-func').offsetTop;
-	      offSets['focusOut-func']       = el('#focusOut-func').offsetTop;
-	      offSets['keyUp-func']          = el('#keyUp-func').offsetTop;
-	      offSets['keyDown-func']        = el('#keyDown-func').offsetTop;
-	      offSets['load-func']           = el('#load-func').offsetTop;
-	      offSets['unLoad-func']         = el('#unLoad-func').offsetTop;
-	      offSets['mouse-func']          = el('#mouse-func').offsetTop;
-	      offSets['resize-func']         = el('#resize-func').offsetTop;
-	      offSets['scroll-func']         = el('#scroll-func').offsetTop;
-	      offSets['select-func']         = el('#select-func').offsetTop;
-	      offSets['http']                = el('#http').offsetTop;
-	      offSets['xhr-func']            = el('#xhr-func').offsetTop;
-	      offSets['ajax-func']           = el('#ajax-func').offsetTop;
-	      offSets['loggers']             = el('#loggers').offsetTop;
-	      offSets['log-func']            = el('#log-func').offsetTop;
-	      offSets['info-func']           = el('#info-func').offsetTop;
-	      offSets['warn-func']           = el('#warn-func').offsetTop;
-	      offSets['error-func']          = el('#error-func').offsetTop;
-	      offSets['utils']               = el('#utils').offsetTop;
-	      offSets['proto-func']          = el('#proto-func').offsetTop;
-	      offSets['shifter-func']        = el('#shifter-func').offsetTop;
-	      offSets['elem-obj']            = el('#elem-obj').offsetTop;
-	      offSets['element-const']       = el('#element-const').offsetTop;
-	      offSets['dom2-func']           = el('#dom2-func').offsetTop;
-	      offSets['make2-func']          = el('#make2-func').offsetTop;
-	      offSets['elem-obj-methods']    = el('#elem-obj-methods').offsetTop;
-	      offSets['element-font-ex']     = el('#element-font-ex').offsetTop;
-	      offSets['exs']                 = el('#exs').offsetTop;
-	      offSets['style-methods']       = el('#style-methods').offsetTop;
-	      offSets['core-func']           = el('#core-func').offsetTop;
-	      offSets['DOM-Elem-Methods']    = el('#DOM-Elem-Methods').offsetTop;
-	      offSets['event-methods']       = el('#event-methods').offsetTop;
-	      offSets['Util-Methods']        = el('#Util-Methods').offsetTop;
-	      offSets['elements-syntax']     = el('#elements-syntax').offsetTop;
-	      offSets['elemsyntax-func1']    = el('#elemsyntax-func1').offsetTop;
-	      offSets['elemsyntax-func2']    = el('#elemsyntax-func2').offsetTop;
-	      offSets['elemsyntax-func3']    = el('#elemsyntax-func3').offsetTop;
-	      offSets['elemsyntax-func4']    = el('#elemsyntax-func4').offsetTop;
-	      offSets['elemsyntax-func5']    = el('#elemsyntax-func5').offsetTop;
-	      offSets['elemsyntax-func6']    = el('#elemsyntax-func6').offsetTop;
-	      offSets['append-syntax']       = el('#append-syntax').offsetTop;
-	      offSets['elemsyntax-func7']    = el('#elemsyntax-func7').offsetTop;
-
-	  return offSets;
-
+	    return offSets;
 	}
 
+	function sideNavController() {
+
+	    document.addEventListener('scroll', function () {
+	        switch (true) {
+	            case (0, _elementsJS.el)('html').scrollTop > 13 && (0, _elementsJS.el)('html').scrollTop < 94:
+	                log('hello 13', 'red');
+	                var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
+	                elem0.bgColor('blue').color('red');
+	                break;
+	            case (0, _elementsJS.el)('html').scrollTop > 94 && (0, _elementsJS.el)('html').scrollTop < 180:
+	                log('hello 94', 'red');
+	                var elem1 = _$('#install') ? dom('#install') : make('#install').put("body");
+	                elem1.bgColor('blue').color('red');
+	                break;
+	            default:
+	                log((0, _elementsJS.el)('html').scrollTop);
+	        }
+	    });
+	}
 
 	module.exports = {
-	                  getOffSets: getOffSets
-	                                         }
-
+	    getOffSets: getOffSets,
+	    sideNavController: sideNavController
+	};
 
 /***/ },
 /* 2 */

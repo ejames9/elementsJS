@@ -1,8 +1,8 @@
 "use strict";
 
-var _docsHelper = require("../../js/docsHelper.js");
+var _sideNavControl = require("./sideNavControl.js");
 
-var Help = _interopRequireWildcard(_docsHelper);
+var SNC = _interopRequireWildcard(_sideNavControl);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -49,7 +49,7 @@ var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
 //Documentation page change function
-function insertDocs() {
+function insertDocs(cb) {
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, function (r) {
     var elem0 = _$('#content') ? dom('#content') : make('#content').put("body");
@@ -57,42 +57,14 @@ function insertDocs() {
     var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
     elem1.html(marked(markDown));
 
-    var offSets = Help.getOffSets();
+    var offSets = SNC.getOffSets();
 
-    console.log(offSets);
+    for (var el in offSets) {
+      log('id: ' + el, 'red');
+      log('offSet: ' + offSets[el], ['red', 'blue']);
+    }
 
-    document.addEventListener('scroll', function () {
-      switch (true) {
-        case el('html').scrollTop > 13 && el('html').scrollTop < 94:
-          log('hello 13', 'red');
-          var elem2 = _$('#get-started') ? dom('#get-started') : make('#get-started').put("body");
-          elem2.bgColor('blue').color('red');
-          break;
-        case el('html').scrollTop > 94 && el('html').scrollTop < 180:
-          log('hello 94', 'red');
-          var elem3 = _$('#installation') ? dom('#installation') : make('#installation').put("body");
-          elem3.bgColor('blue').color('red');
-          break;
-        default:
-          log(el('html').scrollTop);
-      }
-    });
-
-    // var b = true;
-    // log(el('#dom-func').offsetTop);
-    //
-    // scroll(window, (e)=> {
-    //   log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
-    //
-    //   if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
-    //     if (b) {
-    //       log('blue', 'blue');
-    //       log(e);
-    //       b = false;
-    //     }
-    //   }
-    //
-    // })
+    cb();
   });
 }
 
@@ -141,7 +113,9 @@ go(function () {
         break;
       case document.getElementById('api-butn'):
         console.log("I'm in.");
-        insertDocs();
+        insertDocs(function () {
+          SNC.sideNavController();
+        });
         break;
       default:
         if (npmBar.style.display !== 'none') {

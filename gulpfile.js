@@ -16,7 +16,7 @@ const webpackConfig = {
 };
 
 gulp.task('elemsJSIO-elemsJS-Babel', ()=> {
-  var srcJS = './js/elementsJSIO.js';
+  var srcJS = ['./js/elementsJSIO.js', './js/sideNavControl.js'];
   var jsDst  = './dist/babel/';
 
   return gulp.src(srcJS)

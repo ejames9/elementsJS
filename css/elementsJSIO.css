@@ -510,3 +510,8 @@ iframe {
 ._t-marg {
   margin-top: 0px;
 }
+
+.active {
+  border-right: 3px solid purple;
+  border-radius: 5px;
+}

@@ -12,7 +12,7 @@ if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offs
 //     }
 */
 
-import * as Help from '../../js/docsHelper.js';
+import * as SNC from './sideNavControl.js';
 
 
 
@@ -34,7 +34,7 @@ var markDown;
 
 
 //Documentation page change function
-function insertDocs() {
+function insertDocs(cb) {
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, (r)=> {
     <'#content'/>
@@ -42,45 +42,14 @@ function insertDocs() {
     <'#docsMain'/>
               .html(marked(markDown));
 
-    const offSets = Help.getOffSets();
+    const offSets = SNC.getOffSets();
 
-    console.log(offSets);
+    for (var el in offSets) {
+      log('id: ' + el, 'red');
+      log('offSet: ' + offSets[el], ['red', 'blue'])
+    }
 
-
-        document.addEventListener('scroll', function() {
-          switch(true) {
-            case (el('html').scrollTop > 13 && el('html').scrollTop < 94):
-                log('hello 13', 'red');
-                <'#get-started'/>
-                              .bgColor('blue')
-                              .color('red');
-                break;
-            case (el('html').scrollTop > 94 && el('html').scrollTop < 180):
-                log('hello 94', 'red');
-                <'#installation'/>
-                              .bgColor('blue')
-                              .color('red');
-                break;
-            default:
-                log(el('html').scrollTop);
-          }
-    });
-
-    // var b = true;
-    // log(el('#dom-func').offsetTop);
-    //
-    // scroll(window, (e)=> {
-    //   log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
-    //
-    //   if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
-    //     if (b) {
-    //       log('blue', 'blue');
-    //       log(e);
-    //       b = false;
-    //     }
-    //   }
-    //
-    // })
+    cb();
   });
 }
 
@@ -133,7 +102,9 @@ go(()=> {
               break;
           case (document.getElementById('api-butn')):
               console.log("I'm in.");
-              insertDocs();
+              insertDocs(()=> {
+                SNC.sideNavController();
+              });
               break;
           default:
               if (npmBar.style.display !== 'none') {
