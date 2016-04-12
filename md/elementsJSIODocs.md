@@ -183,7 +183,7 @@ elemsJS.make('#foo', 'button');
 utils.buildMenu();
 ```
 
-# <a name='DOM'></a> DOM Manipulation functions
+# <a id='DOM'></a> DOM Manipulation functions
 --
 
 ## <a name='el-func'></a> `el(elem)`

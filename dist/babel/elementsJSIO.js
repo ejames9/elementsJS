@@ -22,6 +22,7 @@ var make = require("elementsJS").make;
 var elementsJS = require("elementsJS");
 var imports = elementsJS.imports;
 var go = elementsJS.go;
+var el = elementsJS.el;
 var log = elementsJS.log;
 var url = elementsJS.url;
 var ajax = elementsJS.ajax;
@@ -49,6 +50,20 @@ function insertDocs() {
     elem0.html(r);
     var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
     elem1.html(marked(markDown));
+
+    var b = true;
+    log(el('#dom-func').offsetTop);
+
+    scroll(window, function (e) {
+      log(el('#dom-func').scrollTop + '     ' + el('#dom-func').offsetTop);
+
+      if (el('#dom-func').offsetTop < document.body.scrollTop + 70 || el('#dom-func').offsetTop < document.documentElement.scrollTop + 70) {
+        if (b) {
+          alert('blue');
+          b = false;
+        }
+      }
+    });
   });
 }
 
@@ -59,7 +74,7 @@ function getMarkDown() {
   xhr.onloadend = function () {
     if (xhr.status === 200) {
       var r = this.responseText;
-      console.log(r);
+
       markDown = r;
     }
   };

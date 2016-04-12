@@ -14,7 +14,7 @@ if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offs
 
 
 imports({
-    'elementsJS': ['imports', 'go', 'log', 'url', 'ajax', 'on', 'click', 'scroll'],
+    'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'scroll'],
         'marked': 'marked'
 });
 
@@ -38,6 +38,21 @@ function insertDocs() {
               .html(r);
     <'#docsMain'/>
               .html(marked(markDown));
+
+    var b = true;
+    log(el('#dom-func').offsetTop);
+
+    scroll(window, (e)=> {
+      log(el('#dom-func').scrollTop + '     ' + el('#dom-func').offsetTop);
+
+      if (el('#dom-func').offsetTop < document.body.scrollTop + 70 || el('#dom-func').offsetTop < document.documentElement.scrollTop + 70) {
+        if (b) {
+          alert('blue');
+          b = false;
+        }
+      }
+
+    })
   });
 }
 
@@ -49,7 +64,7 @@ function getMarkDown() {
       xhr.onloadend = function() {
         if (xhr.status === 200) {
           var r = this.responseText;
-          console.log(r);
+
           markDown = r;
         }
       }
