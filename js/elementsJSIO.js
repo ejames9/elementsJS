@@ -13,11 +13,9 @@ if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offs
 */
 
 
-
-import { imports, go, log, url, ajax, on, click, scroll } from 'elementsJS';
-
 imports({
-      'marked': 'marked'
+    'elementsJS': ['imports', 'go', 'log', 'url', 'ajax', 'on', 'click', 'scroll'],
+        'marked': 'marked'
 });
 
 
@@ -26,25 +24,27 @@ var rawGit = 'https://rawgit.com/ejames9/elementsJS/gh-pages/';
 var rawGitCDN = 'https://cdn.rawgit.com/ejames9/elementsJS/' + commit +'/';
 
 var docsMenu = 'html/docsMenu.html';
-var markDownUrl = 'md/elementsJSIODocs.md';
+var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
 
 
-function insertDocs() {
 
-  ajax(url(rawGit, docsMenu), null, (r)=>{
+//Documentation page change function
+function insertDocs() {
+  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
+  ajax(url(rawGit, docsMenu), null, (r)=> {
     <'#content'/>
               .html(r);
     <'#docsMain'/>
               .html(marked(markDown));
   });
-
 }
 
 
+//After page loads, load elementsJSIODocs.md into a variable.
 function getMarkDown() {
-  var addy = url(rawGit, markDownUrl);
+  var addy = url(rawGit, mdUrl);
   var xhr = new XMLHttpRequest();
       xhr.onloadend = function() {
         if (xhr.status === 200) {
@@ -58,6 +58,7 @@ function getMarkDown() {
 }
 
 
+//Function for toggling npm/bower install info panel.
 function toggleNPMBar() {
   var npmBar = document.getElementById('npm-bar');
 
@@ -69,7 +70,8 @@ function toggleNPMBar() {
 }
 
 
-function init() {
+//Initialization code to be run after DOM content is loaded.
+go(()=> {
   //initialize ace code editor
   var editor1 = ace.edit("editor1");
       editor1.setTheme("ace/theme/elementsJSIO");
@@ -94,14 +96,8 @@ function init() {
               if (npmBar.style.display !== 'none') {
                 npmBar.style.display = 'none';
               }
-              console.log(e);
+              log(e);
         }
       });
-
   getMarkDown();
-}
-
-
-document.addEventListener('DOMContentLoaded', init());
-
-// getMarkDown();
+});

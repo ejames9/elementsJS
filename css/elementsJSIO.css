@@ -63,8 +63,12 @@ p, ul {
 }
 
 ul {
- list-style: none;
- text-align: right;
+  list-style: none;
+  text-align: right;
+}
+
+ul > li > a {
+  padding: 0;
 }
 
 code {
@@ -351,12 +355,29 @@ iframe {
 
 /*-----------------------Documentation--------------------*/
 
-/*#sideNav {
+.stick {
   position: -webkit-sticky;
   position: -moz-sticky;
   position: sticky;
-  top: 100px;
-}*/
+  top: 20px;
+}
+
+.wrapper {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 60px;
+  margin-bottom: 200px;
+}
+
+#sideNav {
+  padding-top: 45px;
+
+}
+
+#docsMain {
+  padding-top: 20px;
+}
 
 
 /*-----------------------Media Queries--------------------*/
@@ -488,24 +509,4 @@ iframe {
 }
 ._t-marg {
   margin-top: 0px;
-}
-
-.stick {
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: sticky;
-  top: 20px;
-}
-
-.wrapper {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 60px;
-  margin-bottom: 200px;
-}
-
-#sideNav {
-  padding-top: 40px;
-
 }

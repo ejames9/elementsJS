@@ -46,10 +46,6 @@
 
 	"use strict";
 
-	var _elementsJS = __webpack_require__(1);
-
-	///-------Begin Module requires---------///
-	var _$ = __webpack_require__(1)._$;
 	/*
 	elementsJSIO.js
 	JavaScript file for the elementsJS project site.
@@ -63,9 +59,21 @@
 	//     }
 	*/
 
+	///-------Begin Module requires---------///
+	var _$ = __webpack_require__(1)._$;
 	var dom = __webpack_require__(1).dom;
 	var make = __webpack_require__(1).make;
 	///|------------------------------------|//
+
+	var elementsJS = __webpack_require__(1);
+	var imports = elementsJS.imports;
+	var go = elementsJS.go;
+	var log = elementsJS.log;
+	var url = elementsJS.url;
+	var ajax = elementsJS.ajax;
+	var on = elementsJS.on;
+	var click = elementsJS.click;
+	var scroll = elementsJS.scroll;
 
 	var marked = __webpack_require__(9);
 
@@ -76,12 +84,13 @@
 	var rawGitCDN = 'https://cdn.rawgit.com/ejames9/elementsJS/' + commit + '/';
 
 	var docsMenu = 'html/docsMenu.html';
-	var markDownUrl = 'md/elementsJSIODocs.md';
+	var mdUrl = 'md/elementsJSIODocs.md';
 	var markDown;
 
+	//Documentation page change function
 	function insertDocs() {
-
-	  (0, _elementsJS.ajax)((0, _elementsJS.url)(rawGit, docsMenu), null, function (r) {
+	  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
+	  ajax(url(rawGit, docsMenu), null, function (r) {
 	    var elem0 = _$('#content') ? dom('#content') : make('#content').put("body");
 	    elem0.html(r);
 	    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
@@ -89,8 +98,9 @@
 	  });
 	}
 
+	//After page loads, load elementsJSIODocs.md into a variable.
 	function getMarkDown() {
-	  var addy = (0, _elementsJS.url)(rawGit, markDownUrl);
+	  var addy = url(rawGit, mdUrl);
 	  var xhr = new XMLHttpRequest();
 	  xhr.onloadend = function () {
 	    if (xhr.status === 200) {
@@ -103,6 +113,7 @@
 	  xhr.send();
 	}
 
+	//Function for toggling npm/bower install info panel.
 	function toggleNPMBar() {
 	  var npmBar = document.getElementById('npm-bar');
 
@@ -113,7 +124,8 @@
 	  }
 	}
 
-	function init() {
+	//Initialization code to be run after DOM content is loaded.
+	go(function () {
 	  //initialize ace code editor
 	  var editor1 = ace.edit("editor1");
 	  editor1.setTheme("ace/theme/elementsJSIO");
@@ -137,16 +149,11 @@
 	        if (npmBar.style.display !== 'none') {
 	          npmBar.style.display = 'none';
 	        }
-	        console.log(e);
+	        log(e);
 	    }
 	  });
-
 	  getMarkDown();
-	}
-
-	document.addEventListener('DOMContentLoaded', init());
-
-	// getMarkDown();
+	});
 
 /***/ },
 /* 1 */

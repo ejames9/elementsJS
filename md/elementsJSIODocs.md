@@ -201,7 +201,7 @@ This function will query the DOM, using a CSS Selector. If the query returns onl
 el('#foo').addEventListener('click', onClick);
 ```
 
-## <a name='dom-func'></a> `dom(elem)`
+## <a id='dom-func'></a> `dom(elem)`
 
 This function is exactly like *el()* above, except that it returns an elementsJS element object instead of a built-in JavaScript one. This allows access to the [elementsJS object methods](#).
 
