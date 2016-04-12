@@ -105,7 +105,24 @@
 
 	    var offSets = Help.getOffSets();
 
-	    log(offSets);
+	    console.log(offSets);
+
+	    document.addEventListener('scroll', function () {
+	      switch (true) {
+	        case el('html').scrollTop > 13 && el('html').scrollTop < 94:
+	          log('hello 13', 'red');
+	          var elem2 = _$('#get-started') ? dom('#get-started') : make('#get-started').put("body");
+	          elem2.bgColor('blue').color('red');
+	          break;
+	        case el('html').scrollTop > 94 && el('html').scrollTop < 180:
+	          log('hello 94', 'red');
+	          var elem3 = _$('#installation') ? dom('#installation') : make('#installation').put("body");
+	          elem3.bgColor('blue').color('red');
+	          break;
+	        default:
+	          log(el('html').scrollTop);
+	      }
+	    });
 
 	    // var b = true;
 	    // log(el('#dom-func').offsetTop);

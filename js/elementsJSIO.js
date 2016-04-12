@@ -44,7 +44,27 @@ function insertDocs() {
 
     const offSets = Help.getOffSets();
 
-    log(offSets);
+    console.log(offSets);
+
+
+        document.addEventListener('scroll', function() {
+          switch(true) {
+            case (el('html').scrollTop > 13 && el('html').scrollTop < 94):
+                log('hello 13', 'red');
+                <'#get-started'/>
+                              .bgColor('blue')
+                              .color('red');
+                break;
+            case (el('html').scrollTop > 94 && el('html').scrollTop < 180):
+                log('hello 94', 'red');
+                <'#installation'/>
+                              .bgColor('blue')
+                              .color('red');
+                break;
+            default:
+                log(el('html').scrollTop);
+          }
+    });
 
     // var b = true;
     // log(el('#dom-func').offsetTop);
