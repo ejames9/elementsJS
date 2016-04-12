@@ -32,7 +32,7 @@ import * as DOM from './lib/DOM';
 
 
 var element = function(el) {
-  return new elem.element();
+  return new elem();
 };
 
 /*This function copies the prototype object of a superConstructor to the prototype object
@@ -80,10 +80,10 @@ var dom = function(el) {
   if (Array.isArray(el)) {
     rv = [];
     for (var l of el) {
-      rv.push(new elem.element(l))
+      rv.push(new elem(l))
     }
   } else {
-    rv = new elem.element(el);
+    rv = new elem(el);
   }
   return rv;
 };

@@ -190,19 +190,2023 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";function _interopRequireWildcard(e){if(e&&e.__esModule)return e;var n={};if(null!=e)for(var t in e)Object.prototype.hasOwnProperty.call(e,t)&&(n[t]=e[t]);return n["default"]=e,n}function _interopRequireDefault(e){return e&&e.__esModule?e:{"default":e}}var _Element=__webpack_require__(2),_Element2=_interopRequireDefault(_Element),_httpRequests=__webpack_require__(8),requests=_interopRequireWildcard(_httpRequests),_events=__webpack_require__(5),events=_interopRequireWildcard(_events),_logger=__webpack_require__(3),consol=_interopRequireWildcard(_logger),_utilities=__webpack_require__(6),utils=_interopRequireWildcard(_utilities),_DOM=__webpack_require__(7),DOM=_interopRequireWildcard(_DOM),element=function(e){return new _Element2["default"]},proto=function(e,n){return utils.proto(e,n)},functions=function(e,n){var t=n||this;Array.isArray(e)?(log(n,"red"),e.forEach(function(e){var n=new Function("window."+e+" = this."+e+";");n.call(t)},t)):function(){var n=new Function("window."+e+" = this."+e+";");n.call(t)}.apply(t)},$=function(e){var n=null!==utils.queryDOM(e);return n},dom=function(e){return e=utils.queryDOM(e),new _Element2["default"](e)},make=function(e,n){return DOM.make(e,n)},el=function(e){return DOM.el(e)},all=function(e){return DOM.all(e)},put=function(e,n){return DOM.put(e,n)},x=function(e){return DOM.kill(e)},log=function(e,n,t){return consol.log(e,n,t)},err=function(e,n){return consol.err(e,n)},info=function(e,n){return consol.info(e,n)},warn=function(e,n){return consol.warn(e,n)},shifter=function(e,n){return utils.shifter(e,n)},sleep=function(e){return utils.sleep(e)},xhr=function(e,n,t){return requests.xhr(e,n,t)},ajax=function(e,n,t,r){return requests.ajax(e,n,t,r)},go=function(e){return document.addEventListener?events.go(e):events.goIE(e)},on=function(e,n,t){return document.addEventListener?events.on(e,n,t):events.onIE(e,n,t)},off=function(e,n,t){return document.addEventListener?events.off(e,n,t):events.offIE(e,n,t)},once=function(e,n,t){return document.addEventListener?events.once(e,n,t):events.onceIE(e,n,t)},spark=function(e,n){return n=utils.queryDOM(n),document.addEventListener?events.spark(e,n):events.sparkIE(e,n)},blur=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.blur(e,n):events.blurIE(e,n)},click=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.click(e,n):events.clickIE(e,n)},dblClick=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.dblClick(e,n):events.dblClickIE(e,n)},error=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.error(e,n):events.errorIE(e,n)},focus=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.focus(e,n):events.focusIE(e,n)},focusIn=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.focusIn(e,n):events.focusInIE(e,n)},focusOut=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.focusOut(e,n):events.focusOut(e,n)},keyUp=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.keyUp(e,n):events.keyUpIE(e,n)},keyDown=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.keyDown(e,n):events.keyDownIE(e,n)},load=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.load(e,n):events.loadIE(e,n)},unLoad=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.unLoad(e,n):events.unLoadIE(e,n)},mouse=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.mouse(e,n):events.mouseIE(e,n)},resize=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.resize(e,n):events.resizeIE(e,n)},scroll=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.scroll(e,n):events.scrollIE(e,n)},select=function(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return e=utils.queryDOM(e),document.addEventListener?events.select(e,n):events.selectIE(e,n)};module.exports={$:$,x:x,go:go,shifter:shifter,make:make,dom:dom,proto:proto,functions:functions,all:all,put:put,on:on,off:off,once:once,el:el,log:log,xhr:xhr,err:err,info:info,warn:warn,ajax:ajax,spark:spark,blur:blur,click:click,dblClick:dblClick,error:error,focus:focus,focusIn:focusIn,focusOut:focusOut,keyUp:keyUp,keyDown:keyDown,load:load,unLoad:unLoad,mouse:mouse,resize:resize,scroll:scroll,select:select};
+	'use strict';
+
+	var _element = __webpack_require__(2);
+
+	var elem = _interopRequireWildcard(_element);
+
+	var _httpRequests = __webpack_require__(8);
+
+	var requests = _interopRequireWildcard(_httpRequests);
+
+	var _events = __webpack_require__(5);
+
+	var events = _interopRequireWildcard(_events);
+
+	var _logger = __webpack_require__(3);
+
+	var consol = _interopRequireWildcard(_logger);
+
+	var _utilities = __webpack_require__(6);
+
+	var utils = _interopRequireWildcard(_utilities);
+
+	var _DOM = __webpack_require__(7);
+
+	var DOM = _interopRequireWildcard(_DOM);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	// require('babel-polyfill');
+
+	/*
+	Elements.js
+
+	A JavaScript DOM manipulation/Alias function Library.
+	This is the index file for the library. It contains alias functions for
+	all of the librarys' public functions. This makes it easy to import the
+	functions without a module prefix es6 style.
+
+	Author: Eric James Foster
+	EMail: maniphestival@gmail.com
+	License: MIT
+	Version: 1.0.0
+	URL: ""
+	*/
+
+	//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
+
+	var element = function element(el) {
+	  return new elem.element();
+	};
+
+	/*This function copies the prototype object of a superConstructor to the prototype object
+	of a constructor. It functions just like nodes' util.inherits function, it copies methods only,
+	not internal properties.*/
+	var proto = function proto(construct, superConstruct) {
+	  return utils.proto(construct, superConstruct);
+	};
+
+	/*This convenience function sets imported module function names as global variables, so that
+	the module variable doesn't need to preface every function.*/
+	var functions = function functions(funcs, mod) {
+	  //TEST:110 Test this with other node_modules.
+	  var context = mod || this;
+
+	  if (Array.isArray(funcs)) {
+	    log(mod, 'red');
+
+	    funcs.forEach(function (func) {
+	      var evil = new Function('window.' + func + ' = ' + 'this.' + func + ';');
+	      evil.call(context);
+	    }, context);
+	  } else {
+	    (function () {
+	      var evil = new Function('window.' + funcs + ' = ' + 'this.' + funcs + ';');
+	      evil.call(context);
+	    }).apply(context);
+	  }
+	};
+
+	var _$ = function _$(el) {
+	  var l = null !== utils.queryDOM(el);
+	  return l;
+	};
+
+	//This function queries the dom, getting one element for each query (i.e. class/tags), creates
+	//an Element object with it and returns it, so that it may be easily styled.
+	var dom = function dom(el) {
+	  log('dom: ' + el, 'blue');
+	  var rv = void 0;
+
+	  el = utils.queryDOM(el);
+
+	  if (Array.isArray(el)) {
+	    rv = [];
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+
+	    try {
+	      for (var _iterator = el[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var l = _step.value;
+
+	        rv.push(new elem.element(l));
+	      }
+	    } catch (err) {
+	      _didIteratorError = true;
+	      _iteratorError = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion && _iterator.return) {
+	          _iterator.return();
+	        }
+	      } finally {
+	        if (_didIteratorError) {
+	          throw _iteratorError;
+	        }
+	      }
+	    }
+	  } else {
+	    rv = new elem.element(el);
+	  }
+	  return rv;
+	};
+
+	/*function for insterting template literals into the DOM.
+
+	bones(`
+
+	<html>
+	  <head></head>
+	  <body></body>
+	</html>
+
+	`);
+
+	*/
+	var __ = function __(tempLit) {
+	  var el = arguments.length <= 1 || arguments[1] === undefined ? 'body' : arguments[1];
+
+	  return DOM.bones(tempLit, el);
+	};
+
+	//Create element alias function.
+	var make = function make(el, tag) {
+	  return DOM.make(el, tag);
+	};
+
+	//DOM querying alias function. Will automatically narrow class or tag queries down to one result. It will not return an array.
+	var el = function el(l) {
+	  return DOM.el(l);
+	};
+
+	//Function for appending elements to other elements.
+	var put = function put(el, mom) {
+	  return DOM.put(el, mom);
+	};
+
+	//Function for deleting elements from the DOM tree.
+	var x = function x(el) {
+	  return DOM.kill(el);
+	};
+
+	var fore = function fore(ref, elem) {
+	  return DOM.fore(ref, elem);
+	};
+
+	var aft = function aft(ref, elem) {
+	  return DOM.aft(ref, elem);
+	};
+
+	var show = function show(elem, disp) {
+	  return DOM.show(elem);
+	};
+
+	var hide = function hide(elem) {
+	  return DOM.hide(elem);
+	};
+
+	var size = function size(elem, h, w) {
+	  return DOM.size(elem, h, w);
+	};
+
+	var clone = function clone(elem, deep) {
+	  return DOM.clone(elem, deep);
+	};
+
+	//console.log alias function.
+	var log = function log(text, style, tyme) {
+	  return consol.log(text, style, tyme);
+	};
+
+	//console.error alias function.
+	var err = function err(text, tyme) {
+	  return consol.err(text, tyme);
+	};
+
+	//console.info alias function.
+	var info = function info(text, tyme) {
+	  return consol.info(text, tyme);
+	};
+
+	//console.warn alias function.
+	var warn = function warn(text, tyme) {
+	  return consol.warn(text, tyme);
+	};
+
+	var shifter = function shifter(onFunc, offFunc) {
+	  return utils.shifter(onFunc, offFunc);
+	};
+
+	//This practically useless function will lock up the browser for a preset amount of time.
+	var sleep = function sleep(milliseconds) {
+	  return utils.sleep(milliseconds);
+	};
+
+	//This is a synchronous alias function for XMLHttpRequests.
+	var xhr = function xhr(url, fd, method) {
+	  return requests.xhr(url, fd, method);
+	};
+
+	//This is an asynchronous alias function for XMLHttpRequests.
+	var ajax = function ajax(url, fd, callback, method) {
+	  return requests.ajax(url, fd, callback, method);
+	};
+
+	/*---------Event Functions-----------*/
+
+	var go = function go(cb) {
+	  if (document.addEventListener) {
+	    return events.go(cb);
+	  } else {
+	    return events.goIE(cb);
+	  }
+	};
+
+	//Function for setting event listeners.
+	var on = function on(event, el, callback) {
+	  if (document.addEventListener) {
+	    return events.on(event, el, callback);
+	  } else {
+	    return events.onIE(event, el, callback);
+	  }
+	};
+
+	//Function for removing event listeners.
+	var off = function off(event, el, callback) {
+	  if (document.addEventListener) {
+	    return events.off(event, el, callback);
+	  } else {
+	    return events.offIE(event, el, callback);
+	  }
+	};
+
+	var once = function once(event, el, callback) {
+	  //DONE:50 Finish once function.
+	  if (document.addEventListener) {
+	    return events.once(event, el, callback);
+	  } else {
+	    return events.onceIE(event, el, callback);
+	  } //TEST:70 Test once function.
+	};
+
+	var spark = function spark(evt, el) {
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.spark(evt, el);
+	  } else {
+	    return events.sparkIE(evt, el);
+	  }
+	};
+
+	var blur = function blur(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.blur(el, cb);
+	  } else {
+	    return events.blurIE(el, cb);
+	  }
+	};
+
+	var click = function click(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.click(el, cb);
+	  } else {
+	    return events.clickIE(el, cb);
+	  }
+	};
+
+	var dblClick = function dblClick(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.dblClick(el, cb);
+	  } else {
+	    return events.dblClickIE(el, cb);
+	  }
+	};
+
+	var error = function error(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.error(el, cb);
+	  } else {
+	    return events.errorIE(el, cb);
+	  }
+	};
+
+	var focus = function focus(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.focus(el, cb);
+	  } else {
+	    return events.focusIE(el, cb);
+	  }
+	};
+
+	var focusIn = function focusIn(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.focusIn(el, cb);
+	  } else {
+	    return events.focusInIE(el, cb);
+	  }
+	};
+
+	var focusOut = function focusOut(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.focusOut(el, cb);
+	  } else {
+	    return events.focusOut(el, cb);
+	  }
+	};
+
+	var keyUp = function keyUp(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.keyUp(el, cb);
+	  } else {
+	    return events.keyUpIE(el, cb);
+	  }
+	};
+
+	var keyDown = function keyDown(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.keyDown(el, cb);
+	  } else {
+	    return events.keyDownIE(el, cb);
+	  }
+	};
+
+	var load = function load(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.load(el, cb);
+	  } else {
+	    return events.loadIE(el, cb);
+	  }
+	};
+
+	var unLoad = function unLoad(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.unLoad(el, cb);
+	  } else {
+	    return events.unLoadIE(el, cb);
+	  }
+	};
+
+	var mouse = function mouse(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.mouse(el, cb);
+	  } else {
+	    return events.mouseIE(el, cb);
+	  }
+	};
+
+	var resize = function resize(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.resize(el, cb);
+	  } else {
+	    return events.resizeIE(el, cb);
+	  }
+	};
+
+	var scroll = function scroll(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.scroll(el, cb);
+	  } else {
+	    return events.scrollIE(el, cb);
+	  }
+	};
+
+	var select = function select(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	  el = utils.queryDOM(el);
+
+	  if (document.addEventListener) {
+	    return events.select(el, cb);
+	  } else {
+	    return events.selectIE(el, cb);
+	  }
+	};
+
+	module.exports = {
+	  _$: _$,
+	  x: x,
+	  go: go,
+	  shifter: shifter,
+	  make: make,
+	  __: __,
+	  dom: dom,
+	  proto: proto,
+	  clone: clone,
+	  functions: functions,
+	  put: put,
+	  on: on,
+	  off: off,
+	  once: once,
+	  el: el,
+	  log: log,
+	  xhr: xhr,
+	  err: err,
+	  info: info,
+	  warn: warn,
+	  ajax: ajax,
+	  spark: spark,
+	  blur: blur,
+	  click: click,
+	  dblClick: dblClick,
+	  error: error,
+	  focus: focus,
+	  focusIn: focusIn,
+	  focusOut: focusOut,
+	  keyUp: keyUp,
+	  keyDown: keyDown,
+	  load: load,
+	  unLoad: unLoad,
+	  mouse: mouse,
+	  resize: resize,
+	  scroll: scroll,
+	  select: select
+	};
+
+	//DONE:30 functions: err(), info(), warn().
+	//DONE:130 Complete all standalone style functions.
 
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";function _interopRequireWildcard(t){if(t&&t.__esModule)return t;var i={};if(null!=t)for(var e in t)Object.prototype.hasOwnProperty.call(t,e)&&(i[e]=t[e]);return i["default"]=t,i}function Element(t){return this.el=t,this instanceof Element?(this.backgroundColor=function(i){return void 0!==i?(t.style.backgroundColor=i,this):i=t.style.backgroundColor},this.border=function(i){return void 0!==i?(t.style.border=i,this):i=t.style.border},this.background=function(i){return void 0!==i?(t.style.background=i,this):i=t.style.background},this.backgroundColor=function(i){return void 0!==i?(t.style.backgroundColor=i,this):i=t.style.backgroundColor},this.backgroundImage=function(i){return void 0!==i?(t.style.backgroundImage=i,this):i=t.style.backgroundImage},this.backgroundSize=function(i){return void 0!==i?(t.style.backgroundSize=i,this):i=t.style.backgroundSize},this.backgroundPosition=function(i){return void 0!==i?(t.style.backgroundPosition=i,this):i=t.style.backgroundPosition},this.borderColor=function(i){return void 0!==i?(t.style.borderColor=i,this):i=t.style.borderColor},this.borderRadius=function(i){return void 0!==i?(t.style.borderRadius=i,this):i=t.style.borderRadius},this.borderWidth=function(i){return void 0!==i?(t.style.borderWidth=i,this):i=t.style.borderWidth},this.borderTop=function(i){return void 0!==i?(t.style.borderTop=i,this):i=t.style.borderTop},this.borderBottom=function(i){return void 0!==i?(t.style.borderBottom=i,this):i=t.style.borderBottom},this.borderRight=function(i){return void 0!==i?(t.style.borderRight=i,this):i=t.style.borderRight},this.borderLeft=function(i){return void 0!==i?(t.style.borderLeft=i,this):i=t.style.borderLeft},this.bottom=function(i){return void 0!==i?(t.style.bottom=i,this):i=t.style.bottom},this.boxShadow=function(i){return void 0!==i?(t.style.boxShadow=i,this):i=t.style.boxShadow},this.boxSizing=function(i){return void 0!==i?(t.style.boxSizing=i,this):i=t.style.boxSizing},this.clear=function(i){return void 0!==i?(t.style.clear=i,this):i=t.style.clear},this.color=function(i){return void 0!==i?(t.style.color=i,this):i=t.style.color},this.columns=function(i){return void 0!==i?(t.style.columns=i,this):i=t.style.columns},this.content=function(i){return void 0!==i?(t.style.content=i,this):i=t.style.content},this.cursor=function(i){return void 0!==i?(t.style.cursor=i,this):i=t.style.cursor},this.direction=function(i){return void 0!==i?(t.style.direction=i,this):i=t.style.direction},this.display=function(i){return void 0!==i?(t.style.display=i,this):i=t.style.display},this.cssFloat=function(i){return void 0!==i?(t.style.cssFloat=i,this):i=t.style.cssFloat},this.font=function(i){return void 0!==i?(t.style.font=i,this):i=t.style.font},this.fontFamily=function(i){return void 0!==i?(t.style.fontFamily=i,this):i=t.style.fontFamily},this.fontStyle=function(i){return void 0!==i?(t.style.fontStyle=i,this):i=t.style.fontStyle},this.fontSize=function(i){return void 0!==i?(t.style.fontSize=i,this):i=t.style.fontSize},this.fontWeight=function(i){return void 0!==i?(t.style.fontWeight=i,this):i=t.style.fontWeight},this.height=function(i){return void 0!==i?(t.style.height=i,this):i=t.style.height},this.lineHeight=function(i){return void 0!==i?(t.style.lineHeight=i,this):i=t.style.lineHeight},this.icon=function(i){return void 0!==i?(t.style.icon=i,this):i=t.style.icon},this.left=function(i){return void 0!==i?(t.style.left=i,this):i=t.style.left},this.listStyle=function(i){return void 0!==i?(t.style.listStyle=i,this):i=t.style.listStyle},this.margin=function(i){return void 0!==i?(t.style.margin=i,this):i=t.style.margin},this.marginRight=function(i){return void 0!==i?(t.style.marginRight=i,this):i=t.style.marginRight},this.marginLeft=function(i){return void 0!==i?(t.style.marginLeft=i,this):i=t.style.marginLeft},this.marginTop=function(i){return void 0!==i?(t.style.marginTop=i,this):i=t.style.marginTop},this.marginBottom=function(i){return void 0!==i?(t.style.marginBottom=i,this):i=t.style.marginBottom},this.maxHeight=function(i){return void 0!==i?(t.style.maxHeight=i,this):i=t.style.maxHeight},this.maxWidth=function(i){return void 0!==i?(t.style.maxWidth=i,this):i=t.style.maxWidth},this.minWidth=function(i){return void 0!==i?(t.style.minWidth=i,this):i=t.style.minWidth},this.minHeight=function(i){return void 0!==i?(t.style.minHeight=i,this):i=t.style.minHeight},this.opacity=function(i){return void 0!==i?(t.style.opacity=i,this):i=t.style.opacity},this.outline=function(i){return void 0!==i?(t.style.outline=i,this):i=t.style.outline},this.overflow=function(i){return void 0!==i?(t.style.overflow=i,this):i=t.style.overflow},this.overflowX=function(i){return void 0!==i?(t.style.overflowX=i,this):i=t.style.overflowX},this.overflowY=function(i){return void 0!==i?(t.style.overflowY=i,this):i=t.style.overflowY},this.padding=function(i){return void 0!==i?(t.style.padding=i,this):i=t.style.padding},this.paddingRight=function(i){return void 0!==i?(t.style.paddingRight=i,this):i=t.style.paddingRight},this.paddingLeft=function(i){return void 0!==i?(t.style.paddingLeft=i,this):i=t.style.paddingLeft},this.paddingTop=function(i){return void 0!==i?(t.style.paddingTop=i,this):i=t.style.paddingTop},this.paddingBottom=function(i){return void 0!==i?(t.style.paddingBottom=i,this):i=t.style.paddingBottom},this.position=function(i){return void 0!==i?(t.style.position=i,this):i=t.style.position},this.right=function(i){return void 0!==i?(t.style.right=i,this):i=t.style.right},this.top=function(i){return void 0!==i?(t.style.top=i,this):i=t.style.top},this.textAlign=function(i){return void 0!==i?(t.style.textAlign=i,this):i=t.style.textAlign},this.textDecoration=function(i){return void 0!==i?(t.style.textDecoration=i,this):i=t.style.textDecoration},this.textShadow=function(i){return void 0!==i?(t.style.textShadow=i,this):i=t.style.textShadow},this.verticalAlign=function(i){return void 0!==i?(t.style.verticalAlign=i,this):i=t.style.verticalAlign},this.visibility=function(i){return void 0!==i?(t.style.visibility=i,this):i=t.style.visibility},this.whiteSpace=function(i){return void 0!==i?(t.style.whiteSpace=i,this):i=t.style.whiteSpace},this.width=function(i){return void 0!==i?(t.style.width=i,this):i=t.style.width},this.wordSpacing=function(i){return void 0!==i?(t.style.wordSpacing=i,this):i=t.style.wordSpacing},this.zIndex=function(i){return void 0!==i?(t.style.zIndex=i,this):i=t.style.zIndex},this.alignContent=function(i){return browser.safari&&browser.version>=7?void 0!==i?(t.style.WebkitAlignContent=i,this):i=t.style.WebkitAlignContent:void 0!==i?(t.style.alignContent=i,this):i=t.style.alignContent},this.transformOrigin=function(i){return browser.webkit?void 0!==i?(t.style.WebkitTransformOrigin=i,this):i=t.style.WebkitTransformOrigin:void 0!==i?(t.style.transformOrigin=i,this):i=t.style.transformOrigin},this.transition=function(i){return browser.safari?void 0!==i?(t.style.WebkitTransition=i,this):i=t.style.WebkitTransition:void 0!==i?(t.style.transition=i,this):i=t.style.transition},this.transitionDuration=function(i){return browser.safari?void 0!==i?(t.style.WebkitTransitionDuration=i,this):i=t.style.WebkitTransitionDuration:void 0!==i?(t.style.transitionDuration=i,this):i=t.style.transitionDuration},this.animation=function(i){return browser.webkit?void 0!==i?(t.style.WebkitAnimation=i,this):i=t.style.WebkitAnimation:void 0!==i?(t.style.animation=i,this):i=t.style.animation},this.filter=function(i){return browser.webkit?void 0!==i?(t.style.WebkitFilter=i,this):i=t.style.WebkitFilter:void 0!==i?(t.style.filter=i,this):i=t.style.filter},this.flex=function(i){return browser.safari?void 0!==i?(t.style.WebkitFlex=i,this):i=t.style.WebkitFlex:void 0!==i?(t.style.flex=i,this):i=t.style.flex},this.perspective=function(i){return browser.webkit?void 0!==i?(t.style.WebkitPerspective=i,this):i=t.style.WebkitPerspective:void 0!==i?(t.style.perspective=i,this):i=t.style.perspective},this.perspectiveOrigin=function(i){return browser.webkit?void 0!==i?(t.style.WebkitPerspectiveOrigin=i,this):i=t.style.WebkitPerspectiveOrigin:void 0!==i?(t.style.perspectiveOrigin=i,this):i=t.style.perspectiveOrigin},this.transitionDelay=function(i){return browser.safari?void 0!==i?(t.style.WebkitTransitionDelay=i,this):i=t.style.WebkitTransitionDelay:void 0!==i?(t.style.transitionDelay=i,this):i=t.style.transitionDelay},this.core=function(t){return t(this.el.style),this},this.add=function(t){return this.el.appendChild(t),this},this.children=function(t){if("all"===t){this.el.childNodes}else{this.el.children}return count},this.first=function(t){var i="all"===t?this.el.firstChild:this.el.firstElementChild;return i},this.id=function(t){return void 0!==t?(this.el.id=t,this):t=this.el.id},this["class"]=function(t){return void 0!==t?(this.el.className=t,this):t=this.el.className},this.xClass=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return null!==t&&t(),this.el.className="",this},this.html=function(t){return void 0!==t?(this.el.innerHTML=t,this):t=this.el.innerHTML},this.text=function(t){return void 0!==t?(this.el.textContent=t,this):t=this.el.textContent},this.lang=function(t){return void 0!==t?(this.el.lang=t,this):t=this.el.lang},this.clone=function(){var t=this.el.cloneNode();return t},this.sib=function(t,i){var e=void 0;return"next"===t?void 0===i?e=this.el.nextElementSibling:"all"===i?e=this.el.nextSibling:(0,_logger.err)("Invalid argument."):"prev"===t?void 0===i?e=this.el.previousElementSibling:"all"===i?e=this.el.previousSibling:(0,_logger.err)("Invalid argument."):(0,_logger.err)("Invalid argument."),e},this.value=function(t){return void 0!==t?(this.el.nodeValue=t,this):t=this.el.nodeValue},this.normalize=function(){return this.el.normalize(),this},this.toString=function(){var t=this.el.toString();return t},this.tag=function(){var t=this.el.tagName();return t},this.offset=function(t){var i={};return t?"all"===t?(i.top=this.el.offsetTop,i.left=this.el.offsetLeft,i.height=this.el.offsetHeight,i.width=this.el.offsetWidth,i.parent=this.el.offsetParent):(0,_logger.err)("Invalid argument."):(i.top=this.el.offsetTop,i.left=this.el.offsetLeft),i},this.title=function(t){return void 0!==t?(this.el.title=t,this):t=this.el.title},this.attrib=function(t,i){var e=void 0!==i&&"remove"!==i?void this.el.setAttribute(t,i):void 0!==t&&"remove"!==i?this.el.getAttribute(t):void this.el.removeAttribute(t);return void 0!==e?e:this},this.put=function(t){return DOM.put(this.el,t),this},this.ma=function(){return this.el.parentNode},this.fore=function(t){var i=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return null===i?t.parentNode.insertBefore(this.el,t):this.el.parentNode.insertBefore(t,this.el),this},this.aft=function(t){var i=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return null===i?t.parentNode.insertBefore(this.el,t.nextElementSibling):this.el.parentNode.insertBefore(t,this.el.nextElementSibling),this},this.on=function(t,i){return document.addEventListener?events.on(t,this.el,i):events.onIE(t,this.el,i),this},this.off=function(t,i){return document.addEventListener?events.off(t,this.el,i):events.offIE(t,this.el,i),this},this.once=function(t,i){return document.addEventListener?events.once(t,this.el,i):events.onceIE(t,this.el,i),this},this.toggle=function(t,i){return window.toggleFlag=!0,toggleFlag?(t(),toggleFlag=!1):(i(),toggleFlag=!0),this},this.size=function(t,i){return this.el.style.height=t,this.el.style.width=i,this},this.show=function(){var t=arguments.length<=0||void 0===arguments[0]?"block":arguments[0];return this.el.style.display=t,this},this.hide=function(){return this.el.style.display="none",this},this.blur=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.blur(this.el,t):events.blurIE(this.el,t),this},this.click=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.click(this.el,t):events.clickIE(this.el,t),this},this.dblClick=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.dblClick(this.el,t):events.dblClickIE(this.el,t),this},this.error=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.error(this.el,t):events.errorIE(this.el,t),this},this.focus=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.focus(this.el,t):events.focusIE(this.el,t),this},this.focusIn=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.focusIn(this.el,t):events.focusInIE(this.el,t),this},this.focusOut=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.focusOut(this.el,t):events.focusOut(this.el,t),this},this.keyUp=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.keyUp(this.el,t):events.keyUpIE(this.el,t),this},this.keyDown=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.keyDown(this.el,t):events.keyDownIE(this.el,t),this},this.load=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.load(this.el,t):events.loadIE(this.el,t),this},this.unLoad=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.unLoad(this.el,t):events.unLoadIE(this.el,t),this},this.mouse=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.mouse(this.el,t):events.mouseIE(this.el,t),this},this.resize=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.resize(this.el,t):events.resizeIE(this.el,t),this},this.scroll=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.scroll(this.el,t):events.scrollIE(this.el,t),this},this.select=function(){var t=arguments.length<=0||void 0===arguments[0]?null:arguments[0];return this.el.addEventListener?events.select(this.el,t):events.selectIE(this.el,t),this},void(this.only=function(t,i,e){return"undefined"==typeof eachCount?window.eachCount=1:eachCount++,t===eachCount?(i(),(0,_logger.log)(eachCount,["red","bold"])):(0,_logger.log)(eachCount,["blue","bold"]),eachCount===e.length&&(eachCount=""),this})):new Element}Object.defineProperty(exports,"__esModule",{value:!0}),exports["default"]=Element;var _logger=__webpack_require__(3),_index=__webpack_require__(1),elements=_interopRequireWildcard(_index),_events=__webpack_require__(5),events=_interopRequireWildcard(_events),_DOM=__webpack_require__(7),DOM=_interopRequireWildcard(_DOM);
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	/*
+	Element.js
+
+	This is a helper file for the elements.js index, which houses
+	the code for the Element Class.
+
+	Author: Eric James Foster
+	License: ISC
+	*/
+
+	exports.default = element;
+
+	var _logger = __webpack_require__(3);
+
+	var _index = __webpack_require__(1);
+
+	var elements = _interopRequireWildcard(_index);
+
+	var _events = __webpack_require__(5);
+
+	var events = _interopRequireWildcard(_events);
+
+	var _DOM = __webpack_require__(7);
+
+	var DOM = _interopRequireWildcard(_DOM);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	// require('babel-polyfill');
+
+	//DOING:10 List all functions that need to be added (.textContent, innerHTML etc.)
+	//DOING:20 Complete all functions for this object.
+	//IDEA: A method that incorporates jquery methods into El object (animation?).
+
+	function element(el) {
+	  this.el = el;
+
+	  if (!(this instanceof element)) {
+	    return new element();
+	  }
+
+	  // Style methods //
+
+	  this.border = function (val) {
+	    if (val !== undefined) {
+	      el.style.border = val;
+	      return this;
+	    } else {
+	      val = el.style.border;
+	      return val;
+	    }
+	  };
+	  this.bg = function (val) {
+	    if (val !== undefined) {
+	      el.style.background = val;
+	      return this;
+	    } else {
+	      val = el.style.background;
+	      return val;
+	    }
+	  };
+	  this.bgColor = function (val) {
+	    if (val !== undefined) {
+	      el.style.backgroundColor = val;
+	      return this;
+	    } else {
+	      val = el.style.backgroundColor;
+	      return val;
+	    }
+	  };
+	  this.bgImage = function (val) {
+	    if (val !== undefined) {
+	      el.style.backgroundImage = val;
+	      return this;
+	    } else {
+	      val = el.style.backgroundImage;
+	      return val;
+	    }
+	  };
+	  this.bgSize = function (val) {
+	    if (val !== undefined) {
+	      el.style.backgroundSize = val;
+	      return this;
+	    } else {
+	      val = el.style.backgroundSize;
+	      return val;
+	    }
+	  };
+	  this.bgPosition = function (val) {
+	    if (val !== undefined) {
+	      el.style.backgroundPosition = val;
+	      return this;
+	    } else {
+	      val = el.style.backgroundPosition;
+	      return val;
+	    }
+	  };
+	  this.borderColor = function (val) {
+	    if (val !== undefined) {
+	      el.style.borderColor = val;
+	      return this;
+	    } else {
+	      val = el.style.borderColor;
+	      return val;
+	    }
+	  };
+	  this.borderRadius = function (val) {
+	    if (val !== undefined) {
+	      el.style.borderRadius = val;
+	      return this;
+	    } else {
+	      val = el.style.borderRadius;
+	      return val;
+	    }
+	  };
+	  this.borderWidth = function (val) {
+	    if (val !== undefined) {
+	      el.style.borderWidth = val;
+	      return this;
+	    } else {
+	      val = el.style.borderWidth;
+	      return val;
+	    }
+	  };
+	  this.borderTop = function (val) {
+	    if (val !== undefined) {
+	      el.style.borderTop = val;
+	      return this;
+	    } else {
+	      val = el.style.borderTop;
+	      return val;
+	    }
+	  };
+	  this.borderBottom = function (val) {
+	    if (val !== undefined) {
+	      el.style.borderBottom = val;
+	      return this;
+	    } else {
+	      val = el.style.borderBottom;
+	      return val;
+	    }
+	  };
+	  this.borderRight = function (val) {
+	    if (val !== undefined) {
+	      el.style.borderRight = val;
+	      return this;
+	    } else {
+	      val = el.style.borderRight;
+	      return val;
+	    }
+	  };
+	  this.borderLeft = function (val) {
+	    if (val !== undefined) {
+	      el.style.borderLeft = val;
+	      return this;
+	    } else {
+	      val = el.style.borderLeft;
+	      return val;
+	    }
+	  };
+	  this.bottom = function (val) {
+	    if (val !== undefined) {
+	      el.style.bottom = val;
+	      return this;
+	    } else {
+	      val = el.style.bottom;
+	      return val;
+	    }
+	  };
+	  this.boxShadow = function (val) {
+	    if (val !== undefined) {
+	      el.style.boxShadow = val;
+	      return this;
+	    } else {
+	      val = el.style.boxShadow;
+	      return val;
+	    }
+	  };
+	  this.boxSizing = function (val) {
+	    if (val !== undefined) {
+	      el.style.boxSizing = val;
+	      return this;
+	    } else {
+	      val = el.style.boxSizing;
+	      return val;
+	    }
+	  };
+	  this.clear = function (val) {
+	    if (val !== undefined) {
+	      el.style.clear = val;
+	      return this;
+	    } else {
+	      val = el.style.clear;
+	      return val;
+	    }
+	  };
+	  this.color = function (val) {
+	    if (val !== undefined) {
+	      el.style.color = val;
+	      return this;
+	    } else {
+	      val = el.style.color;
+	      return val;
+	    }
+	  };
+	  this.columns = function (val) {
+	    if (val !== undefined) {
+	      el.style.columns = val;
+	      return this;
+	    } else {
+	      val = el.style.columns;
+	      return val;
+	    }
+	  };
+	  this.content = function (val) {
+	    if (val !== undefined) {
+	      el.style.content = val;
+	      return this;
+	    } else {
+	      val = el.style.content;
+	      return val;
+	    }
+	  };
+	  this.cursor = function (val) {
+	    if (val !== undefined) {
+	      el.style.cursor = val;
+	      return this;
+	    } else {
+	      val = el.style.cursor;
+	      return val;
+	    }
+	  };
+	  this.direction = function (val) {
+	    if (val !== undefined) {
+	      el.style.direction = val;
+	      return this;
+	    } else {
+	      val = el.style.direction;
+	      return val;
+	    }
+	  };
+	  this.display = function (val) {
+	    if (val !== undefined) {
+	      el.style.display = val;
+	      return this;
+	    } else {
+	      val = el.style.display;
+	      return val;
+	    }
+	  };
+	  this.cssFloat = function (val) {
+	    if (val !== undefined) {
+	      el.style.cssFloat = val;
+	      return this;
+	    } else {
+	      val = el.style.cssFloat;
+	      return val;
+	    }
+	  };
+	  this.font = function (val) {
+	    if (val !== undefined) {
+	      el.style.font = val;
+	      return this;
+	    } else {
+	      val = el.style.font;
+	      return val;
+	    }
+	  };
+	  this.fontFamily = function (val) {
+	    if (val !== undefined) {
+	      el.style.fontFamily = val;
+	      return this;
+	    } else {
+	      val = el.style.fontFamily;
+	      return val;
+	    }
+	  };
+	  this.fontStyle = function (val) {
+	    if (val !== undefined) {
+	      el.style.fontStyle = val;
+	      return this;
+	    } else {
+	      val = el.style.fontStyle;
+	      return val;
+	    }
+	  };
+	  this.fontSize = function (val) {
+	    if (val !== undefined) {
+	      el.style.fontSize = val;
+	      return this;
+	    } else {
+	      val = el.style.fontSize;
+	      return val;
+	    }
+	  };
+	  this.fontWeight = function (val) {
+	    if (val !== undefined) {
+	      el.style.fontWeight = val;
+	      return this;
+	    } else {
+	      val = el.style.fontWeight;
+	      return val;
+	    }
+	  };
+	  this.height = function (val) {
+	    if (val !== undefined) {
+	      el.style.height = val;
+	      return this;
+	    } else {
+	      val = el.style.height;
+	      return val;
+	    }
+	  };
+	  this.lineHeight = function (val) {
+	    if (val !== undefined) {
+	      el.style.lineHeight = val;
+	      return this;
+	    } else {
+	      val = el.style.lineHeight;
+	      return val;
+	    }
+	  };
+	  this.icon = function (val) {
+	    if (val !== undefined) {
+	      el.style.icon = val;
+	      return this;
+	    } else {
+	      val = el.style.icon;
+	      return val;
+	    }
+	  };
+	  this.left = function (val) {
+	    if (val !== undefined) {
+	      el.style.left = val;
+	      return this;
+	    } else {
+	      val = el.style.left;
+	      return val;
+	    }
+	  };
+	  this.listStyle = function (val) {
+	    if (val !== undefined) {
+	      el.style.listStyle = val;
+	      return this;
+	    } else {
+	      val = el.style.listStyle;
+	      return val;
+	    }
+	  };
+	  this.margin = function (val) {
+	    if (val !== undefined) {
+	      el.style.margin = val;
+	      return this;
+	    } else {
+	      val = el.style.margin;
+	      return val;
+	    }
+	  };
+	  this.marginRight = function (val) {
+	    if (val !== undefined) {
+	      el.style.marginRight = val;
+	      return this;
+	    } else {
+	      val = el.style.marginRight;
+	      return val;
+	    }
+	  };
+	  this.marginLeft = function (val) {
+	    if (val !== undefined) {
+	      el.style.marginLeft = val;
+	      return this;
+	    } else {
+	      val = el.style.marginLeft;
+	      return val;
+	    }
+	  };
+	  this.marginTop = function (val) {
+	    if (val !== undefined) {
+	      el.style.marginTop = val;
+	      return this;
+	    } else {
+	      val = el.style.marginTop;
+	      return val;
+	    }
+	  };
+	  this.marginBottom = function (val) {
+	    if (val !== undefined) {
+	      el.style.marginBottom = val;
+	      return this;
+	    } else {
+	      val = el.style.marginBottom;
+	      return val;
+	    }
+	  };
+	  this.maxHeight = function (val) {
+	    if (val !== undefined) {
+	      el.style.maxHeight = val;
+	      return this;
+	    } else {
+	      val = el.style.maxHeight;
+	      return val;
+	    }
+	  };
+	  this.maxWidth = function (val) {
+	    if (val !== undefined) {
+	      el.style.maxWidth = val;
+	      return this;
+	    } else {
+	      val = el.style.maxWidth;
+	      return val;
+	    }
+	  };
+	  this.minWidth = function (val) {
+	    if (val !== undefined) {
+	      el.style.minWidth = val;
+	      return this;
+	    } else {
+	      val = el.style.minWidth;
+	      return val;
+	    }
+	  };
+	  this.minHeight = function (val) {
+	    if (val !== undefined) {
+	      el.style.minHeight = val;
+	      return this;
+	    } else {
+	      val = el.style.minHeight;
+	      return val;
+	    }
+	  };
+	  this.opacity = function (val) {
+	    if (val !== undefined) {
+	      el.style.opacity = val;
+	      return this;
+	    } else {
+	      val = el.style.opacity;
+	      return val;
+	    }
+	  };
+	  this.outline = function (val) {
+	    if (val !== undefined) {
+	      el.style.outline = val;
+	      return this;
+	    } else {
+	      val = el.style.outline;
+	      return val;
+	    }
+	  };
+	  this.overflow = function (val) {
+	    if (val !== undefined) {
+	      el.style.overflow = val;
+	      return this;
+	    } else {
+	      val = el.style.overflow;
+	      return val;
+	    }
+	  };
+	  this.overflowX = function (val) {
+	    if (val !== undefined) {
+	      el.style.overflowX = val;
+	      return this;
+	    } else {
+	      val = el.style.overflowX;
+	      return val;
+	    }
+	  };
+	  this.overflowY = function (val) {
+	    if (val !== undefined) {
+	      el.style.overflowY = val;
+	      return this;
+	    } else {
+	      val = el.style.overflowY;
+	      return val;
+	    }
+	  };
+	  this.padding = function (val) {
+	    if (val !== undefined) {
+	      el.style.padding = val;
+	      return this;
+	    } else {
+	      val = el.style.padding;
+	      return val;
+	    }
+	  };
+	  this.paddingRight = function (val) {
+	    if (val !== undefined) {
+	      el.style.paddingRight = val;
+	      return this;
+	    } else {
+	      val = el.style.paddingRight;
+	      return val;
+	    }
+	  };
+	  this.paddingLeft = function (val) {
+	    if (val !== undefined) {
+	      el.style.paddingLeft = val;
+	      return this;
+	    } else {
+	      val = el.style.paddingLeft;
+	      return val;
+	    }
+	  };
+	  this.paddingTop = function (val) {
+	    if (val !== undefined) {
+	      el.style.paddingTop = val;
+	      return this;
+	    } else {
+	      val = el.style.paddingTop;
+	      return val;
+	    }
+	  };
+	  this.paddingBottom = function (val) {
+	    if (val !== undefined) {
+	      el.style.paddingBottom = val;
+	      return this;
+	    } else {
+	      val = el.style.paddingBottom;
+	      return val;
+	    }
+	  };
+	  this.position = function (val) {
+	    if (val !== undefined) {
+	      el.style.position = val;
+	      return this;
+	    } else {
+	      val = el.style.position;
+	      return val;
+	    }
+	  };
+	  this.right = function (val) {
+	    if (val !== undefined) {
+	      el.style.right = val;
+	      return this;
+	    } else {
+	      val = el.style.right;
+	      return val;
+	    }
+	  };
+	  this.top = function (val) {
+	    if (val !== undefined) {
+	      el.style.top = val;
+	      return this;
+	    } else {
+	      val = el.style.top;
+	      return val;
+	    }
+	  };
+	  this.textAlign = function (val) {
+	    if (val !== undefined) {
+	      el.style.textAlign = val;
+	      return this;
+	    } else {
+	      val = el.style.textAlign;
+	      return val;
+	    }
+	  };
+	  this.textDecoration = function (val) {
+	    if (val !== undefined) {
+	      el.style.textDecoration = val;
+	      return this;
+	    } else {
+	      val = el.style.textDecoration;
+	      return val;
+	    }
+	  };
+	  this.textShadow = function (val) {
+	    if (val !== undefined) {
+	      el.style.textShadow = val;
+	      return this;
+	    } else {
+	      val = el.style.textShadow;
+	      return val;
+	    }
+	  };
+	  this.verticalAlign = function (val) {
+	    if (val !== undefined) {
+	      el.style.verticalAlign = val;
+	      return this;
+	    } else {
+	      val = el.style.verticalAlign;
+	      return val;
+	    }
+	  };
+	  this.visibility = function (val) {
+	    if (val !== undefined) {
+	      el.style.visibility = val;
+	      return this;
+	    } else {
+	      val = el.style.visibility;
+	      return val;
+	    }
+	  };
+	  this.whiteSpace = function (val) {
+	    if (val !== undefined) {
+	      el.style.whiteSpace = val;
+	      return this;
+	    } else {
+	      val = el.style.whiteSpace;
+	      return val;
+	    }
+	  };
+	  this.width = function (val) {
+	    if (val !== undefined) {
+	      el.style.width = val;
+	      return this;
+	    } else {
+	      val = el.style.width;
+	      return val;
+	    }
+	  };
+	  this.wordSpacing = function (val) {
+	    if (val !== undefined) {
+	      el.style.wordSpacing = val;
+	      return this;
+	    } else {
+	      val = el.style.wordSpacing;
+	      return val;
+	    }
+	  };
+	  this.zIndex = function (val) {
+	    if (val !== undefined) {
+	      el.style.zIndex = val;
+	      return this;
+	    } else {
+	      val = el.style.zIndex;
+	      return val;
+	    }
+	  };
+	  this.alignContent = function (val) {
+	    if (browser.safari && browser.version >= 7) {
+	      if (val !== undefined) {
+	        el.style.WebkitAlignContent = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitAlignContent;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.alignContent = val;
+	        return this;
+	      } else {
+	        val = el.style.alignContent;
+	        return val;
+	      }
+	    }
+	  };
+	  this.transformOrigin = function (val) {
+	    if (browser.webkit) {
+	      if (val !== undefined) {
+	        el.style.WebkitTransformOrigin = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitTransformOrigin;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.transformOrigin = val;
+	        return this;
+	      } else {
+	        val = el.style.transformOrigin;
+	        return val;
+	      }
+	    }
+	  };
+	  this.transition = function (val) {
+	    if (browser.safari) {
+	      if (val !== undefined) {
+	        el.style.WebkitTransition = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitTransition;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.transition = val;
+	        return this;
+	      } else {
+	        val = el.style.transition;
+	        return val;
+	      }
+	    }
+	  };
+	  this.transitionDuration = function (val) {
+	    if (browser.safari) {
+	      if (val !== undefined) {
+	        el.style.WebkitTransitionDuration = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitTransitionDuration;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.transitionDuration = val;
+	        return this;
+	      } else {
+	        val = el.style.transitionDuration;
+	        return val;
+	      }
+	    }
+	  };
+	  this.animation = function (val) {
+	    if (browser.webkit) {
+	      if (val !== undefined) {
+	        el.style.WebkitAnimation = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitAnimation;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.animation = val;
+	        return this;
+	      } else {
+	        val = el.style.animation;
+	        return val;
+	      }
+	    }
+	  };
+	  this.filter = function (val) {
+	    if (browser.webkit) {
+	      if (val !== undefined) {
+	        el.style.WebkitFilter = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitFilter;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.filter = val;
+	        return this;
+	      } else {
+	        val = el.style.filter;
+	        return val;
+	      }
+	    }
+	  };
+	  this.flex = function (val) {
+	    if (browser.safari) {
+	      if (val !== undefined) {
+	        el.style.WebkitFlex = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitFlex;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.flex = val;
+	        return this;
+	      } else {
+	        val = el.style.flex;
+	        return val;
+	      }
+	    }
+	  };
+	  this.perspective = function (val) {
+	    if (browser.webkit) {
+	      if (val !== undefined) {
+	        el.style.WebkitPerspective = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitPerspective;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.perspective = val;
+	        return this;
+	      } else {
+	        val = el.style.perspective;
+	        return val;
+	      }
+	    }
+	  };
+	  this.perspectiveOrigin = function (val) {
+	    if (browser.webkit) {
+	      if (val !== undefined) {
+	        el.style.WebkitPerspectiveOrigin = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitPerspectiveOrigin;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.perspectiveOrigin = val;
+	        return this;
+	      } else {
+	        val = el.style.perspectiveOrigin;
+	        return val;
+	      }
+	    }
+	  };
+	  this.transitionDelay = function (val) {
+	    if (browser.safari) {
+	      if (val !== undefined) {
+	        el.style.WebkitTransitionDelay = val;
+	        return this;
+	      } else {
+	        val = el.style.WebkitTransitionDelay;
+	        return val;
+	      }
+	    } else {
+	      if (val !== undefined) {
+	        el.style.transitionDelay = val;
+	        return this;
+	      } else {
+	        val = el.style.transitionDelay;
+	        return val;
+	      }
+	    }
+	  };
+
+	  // Element object methods //
+
+	  /*This function is a wrapper that allows the developer to create an anonymous function that has
+	  access to the core element object and its' methods... Meaning, that methods not incuded in this library
+	  can still be used in a chain-like fashion.  # example:
+	  <'#header'/>
+	        .height('200px')
+	        .width('800px')
+	        .backgroundColor('red')
+	        .text('elements.js')
+	        .core(el=>
+	         {    el.lang = 'spanish';
+	              el.jackAss();
+	              el.nodeValue = this;
+	              el.normalize();   }
+	             )
+	        .put('body')
+	  */
+	  this.core = function (func) {
+	    var obj = arguments.length <= 1 || arguments[1] === undefined ? 'el' : arguments[1];
+
+	    if (obj === 'style') func(this.el.style);else if (obj === 'el') func(this.el);else (0, _logger.err)('Invalid Argument.');
+
+	    return this;
+	  };
+
+	  this.add = function (child) {
+	    child = DOM.el(child);
+	    this.el.appendChild(child);
+	    return this;
+	  };
+
+	  this.children = function (s) {
+	    if (s === 'all') {
+	      var _count = this.el.childNodes;
+	    } else {
+	      var _count2 = this.el.children;
+	    }
+	    return count;
+	  };
+
+	  this.first = function (s) {
+	    //TEST:30 Make sure this works.
+	    var count = s === 'all' ? this.el.firstChild : this.el.firstElementChild;
+	    return count;
+	  };
+
+	  this.id = function (val) {
+	    if (val !== undefined) {
+	      this.el.id = val;
+	      return this;
+	    } else {
+	      val = this.el.id;
+	      return val;
+	    }
+	  };
+
+	  this.class = function (val) {
+	    if (val !== undefined) {
+	      this.el.className = val;
+	      return this;
+	    } else {
+	      val = this.el.className;
+	      return val;
+	    }
+	  };
+
+	  this.x = function (elem) {
+	    var child = DOM.el(elem);
+	    this.el.removeChild(child);
+	    return this;
+	  };
+
+	  this.xClass = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (cb !== null) {
+	      cb();
+	    }
+	    this.el.className = '';
+	    return this;
+	  };
+
+	  this.html = function (val) {
+	    if (val !== undefined) {
+	      this.el.innerHTML = val;
+	      return this;
+	    } else {
+	      val = this.el.innerHTML;
+	      return val;
+	    }
+	  };
+
+	  this.text = function (val) {
+	    if (val !== undefined) {
+	      this.el.textContent = val;
+	      return this;
+	    } else {
+	      val = this.el.textContent;
+	      return val;
+	    }
+	  };
+
+	  this.lang = function (val) {
+	    if (val !== undefined) {
+	      this.el.lang = val;
+	      return this;
+	    } else {
+	      val = this.el.lang;
+	      return val;
+	    }
+	  };
+
+	  this.clone = function (deep) {
+	    var node = this.el.cloneNode(deep);
+	    return node;
+	  };
+
+	  this.sib = function (ord, s) {
+	    var r = void 0;
+
+	    if (ord === 'next') {
+	      if (s === undefined) {
+	        r = this.el.nextElementSibling;
+	      } else if (s === 'all') {
+	        r = this.el.nextSibling;
+	      } else {
+	        (0, _logger.err)('Invalid argument.');
+	      }
+	    } else if (ord === 'prev') {
+	      if (s === undefined) {
+	        r = this.el.previousElementSibling;
+	      } else if (s === 'all') {
+	        r = this.el.previousSibling;
+	      } else {
+	        (0, _logger.err)('Invalid argument.');
+	      }
+	    } else {
+	      (0, _logger.err)('Invalid argument.');
+	    }
+	    return r;
+	  };
+
+	  this.value = function (val) {
+	    if (val !== undefined) {
+	      this.el.nodeValue = val;
+	      return this;
+	    } else {
+	      val = this.el.nodeValue;
+	      return val;
+	    }
+	  };
+
+	  this.normalize = function () {
+	    this.el.normalize();
+	    return this;
+	  };
+
+	  this.toString = function () {
+	    var r = this.el.toString();
+	    return r;
+	  };
+
+	  this.tag = function () {
+	    var r = this.el.tagName();
+	    return r;
+	  };
+
+	  this.offset = function (s) {
+	    //TODO
+	    var off = {};
+
+	    if (s) {
+	      if (s === 'all') {
+	        off.top = this.el.offsetTop;
+	        off.left = this.el.offsetLeft;
+	        off.height = this.el.offsetHeight;
+	        off.width = this.el.offsetWidth;
+	        off.parent = this.el.offsetParent;
+	      } else {
+	        (0, _logger.err)('Invalid argument.');
+	      }
+	    } else {
+	      off.top = this.el.offsetTop;
+	      off.left = this.el.offsetLeft;
+	    }
+	    return off;
+	  };
+
+	  this.title = function (val) {
+	    if (val !== undefined) {
+	      this.el.title = val;
+	      return this;
+	    } else {
+	      val = this.el.title;
+	      return val;
+	    }
+	  };
+
+	  this.attrib = function (attrib, val) {
+	    //TEST:0 Make sure this works
+	    var r = val !== undefined && val !== 'remove' ? (this.el.setAttribute(attrib, val), undefined) : attrib !== undefined && val !== 'remove' ? this.el.getAttribute(attrib) : (this.el.removeAttribute(attrib), undefined);
+	    // (r !== undefined) ?                                                     //TODO:10 See if you can make this work.
+	    //   return r
+	    // :
+	    //   return this;
+	    if (r !== undefined) {
+	      return r;
+	    } else {
+	      return this;
+	    }
+	  };
+
+	  this.put = function (mom) {
+	    DOM.put(this.el, mom);
+	    return this;
+	  };
+
+	  this.ma = function () {
+	    return this.el.parentNode;
+	  };
+
+	  this.fore = function (el) {
+	    var ref = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+	    //TEST:20 Make sure this works.
+	    ref === null ? el.parentNode.insertBefore(this.el, el) : this.el.parentNode.insertBefore(el, this.el);
+
+	    return this;
+	  };
+
+	  this.aft = function (el) {
+	    var ref = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+	    //TEST:10 Make sure this works.
+	    ref === null ? el.parentNode.insertBefore(this.el, el.nextElementSibling) : this.el.parentNode.insertBefore(el, this.el.nextElementSibling);
+
+	    return this;
+	  };
+
+	  this.on = function (ev, callback) {
+	    if (document.addEventListener) {
+	      events.on(ev, this.el, callback);
+	    } else {
+	      events.onIE(ev, this.el, callback);
+	    }
+	    return this;
+	  };
+
+	  this.off = function (ev, callback) {
+	    if (document.addEventListener) {
+	      events.off(ev, this.el, callback);
+	    } else {
+	      events.offIE(ev, this.el, callback);
+	    }
+	    return this;
+	  };
+
+	  this.once = function (ev, callback) {
+	    if (document.addEventListener) {
+	      events.once(ev, this.el, callback);
+	    } else {
+	      events.onceIE(ev, this.el, callback);
+	    }
+	    return this;
+	  };
+
+	  // this.toggle = function(onFunc, offFunc) {                                 //NOTE: May be unnecessary.
+	  //   window.toggleFlag = true;
+	  //
+	  //   if (toggleFlag) {
+	  //     onFunc();
+	  //     toggleFlag = false;
+	  //   } else {
+	  //     offFunc();
+	  //     toggleFlag = true;
+	  //   }
+	  //   return this;
+	  // };
+
+	  this.size = function (height, width) {
+	    this.el.style.height = height;
+	    this.el.style.width = width;
+
+	    return this;
+	  };
+
+	  this.show = function () {
+	    var disp = arguments.length <= 0 || arguments[0] === undefined ? 'block' : arguments[0];
+
+	    this.el.style.display = disp;
+
+	    return this;
+	  };
+
+	  this.hide = function () {
+	    this.el.style.display = 'none';
+
+	    return this;
+	  };
+
+	  this.viz = function () {
+	    var disp = arguments.length <= 0 || arguments[0] === undefined ? 'block' : arguments[0];
+
+	    if (this.el.style.display === 'none') {
+	      this.el.style.display = disp;
+	    } else {
+	      this.el.style.display = 'none';
+	    }
+	  };
+
+	  //---------Event Methods-----------------//
+
+	  this.blur = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.blur(this.el, cb);
+	    } else {
+	      events.blurIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.click = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.click(this.el, cb);
+	    } else {
+	      events.clickIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.dblClick = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.dblClick(this.el, cb);
+	    } else {
+	      events.dblClickIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.error = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.error(this.el, cb);
+	    } else {
+	      events.errorIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.focus = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.focus(this.el, cb);
+	    } else {
+	      events.focusIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.focusIn = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.focusIn(this.el, cb);
+	    } else {
+	      events.focusInIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.focusOut = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.focusOut(this.el, cb);
+	    } else {
+	      events.focusOut(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.keyUp = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.keyUp(this.el, cb);
+	    } else {
+	      events.keyUpIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.keyDown = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.keyDown(this.el, cb);
+	    } else {
+	      events.keyDownIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.load = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.load(this.el, cb);
+	    } else {
+	      events.loadIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.unLoad = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.unLoad(this.el, cb);
+	    } else {
+	      events.unLoadIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.mouse = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.mouse(this.el, cb);
+	    } else {
+	      events.mouseIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.resize = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.resize(this.el, cb);
+	    } else {
+	      events.resizeIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.scroll = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.scroll(this.el, cb);
+	    } else {
+	      events.scrollIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  this.select = function () {
+	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	    if (this.el.addEventListener) {
+	      events.select(this.el, cb);
+	    } else {
+	      events.selectIE(this.el, cb);
+	    }
+	    return this;
+	  };
+
+	  /////// Experimental Methods ////////
+
+	  this.only = function (num, func) {
+	    var arr = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+
+	    (0, _logger.log)(typeof onlyArr === 'undefined' ? 'undefined' : _typeof(onlyArr), 'yellow');
+
+	    if (null !== arr) {
+	      if (typeof onlyArr === 'undefined') {
+	        window.onlyArr = arr;
+	        window.eachCount = 1;
+	      } else {
+	        if (onlyArr !== arr) {
+	          window.eachCount = 1;
+	          window.onlyArr = arr;
+	        } else {
+	          eachCount++;
+	        }
+	      }
+	    }
+	    if (num === eachCount) {
+	      func();
+	      (0, _logger.log)(eachCount, ['red', 'bold']);
+	    } else {
+	      (0, _logger.log)(eachCount, ['blue', 'bold']);
+	    }
+
+	    // if (eachCount === onlyArr.length) {
+	    //   eachCount = '';
+	    // }
+	    (0, _logger.log)(eachCount, 'white');
+	    return this;
+	  };
+	};
 
 /***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var colors=__webpack_require__(4),log=function(e,r,o){var n=Array.isArray(r)?r[0]:r,t=Array.isArray(r)?r[1]:null,a=o||!1,l=new Date,g=l.getHours(),c=l.getMinutes(),s=l.getSeconds();9>=s&&(s="0"+String(s)),9>=c&&(c="0"+String(c));var u=g>=12?"pm":"am",i=g>=13?g-12:g;g=0===i?i+12:i,l=g+":"+c+":"+s+u;var d=a?l:"";if("undefined"==typeof document)return console.log(colors(e,{fg:n,style:t})+"   ".repeat(10)+d);var f=n,v=t,p="background: "+v+"; color: "+f;return console.log("%c"+e+"%s",p,"   ".repeat(10)+d)},err=function(e,r){var o="red",n="bold",t=r||!1,a=new Date,l=a.getHours(),g=a.getMinutes(),c=a.getSeconds();9>=c&&(c="0"+String(c)),9>=g&&(g="0"+String(g));var s=l>=12?"pm":"am",u=l>=13?l-12:l;l=0===u?u+12:u,a=l+":"+g+":"+c+s;var i=t?a:"";if("undefined"==typeof document)return console.log(colors(e,{fg:o,style:n})+"   ".repeat(10)+i);var d=o,f="",v="background: "+f+"; color: "+d;return console.log("%c"+e+"%s",v,"   ".repeat(10)+i)},info=function(e,r){var o="#008cff",n="bold",t=r||!1,a=new Date,l=a.getHours(),g=a.getMinutes(),c=a.getSeconds();9>=c&&(c="0"+String(c)),9>=g&&(g="0"+String(g));var s=l>=12?"pm":"am",u=l>=13?l-12:l;l=0===u?u+12:u,a=l+":"+g+":"+c+s;var i=t?a:"";if("undefined"==typeof document)return o="blueBright",console.log(colors(e,{fg:o,style:n})+"   ".repeat(10)+i);var d=o,f="",v="background: "+f+"; color: "+d;return console.log("%c"+e+"%s",v,"   ".repeat(10)+i)},warn=function(e,r){var o="orange",n="bold",t=r||!1,a=new Date,l=a.getHours(),g=a.getMinutes(),c=a.getSeconds();9>=c&&(c="0"+String(c)),9>=g&&(g="0"+String(g));var s=l>=12?"pm":"am",u=l>=13?l-12:l;l=0===u?u+12:u,a=l+":"+g+":"+c+s;var i=t?a:"";if("undefined"==typeof document)return o="yellow",o="blueBright",console.log(colors(e,{fg:o,style:n})+"   ".repeat(10)+i);var d=o,f="",v="background: "+f+"; color: "+d;return console.log("%c"+e+"%s",v,"   ".repeat(10)+i)};module.exports={log:log,err:err,info:info,warn:warn};
+	'use strict';
+
+	/*
+	logger.js
+
+	This file contains the code for the various logging functions
+	of the library.
+
+	Author: Eric James Foster
+	License: ISC
+	*/
+
+	var colors = __webpack_require__(4);
+	//  require('babel-polyfill');
+
+	//DONE:90 Add second argument for log ID purposes, figure best way to approach this.
+	//Console.log alias function.                                                  //DONE:140 Make sure date is logging properly.
+	var log = function log(text, style, tyme) {
+	  var colr = Array.isArray(style) ? style[0] : style,
+	      styl = Array.isArray(style) ? style[1] : null,
+	      tym = tyme || false;
+
+	  var time = new Date(),
+	      hours = time.getHours(),
+	      mins = time.getMinutes(),
+	      secs = time.getSeconds();
+	  if (secs <= 9) {
+	    secs = '0' + String(secs);
+	  }
+	  if (mins <= 9) {
+	    mins = '0' + String(mins);
+	  }
+	  var abbr = hours >= 12 ? 'pm' : 'am';
+	  var stan = hours >= 13 ? hours - 12 : hours; //DONE:40 Either fix singular hours, or choose alternate.
+	  if (stan === 0) {
+	    hours = stan + 12;
+	  } else {
+	    hours = stan;
+	  }
+	  time = hours + ':' + mins + ':' + secs + abbr;
+
+	  var t = tym ? time : '';
+
+	  if (typeof document === 'undefined') {
+	    return console.log(colors(text, { fg: colr, style: styl }) + '   '.repeat(10) + t);
+	  } else {
+	    var color = colr,
+	        bgColor = styl,
+	        css = 'background: ' + bgColor + '; color: ' + color;
+
+	    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+	  }
+	};
+
+	//Console.error alias function.
+	var err = function err(text, tyme) {
+	  var colr = 'red',
+	      styl = 'bold',
+	      tym = tyme || false;
+
+	  var time = new Date(),
+	      hours = time.getHours(),
+	      mins = time.getMinutes(),
+	      secs = time.getSeconds();
+	  if (secs <= 9) {
+	    secs = '0' + String(secs);
+	  }
+	  if (mins <= 9) {
+	    mins = '0' + String(mins);
+	  }
+	  var abbr = hours >= 12 ? 'pm' : 'am';
+	  var stan = hours >= 13 ? hours - 12 : hours;
+	  if (stan === 0) {
+	    hours = stan + 12;
+	  } else {
+	    hours = stan;
+	  }
+	  time = hours + ':' + mins + ':' + secs + abbr;
+
+	  var t = tym ? time : '';
+
+	  if (typeof document === 'undefined') {
+	    return console.log(colors(text, { fg: colr, style: styl }) + '   '.repeat(10) + t);
+	  } else {
+	    var color = colr,
+	        bgColor = '',
+	        css = 'background: ' + bgColor + '; color: ' + color;
+
+	    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+	  }
+	};
+
+	//Console.info alias function.
+	var info = function info(text, tyme) {
+	  var colr = '#008cff',
+	      styl = 'bold',
+	      tym = tyme || false;
+
+	  var time = new Date(),
+	      hours = time.getHours(),
+	      mins = time.getMinutes(),
+	      secs = time.getSeconds();
+	  if (secs <= 9) {
+	    secs = '0' + String(secs);
+	  }
+	  if (mins <= 9) {
+	    mins = '0' + String(mins);
+	  }
+	  var abbr = hours >= 12 ? 'pm' : 'am';
+	  var stan = hours >= 13 ? hours - 12 : hours;
+	  if (stan === 0) {
+	    hours = stan + 12;
+	  } else {
+	    hours = stan;
+	  }
+	  time = hours + ':' + mins + ':' + secs + abbr;
+
+	  var t = tym ? time : '';
+
+	  if (typeof document === 'undefined') {
+	    colr = 'blueBright';
+	    return console.log(colors(text, { fg: colr, style: styl }) + '   '.repeat(10) + t);
+	  } else {
+	    var color = colr,
+	        bgColor = '',
+	        css = 'background: ' + bgColor + '; color: ' + color;
+
+	    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+	  }
+	};
+
+	//Console.warn alias function.
+	var warn = function warn(text, tyme) {
+	  var colr = 'orange',
+	      styl = 'bold',
+	      tym = tyme || false;
+
+	  var time = new Date(),
+	      hours = time.getHours(),
+	      mins = time.getMinutes(),
+	      secs = time.getSeconds();
+	  if (secs <= 9) {
+	    secs = '0' + String(secs);
+	  }
+	  if (mins <= 9) {
+	    mins = '0' + String(mins);
+	  }
+	  var abbr = hours >= 12 ? 'pm' : 'am';
+	  var stan = hours >= 13 ? hours - 12 : hours;
+	  if (stan === 0) {
+	    hours = stan + 12;
+	  } else {
+	    hours = stan;
+	  }
+	  time = hours + ':' + mins + ':' + secs + abbr;
+
+	  var t = tym ? time : '';
+
+	  if (typeof document === 'undefined') {
+	    colr = 'yellow';
+	    colr = 'blueBright';
+	    return console.log(colors(text, { fg: colr, style: styl }) + '   '.repeat(10) + t);
+	  } else {
+	    var color = colr,
+	        bgColor = '',
+	        css = 'background: ' + bgColor + '; color: ' + color;
+
+	    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+	  }
+	};
+
+	module.exports = {
+	  log: log,
+	  err: err,
+	  info: info,
+	  warn: warn
+	};
 
 /***/ },
 /* 4 */
@@ -274,25 +2278,1127 @@
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";function _interopRequireWildcard(e){if(e&&e.__esModule)return e;var n={};if(null!=e)for(var t in e)Object.prototype.hasOwnProperty.call(e,t)&&(n[t]=e[t]);return n["default"]=e,n}function spark(e,n){var t=new MouseEvent(e,{bubbles:!0,cancelable:!0,view:window});n.dispatchEvent(t)}function sparkIE(e,n){var t=document.createEventObject();l=document.querySelector(n),e.eventType="on"+e,n.fireEvent("on"+e,t)}function blur(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("blur",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("blur",n)}function blurIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onblur",e.fireEvent("onblur",t)}else e.attachEvent("onblur",n)}function click(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("click",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("click",n)}function clickIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onclick",e.fireEvent("onclick",t)}else e.attachEvent("onclick",n)}function dblClick(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("dblclick",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("dblclick",n)}function dblClickIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="ondblclick",e.fireEvent("ondblclick",t)}else e.attachEvent("ondblclick",n)}function error(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("error",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("error",n)}function errorIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onerror",e.fireEvent("onerror",t)}else e.attachEvent("onerror",n)}function focus(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("focus",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("focus",n)}function focusIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onfocus",e.fireEvent("onfocus",t)}else e.attachEvent("onfocus",n)}function focusIn(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("focusin",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("focusin",n)}function focusInIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onfocusin",e.fireEvent("onfocusin",t)}else e.attachEvent("onfocusin",n)}function focusOut(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("focusout",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("focusout",n)}function focusOutIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onfocusout",e.fireEvent("onfocusout",t)}else e.attachEvent("onfocusout",n)}function keyUp(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("keyup",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("keyup",n)}function keyUpIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onkeyup",e.fireEvent("onkeyup",t)}else e.attachEvent("onkeyup",n)}function keyDown(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("keydown",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("keydown",n)}function keyDownIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onkeydown",e.fireEvent("onkeydown",t)}else e.attachEvent("onkeydown",n)}function load(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("load",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("load",n)}function loadIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onload",e.fireEvent("onload",t)}else e.attachEvent("onload",n)}function unLoad(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("unload",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("unload",n)}function unLoadIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onunload",e.fireEvent("onunload",t)}else e.attachEvent("onunload",n)}function mouse(e,n){var t=arguments.length<=2||void 0===arguments[2]?null:arguments[2];if(null===t){var l=new MouseEvent("mouse"+e,{bubbles:!0,cancelable:!0,view:window});n.dispatchEvent(l)}else n.addEventListener("mouse"+e,t)}function mouseIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onmouse"+sufx,e.fireEvent("onmouse"+sufx,t)}else e.attachEvent("onmouse"+sufx,n)}function reSize(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("resize",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("resize",n)}function reSizeIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onresize",e.fireEvent("onresize",t)}else e.attachEvent("onresize",n)}function scroll(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("scroll",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("scroll",n)}function scrollIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onscroll",e.fireEvent("onscroll",t)}else e.attachEvent("onscroll",n)}function select(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=new MouseEvent("select",{bubbles:!0,cancelable:!0,view:window});e.dispatchEvent(t)}else e.addEventListener("select",n)}function selectIE(e){var n=arguments.length<=1||void 0===arguments[1]?null:arguments[1];if(null===n){var t=document.createEventObject();t.eventType="onselect",e.fireEvent("onselect",t)}else e.attachEvent("onselect",n)}var _logger=__webpack_require__(3),_utilities=__webpack_require__(6),utils=_interopRequireWildcard(_utilities),go=function(e){return document.addEventListener("DOMContentLoaded",e())},goIE=function(e){return document.attachEvent("onDOMContentLoaded",e())},on=function(e,n,t){return"string"==typeof n?"#"===n[0]?(n=n.slice(1),document.getElementById(n).addEventListener(e,t)):"."===n[0]?(n=n.slice(1),document.getElementsByClassName(n)[0].addEventListener(e,t)):document.getElementsByTagName(n).addEventListener(e,t):n.addEventListener(e,t)},onIE=function(e,n,t){return"string"==typeof n?"#"===n[0]?(n=n.slice(1),document.getElementById(n).attachEvent("on"+e,t)):"."===n[0]?(n=n.slice(1),document.getElementsByClassName(n)[0].attachEvent("on"+e,t)):document.getElementsByTagName(n).attachEvent("on"+e,t):n.attachEvent("on"+e,t)},off=function(e,n,t){return"string"==typeof n?"#"===n[0]?(n=n.slice(1),document.getElementById(n).removeEventListener(e,t)):"."===n[0]?(n=n.slice(1),document.getElementsByClassName(n)[0].removeEventListener(e,t)):document.getElementsByTagName(n).removeEventListener(e,t):void n.removeEventListener(e,t)},offIE=function(e,n,t){return"string"==typeof n?"#"===n[0]?(n=n.slice(1),document.getElementById(n).detachEvent("on"+e,t)):"."===n[0]?(n=n.slice(1),document.getElementsByClassName(n)[0].detachEvent("on"+e,t)):document.getElementsByTagName(n).detachEvent("on"+e,t):void n.detachEvent("on"+e,t)},once=function(e,n,t){var l=function o(){t(),n.removeEventListener(e,o)};return n=utils.queryDOM(n),(0,_logger.log)(n,"red"),n.addEventListener(e,l)},onceIE=function(e,n,t){var l=function o(){t(),n.detachEvent("on"+e,o)};return n=utils.queryDOM(n),n.attachEvent("on"+e,l)};module.exports={blur:blur,blurIE:blurIE,click:click,clickIE:clickIE,dblClick:dblClick,dblClickIE:dblClickIE,error:error,errorIE:errorIE,focus:focus,focusIE:focusIE,focusIn:focusIn,focusInIE:focusInIE,focusOut:focusOut,focusOutIE:focusOutIE,keyUp:keyUp,keyUpIE:keyUpIE,keyDown:keyDown,keyDownIE:keyDownIE,load:load,loadIE:loadIE,unLoad:unLoad,unLoadIE:unLoadIE,mouse:mouse,mouseIE:mouseIE,reSize:reSize,reSizeIE:reSizeIE,scroll:scroll,scrollIE:scrollIE,select:select,selectIE:selectIE,spark:spark,sparkIE:sparkIE,go:go,goIE:goIE,on:on,onIE:onIE,off:off,offIE:offIE,once:once,onceIE:onceIE};
+	'use strict';
+
+	var _logger = __webpack_require__(3);
+
+	var _utilities = __webpack_require__(6);
+
+	var utils = _interopRequireWildcard(_utilities);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	// require('babel-polyfill');
+
+	//DONE:10 Complete X-Browser support for these 3 functions.
+
+	/*
+	events.js
+
+	This file contains code for the librarys' convenience EventListener
+	alias functions.
+
+	Author: Eric James Foster
+	License: ISC
+	*/
+
+	var go = function go(cb) {
+	  return document.addEventListener('DOMContentLoaded', cb());
+	};
+
+	var goIE = function goIE(cb) {
+	  return document.attachEvent('onDOMContentLoaded', cb());
+	};
+
+	//Function for setting event listeners.
+	var on = function on(event, el, callback) {
+	  //TODO: allow arg 'el' to be an array.
+	  if (typeof el === 'string') {
+	    if (el[0] === '#') {
+	      el = el.slice(1);
+	      return document.getElementById(el).addEventListener(event, callback);
+	    } else if (el[0] === '.') {
+	      el = el.slice(1);
+	      return document.getElementsByClassName(el)[0].addEventListener(event, callback);
+	    } else {
+	      return document.getElementsByTagName(el).addEventListener(event, callback);
+	    }
+	  } else {
+	    return el.addEventListener(event, callback);
+	  }
+	};
+
+	var onIE = function onIE(event, el, callback) {
+	  if (typeof el === 'string') {
+	    if (el[0] === '#') {
+	      el = el.slice(1);
+	      return document.getElementById(el).attachEvent('on' + event, callback);
+	    } else if (el[0] === '.') {
+	      el = el.slice(1);
+	      return document.getElementsByClassName(el)[0].attachEvent('on' + event, callback);
+	    } else {
+	      return document.getElementsByTagName(el).attachEvent('on' + event, callback);
+	    }
+	  } else {
+	    return el.attachEvent('on' + event, callback);
+	  }
+	};
+
+	//Function for removing event listeners.
+	var off = function off(event, el, callback) {
+	  if (typeof el === 'string') {
+	    if (el[0] === '#') {
+	      el = el.slice(1);
+	      return document.getElementById(el).removeEventListener(event, callback);
+	    } else if (el[0] === '.') {
+	      el = el.slice(1);
+	      return document.getElementsByClassName(el)[0].removeEventListener(event, callback);
+	    } else {
+	      return document.getElementsByTagName(el).removeEventListener(event, callback);
+	    }
+	  } else {
+	    el.removeEventListener(event, callback);
+	  }
+	};
+
+	//Function for removing event listeners.
+	var offIE = function offIE(event, el, callback) {
+	  if (typeof el === 'string') {
+	    if (el[0] === '#') {
+	      el = el.slice(1);
+	      return document.getElementById(el).detachEvent('on' + event, callback);
+	    } else if (el[0] === '.') {
+	      el = el.slice(1);
+	      return document.getElementsByClassName(el)[0].detachEvent('on' + event, callback);
+	    } else {
+	      return document.getElementsByTagName(el).detachEvent('on' + event, callback);
+	    }
+	  } else {
+	    el.detachEvent('on' + event, callback);
+	  }
+	};
+
+	var once = function once(event, el, callback) {
+	  //DONE:60 Finish once function.
+	  //DONE:80 Test once function.
+	  var callBack = function callBack() {
+	    callback();
+	    el.removeEventListener(event, callBack);
+	  };
+
+	  el = utils.queryDOM(el);
+	  (0, _logger.log)(el, 'red');
+	  return el.addEventListener(event, callBack);
+	};
+
+	var onceIE = function onceIE(event, el, callback) {
+	  //DONE:90 Test onceIE function.
+	  var callBack = function callBack() {
+	    callback();
+	    el.detachEvent('on' + event, callBack);
+	  };
+
+	  el = utils.queryDOM(el);
+
+	  return el.attachEvent('on' + event, callBack);
+	};
+
+	function spark(evt, el) {
+
+	  var ev = new MouseEvent(evt, {
+	    bubbles: true,
+	    cancelable: true,
+	    view: window
+	  });
+	  el.dispatchEvent(ev);
+	}
+	function sparkIE(evt, el) {
+	  var ev = document.createEventObject();
+	  l = document.querySelector(el);
+
+	  evt.eventType = 'on' + evt;
+	  el.fireEvent('on' + evt, ev);
+	}
+
+	function blur(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('blur', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('blur', cb);
+	  }
+	}
+	function blurIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onblur';
+	    el.fireEvent('on' + 'blur', evt);
+	  } else {
+	    el.attachEvent('on' + 'blur', cb);
+	  }
+	}
+
+	function click(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('click', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('click', cb);
+	  }
+	}
+
+	function clickIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'on' + 'click';
+	    el.fireEvent('on' + 'click', evt);
+	  } else {
+	    el.attachEvent('on' + 'click', cb);
+	  }
+	}
+
+	function dblClick(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('dblclick', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('dblclick', cb);
+	  }
+	}
+	function dblClickIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'ondblclick';
+	    el.fireEvent('on' + 'dblclick', evt);
+	  } else {
+	    el.attachEvent('on' + 'dblclick', cb);
+	  }
+	}
+
+	function error(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('error', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('error', cb);
+	  }
+	}
+	function errorIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onerror';
+	    el.fireEvent('on' + 'error', evt);
+	  } else {
+	    el.attachEvent('on' + 'error', cb);
+	  }
+	}
+
+	function focus(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('focus', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('focus', cb);
+	  }
+	}
+	function focusIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onfocus';
+	    el.fireEvent('on' + 'focus', evt);
+	  } else {
+	    el.attachEvent('on' + 'focus', cb);
+	  }
+	}
+
+	function focusIn(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('focusin', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('focusin', cb);
+	  }
+	}
+	function focusInIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onfocusin';
+	    el.fireEvent('on' + 'focusin', evt);
+	  } else {
+	    el.attachEvent('on' + 'focusin', cb);
+	  }
+	}
+
+	function focusOut(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('focusout', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('focusout', cb);
+	  }
+	}
+	function focusOutIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onfocusout';
+	    el.fireEvent('on' + 'focusout', evt);
+	  } else {
+	    el.attachEvent('on' + 'focusout', cb);
+	  }
+	}
+
+	function keyUp(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('keyup', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('keyup', cb);
+	  }
+	}
+	function keyUpIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onkeyup';
+	    el.fireEvent('on' + 'keyup', evt);
+	  } else {
+	    el.attachEvent('on' + 'keyup', cb);
+	  }
+	}
+
+	function keyDown(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('keydown', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('keydown', cb);
+	  }
+	}
+	function keyDownIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onkeydown';
+	    el.fireEvent('on' + 'keydown', evt);
+	  } else {
+	    el.attachEvent('on' + 'keydown', cb);
+	  }
+	}
+
+	function load(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('load', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('load', cb);
+	  }
+	}
+	function loadIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onload';
+	    el.fireEvent('on' + 'load', evt);
+	  } else {
+	    el.attachEvent('on' + 'load', cb);
+	  }
+	}
+
+	function unLoad(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('unload', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('unload', cb);
+	  }
+	}
+	function unLoadIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onunload';
+	    el.fireEvent('on' + 'unload', evt);
+	  } else {
+	    el.attachEvent('on' + 'unload', cb);
+	  }
+	}
+
+	function mouse(sufx, el) {
+	  var cb = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+	  //sufx is string, options are 'up', 'down', 'enter', 'leave', 'over', 'out' and 'move'.
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('mouse' + sufx, {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('mouse' + sufx, cb);
+	  }
+	}
+	function mouseIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onmouse' + sufx;
+	    el.fireEvent('on' + 'mouse' + sufx, evt);
+	  } else {
+	    el.attachEvent('on' + 'mouse' + sufx, cb);
+	  }
+	}
+
+	function reSize(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('resize', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('resize', cb);
+	  }
+	}
+	function reSizeIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onresize';
+	    el.fireEvent('on' + 'resize', evt);
+	  } else {
+	    el.attachEvent('on' + 'resize', cb);
+	  }
+	}
+
+	function scroll(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('scroll', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('scroll', cb);
+	  }
+	}
+	function scrollIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onscroll';
+	    el.fireEvent('on' + 'scroll', evt);
+	  } else {
+	    el.attachEvent('on' + 'scroll', cb);
+	  }
+	}
+
+	function select(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = new MouseEvent('select', {
+	      bubbles: true,
+	      cancelable: true,
+	      view: window
+	    });
+	    el.dispatchEvent(evt);
+	  } else {
+	    el.addEventListener('select', cb);
+	  }
+	}
+	function selectIE(el) {
+	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+
+	  if (cb === null) {
+	    var evt = document.createEventObject();
+
+	    evt.eventType = 'onselect';
+	    el.fireEvent('on' + 'select', evt);
+	  } else {
+	    el.attachEvent('on' + 'select', cb);
+	  }
+	}
+
+	module.exports = {
+	  blur: blur,
+	  blurIE: blurIE,
+	  click: click,
+	  clickIE: clickIE,
+	  dblClick: dblClick,
+	  dblClickIE: dblClickIE,
+	  error: error,
+	  errorIE: errorIE,
+	  focus: focus,
+	  focusIE: focusIE,
+	  focusIn: focusIn,
+	  focusInIE: focusInIE,
+	  focusOut: focusOut,
+	  focusOutIE: focusOutIE,
+	  keyUp: keyUp,
+	  keyUpIE: keyUpIE,
+	  keyDown: keyDown,
+	  keyDownIE: keyDownIE,
+	  load: load,
+	  loadIE: loadIE,
+	  unLoad: unLoad,
+	  unLoadIE: unLoadIE,
+	  mouse: mouse,
+	  mouseIE: mouseIE,
+	  reSize: reSize,
+	  reSizeIE: reSizeIE,
+	  scroll: scroll,
+	  scrollIE: scrollIE,
+	  select: select,
+	  selectIE: selectIE,
+	  spark: spark,
+	  sparkIE: sparkIE,
+	  go: go,
+	  goIE: goIE,
+	  on: on,
+	  onIE: onIE,
+	  off: off,
+	  offIE: offIE,
+	  once: once,
+	  onceIE: onceIE
+	};
 
 /***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";function shifter(e,t){return window.toggleFlag=!0,function(){toggleFlag?(e(),toggleFlag=!1):(t(),toggleFlag=!0)}}var _logger=__webpack_require__(3),queryDOM=function(e){var t=arguments.length<=1||void 0===arguments[1]?null:arguments[1];return(0,_logger.log)(e,"orange"),"string"==typeof e?null===t?e=document.querySelector(e):"all"===t?e=document.querySelectorAll(e):err("Invalid Argument."):e=e,e},proto=function(e,t){return e.prototype=Object.create(t.prototype),e.prototype.constructor=e,e},functions=function(e,t){var r=t||this;Array.isArray(e)?e.forEach(function(e){var t=new Function("window."+e+" = this."+e+";");t.call(r)},r):function(){var t=new Function("window."+e+" = this."+e+";");t.call(r)}.apply(r)},sleep=function(e){for(var t=(new Date).getTime();;)if((new Date).getTime()-t>e)break};module.exports={queryDOM:queryDOM,functions:functions,shifter:shifter,sleep:sleep,proto:proto};
+	'use strict';
+
+	var _logger = __webpack_require__(3);
+
+	// require('babel-polyfill');
+
+	//TODO:20 browser detection functionality, noop(), merge(), toggle().
+
+	/*This function combines querySelector and querySelectorAll, and becomes a noop if 'el' is a variable. There is an optional 2nd argument 'mod', that
+	accepts the string 'all' to modify behaviour of the function. By default, 'mod' is null. If the string 'all' is passed as the 2nd argument, the function
+	will use querySelectorAll() instead of querySelector(), meaning an array will be returned if possible. */
+	var queryDOM = function queryDOM(el) {
+
+	  var lm = void 0,
+	      lms = [];
+
+	  if (typeof el === 'string') {
+	    if (el.charAt(0) === '.') {
+	      el = el.substring(1, el.length);
+
+	      lm = document.getElementsByClassName(el);
+
+	      if (lm.length !== 0) {
+	        if (lm.length === 1) {
+	          lms = lm[0];
+	        } else {
+	          for (var i = 0; i < lm.length; i++) {
+	            lms.push(lm[i]);
+	          }
+	        }
+	      } else {
+	        return null;
+	      }
+	    } else if (el.charAt(0) !== '#') {
+	      lm = document.getElementsByTagName(el);
+
+	      if (lm.length !== 0) {
+	        if (lm.length === 1) {
+	          lms = lm[0];
+	        } else {
+	          for (var j = 0; j < lm.length; j++) {
+	            lms.push(lm.item(j));
+	          }
+	        }
+	      } else {
+	        return null;
+	      }
+	    } else {
+	      lm = document.querySelector(el);
+	      return lm;
+	    }
+	    return lms;
+	  } else {
+	    return el;
+	  }
+	};
+
+	/*This function copies the prototype object of a superConstructor to the prototype object
+	of a constructor. It functions just like nodes' util.inherits function, it copies methods only,
+	not internal properties.*/
+
+	/*
+	utilities.js
+
+	This file contains various functions for the library, either public or not,
+	that don't fit into any other module.
+
+	Author: Eric James Foster
+	License: ISC
+	*/
+
+	var proto = function proto(constructer, superConstructer) {
+	  construct.prototype = Object.create(superConstructer.prototype);
+	  constructer.prototype.constructor = constructer;
+	  return constructer;
+	};
+
+	/*This convenience function sets imported module function names as global variables, so that
+	the module variable doesn't need to preface every function.*/
+	var functions = function functions(funcs, module) {
+	  //TEST:110 Test this with other node_modules.
+	  var context = module || this;
+
+	  if (Array.isArray(funcs)) {
+	    funcs.forEach(function (func) {
+	      var evil = new Function('window.' + func + ' = ' + 'this.' + func + ';');
+	      evil.call(context);
+	    }, context);
+	  } else {
+	    (function () {
+	      var evil = new Function('window.' + funcs + ' = ' + 'this.' + funcs + ';');
+	      evil.call(context);
+	    }).apply(context);
+	  }
+	};
+
+	//This practically useless function will lock up the browser for a preset amount of time.
+	var sleep = function sleep(milliseconds) {
+	  var start = new Date().getTime();
+	  while (true) {
+	    if (new Date().getTime() - start > milliseconds) {
+	      break;
+	    }
+	  }
+	};
+
+	//This function will alternate function calls depending on the value of a global flag.
+	function shifter(onFunc, offFunc) {
+	  window.toggleFlag = true;
+
+	  return function () {
+	    if (toggleFlag) {
+	      onFunc();
+	      toggleFlag = false;
+	    } else {
+	      offFunc();
+	      toggleFlag = true;
+	    }
+	  };
+	};
+
+	module.exports = {
+	  queryDOM: queryDOM,
+	  functions: functions,
+	  shifter: shifter,
+	  sleep: sleep,
+	  proto: proto
+	};
 
 /***/ },
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";function _interopRequireWildcard(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t["default"]=e,t}function _interopRequireDefault(e){return e&&e.__esModule?e:{"default":e}}var _Element=__webpack_require__(2),_Element2=_interopRequireDefault(_Element),_logger=__webpack_require__(3),_utilities=__webpack_require__(6),utils=_interopRequireWildcard(_utilities),dom=function(e){return e=utils.queryDOM(e),new _Element2["default"](e)},make=function(e,t){var n=t||"div",l=document.createElement(n);return"#"===e[0]?(e=e.slice(1),l.id=e,new _Element2["default"](l)):"."===e[0]?(e=e.slice(1),l.className=e,new _Element2["default"](l)):void 0},el=function(e){return utils.queryDOM(e)},all=function(e){return utils.queryDOM(el,"all")},put=function(e,t){return"string"==typeof e?"#"===e[0]?(e=e.slice(1),"string"==typeof t?"#"===t[0]?(t=t.slice(1),document.getElementById(t).appendChild(document.getElementById(e))):"."===t[0]?(t=t.slice(1),document.getElementsByClassName(t)[0].appendChild(document.getElementById(e))):document.getElementsByTagName(t)[0].appendChild(document.getElementById(e)):t.appendChild(document.getElementById(e))):"."===e[0]?(e=e.slice(1),"string"==typeof t?"#"===t[0]?(t=t.slice(1),document.getElementById(t).appendChild(document.getElementsByClassName(e)[0])):"."===t[0]?(t=t.slice(1),document.getElementsByClassName(t)[0].appendChild(document.getElementsByClassName(e)[0])):document.getElementsByTagName(t)[0].appendChild(document.getElementsByClassName(e)[0]):t.appendChild(document.getElementsByClassName(e)[0])):"string"==typeof t?"#"===t[0]?(t=t.slice(1),document.getElementById(t).appendChild(document.getElementsByTagName(e)[0])):"."===t[0]?(t=t.slice(1),document.getElementsByClassName(t)[0].appendChild(document.getElementsByTagName(e)[0])):document.getElementsByTagName(t)[0].appendChild(document.getElementsByTagName(e)[0]):t.appendChild(document.getElementsByTagName(e)[0]):"string"==typeof t?"#"===t[0]?(t=t.slice(1),document.getElementById(t).appendChild(e)):"."===t[0]?(t=t.slice(1),document.getElementsByClassName(t)[0].appendChild(e)):document.getElementsByTagName(t)[0].appendChild(e):t.appendChild(e)},kill=function(e){return"string"==typeof e?"#"===e[0]?(e=e.slice(1),document.getElementById(e).parentNode.removeChild(document.getElementById(e))):"."===e[0]?(e=e.slice(1),document.getElementsByClassName(e)[0].parentNode.removeChild(document.getElementsByClassName(e)[0])):document.getElementsByTagName(e)[0].parentNode.removeChild(getElementsByTagName(e)[0]):e.parentNode.removeChild(e)},fore=function(e,t){return e.parentNode.insertBefore(t,e)},aft=function(e,t){return e=e.nextElementSibling,e.parentNode.insertBefore(t,e)},show=function(e){Array.isArray(e)?e.forEach(function(e){e.style.display="block"}):e.style.display="block"},hide=function(e){Array.isArray(e)?e.forEach(function(e){e.style.display="none"}):e.style.display="none"},size=function(e,t){return e.style.height=t.height,e.style.width=t.width,e};module.exports={el:el,make:make,dom:dom,all:all,put:put,kill:kill,fore:fore,aft:aft,show:show,hide:hide,size:size};
+	'use strict';
+
+	var _element = __webpack_require__(2);
+
+	var _element2 = _interopRequireDefault(_element);
+
+	var _logger = __webpack_require__(3);
+
+	var _utilities = __webpack_require__(6);
+
+	var utils = _interopRequireWildcard(_utilities);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// require('babel-polyfill');
+
+	//TODO:0 Check out querySelector() method, see if it helps out.
+	//DOING:0 go() DOMREady function, Class toggling method, aft(), fore(), size(), show(), hide().
+
+	// ------------------- This function is now run straight from index.js---------------------------//
+	//This function queries the dom, getting one element for each query (i.e. class/tags), creates
+	//an Element object with it and returns it, so that it may be easily styled.
+	// var dom = function(el) {
+	//   el = utils.queryDOM(el);
+	//
+	//   return new Element(el);
+	// };
+
+	/*function for insterting template literals into the DOM.
+
+	bones(`
+
+	<html>
+	  <head></head>
+	  <body></body>
+	</html>
+
+	`);
+
+	*/
+	var bones = function bones(tempLit) {
+	  var elem = arguments.length <= 1 || arguments[1] === undefined ? 'body' : arguments[1];
+
+	  (0, _logger.log)('hello', 'yellow');
+	  elem = el(elem);
+	  elem.innerHTML += tempLit;
+
+	  return elem;
+	};
+
+	//Create element alias function.
+
+	/*
+	DOM.js
+
+	This file contains the code for the elements.js librarys' DOM manipulation
+	convenience functions.
+
+	Author: Eric James Foster
+	License: ISC
+	*/
+
+	var make = function make(l, tag) {
+	  var t = tag || 'div',
+	      el = document.createElement(t);
+
+	  if (l[0] === '#') {
+	    l = l.slice(1);
+	    el.id = l;
+	    return new _element2.default(el);
+	  } else if (l[0] === '.') {
+	    l = l.slice(1);
+	    el.className = l;
+	    return new _element2.default(el);
+	  }
+	};
+
+	/*DOM querying alias function. Will return an array if there is more than one result. If there is
+	 only 1 it will NOT, even if the CSS Selector is a className or tagName.*/
+	var el = function el(_el) {
+	  return utils.queryDOM(_el);
+	};
+
+	//------------------------------This function is not being used in the current build ---------------------------//
+	//DOM querying function, same as above, but it will return an array if a tag or class name are given as argument.
+	// var all = function(l) {
+	//   return utils.queryDOM(el, 'all');
+	// };
+
+	//Function for appending elements to other elements.
+	var put = function put(el, mom) {
+	  //DONE:120 Make sure this works.
+	  if (typeof el === 'string') {
+	    //IDEA:0 If el doesn't exist, create it and give it id/class.
+	    if (el[0] === '#') {
+	      el = el.slice(1);
+	      if (typeof mom === 'string') {
+	        if (mom[0] === '#') {
+	          //TEST:40 Test this function thoroughly.
+	          mom = mom.slice(1);
+	          return document.getElementById(mom).appendChild(document.getElementById(el));
+	        } else if (mom[0] === '.') {
+	          mom = mom.slice(1);
+	          return document.getElementsByClassName(mom)[0].appendChild(document.getElementById(el));
+	        } else {
+	          return document.getElementsByTagName(mom)[0].appendChild(document.getElementById(el));
+	        }
+	      } else {
+	        return mom.appendChild(document.getElementById(el));
+	      }
+	    } else if (el[0] === '.') {
+	      el = el.slice(1);
+	      if (typeof mom === 'string') {
+	        if (mom[0] === '#') {
+	          mom = mom.slice(1);
+	          return document.getElementById(mom).appendChild(document.getElementsByClassName(el)[0]);
+	        } else if (mom[0] === '.') {
+	          mom = mom.slice(1);
+	          return document.getElementsByClassName(mom)[0].appendChild(document.getElementsByClassName(el)[0]);
+	        } else {
+	          return document.getElementsByTagName(mom)[0].appendChild(document.getElementsByClassName(el)[0]);
+	        }
+	      } else {
+	        return mom.appendChild(document.getElementsByClassName(el)[0]);
+	      }
+	    } else {
+	      if (typeof mom === 'string') {
+	        if (mom[0] === '#') {
+	          mom = mom.slice(1);
+	          return document.getElementById(mom).appendChild(document.getElementsByTagName(el)[0]);
+	        } else if (mom[0] === '.') {
+	          mom = mom.slice(1);
+	          return document.getElementsByClassName(mom)[0].appendChild(document.getElementsByTagName(el)[0]);
+	        } else {
+	          return document.getElementsByTagName(mom)[0].appendChild(document.getElementsByTagName(el)[0]);
+	        }
+	      } else {
+	        return mom.appendChild(document.getElementsByTagName(el)[0]);
+	      }
+	    }
+	  } else {
+	    if (typeof mom === 'string') {
+	      if (mom[0] === '#') {
+	        mom = mom.slice(1);
+	        return document.getElementById(mom).appendChild(el);
+	      } else if (mom[0] === '.') {
+	        mom = mom.slice(1);
+	        return document.getElementsByClassName(mom)[0].appendChild(el);
+	      } else {
+	        return document.getElementsByTagName(mom)[0].appendChild(el);
+	      }
+	    } else {
+	      return mom.appendChild(el);
+	    }
+	  }
+	};
+
+	//Function for deleting elements from the DOM tree.
+	var kill = function kill(el) {
+	  if (typeof el === 'string') {
+	    if (el[0] === '#') {
+	      el = el.slice(1);
+	      return document.getElementById(el).parentNode.removeChild(document.getElementById(el));
+	    } else if (el[0] === '.') {
+	      el = el.slice(1);
+	      return document.getElementsByClassName(el)[0].parentNode.removeChild(document.getElementsByClassName(el)[0]);
+	    } else {
+	      return document.getElementsByTagName(el)[0].parentNode.removeChild(getElementsByTagName(el)[0]);
+	    }
+	  } else {
+	    return el.parentNode.removeChild(el);
+	  }
+	};
+
+	//DOM function for inserting an element before a specified node.
+
+	var fore = function fore(ref, elem) {
+	  return el(ref).parentNode.insertBefore(el(elem), el(ref));
+	};
+
+	//DOM function for inserting an element after a specified node.
+	var aft = function aft(ref, elem) {
+	  ref = el(ref);
+	  ref = ref.nextElementSibling;
+
+	  return ref.parentNode.insertBefore(el(elem), ref);
+	};
+
+	//DOM function for showing an element, or a list of elements.
+	var show = function show(elem) {
+	  var disp = arguments.length <= 1 || arguments[1] === undefined ? 'block' : arguments[1];
+
+	  elem = el(elem);
+	  if (Array.isArray(elem)) {
+	    elem.forEach(function (l) {
+	      l.style.display = disp;
+	    });
+	  } else {
+	    elem.style.display = disp;
+	  }
+	};
+
+	//DOM function for hiding an element, or a list of elements.
+	var hide = function hide(elem) {
+	  elem = el(elem);
+
+	  if (Array.isArray(elem)) {
+	    elem.forEach(function (l) {
+	      l.style.display = 'none';
+	    });
+	  } else {
+	    elem.style.display = 'none';
+	  }
+	};
+
+	//DOM function for setting height and width of an element. 's' is an object, with height and width as keys.
+	var size = function size(elem, h, w) {
+	  elem = el(elem);
+
+	  elem.style.height = h;
+	  elem.style.width = w;
+	  return elem;
+	};
+
+	//function clones given node.ddeep is a boolean, if true, clone will include all descendants as well as node and its' attributes.
+	var clone = function clone(elem, deep) {
+	  var node = elem.cloneNode(deep);
+	  return node;
+	};
+
+	//Function for setting css style properties of elements.
+	// var style = function(el) {
+	//   if (el[0] === '#') {                                                      //DONE:110 Give this chaining functionality.
+	//     el = el.slice(1);
+	//     return document.getElementById(el).style;
+	//   } else if (el[0] === '.') {
+	//     el = el.slice(1);
+	//     return document.getElementsByClassName(el)[0].style;
+	//   } else {
+	//     return document.getElementsByTagName(el)[0].style;
+	//   }
+	// };
+
+	module.exports = {
+	  el: el,
+	  make: make,
+	  bones: bones,
+	  clone: clone,
+	  // all: all,
+	  put: put,
+	  kill: kill,
+	  fore: fore,
+	  aft: aft,
+	  show: show,
+	  hide: hide,
+	  size: size
+	};
 
 /***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var _logger=__webpack_require__(3),xhr=function(e,n,t){var r;if(n)if(0===Object.getOwnPropertyNames(n).length)r=n;else{r=new FormData;for(var a in n)r.append(a,n[a])}else r=null;var s,o=t||"get",i=function p(){var p=new XMLHttpRequest;p.onloadend=function(){200===p.status&&(s=this.response)},p.open(o,e,!1),p.send(r)};return i(),s=JSON.parse(s)},ajax=function(e,n,t,r){var a;if(n)if(0===Object.getOwnPropertyNames(n).length)a=n;else{a=new FormData;for(var s in n)a.append(s,n[s])}else a=null;var o=r||"post",i=new XMLHttpRequest;i.onloadend=function(){if(200===i.status){var e=JSON.parse(this.response);t(e)}},i.open(o,e),i.send(a)};module.exports={ajax:ajax,xhr:xhr};
+	'use strict';
+
+	var _logger = __webpack_require__(3);
+
+	// require('babel-polyfill');
+
+	//DONE:20 Complete X-Browser support for both functions.
+
+	//This is an alias function for XMLHttpRequests.
+	var xhr = function xhr(url, fd, method) {
+	  //DONE:80 Perfect this function.
+	  var formData;
+	  //DONE:100 Build FormData in function from object that user passes as an argument.
+	  if (fd) {
+	    //DONE:70 Need async ajax function
+	    if (Object.getOwnPropertyNames(fd).length === 0) {
+	      formData = fd; //log(Object.getOwnPropertyNames(fd).length);
+	    } else {
+	        formData = new FormData();
+	        for (var key in fd) {
+	          //TEST:50 Test this function.
+	          formData.append(key, fd[key]);
+	        }
+	      }
+	  } else {
+	    formData = null;
+	  }
+	  //log('fd'); log(formData);
+	  var m = method || 'get';
+	  // var data = fd || null;
+	  var val;
+
+	  var ajax = function ajax() {
+	    var ajax = new XMLHttpRequest();
+
+	    ajax.onloadend = function () {
+	      if (ajax.status === 200) {
+	        val = this.response;
+	      }
+	    };
+	    ajax.open(m, url, false);
+	    ajax.send(formData);
+	  };
+	  ajax();
+	  val = JSON.parse(val);
+
+	  return val;
+	};
+	/*
+	httpRequests.js
+
+	This file contains code for 2 HTTP request convenience functions, 1 synchronous,
+	and the other asynchronous.
+
+	Author: Eric James Foster
+	License: ISC
+	*/
+
+	//TODO:30 reWrite 'await' version of xhr().
+
+	var ajax = function ajax(url, fd, callback, method) {
+	  //TEST:60 Test this function.
+	  var formData;
+
+	  if (fd) {
+	    if (Object.getOwnPropertyNames(fd).length === 0) {
+	      formData = fd; //log(Object.getOwnPropertyNames(fd).length);
+	    } else {
+	        formData = new FormData();
+	        for (var key in fd) {
+	          formData.append(key, fd[key]);
+	        }
+	      }
+	  } else {
+	    formData = null;
+	  }
+	  //log('fd'); log(formData);
+	  var m = method || 'get';
+	  if (formData !== null) {
+	    m = 'post';
+	  }
+	  // var data = fd;
+	  var val;
+	  var req = new XMLHttpRequest();
+
+	  req.onloadend = function () {
+	    if (req.status === 200) {
+	      var response = JSON.parse(this.response);
+	      callback(response);
+	    }
+	  };
+	  req.open(m, url);
+	  req.send(formData);
+	};
+
+	module.exports = {
+	  ajax: ajax,
+	  xhr: xhr
+	};
 
 /***/ },
 /* 9 */
