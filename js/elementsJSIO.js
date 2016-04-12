@@ -43,11 +43,12 @@ function insertDocs() {
     log(el('#dom-func').offsetTop);
 
     scroll(window, (e)=> {
-      log(el('#dom-func').scrollTop + '     ' + el('#dom-func').offsetTop);
+      log(document.documentElement.scrollTop + '     ' + el('#DOM').offsetTop);
 
-      if (el('#dom-func').offsetTop < document.body.scrollTop + 70 || el('#dom-func').offsetTop < document.documentElement.scrollTop + 70) {
+      if (el('#DOM').offsetTop < document.body.scrollTop || el('#DOM').offsetTop < document.documentElement.scrollTop) {
         if (b) {
-          alert('blue');
+          log('blue', 'blue');
+          log(e);
           b = false;
         }
       }
