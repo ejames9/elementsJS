@@ -238,7 +238,7 @@
 	//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
 	var element = function element(el) {
-	  return new elem.element();
+	  return new elem();
 	};
 
 	/*This function copies the prototype object of a superConstructor to the prototype object
@@ -292,7 +292,7 @@
 	      for (var _iterator = el[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	        var l = _step.value;
 
-	        rv.push(new elem.element(l));
+	        rv.push(new elem(l));
 	      }
 	    } catch (err) {
 	      _didIteratorError = true;
@@ -309,7 +309,7 @@
 	      }
 	    }
 	  } else {
-	    rv = new elem.element(el);
+	    rv = new elem(el);
 	  }
 	  return rv;
 	};
@@ -684,6 +684,7 @@
 
 	//DONE:30 functions: err(), info(), warn().
 	//DONE:130 Complete all standalone style functions.
+
 
 /***/ },
 /* 2 */

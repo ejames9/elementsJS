@@ -26,9 +26,6 @@ var markDown;
 
 
 
-
-
-
 function _(bit1, bit2) {
   return bit1 + bit2;
 }
