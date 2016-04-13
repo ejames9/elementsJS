@@ -13,8 +13,14 @@ Version: 1.0.0
 URL: ""
 */
 
-//FIXME: elements syntax not working in case condition of switch statement.
+//FIXME: elements syntax not working in parenthesis.
 //FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
+
+//TODO: Complete <elem> syntax.
+//TODO: .sib() does not return element.......
+//TODO: addClass() method.
+
+
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
