@@ -84,7 +84,7 @@ function getOffSets() {
 
 function sideNavController() {
   const offSets = getOffSets();
-  console.log(document.querySelector('[class="active"]'));
+  console.log(el('[class=hot]'));
 
   <html/>
     .scroll(()=>  {
