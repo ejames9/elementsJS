@@ -44,10 +44,10 @@ function insertDocs(cb) {
 
     const offSets = SNC.getOffSets();
 
-    for (var el in offSets) {
-      log('id: ' + el, 'red');
-      log('offSet: ' + offSets[el], ['red', 'blue'])
-    }
+    // for (var el in offSets) {
+    //   log('id: ' + el, 'red');
+    //   log('offSet: ' + offSets[el], ['red', 'blue'])
+    // }
 
     cb();
   });
@@ -101,7 +101,6 @@ go(()=> {
               toggleNPMBar();
               break;
           case (document.getElementById('api-butn')):
-              console.log("I'm in.");
               insertDocs(()=> {
                 SNC.sideNavController();
               });

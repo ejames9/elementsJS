@@ -31,7 +31,7 @@ var queryDOM = function queryDOM(el) {
       } else {
         return null;
       }
-    } else if (el.charAt(0) !== '#') {
+    } else if (el.charAt(0) !== '#' && el.indexOf('[') === -1 && el.indexOf(':') === -1) {
       lm = document.getElementsByTagName(el);
 
       if (lm.length !== 0) {

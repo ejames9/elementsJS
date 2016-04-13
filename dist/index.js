@@ -152,7 +152,7 @@ var make = function make(el, tag) {
 
 //DOM querying alias function. Will automatically narrow class or tag queries down to one result. It will not return an array.
 var el = function el(l) {
-  return DOM.el(l);
+  return utils.queryDOM(l);
 };
 
 //Function for appending elements to other elements.

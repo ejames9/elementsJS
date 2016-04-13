@@ -1,5 +1,5 @@
 
-import { el } from 'elementsJS';
+import { el, log, scroll } from 'elementsJS';
 
 
 
@@ -83,338 +83,516 @@ function getOffSets() {
 
 
 function sideNavController() {
-  const offSets = getOffSets();
-  console.log(el('[class=hot]'));
+  const offSets = getOffSets(),
+           diff = 0;
 
-  <html/>
-    .scroll(()=>  {
+
+  scroll(window, ()=>  {
       switch(true) {
-        case (dom('html').scrolled > 0 && dom('html').scrolled < offSets['get-started'] ||
-              dom('body').scrolled > 0 && dom('body').scrolled < offSets['get-started']):
-            dom('[class=active]')
+        //0 - 13 Getting Started
+        case (dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff ||
+              dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']):
+            log(dom('html').scrolled() + ' :  --- : ' + offSets['get-started'], ['red', 'blue']);
+            dom('[class=hot]')
                         .xClass();
             <'#getStart'/>
-                        .class('active');
-            break;
-        case (dom('html').scrolled > offSets['get-started'] && dom('html').scrolled < offSets['installation'] ||
-              dom('body').scrolled > offSets['get-started'] && dom('body').scrolled < offSets['installation']):
-            dom('[class=active]')
-                        .xClass();
-            <'#inst'/>
-                        .class('active');
-
-            break;
-        case (dom('html').scrolled > offSets['installation'] && dom('html').scrolled < offSets['usage'] ||
-              dom('body').scrolled > offSets['installation'] && dom('body').scrolled < offSets['usage']):
-            dom('[class=active]')
-                        .xClass();
-            <'#use'/>
-                        .class('active');
-
-            break;
-        case (dom('html').scrolled > offSets['usage'] && dom('html').scrolled < offSets['interpreter-install'] ||
-              dom('body').scrolled > offSets['usage'] && dom('body').scrolled < offSets['interpreter-install']):
-            dom('[class=active]')
-                        .xClass();
-            <'#interpInstall'/>
-                        .class('active');
-
-            break;
-        case (dom('html').scrolled > offSets['interpreter-install'] && dom('html').scrolled < offSets['imports'] ||
-              dom('body').scrolled > offSets['interpreter-install'] && dom('body').scrolled < offSets['imports']):
-            dom('[class=active]')
-                        .xClass();
-            <'#imps'/>
-                        .class('active');
-
-            break;
-        case (dom('html').scrolled > offSets['imports'] && dom('html').scrolled < offSets['DOM'] ||
-              dom('body').scrolled > offSets['imports'] && dom('body').scrolled < offSets['DOM']):
-            dom('[class=active]')
-                        .xClass();
-            <'#domManip'/>
-                        .class('active');
-
-            break;
-        case (dom('html').scrolled > offSets['DOM'] && dom('html').scrolled < offSets['el-func'] ||
-              dom('body').scrolled > offSets['DOM'] && dom('body').scrolled < offSets['el-func']):
-            dom('[class=active]')
-                        .xClass();
-            <'#el'/>
-                        .class('active');
-
-            break;
-        case (dom('html').scrolled > offSets['el-func'] && dom('html').scrolled < offSets['dom-func'] ||
-              dom('body').scrolled > offSets['el-func'] && dom('body').scrolled < offSets['dom-func']):
-            dom('[class=active]')
-                        .xClass();
-            <'#dom'/>
-                        .class('active');
-
-            break;
-        case (dom('html').scrolled > offSets['dom-func'] && dom('html').scrolled < offSets['__-func'] ||
-              dom('body').scrolled > offSets['dom-func'] && dom('body').scrolled < offSets['__-func']):
-            dom('[class=active]')
-                        .xClass();
-            <'#__'/>
-                        .class('active');
-
-            break;
-        case (dom('html').scrolled > offSets['__-func'] && dom('html').scrolled < offSets['make-func'] ||
-              dom('body').scrolled > offSets['__-func'] && dom('body').scrolled < offSets['make-func']):
-            dom('[class=active]')
-                        .xClass();
-            <'#make'/>
-                        .class('active');
-
-            break;
-        case (dom('html').scrolled > offSets['make-func'] && dom('html').scrolled < offSets['put-func'] ||
-              dom('body').scrolled > offSets['make-func'] && dom('body').scrolled < offSets['put-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['put-func'] && dom('html').scrolled < offSets['x-func'] ||
-              dom('body').scrolled > offSets['put-func'] && dom('body').scrolled < offSets['x-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['x-func'] && dom('html').scrolled < offSets['fore-func'] ||
-              dom('body').scrolled > offSets['x-func'] && dom('body').scrolled < offSets['fore-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['fore-func'] && dom('html').scrolled < offSets['aft-func'] ||
-              dom('body').scrolled > offSets['fore-func'] && dom('body').scrolled < offSets['aft-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['aft-func'] && dom('html').scrolled < offSets['show-func'] ||
-              dom('body').scrolled > offSets['aft-func'] && dom('body').scrolled < offSets['show-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['show-func'] && dom('html').scrolled < offSets['hide-func'] ||
-              dom('body').scrolled > offSets['show-func'] && dom('body').scrolled < offSets['hide-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['hide-func'] && dom('html').scrolled < offSets['size-func'] ||
-              dom('body').scrolled > offSets['hide-func'] && dom('body').scrolled < offSets['size-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['size-func'] && dom('html').scrolled < offSets['event-handle'] ||
-              dom('body').scrolled > offSets['size-func'] && dom('body').scrolled < offSets['event-handle']):
-
-            break;
-        case (dom('html').scrolled > offSets['event-handle'] && dom('html').scrolled < offSets['go-func'] ||
-              dom('body').scrolled > offSets['event-handle'] && dom('body').scrolled < offSets['go-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['go-func'] && dom('html').scrolled < offSets['on-func'] ||
-              dom('body').scrolled > offSets['go-func'] && dom('body').scrolled < offSets['on-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['on-func'] && dom('html').scrolled < offSets['off-func'] ||
-              dom('body').scrolled > offSets['on-func'] && dom('body').scrolled < offSets['off-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['off-func'] && dom('html').scrolled < offSets['once-func'] ||
-              dom('body').scrolled > offSets['off-func'] && dom('body').scrolled < offSets['once-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['once-func'] && dom('html').scrolled < offSets['spark-func'] ||
-              dom('body').scrolled > offSets['once-func'] && dom('body').scrolled < offSets['spark-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['spark-func'] && dom('html').scrolled < offSets['click-func'] ||
-              dom('body').scrolled > offSets['spark-func'] && dom('body').scrolled < offSets['click-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['click-func'] && dom('html').scrolled < offSets['dblClick-func'] ||
-              dom('body').scrolled > offSets['click-func'] && dom('body').scrolled < offSets['dblClick-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['dblClick-func'] && dom('html').scrolled < offSets['blur-func'] ||
-              dom('body').scrolled > offSets['dblClick-func'] && dom('body').scrolled < offSets['blur-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['blur-func'] && dom('html').scrolled < offSets['error-func'] ||
-              dom('body').scrolled > offSets['blur-func'] && dom('body').scrolled < offSets['error-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['error-func'] && dom('html').scrolled < offSets['focus-func'] ||
-              dom('body').scrolled > offSets['error-func'] && dom('body').scrolled < offSets['focus-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['focus-func'] && dom('html').scrolled < offSets['focusIn-func'] ||
-              dom('body').scrolled > offSets['focus-func'] && dom('body').scrolled < offSets['focusIn-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['focusIn-func'] && dom('html').scrolled < offSets['focusOut-func'] ||
-              dom('body').scrolled > offSets['focusIn-func'] && dom('body').scrolled < offSets['focusOut-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['focusOut-func'] && dom('html').scrolled < offSets['keyUp-func'] ||
-              dom('body').scrolled > offSets['focusOut-func'] && dom('body').scrolled < offSets['keyUp-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['keyUp-func'] && dom('html').scrolled < offSets['keyDown-func'] ||
-              dom('body').scrolled > offSets['keyUp-func'] && dom('body').scrolled < offSets['keyDown-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['keyDown-func'] && dom('html').scrolled < offSets['load-func'] ||
-              dom('body').scrolled > offSets['keyDown-func'] && dom('body').scrolled < offSets['load-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['load-func'] && dom('html').scrolled < offSets['unLoad-func'] ||
-              dom('body').scrolled > offSets['load-func'] && dom('body').scrolled < offSets['unLoad-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['unLoad-func'] && dom('html').scrolled < offSets['mouse-func'] ||
-              dom('body').scrolled > offSets['unLoad-func'] && dom('body').scrolled < offSets['mouse-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['mouse-func'] && dom('html').scrolled < offSets['resize-func'] ||
-              dom('body').scrolled > offSets['mouse-func'] && dom('body').scrolled < offSets['resize-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['resize-func'] && dom('html').scrolled < offSets['scroll-func'] ||
-              dom('body').scrolled > offSets['resize-func'] && dom('body').scrolled < offSets['scroll-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['scroll-func'] && dom('html').scrolled < offSets['select-func'] ||
-              dom('body').scrolled > offSets['scroll-func'] && dom('body').scrolled < offSets['select-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['select-func'] && dom('html').scrolled < offSets['http'] ||
-              dom('body').scrolled > offSets['select-func'] && dom('body').scrolled < offSets['http']):
-
-            break;
-        case (dom('html').scrolled > offSets['http'] && dom('html').scrolled < offSets['xhr-func'] ||
-              dom('body').scrolled > offSets['http'] && dom('body').scrolled < offSets['xhr-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['xhr-func'] && dom('html').scrolled < offSets['ajax-func'] ||
-              dom('body').scrolled > offSets['xhr-func'] && dom('body').scrolled < offSets['ajax-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['ajax-func'] && dom('html').scrolled < offSets['loggers'] ||
-              dom('body').scrolled > offSets['ajax-func'] && dom('body').scrolled < offSets['loggers']):
-
-            break;
-        case (dom('html').scrolled > offSets['loggers'] && dom('html').scrolled < offSets['log-func'] ||
-              dom('body').scrolled > offSets['loggers'] && dom('body').scrolled < offSets['log-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['log-func'] && dom('html').scrolled < offSets['info-func'] ||
-              dom('body').scrolled > offSets['log-func'] && dom('body').scrolled < offSets['info-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['info-func'] && dom('html').scrolled < offSets['warn-func'] ||
-              dom('body').scrolled > offSets['info-func'] && dom('body').scrolled < offSets['warn-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['warn-func'] && dom('html').scrolled < offSets['err-func'] ||
-              dom('body').scrolled > offSets['warn-func'] && dom('body').scrolled < offSets['err-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['err-func'] && dom('html').scrolled < offSets['utils'] ||
-              dom('body').scrolled > offSets['err-func'] && dom('body').scrolled < offSets['utils']):
-
-            break;
-        case (dom('html').scrolled > offSets['utils'] && dom('html').scrolled < offSets['proto-func'] ||
-              dom('body').scrolled > offSets['utils'] && dom('body').scrolled < offSets['proto-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['proto-func'] && dom('html').scrolled < offSets['shifter-func'] ||
-              dom('body').scrolled > offSets['proto-func'] && dom('body').scrolled < offSets['shifter-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['shifter-func'] && dom('html').scrolled < offSets['elem-obj'] ||
-              dom('body').scrolled > offSets['shifter-func'] && dom('body').scrolled < offSets['elem-obj']):
-
-            break;
-        case (dom('html').scrolled > offSets['elem-obj'] && dom('html').scrolled < offSets['element-const'] ||
-              dom('body').scrolled > offSets['elem-obj'] && dom('body').scrolled < offSets['element-const']):
-
-            break;
-        case (dom('html').scrolled > offSets['element-const'] && dom('html').scrolled < offSets['dom2-func'] ||
-              dom('body').scrolled > offSets['element-const'] && dom('body').scrolled < offSets['dom2-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['dom2-func'] && dom('html').scrolled < offSets['make2-func'] ||
-              dom('body').scrolled > offSets['dom2-func'] && dom('body').scrolled < offSets['make2-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['make2-func'] && dom('html').scrolled < offSets['elem-obj-methods'] ||
-              dom('body').scrolled > offSets['make2-func'] && dom('body').scrolled < offSets['elem-obj-methods']):
-
-            break;
-        case (dom('html').scrolled > offSets['elem-obj-methods'] && dom('html').scrolled < offSets['element-font-ex'] ||
-              dom('body').scrolled > offSets['elem-obj-methods'] && dom('body').scrolled < offSets['element-font-ex']):
-
-            break;
-        case (dom('html').scrolled > offSets['element-font-ex'] && dom('html').scrolled < offSets['exs'] ||
-              dom('body').scrolled > offSets['element-font-ex'] && dom('body').scrolled < offSets['exs']):
-
-            break;
-        case (dom('html').scrolled > offSets['exs'] && dom('html').scrolled < offSets['style-methods'] ||
-              dom('body').scrolled > offSets['exs'] && dom('body').scrolled < offSets['style-methods']):
-
-            break;
-        case (dom('html').scrolled > offSets['style-methods'] && dom('html').scrolled < offSets['core-func'] ||
-              dom('body').scrolled > offSets['style-methods'] && dom('body').scrolled < offSets['core-func']):
-
-            break;
-        case (dom('html').scrolled > offSets['core-func'] && dom('html').scrolled < offSets['DOM-Elem-Methods'] ||
-              dom('body').scrolled > offSets['core-func'] && dom('body').scrolled < offSets['DOM-Elem-Methods']):
-
-            break;
-        case (dom('html').scrolled > offSets['DOM-Elem-Methods'] && dom('html').scrolled < offSets['event-methods'] ||
-              dom('body').scrolled > offSets['DOM-Elem-Methods'] && dom('body').scrolled < offSets['event-methods']):
-
-            break;
-        case (dom('html').scrolled > offSets['event-methods'] && dom('html').scrolled < offSets['Util-methods'] ||
-              dom('body').scrolled > offSets['event-methods'] && dom('body').scrolled < offSets['Util-methods']):
-
-            break;
-        case (dom('html').scrolled > offSets['Util-methods'] && dom('html').scrolled < offSets['elements-syntax'] ||
-              dom('body').scrolled > offSets['Util-methods'] && dom('body').scrolled < offSets['elements-syntax']):
-
-            break;
-        case (dom('html').scrolled > offSets['elements-syntax'] && dom('html').scrolled < offSets['elemsyntax-func1'] ||
-              dom('body').scrolled > offSets['elements-syntax'] && dom('body').scrolled < offSets['elemsyntax-func1']):
-
-            break;
-        case (dom('html').scrolled > offSets['elemsyntax-func1'] && dom('html').scrolled < offSets['elemsyntax-func2'] ||
-              dom('body').scrolled > offSets['elemsyntax-func1'] && dom('body').scrolled < offSets['elemsyntax-func2']):
-
-            break;
-        case (dom('html').scrolled > offSets['elemsyntax-func2'] && dom('html').scrolled < offSets['elemsyntax-func3'] ||
-              dom('body').scrolled > offSets['elemsyntax-func2'] && dom('body').scrolled < offSets['elemsyntax-func3']):
-
-            break;
-        case (dom('html').scrolled > offSets['elemsyntax-func3'] && dom('html').scrolled < offSets['elemsyntax-func4'] ||
-              dom('body').scrolled > offSets['elemsyntax-func3'] && dom('body').scrolled < offSets['elemsyntax-func4']):
-
-            break;
-        case (dom('html').scrolled > offSets['elemsyntax-func4'] && dom('html').scrolled < offSets['elemsyntax-func5'] ||
-              dom('body').scrolled > offSets['elemsyntax-func4'] && dom('body').scrolled < offSets['elemsyntax-func5']):
-
-            break;
-        case (dom('html').scrolled > offSets['elemsyntax-func5'] && dom('html').scrolled < offSets['elemsyntax-func6'] ||
-              dom('body').scrolled > offSets['elemsyntax-func5'] && dom('body').scrolled < offSets['elemsyntax-func6']):
-
-            break;
-        case (dom('html').scrolled > offSets['elemsyntax-func6'] && dom('html').scrolled < offSets['append-syntax'] ||
-              dom('body').scrolled > offSets['elemsyntax-func6'] && dom('body').scrolled < offSets['append-syntax']):
-
-            break;
-        case (dom('html').scrolled > offSets['append-syntax'] && dom('html').scrolled < offSets['elemsyntax-func7'] ||
-              dom('body').scrolled > offSets['append-syntax'] && dom('body').scrolled < offSets['elemsyntax-func7']):
-
-            break;
-        case (dom('html').scrolled > offSets['elemsyntax-func7'] ||
-              dom('body').scrolled > offSets['elemsyntax-func7']):
-
-            break;
+                        .class('hot');
+            break;
+        case (dom('html').scrolled() > offSets['get-started'] + diff && dom('html').scrolled() < offSets['installation'] + diff ||
+              dom('body').scrolled() > offSets['get-started'] + diff && dom('body').scrolled() < offSets['installation']):
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['installation'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#getStart'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff ||
+              dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage']):
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['usage'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#inst'/>
+                      .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff ||
+              dom('body').scrolled() > offSets['usage'] + diff && dom('body').scrolled() < offSets['interpreter-install']):
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['interpreter-install'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#use'/>
+                      .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff ||
+              dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports']):
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['imports'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#interpInstall'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff ||
+              dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM']):
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['DOM'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#imps'/>
+                      .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff ||
+              dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func']):
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['get-started'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#domManip'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['el-func'] + diff && dom('html').scrolled() < offSets['dom-func'] + diff ||
+              dom('body').scrolled() > offSets['el-func'] + diff && dom('body').scrolled() < offSets['dom-func']):
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['dom-func'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#el'/>
+                      .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['dom-func'] + diff && dom('html').scrolled() < offSets['__-func'] + diff ||
+              dom('body').scrolled() > offSets['dom-func'] + diff && dom('body').scrolled() < offSets['__-func']):
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['__-func'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#dom'/>
+                      .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['__-func'] + diff && dom('html').scrolled() < offSets['make-func'] + diff ||
+              dom('body').scrolled() > offSets['__-func'] + diff && dom('body').scrolled() < offSets['make-func']):
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['make-func'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#__'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['make-func'] + diff && dom('html').scrolled() < offSets['put-func'] + diff ||
+              dom('body').scrolled() > offSets['make-func'] + diff && dom('body').scrolled() < offSets['put-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#make'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['put-func'] + diff && dom('html').scrolled() < offSets['x-func'] + diff ||
+              dom('body').scrolled() > offSets['put-func'] + diff && dom('body').scrolled() < offSets['x-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#put'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['x-func'] + diff && dom('html').scrolled() < offSets['fore-func'] + diff ||
+              dom('body').scrolled() > offSets['x-func'] + diff && dom('body').scrolled() < offSets['fore-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#x'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['fore-func'] + diff && dom('html').scrolled() < offSets['aft-func'] + diff ||
+              dom('body').scrolled() > offSets['fore-func'] + diff && dom('body').scrolled() < offSets['aft-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#fore'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['aft-func'] + diff && dom('html').scrolled() < offSets['show-func'] + diff ||
+              dom('body').scrolled() > offSets['aft-func'] + diff && dom('body').scrolled() < offSets['show-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#aft'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['show-func'] + diff && dom('html').scrolled() < offSets['hide-func'] + diff ||
+              dom('body').scrolled() > offSets['show-func'] + diff && dom('body').scrolled() < offSets['hide-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#show'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['hide-func'] + diff && dom('html').scrolled() < offSets['size-func'] + diff ||
+              dom('body').scrolled() > offSets['hide-func'] + diff && dom('body').scrolled() < offSets['size-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#hide'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff ||
+              dom('body').scrolled() > offSets['size-func'] + diff && dom('body').scrolled() < offSets['event-handle']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#size'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['event-handle'] + diff && dom('html').scrolled() < offSets['go-func'] + diff ||
+              dom('body').scrolled() > offSets['event-handle'] + diff && dom('body').scrolled() < offSets['go-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#eventHand'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['go-func'] + diff && dom('html').scrolled() < offSets['on-func'] + diff ||
+              dom('body').scrolled() > offSets['go-func'] + diff && dom('body').scrolled() < offSets['on-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#go'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['on-func'] + diff && dom('html').scrolled() < offSets['off-func'] + diff ||
+              dom('body').scrolled() > offSets['on-func'] + diff && dom('body').scrolled() < offSets['off-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#on'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['off-func'] + diff && dom('html').scrolled() < offSets['once-func'] + diff ||
+              dom('body').scrolled() > offSets['off-func'] + diff && dom('body').scrolled() < offSets['once-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#off'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['once-func'] + diff && dom('html').scrolled() < offSets['spark-func'] + diff ||
+              dom('body').scrolled() > offSets['once-func'] + diff && dom('body').scrolled() < offSets['spark-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#once'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['spark-func'] + diff && dom('html').scrolled() < offSets['click-func'] + diff ||
+              dom('body').scrolled() > offSets['spark-func'] + diff && dom('body').scrolled() < offSets['click-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#spark'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['click-func'] + diff && dom('html').scrolled() < offSets['dblClick-func'] + diff ||
+              dom('body').scrolled() > offSets['click-func'] + diff && dom('body').scrolled() < offSets['dblClick-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#click'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['dblClick-func'] + diff && dom('html').scrolled() < offSets['blur-func'] + diff ||
+              dom('body').scrolled() > offSets['dblClick-func'] + diff && dom('body').scrolled() < offSets['blur-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#dbl'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['blur-func'] + diff && dom('html').scrolled() < offSets['error-func'] + diff ||
+              dom('body').scrolled() > offSets['blur-func'] + diff && dom('body').scrolled() < offSets['error-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#blur'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['error-func'] + diff && dom('html').scrolled() < offSets['focus-func'] + diff ||
+              dom('body').scrolled() > offSets['error-func'] + diff && dom('body').scrolled() < offSets['focus-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#error'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['focus-func'] + diff && dom('html').scrolled() < offSets['focusIn-func'] + diff ||
+              dom('body').scrolled() > offSets['focus-func'] + diff && dom('body').scrolled() < offSets['focusIn-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#focus'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['focusIn-func'] + diff && dom('html').scrolled() < offSets['focusOut-func'] + diff ||
+              dom('body').scrolled() > offSets['focusIn-func'] + diff && dom('body').scrolled() < offSets['focusOut-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#focusIn'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['focusOut-func'] + diff && dom('html').scrolled() < offSets['keyUp-func'] + diff ||
+              dom('body').scrolled() > offSets['focusOut-func'] + diff && dom('body').scrolled() < offSets['keyUp-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#focusOut'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['keyUp-func'] + diff && dom('html').scrolled() < offSets['keyDown-func'] + diff ||
+              dom('body').scrolled() > offSets['keyUp-func'] + diff && dom('body').scrolled() < offSets['keyDown-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#keyUp'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['keyDown-func'] + diff && dom('html').scrolled() < offSets['load-func'] + diff ||
+              dom('body').scrolled() > offSets['keyDown-func'] + diff && dom('body').scrolled() < offSets['load-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#keyDown'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['load-func'] + diff && dom('html').scrolled() < offSets['unLoad-func'] + diff ||
+              dom('body').scrolled() > offSets['load-func'] + diff && dom('body').scrolled() < offSets['unLoad-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#load'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['unLoad-func'] + diff && dom('html').scrolled() < offSets['mouse-func'] + diff ||
+              dom('body').scrolled() > offSets['unLoad-func'] + diff && dom('body').scrolled() < offSets['mouse-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#unLoad'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['mouse-func'] + diff && dom('html').scrolled() < offSets['resize-func'] + diff ||
+              dom('body').scrolled() > offSets['mouse-func'] + diff && dom('body').scrolled() < offSets['resize-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#mouse'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['resize-func'] + diff && dom('html').scrolled() < offSets['scroll-func'] + diff ||
+              dom('body').scrolled() > offSets['resize-func'] + diff && dom('body').scrolled() < offSets['scroll-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#resize'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['scroll-func'] + diff && dom('html').scrolled() < offSets['select-func'] + diff ||
+              dom('body').scrolled() > offSets['scroll-func'] + diff && dom('body').scrolled() < offSets['select-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#scroll'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['select-func'] + diff && dom('html').scrolled() < offSets['http'] + diff ||
+              dom('body').scrolled() > offSets['select-func'] + diff && dom('body').scrolled() < offSets['http']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#select'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['http'] + diff && dom('html').scrolled() < offSets['xhr-func'] + diff ||
+              dom('body').scrolled() > offSets['http'] + diff && dom('body').scrolled() < offSets['xhr-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#http'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['xhr-func'] + diff && dom('html').scrolled() < offSets['ajax-func'] + diff ||
+              dom('body').scrolled() > offSets['xhr-func'] + diff && dom('body').scrolled() < offSets['ajax-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#xhr'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['ajax-func'] + diff && dom('html').scrolled() < offSets['loggers'] + diff ||
+              dom('body').scrolled() > offSets['ajax-func'] + diff && dom('body').scrolled() < offSets['loggers']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#ajax'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['loggers'] + diff && dom('html').scrolled() < offSets['log-func'] + diff ||
+              dom('body').scrolled() > offSets['loggers'] + diff && dom('body').scrolled() < offSets['log-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#logg'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['log-func'] + diff && dom('html').scrolled() < offSets['info-func'] + diff ||
+              dom('body').scrolled() > offSets['log-func'] + diff && dom('body').scrolled() < offSets['info-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#log'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['info-func'] + diff && dom('html').scrolled() < offSets['warn-func'] + diff ||
+              dom('body').scrolled() > offSets['info-func'] + diff && dom('body').scrolled() < offSets['warn-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#info'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['warn-func'] + diff && dom('html').scrolled() < offSets['err-func'] + diff ||
+              dom('body').scrolled() > offSets['warn-func'] + diff && dom('body').scrolled() < offSets['err-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#warn'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['err-func'] + diff && dom('html').scrolled() < offSets['utils'] + diff ||
+              dom('body').scrolled() > offSets['err-func'] + diff && dom('body').scrolled() < offSets['utils']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#err'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['utils'] + diff && dom('html').scrolled() < offSets['proto-func'] + diff ||
+              dom('body').scrolled() > offSets['utils'] + diff && dom('body').scrolled() < offSets['proto-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#utilFunc'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['proto-func'] + diff && dom('html').scrolled() < offSets['shifter-func'] + diff ||
+              dom('body').scrolled() > offSets['proto-func'] + diff && dom('body').scrolled() < offSets['shifter-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#proto'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['shifter-func'] + diff && dom('html').scrolled() < offSets['elem-obj'] + diff ||
+              dom('body').scrolled() > offSets['shifter-func'] + diff && dom('body').scrolled() < offSets['elem-obj']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#shifter'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elem-obj'] + diff && dom('html').scrolled() < offSets['element-const'] + diff ||
+              dom('body').scrolled() > offSets['elem-obj'] + diff && dom('body').scrolled() < offSets['element-const']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#elemObj'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['element-const'] + diff && dom('html').scrolled() < offSets['dom2-func'] + diff ||
+              dom('body').scrolled() > offSets['element-const'] + diff && dom('body').scrolled() < offSets['dom2-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#elemConst'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['dom2-func'] + diff && dom('html').scrolled() < offSets['make2-func'] + diff ||
+              dom('body').scrolled() > offSets['dom2-func'] + diff && dom('body').scrolled() < offSets['make2-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#dom2'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['make2-func'] + diff && dom('html').scrolled() < offSets['elem-obj-methods'] + diff ||
+              dom('body').scrolled() > offSets['make2-func'] + diff && dom('body').scrolled() < offSets['elem-obj-methods']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#make2'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elem-obj-methods'] + diff && dom('html').scrolled() < offSets['element-font-ex'] + diff ||
+              dom('body').scrolled() > offSets['elem-obj-methods'] + diff && dom('body').scrolled() < offSets['element-font-ex']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#elemObjMethods'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['element-font-ex'] + diff && dom('html').scrolled() < offSets['style-methods'] + diff ||
+              dom('body').scrolled() > offSets['element-font-ex'] + diff && dom('body').scrolled() < offSets['style-methods']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#fontExamp'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['style-methods'] + diff && dom('html').scrolled() < offSets['core-func'] + diff ||
+              dom('body').scrolled() > offSets['style-methods'] + diff && dom('body').scrolled() < offSets['core-func']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#stylMethods'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['core-func'] + diff && dom('html').scrolled() < offSets['DOM-Elem-Methods'] + diff ||
+              dom('body').scrolled() > offSets['core-func'] + diff && dom('body').scrolled() < offSets['DOM-Elem-Methods']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#core'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('html').scrolled() < offSets['event-methods'] + diff ||
+              dom('body').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('body').scrolled() < offSets['event-methods']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#domMethods'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['event-methods'] + diff && dom('html').scrolled() < offSets['Util-methods'] + diff ||
+              dom('body').scrolled() > offSets['event-methods'] + diff && dom('body').scrolled() < offSets['Util-methods']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#eventMethods'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['Util-methods'] + diff && dom('html').scrolled() < offSets['elements-syntax'] + diff ||
+              dom('body').scrolled() > offSets['Util-methods'] + diff && dom('body').scrolled() < offSets['elements-syntax']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#utilMethods'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elements-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func1'] + diff ||
+              dom('body').scrolled() > offSets['elements-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func1']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#elemsSyntax'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elemsyntax-func1'] + diff && dom('html').scrolled() < offSets['elemsyntax-func2'] + diff ||
+              dom('body').scrolled() > offSets['elemsyntax-func1'] + diff && dom('body').scrolled() < offSets['elemsyntax-func2']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#func1'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elemsyntax-func2'] + diff && dom('html').scrolled() < offSets['elemsyntax-func3'] + diff ||
+              dom('body').scrolled() > offSets['elemsyntax-func2'] + diff && dom('body').scrolled() < offSets['elemsyntax-func3']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#func2'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elemsyntax-func3'] + diff && dom('html').scrolled() < offSets['elemsyntax-func4'] + diff ||
+              dom('body').scrolled() > offSets['elemsyntax-func3'] + diff && dom('body').scrolled() < offSets['elemsyntax-func4']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#func3'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elemsyntax-func4'] + diff && dom('html').scrolled() < offSets['elemsyntax-func5'] + diff ||
+              dom('body').scrolled() > offSets['elemsyntax-func4'] + diff && dom('body').scrolled() < offSets['elemsyntax-func5']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#func4'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elemsyntax-func5'] + diff && dom('html').scrolled() < offSets['elemsyntax-func6'] + diff ||
+              dom('body').scrolled() > offSets['elemsyntax-func5'] + diff && dom('body').scrolled() < offSets['elemsyntax-func6']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#func5'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elemsyntax-func6'] + diff && dom('html').scrolled() < offSets['append-syntax'] + diff ||
+              dom('body').scrolled() > offSets['elemsyntax-func6'] + diff && dom('body').scrolled() < offSets['append-syntax']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#func6'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['append-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func7'] + diff ||
+              dom('body').scrolled() > offSets['append-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func7']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#appendStax'/>
+                          .class('hot');
+              break;
+        case (dom('html').scrolled() > offSets['elemsyntax-func7'] + diff ||
+              dom('body').scrolled() > offSets['elemsyntax-func7']):
+              dom('[class=hot]')
+                          .xClass();
+              <'#func7'/>
+                          .class('hot');
+              break;
 
         default:
-            log(dom('body').scrolled, 'red');
+            break;
       }
     });
 }

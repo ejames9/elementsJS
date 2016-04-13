@@ -515,3 +515,7 @@ iframe {
   border-right: 3px solid purple;
   border-radius: 5px;
 }
+
+.hide {
+  display: none;
+}
