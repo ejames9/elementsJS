@@ -988,29 +988,63 @@ function Element(el) {
   };
 
   this.tag = function () {
-    var r = this.el.tagName();
+    var r = this.el.tagName;
     return r;
   };
 
-  this.offset = function (s) {
+  this.fromTop = function () {
+    //TODO
+    var r = this.el.offsetTop;
+
+    return r;
+  };
+
+  this.fromLeft = function () {
+    //TODO
+    var r = this.el.offsetLeft;
+
+    return r;
+  };
+
+  this.offset = function () {
     //TODO
     var off = {};
 
-    if (s) {
-      if (s === 'all') {
-        off.top = this.el.offsetTop;
-        off.left = this.el.offsetLeft;
-        off.height = this.el.offsetHeight;
-        off.width = this.el.offsetWidth;
-        off.parent = this.el.offsetParent;
-      } else {
-        (0, _logger.err)('Invalid argument.');
-      }
-    } else {
-      off.top = this.el.offsetTop;
-      off.left = this.el.offsetLeft;
-    }
+    off.top = this.el.offsetTop;
+    off.left = this.el.offsetLeft;
+    off.height = this.el.offsetHeight;
+    off.width = this.el.offsetWidth;
+    off.parent = this.el.offsetParent;
+
     return off;
+  };
+
+  this.scrolled = function () {
+    //TODO
+    var r = this.el.scrollTop;
+
+    return r;
+  };
+
+  this.scrollLeft = function () {
+    //TODO
+    var r = this.el.scrollLeft;
+
+    return r;
+  };
+
+  this.scrollHeight = function () {
+    //TODO
+    var r = this.el.scrollLeft;
+
+    return r;
+  };
+
+  this.scrollWidth = function () {
+    //TODO
+    var r = this.el.scrollWidth;
+
+    return r;
   };
 
   this.title = function (val) {
