@@ -3434,6 +3434,7 @@
 	accepts the string 'all' to modify behaviour of the function. By default, 'mod' is null. If the string 'all' is passed as the 2nd argument, the function
 	will use querySelectorAll() instead of querySelector(), meaning an array will be returned if possible. */
 	var queryDOM = function queryDOM(el) {
+	  
 
 	  var lm = void 0,
 	      lms = [];
@@ -3455,7 +3456,7 @@
 	      } else {
 	        return null;
 	      }
-	    } else if (el.charAt(0) !== '#' && el.indexOf('[') === -1 && el.indexOf(':') === -1) {
+	    } else if (el.charAt(0) !== '#' && el.indexOf('[') === -1 && el.indexOf(':') === -1 && el.indexOf(' ') === -1) {
 	      lm = document.getElementsByTagName(el);
 
 	      if (lm.length !== 0) {
@@ -3550,6 +3551,7 @@
 	  sleep: sleep,
 	  proto: proto
 	};
+
 
 /***/ },
 /* 8 */
