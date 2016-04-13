@@ -104,10 +104,10 @@ function sideNavController() {
                                                 elem1.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage']:
-                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['usage'], ['red', 'blue']);
+                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
                                                 var elem2 = _$('#inst') ? dom('#inst') : make('#inst').put("body");
-                                                elem2.class('hot');
+                                                elem2.class('hot').ma().xClass();
                                                 break;
                                     case dom('html').scrolled() > offSets['usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['usage'] + diff && dom('body').scrolled() < offSets['interpreter-install']:
                                                 (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['interpreter-install'], ['red', 'blue']);

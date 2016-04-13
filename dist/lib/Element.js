@@ -1000,14 +1000,12 @@ function Element(el) {
   };
 
   this.fromLeft = function () {
-    //TODO
     var r = this.el.offsetLeft;
 
     return r;
   };
 
   this.offset = function () {
-    //TODO
     var off = {};
 
     off.top = this.el.offsetTop;
@@ -1020,21 +1018,18 @@ function Element(el) {
   };
 
   this.scrolled = function () {
-    //TODO
     var r = this.el.scrollTop;
 
     return r;
   };
 
   this.scrollLeft = function () {
-    //TODO
     var r = this.el.scrollLeft;
 
     return r;
   };
 
   this.scrollHeight = function () {
-    //TODO
     var r = this.el.scrollLeft;
 
     return r;

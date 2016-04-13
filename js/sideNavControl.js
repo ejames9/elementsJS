@@ -1,5 +1,5 @@
 
-import { el, log, scroll } from 'elementsJS';
+import { el, log, scroll, show } from 'elementsJS';
 
 
 
@@ -86,33 +86,34 @@ function sideNavController() {
   const offSets = getOffSets(),
            diff = 0;
 
-
   scroll(window, ()=>  {
       switch(true) {
         //0 - 13 Getting Started
         case (dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff ||
               dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']):
-            log(dom('html').scrolled() + ' :  --- : ' + offSets['get-started'], ['red', 'blue']);
-            dom('[class=hot]')
-                        .xClass();
-            <'#getStart'/>
-                        .class('hot');
-            break;
+              log(dom('html').scrolled() + ' :  --- : ' + offSets['get-started'], ['red', 'blue']);
+              dom('[class=hot]')
+                          .xClass();
+              <'#getStart'/>
+                          .class('hot');
+              break;
         case (dom('html').scrolled() > offSets['get-started'] + diff && dom('html').scrolled() < offSets['installation'] + diff ||
               dom('body').scrolled() > offSets['get-started'] + diff && dom('body').scrolled() < offSets['installation']):
               log(dom('html').scrolled() + ' :  --- : ' + offSets['installation'], ['red', 'blue']);
               dom('[class=hot]')
                           .xClass();
               <'#getStart'/>
-                          .class('hot');
+                          .class('hot')
               break;
         case (dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff ||
               dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage']):
-              log(dom('html').scrolled() + ' :  --- : ' + offSets['usage'], ['red', 'blue']);
+              log('YES', ['red', 'blue']);
               dom('[class=hot]')
                           .xClass();
               <'#inst'/>
-                      .class('hot');
+                      .class('hot')
+                      .ma()
+                          .xClass();    
               break;
         case (dom('html').scrolled() > offSets['usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff ||
               dom('body').scrolled() > offSets['usage'] + diff && dom('body').scrolled() < offSets['interpreter-install']):

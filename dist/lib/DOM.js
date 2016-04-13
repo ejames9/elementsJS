@@ -80,9 +80,9 @@ var make = function make(l, tag) {
 /*DOM querying alias function. Will return an array if there is more than one result. If there is
  only 1 it will NOT, even if the CSS Selector is a className or tagName.*/
 //NOTE: Now referencing queryDOM() function from index.js.
-// var el = function(el) {
-//   return utils.queryDOM(el);
-// };
+var el = function el(_el) {
+  return utils.queryDOM(_el);
+};
 
 //------------------------------This function is not being used in the current build ---------------------------//
 //DOM querying function, same as above, but it will return an array if a tag or class name are given as argument.

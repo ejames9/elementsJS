@@ -1,5 +1,7 @@
 'use strict';
 
+var _module$exports;
+
 var _element = require('./lib/element');
 
 var _element2 = _interopRequireDefault(_element);
@@ -28,27 +30,27 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// require('babel-polyfill');
-
-/*
-Elements.js
-
-A JavaScript DOM manipulation/Alias function Library.
-This is the index file for the library. It contains alias functions for
-all of the librarys' public functions. This makes it easy to import the
-functions without a module prefix es6 style.
-
-Author: Eric James Foster
-EMail: maniphestival@gmail.com
-License: MIT
-Version: 1.0.0
-URL: ""
-*/
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; } /*
+                                                                                                                                                                                                                  Elements.js
+                                                                                                                                                                                                                  
+                                                                                                                                                                                                                  A JavaScript DOM manipulation/Alias function Library.
+                                                                                                                                                                                                                  This is the index file for the library. It contains alias functions for
+                                                                                                                                                                                                                  all of the librarys' public functions. This makes it easy to import the
+                                                                                                                                                                                                                  functions without a module prefix es6 style.
+                                                                                                                                                                                                                  
+                                                                                                                                                                                                                  Author: Eric James Foster
+                                                                                                                                                                                                                  EMail: maniphestival@gmail.com
+                                                                                                                                                                                                                  License: MIT
+                                                                                                                                                                                                                  Version: 1.0.0
+                                                                                                                                                                                                                  URL: ""
+                                                                                                                                                                                                                  */
 
 //FIXME: elements syntax not working in case condition of switch statement.
 //FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
+
+// require('babel-polyfill');
 
 var element = function element(el) {
   return new _element2.default();
@@ -463,7 +465,7 @@ var select = function select(el) {
   }
 };
 
-module.exports = {
+module.exports = (_module$exports = {
   _$: _$,
   x: x,
   go: go,
@@ -486,23 +488,11 @@ module.exports = {
   info: info,
   warn: warn,
   ajax: ajax,
-  spark: spark,
-  blur: blur,
-  click: click,
-  dblClick: dblClick,
-  error: error,
-  focus: focus,
-  focusIn: focusIn,
-  focusOut: focusOut,
-  keyUp: keyUp,
-  keyDown: keyDown,
-  load: load,
-  unLoad: unLoad,
-  mouse: mouse,
-  resize: resize,
-  scroll: scroll,
-  select: select
-};
+  fore: fore,
+  aft: aft,
+  show: show,
+  hide: hide
+}, _defineProperty(_module$exports, 'clone', clone), _defineProperty(_module$exports, 'spark', spark), _defineProperty(_module$exports, 'blur', blur), _defineProperty(_module$exports, 'click', click), _defineProperty(_module$exports, 'dblClick', dblClick), _defineProperty(_module$exports, 'error', error), _defineProperty(_module$exports, 'focus', focus), _defineProperty(_module$exports, 'focusIn', focusIn), _defineProperty(_module$exports, 'focusOut', focusOut), _defineProperty(_module$exports, 'keyUp', keyUp), _defineProperty(_module$exports, 'keyDown', keyDown), _defineProperty(_module$exports, 'load', load), _defineProperty(_module$exports, 'unLoad', unLoad), _defineProperty(_module$exports, 'mouse', mouse), _defineProperty(_module$exports, 'resize', resize), _defineProperty(_module$exports, 'scroll', scroll), _defineProperty(_module$exports, 'select', select), _module$exports);
 
 //DONE:30 functions: err(), info(), warn().
 //DONE:130 Complete all standalone style functions.

@@ -282,10 +282,10 @@
 	                                                elem1.class('hot');
 	                                                break;
 	                                    case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage']:
-	                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['usage'], ['red', 'blue']);
+	                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
 	                                                dom('[class=hot]').xClass();
 	                                                var elem2 = _$('#inst') ? dom('#inst') : make('#inst').put("body");
-	                                                elem2.class('hot');
+	                                                elem2.class('hot').ma().xClass();
 	                                                break;
 	                                    case dom('html').scrolled() > offSets['usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['usage'] + diff && dom('body').scrolled() < offSets['interpreter-install']:
 	                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['interpreter-install'], ['red', 'blue']);
@@ -1133,6 +1133,11 @@
 	  info: info,
 	  warn: warn,
 	  ajax: ajax,
+	  fore: fore,
+	   aft: aft,
+	  show: show,
+	  hide: hide,
+	 clone: clone,
 	  spark: spark,
 	  blur: blur,
 	  click: click,
@@ -1153,6 +1158,7 @@
 
 	//DONE:30 functions: err(), info(), warn().
 	//DONE:130 Complete all standalone style functions.
+
 
 /***/ },
 /* 3 */
@@ -2237,7 +2243,7 @@
 	  };
 
 	  this.ma = function () {
-	    return this.el.parentNode;
+	    return new Element(this.el.parentNode);
 	  };
 
 	  this.fore = function (el) {
@@ -2528,6 +2534,7 @@
 	    return this;
 	  };
 	};
+
 
 /***/ },
 /* 4 */
@@ -3621,9 +3628,9 @@
 	/*DOM querying alias function. Will return an array if there is more than one result. If there is
 	 only 1 it will NOT, even if the CSS Selector is a className or tagName.*/
 	//NOTE: Now referencing queryDOM() function from index.js.
-	// var el = function(el) {
-	//   return utils.queryDOM(el);
-	// };
+	var el = function(el) {
+	  return utils.queryDOM(el);
+	};
 
 	//------------------------------This function is not being used in the current build ---------------------------//
 	//DOM querying function, same as above, but it will return an array if a tag or class name are given as argument.
@@ -3798,6 +3805,7 @@
 	  hide: hide,
 	  size: size
 	};
+
 
 /***/ },
 /* 9 */
