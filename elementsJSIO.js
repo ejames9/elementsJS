@@ -265,7 +265,7 @@
 
 	function sideNavController() {
 	  var offSets = getOffSets();
-	  console.log((0, _elementsJS.el)('[class=active]') + 'hello');
+	  console.log(document.querySelector('[class="active"]'));
 
 	  var elem0 = _$("html") ? dom("html") : make(".html1", "html").put("body");
 	  elem0.scroll(function () {
