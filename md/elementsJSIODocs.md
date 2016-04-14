@@ -1,5 +1,5 @@
 # <a id='get-started'></a> Getting Started
-<hr>
+
 
 ## <a id='installation'></a> Installation
 There are a couple different ways to use elementsJS. The first is by simply using the function library. The second, is to make use of the new convenient elements syntax. If you would like to use the elements syntax, a simple compilation step is necessary. If you'd like to learn more, [click here](#).

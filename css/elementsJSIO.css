@@ -77,12 +77,6 @@ code {
   border-radius: 5px;
 }
 
-#docsMenu-container h1 {
-  background-color: #52218A;
-  color: #FF8A22;
-  padding: 10px 20px 10px 6px;
-  width: 100%;
-}
 
 #docsMenu-container h2 code {
   background-color: #52218A;
@@ -97,6 +91,15 @@ code {
   border: 1px solid #FF8A22;
   border-radius: 15px;
 }
+
+#docsMain h1 {
+  background-color: #52218A;
+  color: #FF8A22;
+  padding: 25px 20px 25px 10px;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
 
 
 
