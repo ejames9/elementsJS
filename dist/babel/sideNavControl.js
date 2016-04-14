@@ -111,7 +111,6 @@ function sideNavController() {
                                     case dom('html').scrolled() > offSets['get-started'] + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > offSets['get-started'] + diff && dom('body').scrolled() < offSets['installation']:
                                                 // log('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
-
                                                 dom('[name=hidden]').forEach(function (element) {
                                                             element.class('hide');
                                                 });
@@ -130,7 +129,6 @@ function sideNavController() {
                                                 break;
                                     case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports']:
                                                 dom('[class=hot]').xClass();
-
                                                 dom('[name=hidden]').forEach(function (element) {
                                                             element.class('hide');
                                                 });
@@ -139,7 +137,6 @@ function sideNavController() {
                                                 break;
                                     case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM']:
                                                 dom('[class=hot]').xClass();
-
                                                 dom('[name=hidden]').forEach(function (element) {
                                                             element.class('hide');
                                                 });
@@ -148,7 +145,6 @@ function sideNavController() {
                                                 break;
                                     case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func']:
                                                 dom('[class=hot]').xClass();
-
                                                 dom('[name=hidden]').forEach(function (element) {
                                                             element.class('hide');
                                                 });
@@ -207,7 +203,6 @@ function sideNavController() {
                                                 break;
                                     case dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff || dom('body').scrolled() > offSets['size-func'] + diff && dom('body').scrolled() < offSets['event-handle']:
                                                 dom('[class=hot]').xClass();
-
                                                 dom('[name=hidden]').forEach(function (element) {
                                                             element.class('hide');
                                                 });
@@ -216,7 +211,6 @@ function sideNavController() {
                                                 break;
                                     case dom('html').scrolled() > offSets['event-handle'] + diff && dom('html').scrolled() < offSets['go-func'] + diff || dom('body').scrolled() > offSets['event-handle'] + diff && dom('body').scrolled() < offSets['go-func']:
                                                 dom('[class=hot]').xClass();
-
                                                 dom('[name=hidden]').forEach(function (element) {
                                                             element.class('hide');
                                                 });
@@ -320,7 +314,6 @@ function sideNavController() {
                                                 break;
                                     case dom('html').scrolled() > offSets['select-func'] + diff && dom('html').scrolled() < offSets['http'] + diff || dom('body').scrolled() > offSets['select-func'] + diff && dom('body').scrolled() < offSets['http']:
                                                 dom('[class=hot]').xClass();
-
                                                 dom('[name=hidden]').forEach(function (element) {
                                                             element.class('hide');
                                                 });

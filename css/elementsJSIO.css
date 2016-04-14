@@ -166,6 +166,7 @@ code {
 /*----------------------Jumbotron-------------------------*/
 
 .jumbotron {
+  top: 0;
   background-color: #39175E;
   margin-bottom: 0px;
 }
@@ -364,19 +365,20 @@ iframe {
 
 .wrapper {
   width: 100%;
+  top: 0px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 60px;
+  margin-top: 0px;
   margin-bottom: 200px;
 }
 
 #sideNav {
-  padding-top: 45px;
+  padding-top: 55px;
 
 }
 
 #docsMain {
-  padding-top: 20px;
+  padding-top: 27px;
 }
 
 
