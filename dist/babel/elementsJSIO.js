@@ -56,9 +56,6 @@ function insertDocs(cb) {
     elem0.html(r);
     var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
     elem1.html(marked(markDown));
-    // var elem2 = _$('#logo-text') ? dom('#logo-text') :  make('#logo-text').put("body");
-    elem2;
-    //           .fontSize('72px');
 
     var offSets = SNC.getOffSets();
 

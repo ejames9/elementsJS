@@ -372,11 +372,11 @@ iframe {
   margin-bottom: 200px;
 }
 
-#docsMenu-container li {
+/*#docsMenu-container li {
   padding-right: 5px;
   padding-top: 0px;
   padding-bottom: 0px;
-}
+}*/
 
 /*#docsMenu-container li a {
   padding: 0px 5px 0px 0px;
@@ -526,7 +526,7 @@ iframe {
 
 .hot {
   border-right: 3px solid #52218A;
-  padding-right: 5px;
+  padding-right: 3px;
 }
 
 .hide {

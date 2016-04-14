@@ -15,6 +15,7 @@ URL: ""
 
 //FIXME: elements syntax not working in parenthesis.
 //FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
+//FIXME: Can't put elements in comments.
 
 //TODO: Complete <elem> syntax.
 //TODO: .sib() does not return element.......

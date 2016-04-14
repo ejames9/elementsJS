@@ -102,9 +102,6 @@
 	    elem0.html(r);
 	    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
 	    elem1.html(marked(markDown));
-	    // var elem2 = _$('#logo-text') ? dom('#logo-text') :  make('#logo-text').put("body");
-	    elem2;
-	    //           .fontSize('72px');
 
 	    var offSets = SNC.getOffSets();
 
@@ -278,7 +275,7 @@
 	            // console.log(dom('[name=hidden]'));
 
 	            var offSets = getOffSets(),
-	                diff = 0;
+	                diff = 290;
 
 	            (0, _elementsJS.scroll)(window, function () {
 	                        switch (true) {
