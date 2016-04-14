@@ -13,7 +13,6 @@ function getOffSets() {
             offSets['get-started'] = dom('#get-started').fromTop();
             offSets['installation'] = (0, _elementsJS.el)('#installation').offsetTop;
             offSets['usage'] = (0, _elementsJS.el)('#Usage').offsetTop;
-            offSets['huh'] = (0, _elementsJS.el)('#huh').offsetTop;
             offSets['interpreter-install'] = (0, _elementsJS.el)('#interpreter-install').offsetTop;
             offSets['imports'] = (0, _elementsJS.el)('#imports').offsetTop;
             offSets['DOM'] = (0, _elementsJS.el)('#DOM').offsetTop;
@@ -191,7 +190,7 @@ function sideNavController() {
                                                 break;
                                     case dom('html').scrolled() > offSets['hide-func'] + diff && dom('html').scrolled() < offSets['size-func'] + diff || dom('body').scrolled() > offSets['hide-func'] + diff && dom('body').scrolled() < offSets['size-func']:
                                                 dom('[class=hot]').xClass();
-                                                var elem16 = _$('#hide') ? dom('#hide') : make('#hide').put("body");
+                                                var elem16 = _$('#hyde') ? dom('#hyde') : make('#hyde').put("body");
                                                 elem16.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff || dom('body').scrolled() > offSets['size-func'] + diff && dom('body').scrolled() < offSets['event-handle']:

@@ -10,7 +10,6 @@ function getOffSets() {
       offSets['get-started']         = dom('#get-started').fromTop();
       offSets['installation']        = el('#installation').offsetTop;
       offSets['usage']               = el('#Usage').offsetTop;
-      offSets['huh']                 = el('#huh').offsetTop;
       offSets['interpreter-install'] = el('#interpreter-install').offsetTop;
       offSets['imports']             = el('#imports').offsetTop;
       offSets['DOM']                 = el('#DOM').offsetTop;
@@ -233,7 +232,7 @@ function sideNavController() {
               dom('body').scrolled() > offSets['hide-func'] + diff && dom('body').scrolled() < offSets['size-func']):
               dom('[class=hot]')
                           .xClass();
-              <'#hide'/>
+              <'#hyde'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff ||
