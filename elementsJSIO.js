@@ -102,6 +102,9 @@
 	    elem0.html(r);
 	    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
 	    elem1.html(marked(markDown));
+	    // var elem2 = _$('#logo-text') ? dom('#logo-text') :  make('#logo-text').put("body");
+	    elem2;
+	    //           .fontSize('72px');
 
 	    var offSets = SNC.getOffSets();
 
@@ -282,6 +285,9 @@
 	                                    //0 - 13 Getting Started
 	                                    case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']:
 	                                                dom('[class=hot]').xClass();
+	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                            element.class('hide');
+	                                                });
 	                                                var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
 	                                                elem0.class('hot');
 	                                                break;

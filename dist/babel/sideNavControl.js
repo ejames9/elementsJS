@@ -105,6 +105,9 @@ function sideNavController() {
                                     //0 - 13 Getting Started
                                     case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']:
                                                 dom('[class=hot]').xClass();
+                                                dom('[name=hidden]').forEach(function (element) {
+                                                            element.class('hide');
+                                                });
                                                 var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
                                                 elem0.class('hot');
                                                 break;

@@ -103,6 +103,11 @@ function sideNavController() {
               dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']):
               dom('[class=hot]')
                       .xClass();
+              dom('[name=hidden]')
+                      .forEach((element)=> {
+                          element
+                              .class('hide');
+                      });
               <'#getStart'/>
                       .class('hot');
               break;

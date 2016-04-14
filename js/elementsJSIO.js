@@ -41,6 +41,8 @@ function insertDocs(cb) {
               .html(r);
     <'#docsMain'/>
               .html(marked(markDown));
+    // <'#logo-text'/>
+    //           .fontSize('72px');
 
     const offSets = SNC.getOffSets();
 
