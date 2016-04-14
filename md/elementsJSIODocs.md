@@ -22,7 +22,7 @@ $ bower install elementsJS
 $ npm install elementsJS
 ```
 
-## <a id='Usage'></a> <a id='huh?'></a> Usage
+## <a id='Usage'></a> <a id='huh'></a> Usage
 If you used either npm or Bower, you can use the library as below:
 
 ```js
