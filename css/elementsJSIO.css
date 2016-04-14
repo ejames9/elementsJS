@@ -82,6 +82,7 @@ code {
 }
 #sideNav code {
   color: #52218A;
+  background-color: #fff;
 }
 
 
@@ -445,7 +446,7 @@ iframe {
   margin-top: 5px;
 }
 
-#getStart {
+#get-started {
   color: #9d2635;
 }
 
@@ -589,6 +590,7 @@ iframe {
 .hide {
   display: none;
 }
-#getStart {
+
+#get-started {
   color: #9d2635;
 }
