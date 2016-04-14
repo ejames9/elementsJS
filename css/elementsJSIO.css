@@ -205,6 +205,11 @@ iframe {
   float: right;
 
 }
+.gthbBtn {
+  border: 1px solid #FF8A22;
+  border-radius: 7px;
+  display: inline-block;
+}
 
 #followSVG {
   height: 30px;
