@@ -206,10 +206,10 @@ iframe {
 
 }
 
-/*.ghBtn {
-  background-color: blue;
-}*/
-
+#followSVG {
+  height: 40px;
+  width: 40px;
+}
 
 /*----Jumbotron Main Logo----*/
 
