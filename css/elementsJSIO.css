@@ -214,8 +214,15 @@ iframe {
   display: inline-block;
   padding: 5px 10px 9px 9px;
   /*margin-top: 50px;*/
-  margin-right: 30px;
+  margin-right: 20px;
   float: right;
+}
+
+.gthbBtn:hover > #starSVG {
+  fill: #52218A;;
+}
+.gthbBtn:hover > #followSVG {
+  fill: #52218A;;
 }
 
 #followSVG {
@@ -223,7 +230,7 @@ iframe {
   height: 22px;
   width: 22px;
   top: 4px;
-  fill: blue;
+  fill: #FF8A22;;
 }
 
 #starSVG {
@@ -231,6 +238,8 @@ iframe {
   height: 22px;
   width: 22px;
   top: 4px;
+  fill: #FF8A22;
+
 
 }
 
