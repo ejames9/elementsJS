@@ -48,7 +48,6 @@ function insertDocs(cb) {
       log('id: ' + el, 'red');
       log('offSet: ' + offSets[el], ['red', 'blue'])
     }
-
     cb();
   });
 }
