@@ -13,7 +13,7 @@ function getOffSets() {
             offSets['get-started'] = dom('#get-started').fromTop();
             offSets['installation'] = (0, _elementsJS.el)('#installation').offsetTop;
             offSets['usage'] = (0, _elementsJS.el)('#Usage').offsetTop;
-            offSets['huh?'] = (0, _elementsJS.el)('#huh?').offsetTop;
+            offSets['huh'] = (0, _elementsJS.el)('#huh').offsetTop;
             offSets['interpreter-install'] = (0, _elementsJS.el)('#interpreter-install').offsetTop;
             offSets['imports'] = (0, _elementsJS.el)('#imports').offsetTop;
             offSets['DOM'] = (0, _elementsJS.el)('#DOM').offsetTop;
