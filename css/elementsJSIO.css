@@ -42,15 +42,16 @@ a {
 body {
   padding-top: 50px;
   padding-bottom: 20px;
+  /*background-color: #cda6ec;*/
 }
 
-h2 {
+h2, h1 {
   font-family: helvetica neue;
   font-weight: 500;
   color: #52218A;
 }
 
-h4 {
+h4, h3 {
   font-family: helvetica neue;
   font-weight: 500;
   color: #52218A;
@@ -75,6 +76,13 @@ code {
   border-radius: 5px;
 }
 
+#docsMenu-container h2 code {
+  background-color: #52218A;
+  color: #FF8A22;
+}
+#sideNav code {
+  color: #52218A;
+}
 
 
 
@@ -224,8 +232,19 @@ iframe {
 .gthbBtn:hover > #followSVG {
   fill: #52218A;;
 }
+.gthbBtn:hover > #watchSVG {
+  fill: #52218A;;
+}
 
 #followSVG {
+  position: relative;
+  height: 22px;
+  width: 22px;
+  top: 4px;
+  fill: #FF8A22;;
+}
+
+#watchSVG {
   position: relative;
   height: 22px;
   width: 22px;
@@ -404,16 +423,14 @@ iframe {
   margin-bottom: 200px;
 }
 
-/*#docsMenu-container li {
-  padding-right: 5px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}*/
+#docsMenu-container li {
+  color: #52218A;
+}
 
-/*#docsMenu-container li a {
-  padding: 0px 5px 0px 0px;
+#sideNav a  {
+  color: #52218A;
 
-}*/
+}
 
 #sideNav {
   padding-top: 55px;
@@ -422,6 +439,14 @@ iframe {
 
 #docsMain {
   padding-top: 27px;
+}
+
+#lib {
+  margin-top: 5px;
+}
+
+#getStart {
+  color: #9d2635;
 }
 
 
@@ -563,4 +588,7 @@ iframe {
 
 .hide {
   display: none;
+}
+#getStart {
+  color: #9d2635;
 }
