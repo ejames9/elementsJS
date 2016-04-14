@@ -10,7 +10,7 @@ var make = require("elementsJS").make;
 
 function getOffSets() {
             var offSets = {};
-            offSets['get-started'] = (0, _elementsJS.el)('#get-started').offsetTop;
+            offSets['get-started'] = dom('#get-started').fromTop();
             offSets['installation'] = (0, _elementsJS.el)('#installation').offsetTop;
             offSets['usage'] = (0, _elementsJS.el)('#usage').offsetTop;
             offSets['interpreter-install'] = (0, _elementsJS.el)('#interpreter-install').offsetTop;
@@ -85,74 +85,75 @@ function getOffSets() {
 }
 
 function sideNavController() {
-            console.log((0, _elementsJS.el)('a + ul'));
+            console.log(dom('[name=hidden]'));
+
             var offSets = getOffSets(),
                 diff = 0;
+
+            (0, _elementsJS.log)(offSets['installation'], 'red');
+            (0, _elementsJS.log)(offSets['usage'], 'yellow');
 
             (0, _elementsJS.scroll)(window, function () {
                         switch (true) {
                                     //0 - 13 Getting Started
                                     case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']:
-                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['get-started'], ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
                                                 var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
                                                 elem0.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['get-started'] + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > offSets['get-started'] + diff && dom('body').scrolled() < offSets['installation']:
-                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['installation'], ['red', 'blue']);
-                                                dom('[class=hot]').xClass();
-                                                var elem1 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-                                                elem1.class('hot');
-                                                break;
-                                    case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage']:
                                                 (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
-                                                dom('[a + ul]').forEach(function (element) {
+
+                                                dom('[name=hidden]').forEach(function (element) {
                                                             element.class('hide');
                                                 });
+                                                var elem1 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
+                                                elem1.class('hot').sib('next').xClass();
+                                                break;
+                                    case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage']:
+                                                (0, _elementsJS.log)('Happening?', ['red', 'blue']);
+                                                dom('[class=hot]').xClass();
                                                 var elem2 = _$('#inst') ? dom('#inst') : make('#inst').put("body");
-                                                elem2.class('hot').ma().xClass();
+                                                elem2.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['usage'] + diff && dom('body').scrolled() < offSets['interpreter-install']:
-                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['interpreter-install'], ['red', 'blue']);
+                                                (0, _elementsJS.log)('Happening?', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
                                                 var elem3 = _$('#use') ? dom('#use') : make('#use').put("body");
                                                 elem3.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports']:
-                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['imports'], ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
                                                 var elem4 = _$('#interpInstall') ? dom('#interpInstall') : make('#interpInstall').put("body");
                                                 elem4.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM']:
-                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['DOM'], ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
                                                 var elem5 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
                                                 elem5.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func']:
-                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['get-started'], ['red', 'blue']);
+                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
+
+                                                dom('[name=hidden]').forEach(function (element) {
+                                                            element.class('hide');
+                                                });
                                                 var elem6 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
-                                                elem6.class('hot');
+                                                elem6.class('hot').sib('next').xClass();
                                                 break;
                                     case dom('html').scrolled() > offSets['el-func'] + diff && dom('html').scrolled() < offSets['dom-func'] + diff || dom('body').scrolled() > offSets['el-func'] + diff && dom('body').scrolled() < offSets['dom-func']:
                                                 dom('[class=hot]').xClass();
-                                                dom('[a + ul]').forEach(function (element) {
-                                                            element.class('hide');
-                                                });
                                                 var elem7 = _$('#el') ? dom('#el') : make('#el').put("body");
-                                                elem7.class('hot').ma().xClass();
+                                                elem7.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['dom-func'] + diff && dom('html').scrolled() < offSets['__-func'] + diff || dom('body').scrolled() > offSets['dom-func'] + diff && dom('body').scrolled() < offSets['__-func']:
-                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['__-func'], ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
                                                 var elem8 = _$('#dom') ? dom('#dom') : make('#dom').put("body");
                                                 elem8.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['__-func'] + diff && dom('html').scrolled() < offSets['make-func'] + diff || dom('body').scrolled() > offSets['__-func'] + diff && dom('body').scrolled() < offSets['make-func']:
-                                                (0, _elementsJS.log)(dom('html').scrolled() + ' :  --- : ' + offSets['make-func'], ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
                                                 var elem9 = _$('#__') ? dom('#__') : make('#__').put("body");
                                                 elem9.class('hot');
@@ -198,17 +199,19 @@ function sideNavController() {
                                                 elem17.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['event-handle'] + diff && dom('html').scrolled() < offSets['go-func'] + diff || dom('body').scrolled() > offSets['event-handle'] + diff && dom('body').scrolled() < offSets['go-func']:
+                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
+
+                                                dom('[name=hidden]').forEach(function (element) {
+                                                            element.class('hide');
+                                                });
                                                 var elem18 = _$('#eventHand') ? dom('#eventHand') : make('#eventHand').put("body");
-                                                elem18.class('hot');
+                                                elem18.class('hot').sib('next').xClass();
                                                 break;
                                     case dom('html').scrolled() > offSets['go-func'] + diff && dom('html').scrolled() < offSets['on-func'] + diff || dom('body').scrolled() > offSets['go-func'] + diff && dom('body').scrolled() < offSets['on-func']:
                                                 dom('[class=hot]').xClass();
-                                                dom('[a + ul]').forEach(function (element) {
-                                                            element.class('hide');
-                                                });
                                                 var elem19 = _$('#go') ? dom('#go') : make('#go').put("body");
-                                                elem19.class('hot').ma().xClass();
+                                                elem19.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['on-func'] + diff && dom('html').scrolled() < offSets['off-func'] + diff || dom('body').scrolled() > offSets['on-func'] + diff && dom('body').scrolled() < offSets['off-func']:
                                                 dom('[class=hot]').xClass();
@@ -306,9 +309,14 @@ function sideNavController() {
                                                 elem38.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['http'] + diff && dom('html').scrolled() < offSets['xhr-func'] + diff || dom('body').scrolled() > offSets['http'] + diff && dom('body').scrolled() < offSets['xhr-func']:
+                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
+
+                                                dom('[name=hidden]').forEach(function (element) {
+                                                            element.class('hide');
+                                                });
                                                 var elem39 = _$('#http') ? dom('#http') : make('#http').put("body");
-                                                elem39.class('hot');
+                                                elem39.class('hot').sib('next').xClass();
                                                 break;
                                     case dom('html').scrolled() > offSets['xhr-func'] + diff && dom('html').scrolled() < offSets['ajax-func'] + diff || dom('body').scrolled() > offSets['xhr-func'] + diff && dom('body').scrolled() < offSets['ajax-func']:
                                                 dom('[class=hot]').xClass();
@@ -321,9 +329,14 @@ function sideNavController() {
                                                 elem41.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['loggers'] + diff && dom('html').scrolled() < offSets['log-func'] + diff || dom('body').scrolled() > offSets['loggers'] + diff && dom('body').scrolled() < offSets['log-func']:
+                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
-                                                var elem42 = _$('#logg') ? dom('#logg') : make('#logg').put("body");
-                                                elem42.class('hot');
+
+                                                dom('[name=hidden]').forEach(function (element) {
+                                                            element.class('hide');
+                                                });
+                                                var elem42 = _$('#loggers') ? dom('#loggers') : make('#loggers').put("body");
+                                                elem42.class('hot').sib('next').xClass();
                                                 break;
                                     case dom('html').scrolled() > offSets['log-func'] + diff && dom('html').scrolled() < offSets['info-func'] + diff || dom('body').scrolled() > offSets['log-func'] + diff && dom('body').scrolled() < offSets['info-func']:
                                                 dom('[class=hot]').xClass();
@@ -346,9 +359,14 @@ function sideNavController() {
                                                 elem46.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['utils'] + diff && dom('html').scrolled() < offSets['proto-func'] + diff || dom('body').scrolled() > offSets['utils'] + diff && dom('body').scrolled() < offSets['proto-func']:
+                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
-                                                var elem47 = _$('#utilFunc') ? dom('#utilFunc') : make('#utilFunc').put("body");
-                                                elem47.class('hot');
+
+                                                dom('[name=hidden]').forEach(function (element) {
+                                                            element.class('hide');
+                                                });
+                                                var elem47 = _$('#utils') ? dom('#utils') : make('#utils').put("body");
+                                                elem47.class('hot').sib('next').xClass();
                                                 break;
                                     case dom('html').scrolled() > offSets['proto-func'] + diff && dom('html').scrolled() < offSets['shifter-func'] + diff || dom('body').scrolled() > offSets['proto-func'] + diff && dom('body').scrolled() < offSets['shifter-func']:
                                                 dom('[class=hot]').xClass();
@@ -361,9 +379,14 @@ function sideNavController() {
                                                 elem49.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['elem-obj'] + diff && dom('html').scrolled() < offSets['element-const'] + diff || dom('body').scrolled() > offSets['elem-obj'] + diff && dom('body').scrolled() < offSets['element-const']:
+                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
+
+                                                dom('[name=hidden]').forEach(function (element) {
+                                                            element.class('hide');
+                                                });
                                                 var elem50 = _$('#elemObj') ? dom('#elemObj') : make('#elemObj').put("body");
-                                                elem50.class('hot');
+                                                elem50.class('hot').sib('next').xClass();
                                                 break;
                                     case dom('html').scrolled() > offSets['element-const'] + diff && dom('html').scrolled() < offSets['dom2-func'] + diff || dom('body').scrolled() > offSets['element-const'] + diff && dom('body').scrolled() < offSets['dom2-func']:
                                                 dom('[class=hot]').xClass();
@@ -381,9 +404,14 @@ function sideNavController() {
                                                 elem53.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['elem-obj-methods'] + diff && dom('html').scrolled() < offSets['element-font-ex'] + diff || dom('body').scrolled() > offSets['elem-obj-methods'] + diff && dom('body').scrolled() < offSets['element-font-ex']:
+                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
+
+                                                dom('[name=hidden]').forEach(function (element) {
+                                                            element.class('hide');
+                                                });
                                                 var elem54 = _$('#elemObjMethods') ? dom('#elemObjMethods') : make('#elemObjMethods').put("body");
-                                                elem54.class('hot');
+                                                elem54.class('hot').sib('next').xClass();
                                                 break;
                                     case dom('html').scrolled() > offSets['element-font-ex'] + diff && dom('html').scrolled() < offSets['style-methods'] + diff || dom('body').scrolled() > offSets['element-font-ex'] + diff && dom('body').scrolled() < offSets['style-methods']:
                                                 dom('[class=hot]').xClass();
@@ -416,9 +444,14 @@ function sideNavController() {
                                                 elem60.class('hot');
                                                 break;
                                     case dom('html').scrolled() > offSets['elements-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func1'] + diff || dom('body').scrolled() > offSets['elements-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func1']:
+                                                (0, _elementsJS.log)('YES', ['red', 'blue']);
                                                 dom('[class=hot]').xClass();
+
+                                                dom('[name=hidden]').forEach(function (element) {
+                                                            element.class('hide');
+                                                });
                                                 var elem61 = _$('#elemsSyntax') ? dom('#elemsSyntax') : make('#elemsSyntax').put("body");
-                                                elem61.class('hot');
+                                                elem61.class('hot').sib('next').xClass();
                                                 break;
                                     case dom('html').scrolled() > offSets['elemsyntax-func1'] + diff && dom('html').scrolled() < offSets['elemsyntax-func2'] + diff || dom('body').scrolled() > offSets['elemsyntax-func1'] + diff && dom('body').scrolled() < offSets['elemsyntax-func2']:
                                                 dom('[class=hot]').xClass();

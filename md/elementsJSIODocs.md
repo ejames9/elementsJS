@@ -22,7 +22,7 @@ $ bower install elementsJS
 $ npm install elementsJS
 ```
 
-## <a id='usage'></a> Usage
+## <a id='Usage'></a> <a id='huh?'></a> Usage
 If you used either npm or Bower, you can use the library as below:
 
 ```js
@@ -1658,3 +1658,14 @@ Hopefully by now you've gotten the hang of what the above line would do. Either 
 		.put('main');
 
 ```
+
+
+## Changes
+
+1. <elem> syntax
+2. .sib(), .node()
+3. .ma()
+4. .scrolled(), 
+5. .offsets()
+6. .x() method
+7. .fromTop() .fromLeft() methods

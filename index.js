@@ -19,6 +19,7 @@ URL: ""
 //TODO: Complete <elem> syntax.
 //TODO: .sib() does not return element.......
 //TODO: addClass() method.
+//TODO: new log.dir() function.
 
 
 
@@ -84,10 +85,10 @@ var dom = function(el) {
 
   el = utils.queryDOM(el);
 
-  if (Array.isArray(el)) {
+  if (el.length !== undefined) {
     rv = [];
-    for (var l of el) {
-      rv.push(new Element(l))
+    for (var i = 0; i < el.length; i++) {
+      rv.push(new Element(el[i]));
     }
   } else {
     rv = new Element(el);

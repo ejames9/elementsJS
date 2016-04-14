@@ -59,10 +59,10 @@ function insertDocs(cb) {
 
     var offSets = SNC.getOffSets();
 
-    // for (var el in offSets) {
-    //   log('id: ' + el, 'red');
-    //   log('offSet: ' + offSets[el], ['red', 'blue'])
-    // }
+    for (var el in offSets) {
+      log('id: ' + el, 'red');
+      log('offSet: ' + offSets[el], ['red', 'blue']);
+    }
 
     cb();
   });
