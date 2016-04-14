@@ -73,16 +73,29 @@ ul > li > a {
 }
 
 code {
+  font-family: bpmono;
   border-radius: 5px;
+}
+
+#docsMenu-container h1 {
+  background-color: #52218A;
+  color: #FF8A22;
+  padding: 10px 20px 10px 6px;
+  width: 100%;
 }
 
 #docsMenu-container h2 code {
   background-color: #52218A;
   color: #FF8A22;
+  border-radius: 25px;
+  font-weight: 100;
+  padding: 7px 15px 7px 15px;
 }
 #sideNav code {
   color: #52218A;
   background-color: #fff;
+  border: 1px solid #FF8A22;
+  border-radius: 15px;
 }
 
 
@@ -198,6 +211,12 @@ code {
   color: #52218A;
   border: none;
 }
+.btn:active {
+  background-color: #fff;
+  color: #52218A;
+  box-shadow: 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff;
+
+}
 
 #fork {
   position: absolute;
@@ -228,14 +247,36 @@ iframe {
 }
 
 .gthbBtn:hover > #starSVG {
-  fill: #52218A;;
+  fill: #52218A;
 }
 .gthbBtn:hover > #followSVG {
-  fill: #52218A;;
+  fill: #52218A;
 }
 .gthbBtn:hover > #watchSVG {
-  fill: #52218A;;
+  fill: #52218A;
 }
+/*.gthbBtn:active > #starSVG {
+  fill: #52218A;
+  background-color: #fff;
+  box-shadow: 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff;
+
+}
+.gthbBtn:active > #followSVG {
+  fill: #52218A;
+  background-color: #fff;
+  box-shadow: 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff;
+
+
+
+}
+.gthbBtn:active > #watchSVG {
+  fill: #52218A;
+  background-color: #fff;
+  box-shadow: 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff;
+*/
+
+
+
 
 #followSVG {
   position: relative;
