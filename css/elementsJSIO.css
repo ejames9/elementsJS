@@ -205,22 +205,33 @@ iframe {
   float: right;
 
 }
+#gthbFollow {
+  vertical-align: middle;
+}
 .gthbBtn {
   border: 1px solid #FF8A22;
   border-radius: 7px;
   display: inline-block;
+  padding: 5px 10px 9px 9px;
+  /*margin-top: 50px;*/
+  margin-right: 30px;
+  float: right;
 }
 
 #followSVG {
-  height: 30px;
-  width: 30px;
-  vertical-align: middle;
+  position: relative;
+  height: 22px;
+  width: 22px;
+  top: 4px;
+  fill: blue;
 }
 
 #starSVG {
-  height: 30px;
-  width: 30px;
-  vertical-align: middle;
+  position: relative;
+  height: 22px;
+  width: 22px;
+  top: 4px;
+
 }
 
 /*----Jumbotron Main Logo----*/
