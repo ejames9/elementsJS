@@ -712,23 +712,23 @@ function sideNavController() {
         case (dom('html').scrolled() > offSets['elemsyntax-func6'] + diff && dom('html').scrolled() < offSets['append-syntax'] + diff ||
               dom('body').scrolled() > offSets['elemsyntax-func6'] + diff && dom('body').scrolled() < offSets['append-syntax']):
               dom('[class=hot]')
-                          .xClass();
+                      .xClass();
               <'#func6'/>
-                          .class('hot');
+                      .class('hot');
               break;
         case (dom('html').scrolled() > offSets['append-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func7'] + diff ||
               dom('body').scrolled() > offSets['append-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func7']):
               dom('[class=hot]')
-                          .xClass();
+                      .xClass();
               <'#appendStax'/>
-                          .class('hot');
+                      .class('hot');
               break;
         case (dom('html').scrolled() > offSets['elemsyntax-func7'] + diff ||
               dom('body').scrolled() > offSets['elemsyntax-func7']):
               dom('[class=hot]')
-                          .xClass();
+                      .xClass();
               <'#func7'/>
-                          .class('hot');
+                      .class('hot');
               break;
 
         default:

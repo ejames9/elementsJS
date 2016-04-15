@@ -16,7 +16,7 @@ import * as SNC from './sideNavControl.js';
 
 
 imports({
-    'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'scroll'],
+    'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'scroll', '__'],
         'marked': 'marked'
 });
 
@@ -34,11 +34,6 @@ var markDown;
 
 
 function highLightCode() {
-  __(`
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
-  `, <head/>.el)
-
   hljs.initHighlightingOnLoad();
 }
 
@@ -47,9 +42,9 @@ function highLightCode() {
 function insertDocs(cb) {
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, (r)=> {
-    <'#content'/>
+    dom('#content')
               .html(r);
-    <'#docsMain'/>
+    dom('#docsMain')
               .html(marked(markDown));
 
     const offSets = SNC.getOffSets();

@@ -12,13 +12,10 @@ var _$ = require("elementsJS")._$;
 elementsJSIO.js
 JavaScript file for the elementsJS project site.
 
+Author: Eric James Foster
+License: MIT
 https://rawgit.com/ejames9/elementsJS/gh-pages/html/docsMenu.html
 https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
-
-if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
-//         sideNav.setAttribute("class","sticky");
-//         console.log(e);
-//     }
 */
 
 var dom = require("elementsJS").dom;
@@ -35,6 +32,7 @@ var ajax = elementsJS.ajax;
 var on = elementsJS.on;
 var click = elementsJS.click;
 var scroll = elementsJS.scroll;
+var __ = elementsJS.__;
 
 var marked = require("marked");
 
@@ -48,14 +46,21 @@ var docsMenu = 'html/docsMenu.html';
 var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
+function highLightCode() {
+  log('blue', 'blue');
+  __("<link rel=\"stylesheet\" href=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css\">", el('head'));
+
+  make('#high', 'script').put('head').el.src = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js";
+
+  hljs.initHighlightingOnLoad();
+}
+
 //Documentation page change function
 function insertDocs(cb) {
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, function (r) {
-    var elem0 = _$('#content') ? dom('#content') : make('#content').put("body");
-    elem0.html(r);
-    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-    elem1.html(marked(markDown));
+    dom('#content').html(r);
+    dom('#docsMain').html(marked(markDown));
 
     var offSets = SNC.getOffSets();
 
@@ -113,6 +118,7 @@ go(function () {
       case document.getElementById('api-butn'):
         insertDocs(function () {
           SNC.sideNavController();
+          highLightCode();
         });
         break;
       default:
