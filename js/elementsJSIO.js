@@ -3,14 +3,13 @@
 elementsJSIO.js
 JavaScript file for the elementsJS project site.
 
+Author: Eric James Foster
+License: MIT
 https://rawgit.com/ejames9/elementsJS/gh-pages/html/docsMenu.html
 https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
-
-if ( sideNav.offsetTop < document.documentElement.scrollTop + 70 || sideNav.offsetTop < document.body.scrollTop + 70) {
-//         sideNav.setAttribute("class","sticky");
-//         console.log(e);
-//     }
 */
+
+
 
 import * as SNC from './sideNavControl.js';
 
@@ -31,6 +30,17 @@ var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
 
+
+
+
+function highLightCode() {
+  __(`
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+  `, <head/>.el)
+
+  hljs.initHighlightingOnLoad();
+}
 
 
 //Documentation page change function
@@ -102,6 +112,7 @@ go(()=> {
           case (document.getElementById('api-butn')):
               insertDocs(()=> {
                 SNC.sideNavController();
+                        highLightCode();
               });
               break;
           default:

@@ -93,11 +93,19 @@ code {
 }
 
 #docsMain h1 {
-  background-color: #52218A;
+  background-color: #39175E;
   color: #FF8A22;
-  padding: 25px 20px 25px 10px;
+  padding: 15px 20px 15px 10px;
   width: 100%;
   margin-bottom: 0px;
+  border: 1px solid #FF8A22;
+  text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+pre  {
+  background-color: black;
 }
 
 
