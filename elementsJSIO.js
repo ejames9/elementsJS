@@ -99,6 +99,12 @@
 	var mdUrl = 'md/elementsJSIODocs.md';
 	var markDown;
 
+	function forkMeBaby() {
+	  console.log(dom('.jumbotron'));
+
+	  __("\n    <a><forkMe id='forkMe'>\n      <p>Fork Me Baby!</p>\n    </forkMe></a>\n\n  ", '.jumbotron');
+	}
+
 	//This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
 	function highLightCode() {
 	  console.log(dom('pre code'));
@@ -188,6 +194,8 @@
 	  });
 
 	  getMarkDown();
+
+	  forkMeBaby();
 	});
 
 /***/ },
@@ -299,7 +307,7 @@
 	            (0, _elementsJS.scroll)(window, function () {
 	                        switch (true) {
 	                                    //0 - 13 Getting Started
-	                                    case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']:
+	                                    case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff + 20 || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']:
 	                                                dom('[class=hot]').xClass();
 	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
@@ -307,14 +315,14 @@
 	                                                var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
 	                                                elem0.class('hot');
 	                                                break;
-	                                    case dom('html').scrolled() > offSets['get-started'] + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > offSets['get-started'] + diff && dom('body').scrolled() < offSets['installation']:
+	                                    case dom('html').scrolled() > offSets['get-started'] + diff + 20 && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > offSets['get-started'] + diff && dom('body').scrolled() < offSets['installation']:
 	                                                // log('YES', ['red', 'blue']);
 	                                                dom('[class=hot]').xClass();
 	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
-	                                                var elem1 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-	                                                elem1.class('hot').sib('next').xClass();
+	                                                var elem1 = _$('#inst') ? dom('#inst') : make('#inst').put("body");
+	                                                elem1.class('hot').ma().xClass();
 	                                                break;
 	                                    case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage']:
 	                                                dom('[class=hot]').xClass();
@@ -3703,8 +3711,7 @@
 	var bones = function bones(tempLit) {
 	  var elem = arguments.length <= 1 || arguments[1] === undefined ? 'body' : arguments[1];
 
-	  (0, _logger.log)('hello', 'yellow');
-	  elem = el(elem);
+	  elem = utils.queryDOM(elem);
 	  elem.innerHTML += tempLit;
 
 	  return elem;

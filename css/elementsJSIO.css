@@ -72,6 +72,16 @@ ul > li > a {
   padding: 0;
 }
 
+pre {
+  border: 1px dotted  #52218A;
+  padding: 0px;
+  border-style: dashed;
+}
+
+pre code {
+    border: 3px solid #FF8A22;
+}
+
 code {
   font-family: bpmono;
   border-radius: 5px;

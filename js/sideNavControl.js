@@ -99,7 +99,7 @@ function sideNavController() {
   scroll(window, ()=>  {
       switch(true) {
         //0 - 13 Getting Started
-        case (dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff ||
+        case (dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff + 20||
               dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']):
               dom('[class=hot]')
                       .xClass();
@@ -111,7 +111,7 @@ function sideNavController() {
               <'#getStart'/>
                       .class('hot');
               break;
-        case (dom('html').scrolled() > offSets['get-started'] + diff && dom('html').scrolled() < offSets['installation'] + diff ||
+        case (dom('html').scrolled() > offSets['get-started'] + diff + 20 && dom('html').scrolled() < offSets['installation'] + diff ||
               dom('body').scrolled() > offSets['get-started'] + diff && dom('body').scrolled() < offSets['installation']):
               // log('YES', ['red', 'blue']);
               dom('[class=hot]')
@@ -121,10 +121,10 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#getStart'/>
+              <'#inst'/>
                       .class('hot')
-                      .sib('next')
-                                .xClass();
+                      .ma()
+                          .xClass();
               break;
         case (dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff ||
               dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage']):

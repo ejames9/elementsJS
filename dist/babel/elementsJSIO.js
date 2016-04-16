@@ -53,6 +53,12 @@ var docsMenu = 'html/docsMenu.html';
 var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
+function forkMeBaby() {
+  console.log(dom('.jumbotron'));
+
+  __("\n    <a><forkMe id='forkMe'>\n      <p>Fork Me Baby!</p>\n    </forkMe></a>\n\n  ", '.jumbotron');
+}
+
 //This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
 function highLightCode() {
   console.log(dom('pre code'));
@@ -142,4 +148,6 @@ go(function () {
   });
 
   getMarkDown();
+
+  forkMeBaby();
 });

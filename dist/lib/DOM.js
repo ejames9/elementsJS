@@ -43,8 +43,7 @@ bones(`
 var bones = function bones(tempLit) {
   var elem = arguments.length <= 1 || arguments[1] === undefined ? 'body' : arguments[1];
 
-  (0, _logger.log)('hello', 'yellow');
-  elem = el(elem);
+  elem = utils.el(elem);
   elem.innerHTML += tempLit;
 
   return elem;
