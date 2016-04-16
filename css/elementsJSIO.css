@@ -79,8 +79,9 @@ code {
 
 
 #docsMenu-container h2 code {
-  background-color: #52218A;
-  color: #FF8A22;
+  border: 1px solid #FF8A22;
+  background-color: #fff;
+  color: #52218A;
   border-radius: 25px;
   font-weight: 100;
   padding: 7px 15px 7px 15px;
