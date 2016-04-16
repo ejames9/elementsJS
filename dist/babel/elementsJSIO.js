@@ -57,6 +57,9 @@ function forkMeBaby() {
   console.log(dom('.jumbotron'));
 
   __("\n    <a><forkMe id='forkMe'>\n      <p>Fork Me Baby!</p>\n    </forkMe></a>\n\n  ", '.jumbotron');
+
+  var elem0 = _$('#forkMe') ? dom('#forkMe') : make('#forkMe').put("body");
+  elem0.fore('#logo');
 }
 
 //This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
@@ -74,10 +77,10 @@ function highLightCode() {
 function insertDocs(cb) {
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, function (r) {
-    var elem0 = _$('#content') ? dom('#content') : make('#content').put("body");
-    elem0.html(r);
-    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-    elem1.html(marked(markDown));
+    var elem1 = _$('#content') ? dom('#content') : make('#content').put("body");
+    elem1.html(r);
+    var elem2 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+    elem2.html(marked(markDown));
 
     var offSets = SNC.getOffSets();
 

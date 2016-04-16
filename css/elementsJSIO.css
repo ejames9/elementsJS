@@ -27,7 +27,7 @@ kristi,
 
 svg {
   max-height: 80px;
-  max-width: 880px;
+  max-width: 80px;
 }
 
 path {
@@ -438,6 +438,8 @@ iframe {
 }
 
 #bower {
+  height: 80px;
+  width: 80px;
   position: relative;
 
 }

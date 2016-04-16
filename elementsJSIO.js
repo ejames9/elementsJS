@@ -103,6 +103,9 @@
 	  console.log(dom('.jumbotron'));
 
 	  __("\n    <a><forkMe id='forkMe'>\n      <p>Fork Me Baby!</p>\n    </forkMe></a>\n\n  ", '.jumbotron');
+
+	  var elem0 = _$('#forkMe') ? dom('#forkMe') : make('#forkMe').put("body");
+	  elem0.fore('#logo');
 	}
 
 	//This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
@@ -120,10 +123,10 @@
 	function insertDocs(cb) {
 	  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
 	  ajax(url(rawGit, docsMenu), null, function (r) {
-	    var elem0 = _$('#content') ? dom('#content') : make('#content').put("body");
-	    elem0.html(r);
-	    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-	    elem1.html(marked(markDown));
+	    var elem1 = _$('#content') ? dom('#content') : make('#content').put("body");
+	    elem1.html(r);
+	    var elem2 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+	    elem2.html(marked(markDown));
 
 	    var offSets = SNC.getOffSets();
 
@@ -2326,20 +2329,6 @@
 	    }
 	  };
 
-	  this.attrib = function (attrib, val) {
-	    //TEST:0 Make sure this works
-	    var r = val !== undefined && val !== 'remove' ? (this.el.setAttribute(attrib, val), undefined) : attrib !== undefined && val !== 'remove' ? this.el.getAttribute(attrib) : (this.el.removeAttribute(attrib), undefined);
-	    // (r !== undefined) ?                                                     //TODO:10 See if you can make this work.
-	    //   return r
-	    // :
-	    //   return this;
-	    if (r !== undefined) {
-	      return r;
-	    } else {
-	      return this;
-	    }
-	  };
-
 	  this.put = function (mom) {
 	    DOM.put(this.el, mom);
 	    return this;
@@ -2641,6 +2630,46 @@
 	    //   eachCount = '';
 	    // }
 	    (0, _logger.log)(eachCount, 'white');
+	    return this;
+	  };
+
+	  //<<============Attribute Methods==========================>>//
+
+	  this.attrib = function (attrib, val) {
+	    //TEST:0 Make sure this works
+	    var r = val !== undefined && val !== 'remove' ? (this.el.setAttribute(attrib, val), undefined) : attrib !== undefined && val !== 'remove' ? this.el.getAttribute(attrib) : (this.el.removeAttribute(attrib), undefined);
+	    // (r !== undefined) ?                                                     //TODO:10 See if you can make this work.
+	    //   return r
+	    // :
+	    //   return this;
+	    if (r !== undefined) {
+	      return r;
+	    } else {
+	      return this;
+	    }
+	  };
+
+	  this.src = function (val) {
+	    this.el.src = val;
+
+	    return this;
+	  };
+
+	  this.href = function (val) {
+	    this.el.href = val;
+
+	    return this;
+	  };
+
+	  this.type = function (val) {
+	    this.el.type = val;
+
+	    return this;
+	  };
+
+	  this.alt = function (val) {
+	    this.el.alt = val;
+
 	    return this;
 	  };
 	};
