@@ -17,7 +17,8 @@ import * as SNC from './sideNavControl.js';
 
 imports({
     'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'scroll', '__'],
-        'marked': 'marked'
+        'marked': 'marked',
+  'highlight.js': 'hljs'
 });
 
 
@@ -34,7 +35,11 @@ var markDown;
 
 
 function highLightCode() {
-  hljs.initHighlightingOnLoad();
+  console.log(el('pre code'));
+  dom('pre code')
+              .forEach((element)=> {
+                hljs.highlightBlock(element.el);
+              });
 }
 
 
@@ -49,10 +54,10 @@ function insertDocs(cb) {
 
     const offSets = SNC.getOffSets();
 
-    for (var el in offSets) {
-      log('id: ' + el, 'red');
-      log('offSet: ' + offSets[el], ['red', 'blue'])
-    }
+    // for (var el in offSets) {
+    //   log('id: ' + el, 'red');
+    //   log('offSet: ' + offSets[el], ['red', 'blue'])
+    // }
     cb();
   });
 }

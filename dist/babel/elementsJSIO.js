@@ -1,13 +1,17 @@
-"use strict";
+'use strict';
 
-var _sideNavControl = require("./sideNavControl.js");
+var _sideNavControl = require('./sideNavControl.js');
 
 var SNC = _interopRequireWildcard(_sideNavControl);
+
+var _highlight = require('highlight.js');
+
+var hljs = _interopRequireWildcard(_highlight);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 ///-------Begin Module requires---------///
-var _$ = require("elementsJS")._$;
+
 /*
 elementsJSIO.js
 JavaScript file for the elementsJS project site.
@@ -18,6 +22,7 @@ https://rawgit.com/ejames9/elementsJS/gh-pages/html/docsMenu.html
 https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
+var _$ = require("elementsJS")._$;
 var dom = require("elementsJS").dom;
 var make = require("elementsJS").make;
 ///|------------------------------------|//
@@ -47,12 +52,10 @@ var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
 function highLightCode() {
-  log('blue', 'blue');
-  __("<link rel=\"stylesheet\" href=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css\">", el('head'));
-
-  make('#high', 'script').put('head').el.src = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js";
-
-  hljs.initHighlightingOnLoad();
+  console.log(el('pre code'));
+  dom('pre code').forEach(function (element) {
+    hljs.highlightBlock(element.el);
+  });
 }
 
 //Documentation page change function
@@ -64,10 +67,10 @@ function insertDocs(cb) {
 
     var offSets = SNC.getOffSets();
 
-    for (var el in offSets) {
-      log('id: ' + el, 'red');
-      log('offSet: ' + offSets[el], ['red', 'blue']);
-    }
+    // for (var el in offSets) {
+    //   log('id: ' + el, 'red');
+    //   log('offSet: ' + offSets[el], ['red', 'blue'])
+    // }
     cb();
   });
 }

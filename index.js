@@ -17,17 +17,14 @@ URL: ""
 //FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
 //FIXME: Can't put elements in comments.
 //FIXME: HTML interfering with regExp's.
+//FIXME: can't use file blobs with import() func.
 
-
-//TODO: Complete <elem> syntax.
+//TODO: Complete <elem> syntax docs.
+//TODO: change apropo methods to properties.
 //TODO: .sib() does not return element.......
 //TODO: addClass() method.
 //TODO: new log.dir() function.
 //TODO: .src, .href() etc.
-
-
-
-
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -78,10 +75,12 @@ var functions = function(funcs, mod) {                                      //TE
 };
 
 
+//This function will simply return true if the given element exists in the DOM, and false otherwise. not a public function.
 var _$ = function(el) {
   var l = (null !== utils.queryDOM(el));
   return l;
 };
+
 
 //This function queries the dom, getting one element for each query (i.e. class/tags), creates
 //an Element object with it and returns it, so that it may be easily styled.
