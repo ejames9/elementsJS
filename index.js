@@ -100,6 +100,7 @@ var dom = function(el) {
     for (var i = 0; i < el.length; i++) {
       rv.push(new Element(el[i]));
     }
+    rv = new Element(rv);
   } else {
     rv = new Element(el);
   }

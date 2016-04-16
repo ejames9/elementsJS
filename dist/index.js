@@ -45,8 +45,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                                                                                                                                                                                                                   URL: ""
                                                                                                                                                                                                                   */
 
-//FIXME: elements syntax not working in case condition of switch statement.
+//FIXME: elements syntax not working in parenthesis.
 //FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
+//FIXME: Can't put elements in comments.
+//FIXME: HTML interfering with regExp's.
+//FIXME: can't use file blobs with import() func.
+
+//TODO: Complete <elem> syntax docs.
+//TODO: change apropo methods to properties.
+//TODO: .sib() does not return element.......
+//TODO: addClass() method.
+//TODO: new log.dir() function.
+//TODO: .src, .href() etc.
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -84,9 +94,14 @@ var functions = function functions(funcs, mod) {
   }
 };
 
+//This function will simply return true if the given element exists in the DOM, and false otherwise. not a public function.
 var _$ = function _$(el) {
   var l = null !== utils.queryDOM(el);
   return l;
+};
+
+var isArray = function isArray(arr) {
+  return utils.isArray(arr);
 };
 
 //This function queries the dom, getting one element for each query (i.e. class/tags), creates
@@ -97,32 +112,12 @@ var dom = function dom(el) {
 
   el = utils.queryDOM(el);
 
-  if (Array.isArray(el)) {
+  if (el.length !== undefined) {
     rv = [];
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-      for (var _iterator = el[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var l = _step.value;
-
-        rv.push(new _element2.default(l));
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator.return) {
-          _iterator.return();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
+    for (var i = 0; i < el.length; i++) {
+      rv.push(new _element2.default(el[i]));
     }
+    rv = new _element2.default(rv);
   } else {
     rv = new _element2.default(el);
   }
@@ -475,6 +470,7 @@ module.exports = (_module$exports = {
   dom: dom,
   proto: proto,
   clone: clone,
+  isArray: isArray,
   functions: functions,
   put: put,
   on: on,

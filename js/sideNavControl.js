@@ -104,7 +104,7 @@ function sideNavController() {
               dom('[class=hot]')
                       .xClass();
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -117,7 +117,7 @@ function sideNavController() {
               dom('[class=hot]')
                       .xClass();
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -145,7 +145,7 @@ function sideNavController() {
               dom('[class=hot]')
                       .xClass();
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -159,7 +159,7 @@ function sideNavController() {
               dom('[class=hot]')
                           .xClass();
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -171,7 +171,7 @@ function sideNavController() {
               dom('[class=hot]')
                           .xClass();
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -255,7 +255,7 @@ function sideNavController() {
               dom('[class=hot]')
                           .xClass();
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -269,7 +269,7 @@ function sideNavController() {
               dom('[class=hot]')
                           .xClass();
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -416,7 +416,7 @@ function sideNavController() {
               dom('[class=hot]')
                           .xClass();
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -431,7 +431,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -453,7 +453,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -468,7 +468,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -504,7 +504,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -519,7 +519,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -541,7 +541,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -556,7 +556,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -585,7 +585,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -600,7 +600,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -650,7 +650,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });
@@ -665,7 +665,7 @@ function sideNavController() {
                           .xClass();
 
               dom('[name=hidden]')
-                      .forEach((element)=> {
+                      .every((element)=> {
                           element
                               .class('hide');
                       });

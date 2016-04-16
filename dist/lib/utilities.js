@@ -6,9 +6,24 @@ var _logger = require('./logger');
 
 //TODO:20 browser detection functionality, noop(), merge(), toggle().
 
+var isArray = function isArray(arr) {
+  return Array.isArray(arr);
+};
+
 /*This function combines querySelector and querySelectorAll, and becomes a noop if 'el' is a variable. There is an optional 2nd argument 'mod', that
 accepts the string 'all' to modify behaviour of the function. By default, 'mod' is null. If the string 'all' is passed as the 2nd argument, the function
 will use querySelectorAll() instead of querySelector(), meaning an array will be returned if possible. */
+
+/*
+utilities.js
+
+This file contains various functions for the library, either public or not,
+that don't fit into any other module.
+
+Author: Eric James Foster
+License: ISC
+*/
+
 var queryDOM = function queryDOM(el) {
 
   var lm = void 0,
@@ -31,7 +46,7 @@ var queryDOM = function queryDOM(el) {
       } else {
         return null;
       }
-    } else if (el.charAt(0) !== '#' && el.indexOf('[') === -1 && el.indexOf(':') === -1) {
+    } else if (el.charAt(0) !== '#' && el.indexOf('[') === -1 && el.indexOf(':') === -1 && el.indexOf(' ') === -1) {
       lm = document.getElementsByTagName(el);
 
       if (lm.length !== 0) {
@@ -46,8 +61,14 @@ var queryDOM = function queryDOM(el) {
         return null;
       }
     } else {
-      lm = document.querySelector(el);
-      return lm;
+      lm = document.querySelectorAll(el);
+      if (lm.length <= 1) {
+        lm = undefined;
+        lm = document.querySelector(el);
+        return lm;
+      } else {
+        return lm;
+      }
     }
     return lms;
   } else {
@@ -58,17 +79,6 @@ var queryDOM = function queryDOM(el) {
 /*This function copies the prototype object of a superConstructor to the prototype object
 of a constructor. It functions just like nodes' util.inherits function, it copies methods only,
 not internal properties.*/
-
-/*
-utilities.js
-
-This file contains various functions for the library, either public or not,
-that don't fit into any other module.
-
-Author: Eric James Foster
-License: ISC
-*/
-
 var proto = function proto(constructer, superConstructer) {
   construct.prototype = Object.create(superConstructer.prototype);
   constructer.prototype.constructor = constructer;
@@ -122,6 +132,7 @@ function shifter(onFunc, offFunc) {
 module.exports = {
   queryDOM: queryDOM,
   functions: functions,
+  isArray: isArray,
   shifter: shifter,
   sleep: sleep,
   proto: proto

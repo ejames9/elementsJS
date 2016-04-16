@@ -40,7 +40,11 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 //IDEA: A method that incorporates jquery methods into El object (animation?).
 
 function Element(el) {
-  this.el = el;
+  if (elements.isArray(el)) {
+    this.els = el;
+  } else {
+    this.el = el;
+  }
 
   if (!(this instanceof Element)) {
     return new Element();
@@ -942,29 +946,30 @@ function Element(el) {
     return node;
   };
 
-  this.sib = function (ord, s) {
+  this.sib = function (ord) {
     var r = void 0;
 
     if (ord === 'next') {
-      if (s === undefined) {
-        r = this.el.nextElementSibling;
-      } else if (s === 'all') {
-        r = this.el.nextSibling;
-      } else {
-        (0, _logger.err)('Invalid argument.');
-      }
+      r = this.el.nextElementSibling;
     } else if (ord === 'prev') {
-      if (s === undefined) {
-        r = this.el.previousElementSibling;
-      } else if (s === 'all') {
-        r = this.el.previousSibling;
-      } else {
-        (0, _logger.err)('Invalid argument.');
-      }
+      r = this.el.previousElementSibling;
     } else {
       (0, _logger.err)('Invalid argument.');
     }
-    return r;
+    return new Element(r);
+  };
+
+  this.node = function (ord) {
+    var r = void 0;
+
+    if (ord === 'next') {
+      r = this.el.nextSibling;
+    } else if (ord === 'prev') {
+      r = this.el.previousSibling;
+    } else {
+      (0, _logger.err)('Invalid argument.');
+    }
+    return new Element(r);
   };
 
   this.value = function (val) {
@@ -1072,7 +1077,7 @@ function Element(el) {
   };
 
   this.ma = function () {
-    return this.el.parentNode;
+    return new Element(this.el.parentNode);
   };
 
   this.fore = function (el) {
@@ -1330,6 +1335,13 @@ function Element(el) {
   };
 
   /////// Experimental Methods ////////
+
+  this.every = function (eachFunc) {
+    this.els.forEach(function (elem, i, a) {
+      eachFunc(elem, a);
+    });
+    return this;
+  };
 
   this.only = function (num, func) {
     var arr = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];

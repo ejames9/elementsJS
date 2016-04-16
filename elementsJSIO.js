@@ -101,10 +101,11 @@
 
 	//This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
 	function highLightCode() {
+	  console.log(dom('pre code'));
 	  //Get access to all <pre><code> blocks......
-	  dom('pre code').each(function (element) {
+	  dom('pre code').every(function (element) {
 	    //highlight blocks.
-	    hljs.highlightBlock(element);
+	    hljs.highlightBlock(element.el);
 	  });
 	  return;
 	}
@@ -300,7 +301,7 @@
 	                                    //0 - 13 Getting Started
 	                                    case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started']:
 	                                                dom('[class=hot]').xClass();
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
@@ -309,7 +310,7 @@
 	                                    case dom('html').scrolled() > offSets['get-started'] + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > offSets['get-started'] + diff && dom('body').scrolled() < offSets['installation']:
 	                                                // log('YES', ['red', 'blue']);
 	                                                dom('[class=hot]').xClass();
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem1 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
@@ -327,7 +328,7 @@
 	                                                break;
 	                                    case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports']:
 	                                                dom('[class=hot]').xClass();
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem4 = _$('#interpInstall') ? dom('#interpInstall') : make('#interpInstall').put("body");
@@ -335,7 +336,7 @@
 	                                                break;
 	                                    case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM']:
 	                                                dom('[class=hot]').xClass();
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem5 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
@@ -343,7 +344,7 @@
 	                                                break;
 	                                    case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func']:
 	                                                dom('[class=hot]').xClass();
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem6 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
@@ -401,7 +402,7 @@
 	                                                break;
 	                                    case dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff || dom('body').scrolled() > offSets['size-func'] + diff && dom('body').scrolled() < offSets['event-handle']:
 	                                                dom('[class=hot]').xClass();
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem17 = _$('#size') ? dom('#size') : make('#size').put("body");
@@ -409,7 +410,7 @@
 	                                                break;
 	                                    case dom('html').scrolled() > offSets['event-handle'] + diff && dom('html').scrolled() < offSets['go-func'] + diff || dom('body').scrolled() > offSets['event-handle'] + diff && dom('body').scrolled() < offSets['go-func']:
 	                                                dom('[class=hot]').xClass();
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem18 = _$('#eventHand') ? dom('#eventHand') : make('#eventHand').put("body");
@@ -512,7 +513,7 @@
 	                                                break;
 	                                    case dom('html').scrolled() > offSets['select-func'] + diff && dom('html').scrolled() < offSets['http'] + diff || dom('body').scrolled() > offSets['select-func'] + diff && dom('body').scrolled() < offSets['http']:
 	                                                dom('[class=hot]').xClass();
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem38 = _$('#select') ? dom('#select') : make('#select').put("body");
@@ -521,7 +522,7 @@
 	                                    case dom('html').scrolled() > offSets['http'] + diff && dom('html').scrolled() < offSets['xhr-func'] + diff || dom('body').scrolled() > offSets['http'] + diff && dom('body').scrolled() < offSets['xhr-func']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem39 = _$('#httpReq') ? dom('#httpReq') : make('#httpReq').put("body");
@@ -535,7 +536,7 @@
 	                                    case dom('html').scrolled() > offSets['ajax-func'] + diff && dom('html').scrolled() < offSets['loggers'] + diff || dom('body').scrolled() > offSets['ajax-func'] + diff && dom('body').scrolled() < offSets['loggers']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem41 = _$('#ajax') ? dom('#ajax') : make('#ajax').put("body");
@@ -544,7 +545,7 @@
 	                                    case dom('html').scrolled() > offSets['loggers'] + diff && dom('html').scrolled() < offSets['log-func'] + diff || dom('body').scrolled() > offSets['loggers'] + diff && dom('body').scrolled() < offSets['log-func']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem42 = _$('#logg') ? dom('#logg') : make('#logg').put("body");
@@ -568,7 +569,7 @@
 	                                    case dom('html').scrolled() > offSets['err-func'] + diff && dom('html').scrolled() < offSets['utils'] + diff || dom('body').scrolled() > offSets['err-func'] + diff && dom('body').scrolled() < offSets['utils']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem46 = _$('#err') ? dom('#err') : make('#err').put("body");
@@ -577,7 +578,7 @@
 	                                    case dom('html').scrolled() > offSets['utils'] + diff && dom('html').scrolled() < offSets['proto-func'] + diff || dom('body').scrolled() > offSets['utils'] + diff && dom('body').scrolled() < offSets['proto-func']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem47 = _$('#utilFunc') ? dom('#utilFunc') : make('#utilFunc').put("body");
@@ -591,7 +592,7 @@
 	                                    case dom('html').scrolled() > offSets['shifter-func'] + diff && dom('html').scrolled() < offSets['elem-obj'] + diff || dom('body').scrolled() > offSets['shifter-func'] + diff && dom('body').scrolled() < offSets['elem-obj']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem49 = _$('#shifter') ? dom('#shifter') : make('#shifter').put("body");
@@ -600,7 +601,7 @@
 	                                    case dom('html').scrolled() > offSets['elem-obj'] + diff && dom('html').scrolled() < offSets['element-const'] + diff || dom('body').scrolled() > offSets['elem-obj'] + diff && dom('body').scrolled() < offSets['element-const']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem50 = _$('#elemObj') ? dom('#elemObj') : make('#elemObj').put("body");
@@ -619,7 +620,7 @@
 	                                    case dom('html').scrolled() > offSets['make2-func'] + diff && dom('html').scrolled() < offSets['elem-obj-methods'] + diff || dom('body').scrolled() > offSets['make2-func'] + diff && dom('body').scrolled() < offSets['elem-obj-methods']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem53 = _$('#make2') ? dom('#make2') : make('#make2').put("body");
@@ -628,7 +629,7 @@
 	                                    case dom('html').scrolled() > offSets['elem-obj-methods'] + diff && dom('html').scrolled() < offSets['element-font-ex'] + diff || dom('body').scrolled() > offSets['elem-obj-methods'] + diff && dom('body').scrolled() < offSets['element-font-ex']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem54 = _$('#elemObjMethods') ? dom('#elemObjMethods') : make('#elemObjMethods').put("body");
@@ -662,7 +663,7 @@
 	                                    case dom('html').scrolled() > offSets['Util-Methods'] + diff && dom('html').scrolled() < offSets['elements-syntax'] + diff || dom('body').scrolled() > offSets['Util-Methods'] + diff && dom('body').scrolled() < offSets['elements-syntax']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem60 = _$('#utilMethods') ? dom('#utilMethods') : make('#utilMethods').put("body");
@@ -671,7 +672,7 @@
 	                                    case dom('html').scrolled() > offSets['elements-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func1'] + diff || dom('body').scrolled() > offSets['elements-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func1']:
 	                                                dom('[class=hot]').xClass();
 
-	                                                dom('[name=hidden]').forEach(function (element) {
+	                                                dom('[name=hidden]').every(function (element) {
 	                                                            element.class('hide');
 	                                                });
 	                                                var elem61 = _$('#elemsSyntax') ? dom('#elemsSyntax') : make('#elemsSyntax').put("body");
@@ -743,7 +744,7 @@
 
 	var requests = _interopRequireWildcard(_httpRequests);
 
-	var _events = __webpack_require__(6);
+	var _events = __webpack_require__(7);
 
 	var events = _interopRequireWildcard(_events);
 
@@ -751,7 +752,7 @@
 
 	var consol = _interopRequireWildcard(_logger);
 
-	var _utilities = __webpack_require__(7);
+	var _utilities = __webpack_require__(6);
 
 	var utils = _interopRequireWildcard(_utilities);
 
@@ -829,12 +830,12 @@
 	//This function queries the dom, getting one element for each query (i.e. class/tags), creates
 	//an Element object with it and returns it, so that it may be easily styled.
 	var dom = function dom(el) {
-	  log('dom: ' + el, 'blue');
-	  var rv = void 0;
+	  var r = void 0,
+	      rv = void 0;
 
 	  el = utils.queryDOM(el);
 
-	  if (Array.isArray(el)) {
+	  if (el.length !== undefined) {
 	    rv = [];
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
@@ -860,10 +861,14 @@
 	        }
 	      }
 	    }
+
+	    rv = new _element2.default(rv);
+	    r = rv;
 	  } else {
 	    rv = new _element2.default(el);
+	    r = rv;
 	  }
-	  return rv;
+	  return r;
 	};
 
 	/*function for insterting template literals into the DOM.
@@ -1272,11 +1277,9 @@
 
 	var _logger = __webpack_require__(4);
 
-	var _index = __webpack_require__(2);
+	var _utilities = __webpack_require__(6);
 
-	var elements = _interopRequireWildcard(_index);
-
-	var _events = __webpack_require__(6);
+	var _events = __webpack_require__(7);
 
 	var events = _interopRequireWildcard(_events);
 
@@ -1293,7 +1296,7 @@
 	//IDEA: A method that incorporates jquery methods into El object (animation?).
 
 	function Element(el) {
-	  if (elements.isArray(el)) {
+	  if ((0, _utilities.isArray)(el)) {
 	    this.els = el;
 	  } else {
 	    this.el = el;
@@ -2199,29 +2202,30 @@
 	    return node;
 	  };
 
-	  this.sib = function (ord, s) {
+	  this.sib = function (ord) {
 	    var r = void 0;
 
 	    if (ord === 'next') {
-	      if (s === undefined) {
-	        r = this.el.nextElementSibling;
-	      } else if (s === 'all') {
-	        r = this.el.nextSibling;
-	      } else {
-	        (0, _logger.err)('Invalid argument.');
-	      }
+	      r = this.el.nextElementSibling;
 	    } else if (ord === 'prev') {
-	      if (s === undefined) {
-	        r = this.el.previousElementSibling;
-	      } else if (s === 'all') {
-	        r = this.el.previousSibling;
-	      } else {
-	        (0, _logger.err)('Invalid argument.');
-	      }
+	      r = this.el.previousElementSibling;
 	    } else {
 	      (0, _logger.err)('Invalid argument.');
 	    }
-	    return r;
+	    return new Element(r);
+	  };
+
+	  this.node = function (ord) {
+	    var r = void 0;
+
+	    if (ord === 'next') {
+	      r = this.el.nextSibling;
+	    } else if (ord === 'prev') {
+	      r = this.el.previousSibling;
+	    } else {
+	      (0, _logger.err)('Invalid argument.');
+	    }
+	    return new Element(r);
 	  };
 
 	  this.value = function (val) {
@@ -2334,7 +2338,7 @@
 	  };
 
 	  this.ma = function () {
-	    return this.el.parentNode;
+	    return new Element(this.el.parentNode);
 	  };
 
 	  this.fore = function (el) {
@@ -2593,7 +2597,7 @@
 
 	  /////// Experimental Methods ////////
 
-	  this.each = function (eachFunc) {
+	  this.every = function (eachFunc) {
 	    this.els.forEach(function (elem, i, a) {
 	      eachFunc(elem, a);
 	    });
@@ -2889,7 +2893,151 @@
 
 	var _logger = __webpack_require__(4);
 
-	var _utilities = __webpack_require__(7);
+	// require('babel-polyfill');
+
+	//TODO:20 browser detection functionality, noop(), merge(), toggle().
+
+	var isArray = function isArray(arr) {
+	  return Array.isArray(arr);
+	};
+
+	/*This function combines querySelector and querySelectorAll, and becomes a noop if 'el' is a variable. There is an optional 2nd argument 'mod', that
+	accepts the string 'all' to modify behaviour of the function. By default, 'mod' is null. If the string 'all' is passed as the 2nd argument, the function
+	will use querySelectorAll() instead of querySelector(), meaning an array will be returned if possible. */
+
+	/*
+	utilities.js
+
+	This file contains various functions for the library, either public or not,
+	that don't fit into any other module.
+
+	Author: Eric James Foster
+	License: ISC
+	*/
+
+	var queryDOM = function queryDOM(el) {
+
+	  var lm = void 0,
+	      lms = [];
+
+	  if (typeof el === 'string') {
+	    if (el.charAt(0) === '.') {
+	      el = el.substring(1, el.length);
+
+	      lm = document.getElementsByClassName(el);
+
+	      if (lm.length !== 0) {
+	        if (lm.length === 1) {
+	          lms = lm[0];
+	        } else {
+	          for (var i = 0; i < lm.length; i++) {
+	            lms.push(lm[i]);
+	          }
+	        }
+	      } else {
+	        return null;
+	      }
+	    } else if (el.charAt(0) !== '#' && el.indexOf('[') === -1 && el.indexOf(':') === -1 && el.indexOf(' ') === -1) {
+	      lm = document.getElementsByTagName(el);
+
+	      if (lm.length !== 0) {
+	        if (lm.length === 1) {
+	          lms = lm[0];
+	        } else {
+	          for (var j = 0; j < lm.length; j++) {
+	            lms.push(lm.item(j));
+	          }
+	        }
+	      } else {
+	        return null;
+	      }
+	    } else {
+	      lm = document.querySelectorAll(el);
+	      if (lm.length <= 1) {
+	        lm = undefined;
+	        lm = document.querySelector(el);
+	        return lm;
+	      } else {
+	        return lm;
+	      }
+	    }
+	    return lms;
+	  } else {
+	    return el;
+	  }
+	};
+
+	/*This function copies the prototype object of a superConstructor to the prototype object
+	of a constructor. It functions just like nodes' util.inherits function, it copies methods only,
+	not internal properties.*/
+	var proto = function proto(constructer, superConstructer) {
+	  construct.prototype = Object.create(superConstructer.prototype);
+	  constructer.prototype.constructor = constructer;
+	  return constructer;
+	};
+
+	/*This convenience function sets imported module function names as global variables, so that
+	the module variable doesn't need to preface every function.*/
+	var functions = function functions(funcs, module) {
+	  //TEST:110 Test this with other node_modules.
+	  var context = module || this;
+
+	  if (Array.isArray(funcs)) {
+	    funcs.forEach(function (func) {
+	      var evil = new Function('window.' + func + ' = ' + 'this.' + func + ';');
+	      evil.call(context);
+	    }, context);
+	  } else {
+	    (function () {
+	      var evil = new Function('window.' + funcs + ' = ' + 'this.' + funcs + ';');
+	      evil.call(context);
+	    }).apply(context);
+	  }
+	};
+
+	//This practically useless function will lock up the browser for a preset amount of time.
+	var sleep = function sleep(milliseconds) {
+	  var start = new Date().getTime();
+	  while (true) {
+	    if (new Date().getTime() - start > milliseconds) {
+	      break;
+	    }
+	  }
+	};
+
+	//This function will alternate function calls depending on the value of a global flag.
+	function shifter(onFunc, offFunc) {
+	  window.toggleFlag = true;
+
+	  return function () {
+	    if (toggleFlag) {
+	      onFunc();
+	      toggleFlag = false;
+	    } else {
+	      offFunc();
+	      toggleFlag = true;
+	    }
+	  };
+	};
+
+	module.exports = {
+	  queryDOM: queryDOM,
+	  functions: functions,
+	  isArray: isArray,
+	  shifter: shifter,
+	  sleep: sleep,
+	  proto: proto
+	};
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _logger = __webpack_require__(4);
+
+	var _utilities = __webpack_require__(6);
 
 	var utils = _interopRequireWildcard(_utilities);
 
@@ -3507,144 +3655,6 @@
 	};
 
 /***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _logger = __webpack_require__(4);
-
-	// require('babel-polyfill');
-
-	//TODO:20 browser detection functionality, noop(), merge(), toggle().
-
-	var isArray = function isArray(arr) {
-	  return Array.isArray(arr);
-	};
-
-	/*This function combines querySelector and querySelectorAll, and becomes a noop if 'el' is a variable. There is an optional 2nd argument 'mod', that
-	accepts the string 'all' to modify behaviour of the function. By default, 'mod' is null. If the string 'all' is passed as the 2nd argument, the function
-	will use querySelectorAll() instead of querySelector(), meaning an array will be returned if possible. */
-
-	/*
-	utilities.js
-
-	This file contains various functions for the library, either public or not,
-	that don't fit into any other module.
-
-	Author: Eric James Foster
-	License: ISC
-	*/
-
-	var queryDOM = function queryDOM(el) {
-
-	  var lm = void 0,
-	      lms = [];
-
-	  if (typeof el === 'string') {
-	    if (el.charAt(0) === '.') {
-	      el = el.substring(1, el.length);
-
-	      lm = document.getElementsByClassName(el);
-
-	      if (lm.length !== 0) {
-	        if (lm.length === 1) {
-	          lms = lm[0];
-	        } else {
-	          for (var i = 0; i < lm.length; i++) {
-	            lms.push(lm[i]);
-	          }
-	        }
-	      } else {
-	        return null;
-	      }
-	    } else if (el.charAt(0) !== '#' && el.indexOf('[') === -1 && el.indexOf(':') === -1) {
-	      lm = document.getElementsByTagName(el);
-
-	      if (lm.length !== 0) {
-	        if (lm.length === 1) {
-	          lms = lm[0];
-	        } else {
-	          for (var j = 0; j < lm.length; j++) {
-	            lms.push(lm.item(j));
-	          }
-	        }
-	      } else {
-	        return null;
-	      }
-	    } else {
-	      lm = document.querySelector(el);
-	      return lm;
-	    }
-	    return lms;
-	  } else {
-	    return el;
-	  }
-	};
-
-	/*This function copies the prototype object of a superConstructor to the prototype object
-	of a constructor. It functions just like nodes' util.inherits function, it copies methods only,
-	not internal properties.*/
-	var proto = function proto(constructer, superConstructer) {
-	  construct.prototype = Object.create(superConstructer.prototype);
-	  constructer.prototype.constructor = constructer;
-	  return constructer;
-	};
-
-	/*This convenience function sets imported module function names as global variables, so that
-	the module variable doesn't need to preface every function.*/
-	var functions = function functions(funcs, module) {
-	  //TEST:110 Test this with other node_modules.
-	  var context = module || this;
-
-	  if (Array.isArray(funcs)) {
-	    funcs.forEach(function (func) {
-	      var evil = new Function('window.' + func + ' = ' + 'this.' + func + ';');
-	      evil.call(context);
-	    }, context);
-	  } else {
-	    (function () {
-	      var evil = new Function('window.' + funcs + ' = ' + 'this.' + funcs + ';');
-	      evil.call(context);
-	    }).apply(context);
-	  }
-	};
-
-	//This practically useless function will lock up the browser for a preset amount of time.
-	var sleep = function sleep(milliseconds) {
-	  var start = new Date().getTime();
-	  while (true) {
-	    if (new Date().getTime() - start > milliseconds) {
-	      break;
-	    }
-	  }
-	};
-
-	//This function will alternate function calls depending on the value of a global flag.
-	function shifter(onFunc, offFunc) {
-	  window.toggleFlag = true;
-
-	  return function () {
-	    if (toggleFlag) {
-	      onFunc();
-	      toggleFlag = false;
-	    } else {
-	      offFunc();
-	      toggleFlag = true;
-	    }
-	  };
-	};
-
-	module.exports = {
-	  queryDOM: queryDOM,
-	  functions: functions,
-	  isArray: isArray,
-	  shifter: shifter,
-	  sleep: sleep,
-	  proto: proto
-	};
-
-/***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -3656,7 +3666,7 @@
 
 	var _logger = __webpack_require__(4);
 
-	var _utilities = __webpack_require__(7);
+	var _utilities = __webpack_require__(6);
 
 	var utils = _interopRequireWildcard(_utilities);
 

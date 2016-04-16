@@ -55,10 +55,11 @@ var markDown;
 
 //This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
 function highLightCode() {
+  console.log(dom('pre code'));
   //Get access to all <pre><code> blocks......
-  dom('pre code').each(function (element) {
+  dom('pre code').every(function (element) {
     //highlight blocks.
-    hljs.highlightBlock(element);
+    hljs.highlightBlock(element.el);
   });
   return;
 }
