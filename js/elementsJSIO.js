@@ -35,13 +35,16 @@ var markDown;
 
 function forkMeBaby() {
   console.log(dom('.jumbotron'));
-  
+
   __(`
     <a><forkMe id='forkMe'>
       <p>Fork Me Baby!</p>
     </forkMe></a>
 
   `, '.jumbotron')
+
+  <'#forkMe'/>
+        .fore('#logo');
 }
 
 

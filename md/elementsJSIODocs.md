@@ -1666,3 +1666,4 @@ Hopefully by now you've gotten the hang of what the above line would do. Either 
 5. .offsets()
 6. .x() method
 7. .fromTop() .fromLeft() methods
+8. .src(), .href(), .type(), .alt().
