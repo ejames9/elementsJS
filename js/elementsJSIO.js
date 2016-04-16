@@ -10,18 +10,18 @@ https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
 
-
+//es6 import
 import * as SNC from './sideNavControl.js';
 
 
-
+//elementsJS imports
 imports({
     'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'scroll', '__'],
         'marked': 'marked',
   'highlight.js': 'hljs'
 });
 
-
+//globals
 var commit = '5f9f194';
 var rawGit = 'https://rawgit.com/ejames9/elementsJS/gh-pages/';
 var rawGitCDN = 'https://cdn.rawgit.com/ejames9/elementsJS/' + commit +'/';
@@ -33,13 +33,15 @@ var markDown;
 
 
 
-
+//This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
 function highLightCode() {
-  console.log(el('pre code'));
+  //Get access to all <pre><code> blocks......
   dom('pre code')
-              .forEach((element)=> {
-                hljs.highlightBlock(element.el);
-              });
+          .each((element)=> {
+             //highlight blocks.
+             hljs.highlightBlock(element);
+          });
+  return;
 }
 
 
@@ -47,9 +49,9 @@ function highLightCode() {
 function insertDocs(cb) {
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, (r)=> {
-    dom('#content')
+    <'#content'/>
               .html(r);
-    dom('#docsMain')
+    <'#docsMain'/>
               .html(marked(markDown));
 
     const offSets = SNC.getOffSets();
@@ -103,6 +105,7 @@ go(()=> {
   var npmBar = document.getElementById('npm-bar');
       npmBar.style.display = 'none';
 
+  //Click Event Delegation ============================>>
   var html = document.getElementsByTagName('html')[0];
       html.addEventListener('click', function(e) {
         switch(e.target) {
@@ -122,5 +125,6 @@ go(()=> {
               log(e);
         }
       });
+
   getMarkDown();
 });

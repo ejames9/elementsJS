@@ -1,17 +1,15 @@
-'use strict';
+"use strict";
 
-var _sideNavControl = require('./sideNavControl.js');
+var _sideNavControl = require("./sideNavControl.js");
 
 var SNC = _interopRequireWildcard(_sideNavControl);
 
-var _highlight = require('highlight.js');
-
-var hljs = _interopRequireWildcard(_highlight);
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-///-------Begin Module requires---------///
+//elementsJS imports
 
+///-------Begin Module requires---------///
+var _$ = require("elementsJS")._$;
 /*
 elementsJSIO.js
 JavaScript file for the elementsJS project site.
@@ -22,7 +20,8 @@ https://rawgit.com/ejames9/elementsJS/gh-pages/html/docsMenu.html
 https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
-var _$ = require("elementsJS")._$;
+//es6 import
+
 var dom = require("elementsJS").dom;
 var make = require("elementsJS").make;
 ///|------------------------------------|//
@@ -41,8 +40,11 @@ var __ = elementsJS.__;
 
 var marked = require("marked");
 
+var hljs = require("highlight.js");
+
 ///End Module requires///
 
+//globals
 var commit = '5f9f194';
 var rawGit = 'https://rawgit.com/ejames9/elementsJS/gh-pages/';
 var rawGitCDN = 'https://cdn.rawgit.com/ejames9/elementsJS/' + commit + '/';
@@ -51,19 +53,24 @@ var docsMenu = 'html/docsMenu.html';
 var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
+//This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
 function highLightCode() {
-  console.log(el('pre code'));
-  dom('pre code').forEach(function (element) {
-    hljs.highlightBlock(element.el);
+  //Get access to all <pre><code> blocks......
+  dom('pre code').each(function (element) {
+    //highlight blocks.
+    hljs.highlightBlock(element);
   });
+  return;
 }
 
 //Documentation page change function
 function insertDocs(cb) {
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, function (r) {
-    dom('#content').html(r);
-    dom('#docsMain').html(marked(markDown));
+    var elem0 = _$('#content') ? dom('#content') : make('#content').put("body");
+    elem0.html(r);
+    var elem1 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+    elem1.html(marked(markDown));
 
     var offSets = SNC.getOffSets();
 
@@ -112,6 +119,7 @@ go(function () {
   var npmBar = document.getElementById('npm-bar');
   npmBar.style.display = 'none';
 
+  //Click Event Delegation ============================>>
   var html = document.getElementsByTagName('html')[0];
   html.addEventListener('click', function (e) {
     switch (e.target) {
@@ -131,5 +139,6 @@ go(function () {
         log(e);
     }
   });
+
   getMarkDown();
 });

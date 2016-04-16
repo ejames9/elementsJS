@@ -82,6 +82,11 @@ var _$ = function(el) {
 };
 
 
+var isArray = function(arr) {
+  return utils.isArray(arr);
+};
+
+
 //This function queries the dom, getting one element for each query (i.e. class/tags), creates
 //an Element object with it and returns it, so that it may be easily styled.
 var dom = function(el) {
@@ -460,6 +465,7 @@ module.exports = {
               dom: dom,
             proto: proto,
             clone: clone,
+          isArray: isArray,
         functions: functions,
               put: put,
                on: on,
