@@ -34,17 +34,19 @@ var markDown;
 
 
 function forkMeBaby() {
-  console.log(dom('.jumbotron'));
+  console.log(dom('#logo').el.parentNode);
 
   __(`
-    <a><forkMe id='forkMe'>
+    <a><div id='forkMe'>
       <p>Fork Me Baby!</p>
-    </forkMe></a>
+    </div></a>
 
   `, '.jumbotron')
 
   <'#forkMe'/>
-        .fore('#logo');
+           .fore('#logo')
+           .ma()
+              .href('https://github.com/ejames9/elementsJS');
 }
 
 

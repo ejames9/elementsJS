@@ -249,7 +249,10 @@ code {
   padding: 3px 60px 3px 80px;
   margin: 0px;
   color: #fff;
-  font: 300 14px righteous, kristi, tulpen one, ranchers, molle, fascinate, josefin sans, comfortaa, satisfy, covered by your grace, audiowide, damion, nothing you could do, montserrat alternates, annie use your telescope, aclonica, berkshire swash, sue ellen francisco, life savers, galindo;
+  text-shadow: -1px -1px 0 #52218A, 1px -1px 0 #52218A, -1px 1px 0 #52218A, 1px 1px 0 #52218A;
+  /*text-shadow: -2px -2px 0 #52218A, 2px -2px 0 #52218A, -2px 2px 0 #52218A, 2px 2px 0 #52218A;
+  text-shadow: -0.5px -0.5px 0 #52218A, 0.5px -0.5px 0 #52218A, -0.5px 0.5px 0 #52218A, 0.5px 0.5px 0 #52218A;*/
+  font: 200 14px ranchers, molle, fascinate, josefin sans, comfortaa, satisfy, covered by your grace, audiowide, damion, nothing you could do, montserrat alternates, annie use your telescope, aclonica, berkshire swash, sue ellen francisco, life savers, galindo;
 }
 
 #forkMe {
