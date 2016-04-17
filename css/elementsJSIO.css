@@ -76,11 +76,11 @@ ul > li > a {
 pre {
   border: 1px dotted  #52218A;
   padding: 0px;
-  border-style: dashed;
+
 }
 
 pre code {
-    border: 3px solid #FF8A22;
+    border: 2px solid #D3869B;
 }
 
 code {

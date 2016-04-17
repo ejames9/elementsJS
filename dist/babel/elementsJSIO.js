@@ -1,15 +1,17 @@
-"use strict";
+'use strict';
 
-var _sideNavControl = require("./sideNavControl.js");
+var _sideNavControl = require('./sideNavControl.js');
 
 var SNC = _interopRequireWildcard(_sideNavControl);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+//CommonJS imports
+require('font-awesome');
 //elementsJS imports
 
 ///-------Begin Module requires---------///
-var _$ = require("elementsJS")._$;
+
 /*
 elementsJSIO.js
 JavaScript file for the elementsJS project site.
@@ -21,7 +23,7 @@ https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
 //es6 import
-
+var _$ = require("elementsJS")._$;
 var dom = require("elementsJS").dom;
 var make = require("elementsJS").make;
 ///|------------------------------------|//
@@ -54,12 +56,12 @@ var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
 function forkMeBaby() {
-  console.log(dom('#logo').el.parentNode);
 
-  __("\n    <a><div id='forkMe'>\n      <p>Fork Me Baby!</p>\n    </div></a>\n\n  ", '.jumbotron');
+  __('\n    <a id=\'fmLink\'>\n      <div id=\'forkMe\'>\n        <p>Fork Me on GitHub!</p>\n      </div>\n    </a>\n\n  ', '.jumbotron');
 
-  var elem0 = _$('#forkMe') ? dom('#forkMe') : make('#forkMe').put("body");
-  elem0.fore('#logo').ma().href('https://github.com/ejames9/elementsJS');
+  var elem0 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
+  elem0.fore('#logo').href('https://github.com/ejames9/elementsJS');
+
   return;
 }
 
@@ -85,10 +87,10 @@ function insertDocs(cb) {
 
     var offSets = SNC.getOffSets();
 
-    // for (var el in offSets) {
-    //   log('id: ' + el, 'red');
-    //   log('offSet: ' + offSets[el], ['red', 'blue'])
-    // }
+    for (var el in offSets) {
+      log('id: ' + el, 'red');
+      log('offSet: ' + offSets[el], ['red', 'blue']);
+    }
     cb();
   });
 }
@@ -139,9 +141,9 @@ go(function () {
         break;
       case document.getElementById('api-butn'):
         insertDocs(function () {
-          SNC.sideNavController();
-          highLightCode();
           forkMeBaby();
+          highLightCode();
+          SNC.sideNavController();
         });
         break;
       default:

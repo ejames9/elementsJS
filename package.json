@@ -7,6 +7,7 @@
     "ace-editor-builds": "^1.2.0",
     "babel-polyfill": "^6.3.14",
     "clivi": "^0.1.2",
+    "font-awesome": "^4.6.1",
     "highlight.js": "^9.3.0"
   },
   "devDependencies": {

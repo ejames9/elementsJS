@@ -13,7 +13,8 @@ https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 //es6 import
 import * as SNC from './sideNavControl.js';
 
-
+//CommonJS imports
+require('font-awesome');
 //elementsJS imports
 imports({
     'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'scroll', '__'],
@@ -34,19 +35,20 @@ var markDown;
 
 
 function forkMeBaby() {
-  console.log(dom('#logo').el.parentNode);
 
   __(`
-    <a><div id='forkMe'>
-      <p>Fork Me Baby!</p>
-    </div></a>
+    <a id='fmLink'>
+      <div id='forkMe'>
+        <p>Fork Me on GitHub!</p>
+      </div>
+    </a>
 
-  `, '.jumbotron')
+  `, '.jumbotron');
 
-  <'#forkMe'/>
+  <'#fmLink'/>
            .fore('#logo')
-           .ma()
-              .href('https://github.com/ejames9/elementsJS');
+           .href('https://github.com/ejames9/elementsJS');
+
   return;
 }
 
@@ -75,10 +77,10 @@ function insertDocs(cb) {
 
     const offSets = SNC.getOffSets();
 
-    // for (var el in offSets) {
-    //   log('id: ' + el, 'red');
-    //   log('offSet: ' + offSets[el], ['red', 'blue'])
-    // }
+    for (var el in offSets) {
+      log('id: ' + el, 'red');
+      log('offSet: ' + offSets[el], ['red', 'blue'])
+    }
     cb();
   });
 }
@@ -133,9 +135,9 @@ go(()=> {
               break;
           case (document.getElementById('api-butn')):
               insertDocs(()=> {
-                SNC.sideNavController();
-                        highLightCode();
                            forkMeBaby();
+                        highLightCode();
+                SNC.sideNavController();
               });
               break;
           default:

@@ -107,7 +107,6 @@ var isArray = function isArray(arr) {
 //This function queries the dom, getting one element for each query (i.e. class/tags), creates
 //an Element object with it and returns it, so that it may be easily styled.
 var dom = function dom(el) {
-  log('dom: ' + el, 'blue');
   var rv = void 0;
 
   el = utils.queryDOM(el);
