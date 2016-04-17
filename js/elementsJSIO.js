@@ -47,6 +47,7 @@ function forkMeBaby() {
            .fore('#logo')
            .ma()
               .href('https://github.com/ejames9/elementsJS');
+  return;
 }
 
 
@@ -134,6 +135,7 @@ go(()=> {
               insertDocs(()=> {
                 SNC.sideNavController();
                         highLightCode();
+                           forkMeBaby();
               });
               break;
           default:

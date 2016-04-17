@@ -43,7 +43,7 @@ bones(`
 var bones = function bones(tempLit) {
   var elem = arguments.length <= 1 || arguments[1] === undefined ? 'body' : arguments[1];
 
-  elem = utils.el(elem);
+  elem = utils.queryDOM(elem);
   elem.innerHTML += tempLit;
 
   return elem;

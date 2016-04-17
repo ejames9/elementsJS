@@ -19,9 +19,7 @@ exports.default = Element;
 
 var _logger = require('./logger');
 
-var _index = require('../index');
-
-var elements = _interopRequireWildcard(_index);
+var _utilities = require('./utilities');
 
 var _events = require('./events');
 
@@ -40,7 +38,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 //IDEA: A method that incorporates jquery methods into El object (animation?).
 
 function Element(el) {
-  if (elements.isArray(el)) {
+  if ((0, _utilities.isArray)(el)) {
     this.els = el;
   } else {
     this.el = el;
@@ -1057,20 +1055,6 @@ function Element(el) {
     }
   };
 
-  this.attrib = function (attrib, val) {
-    //TEST:0 Make sure this works
-    var r = val !== undefined && val !== 'remove' ? (this.el.setAttribute(attrib, val), undefined) : attrib !== undefined && val !== 'remove' ? this.el.getAttribute(attrib) : (this.el.removeAttribute(attrib), undefined);
-    // (r !== undefined) ?                                                     //TODO:10 See if you can make this work.
-    //   return r
-    // :
-    //   return this;
-    if (r !== undefined) {
-      return r;
-    } else {
-      return this;
-    }
-  };
-
   this.put = function (mom) {
     DOM.put(this.el, mom);
     return this;
@@ -1080,18 +1064,20 @@ function Element(el) {
     return new Element(this.el.parentNode);
   };
 
-  this.fore = function (el) {
+  this.fore = function (elem) {
     var ref = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-    //TEST:20 Make sure this works.
-    ref === null ? el.parentNode.insertBefore(this.el, el) : this.el.parentNode.insertBefore(el, this.el);
+
+    elem = (0, _utilities.queryDOM)(elem); //TEST:20 Make sure this works.
+    ref === null ? elem.parentNode.insertBefore(this.el, elem) : this.el.parentNode.insertBefore(elem, this.el);
 
     return this;
   };
 
-  this.aft = function (el) {
+  this.aft = function (elem) {
     var ref = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-    //TEST:10 Make sure this works.
-    ref === null ? el.parentNode.insertBefore(this.el, el.nextElementSibling) : this.el.parentNode.insertBefore(el, this.el.nextElementSibling);
+
+    elem = (0, _utilities.queryDOM)(elem); //TEST:10 Make sure this works.
+    ref === null ? elem.parentNode.insertBefore(this.el, elem.nextElementSibling) : this.el.parentNode.insertBefore(elem, this.el.nextElementSibling);
 
     return this;
   };
@@ -1372,6 +1358,46 @@ function Element(el) {
     //   eachCount = '';
     // }
     (0, _logger.log)(eachCount, 'white');
+    return this;
+  };
+
+  //<<================Attribute Methods==================>>//
+
+  this.attrib = function (attrib, val) {
+    //TEST:0 Make sure this works
+    var r = val !== undefined && val !== 'remove' ? (this.el.setAttribute(attrib, val), undefined) : attrib !== undefined && val !== 'remove' ? this.el.getAttribute(attrib) : (this.el.removeAttribute(attrib), undefined);
+    // (r !== undefined) ?                                                     //TODO:10 See if you can make this work.
+    //   return r
+    // :
+    //   return this;
+    if (r !== undefined) {
+      return r;
+    } else {
+      return this;
+    }
+  };
+
+  this.src = function (val) {
+    this.el.src = val;
+
+    return this;
+  };
+
+  this.href = function (val) {
+    this.el.href = val;
+
+    return this;
+  };
+
+  this.type = function (val) {
+    this.el.type = val;
+
+    return this;
+  };
+
+  this.alt = function (val) {
+    this.el.alt = val;
+
     return this;
   };
 };
