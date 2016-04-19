@@ -177,22 +177,22 @@ var kill = function kill(el) {
 //DOM function for inserting an element before a specified node.
 
 var fore = function fore(ref, elem) {
-  return el(ref).parentNode.insertBefore(el(elem), el(ref));
+  return utils.queryDOM(ref).parentNode.insertBefore(utils.queryDOM(elem), utils.queryDOM(ref));
 };
 
 //DOM function for inserting an element after a specified node.
 var aft = function aft(ref, elem) {
-  ref = el(ref);
+  ref = utils.queryDOM(ref);
   ref = ref.nextElementSibling;
 
-  return ref.parentNode.insertBefore(el(elem), ref);
+  return ref.parentNode.insertBefore(utils.queryDOM(elem), ref);
 };
 
 //DOM function for showing an element, or a list of elements.
 var show = function show(elem) {
   var disp = arguments.length <= 1 || arguments[1] === undefined ? 'block' : arguments[1];
 
-  elem = el(elem);
+  elem = utils.queryDOM(elem);
   if (Array.isArray(elem)) {
     elem.forEach(function (l) {
       l.style.display = disp;
@@ -204,7 +204,7 @@ var show = function show(elem) {
 
 //DOM function for hiding an element, or a list of elements.
 var hide = function hide(elem) {
-  elem = el(elem);
+  elem = utils.queryDOM(elem);
 
   if (Array.isArray(elem)) {
     elem.forEach(function (l) {
@@ -217,7 +217,7 @@ var hide = function hide(elem) {
 
 //DOM function for setting height and width of an element. 's' is an object, with height and width as keys.
 var size = function size(elem, h, w) {
-  elem = el(elem);
+  elem = utils.queryDOM(elem);
 
   elem.style.height = h;
   elem.style.width = w;

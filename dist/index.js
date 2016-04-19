@@ -57,6 +57,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //TODO: addClass() method.
 //TODO: new log.dir() function.
 //TODO: .src, .href() etc.
+//TODO: add a class method, remove a class method.
+//TODO: .transform() method.
+//TODO: += html method.
+//TODO: transform methods. i.e. this.turnX(), this.turnY.
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -486,7 +490,8 @@ module.exports = (_module$exports = {
   fore: fore,
   aft: aft,
   show: show,
-  hide: hide
+  hide: hide,
+  size: size
 }, _defineProperty(_module$exports, 'clone', clone), _defineProperty(_module$exports, 'spark', spark), _defineProperty(_module$exports, 'blur', blur), _defineProperty(_module$exports, 'click', click), _defineProperty(_module$exports, 'dblClick', dblClick), _defineProperty(_module$exports, 'error', error), _defineProperty(_module$exports, 'focus', focus), _defineProperty(_module$exports, 'focusIn', focusIn), _defineProperty(_module$exports, 'focusOut', focusOut), _defineProperty(_module$exports, 'keyUp', keyUp), _defineProperty(_module$exports, 'keyDown', keyDown), _defineProperty(_module$exports, 'load', load), _defineProperty(_module$exports, 'unLoad', unLoad), _defineProperty(_module$exports, 'mouse', mouse), _defineProperty(_module$exports, 'resize', resize), _defineProperty(_module$exports, 'scroll', scroll), _defineProperty(_module$exports, 'select', select), _module$exports);
 
 //DONE:30 functions: err(), info(), warn().

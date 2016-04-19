@@ -1,17 +1,15 @@
-'use strict';
+"use strict";
 
-var _sideNavControl = require('./sideNavControl.js');
+var _sideNavControl = require("./sideNavControl.js");
 
 var SNC = _interopRequireWildcard(_sideNavControl);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-//CommonJS imports
-require('font-awesome');
 //elementsJS imports
 
 ///-------Begin Module requires---------///
-
+var _$ = require("elementsJS")._$;
 /*
 elementsJSIO.js
 JavaScript file for the elementsJS project site.
@@ -22,8 +20,9 @@ https://rawgit.com/ejames9/elementsJS/gh-pages/html/docsMenu.html
 https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
+//<<=================Imports======================>>
 //es6 import
-var _$ = require("elementsJS")._$;
+
 var dom = require("elementsJS").dom;
 var make = require("elementsJS").make;
 ///|------------------------------------|//
@@ -37,6 +36,8 @@ var url = elementsJS.url;
 var ajax = elementsJS.ajax;
 var on = elementsJS.on;
 var click = elementsJS.click;
+var show = elementsJS.show;
+var hide = elementsJS.hide;
 var scroll = elementsJS.scroll;
 var __ = elementsJS.__;
 
@@ -45,6 +46,8 @@ var marked = require("marked");
 var hljs = require("highlight.js");
 
 ///End Module requires///
+
+//<<===============================>>
 
 //globals
 var commit = '5f9f194';
@@ -55,12 +58,32 @@ var docsMenu = 'html/docsMenu.html';
 var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
+function addChainLinkIcons() {
+  console.log(dom('#docsMain h1, #docsMain h2'));
+  //Add link icons to all page links in documentation.
+  dom('#docsMain h1, #docsMain h2').every(function (element) {
+    element.core(function (el) {
+      el.innerHTML += '<a class="anchors" style="display: inline;"><i class="fa fa-link"></i></a>';
+    }).mouse('over', function () {
+      element.last().first().viz('visible');
+    }).mouse('out', function () {
+      element.last().first().viz('hidden');
+    });
+  });
+
+  var elem0 = _$('.fa-link') ? dom('.fa-link') : make('.fa-link').put("body");
+  elem0.every(function (element) {
+    element.viz('hidden').color('#9d2635');
+  });
+  return;
+};
+
 function forkMeBaby() {
 
-  __('\n    <a id=\'fmLink\'>\n      <div id=\'forkMe\'>\n        <p>Fork Me on GitHub!</p>\n      </div>\n    </a>\n\n  ', '.jumbotron');
+  __("\n    <a id='fmLink'>\n      <div id='forkMe'>\n        <p>Fork Me on GitHub!</p>\n      </div>\n    </a>\n\n  ", '.jumbotron');
 
-  var elem0 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
-  elem0.fore('#logo').href('https://github.com/ejames9/elementsJS');
+  var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
+  elem1.fore('#logo').href('https://github.com/ejames9/elementsJS');
 
   return;
 }
@@ -80,10 +103,10 @@ function highLightCode() {
 function insertDocs(cb) {
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, function (r) {
-    var elem1 = _$('#content') ? dom('#content') : make('#content').put("body");
-    elem1.html(r);
-    var elem2 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-    elem2.html(marked(markDown));
+    var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
+    elem2.html(r);
+    var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+    elem3.html(marked(markDown));
 
     var offSets = SNC.getOffSets();
 
@@ -143,6 +166,7 @@ go(function () {
         insertDocs(function () {
           forkMeBaby();
           highLightCode();
+          addChainLinkIcons();
           SNC.sideNavController();
         });
         break;

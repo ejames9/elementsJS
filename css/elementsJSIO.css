@@ -40,10 +40,19 @@ a {
   padding-bottom: 25px;
 }
 
+i {
+  padding-left: 20px;
+}
+
 body {
   padding-top: 50px;
   padding-bottom: 20px;
   /*background-color: #cda6ec;*/
+}
+
+#docsMain h2, #docsMain  h1 {
+  display: inline-block;
+  margin-right: 15px;
 }
 
 h2, h1 {
@@ -116,10 +125,20 @@ code {
   border-top-right-radius: 10px;
 }
 
+
+
+
+
 /*pre  {
   background-color: black;
 }*/
 
+/*h1:hover a {
+  display: inline;
+}
+h2:hover a {
+  display: inline;
+}*/
 
 
 
@@ -533,6 +552,13 @@ iframe {
   color: #9d2635;
 }
 
+.fa-link {
+  color: #9d2635;
+  transform: rotate(90deg);
+  font-size: 6px;
+  padding-top: 0px;
+}
+
 
 /*-----------------------Media Queries--------------------*/
 
@@ -676,4 +702,17 @@ iframe {
 
 #get-started {
   color: #9d2635;
+}
+
+.fa-link {
+  color: #9d2635;
+  display: inline;
+  transform: rotate(90deg);
+  top: 0;
+
+}
+
+.anchors {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }

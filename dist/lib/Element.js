@@ -554,6 +554,39 @@ function Element(el) {
       return val;
     }
   };
+
+  this.transform = function (val) {
+    this.el.style.transform = val;
+
+    return this;
+  };
+
+  //<<========= Transform Methods ======================>>
+
+  this.turn = function (val) {
+    this.el.style.transform = 'rotate(' + String(val) + 'deg)';
+
+    return this;
+  };
+
+  this.turnX = function (val) {
+    this.el.style.transform = 'rotateX(' + String(val) + 'deg)';
+
+    return this;
+  };
+
+  this.turnY = function (val) {
+    this.el.style.transform = 'rotateY(' + String(val) + 'deg)';
+
+    return this;
+  };
+
+  this.turnZ = function (val) {
+    this.el.style.transform = 'rotateZ(' + String(val) + 'deg)';
+
+    return this;
+  };
+
   this.textAlign = function (val) {
     if (val !== undefined) {
       el.style.textAlign = val;
@@ -859,18 +892,40 @@ function Element(el) {
   };
 
   this.children = function (s) {
+    var count = void 0,
+        arr = [];
     if (s === 'all') {
-      var _count = this.el.childNodes;
+      count = this.el.childNodes;
+    } else {
+      count = this.el.children;
+    }
+    for (var i = 0; i < count.length; i++) {
+      arr.push(new Element(count[i]));
+    }
+    return new Element(arr);
+  };
+
+  this.child = function () {
+    var count = void 0;
+    if ((0, _utilities.isArray)(this.el.children)) {
+      var _count = this.el.children;
+      _count = _count[0];
     } else {
       var _count2 = this.el.children;
     }
-    return count;
+    return new Element(count);
   };
 
   this.first = function (s) {
     //TEST:30 Make sure this works.
     var count = s === 'all' ? this.el.firstChild : this.el.firstElementChild;
-    return count;
+    return new Element(count);
+  };
+
+  this.last = function (s) {
+    //TEST:30 Make sure this works.
+    var count = s === 'all' ? this.el.lastChild : this.el.lastElementChild;
+    return new Element(count);
   };
 
   this.id = function (val) {
@@ -1143,14 +1198,10 @@ function Element(el) {
     return this;
   };
 
-  this.viz = function () {
-    var disp = arguments.length <= 0 || arguments[0] === undefined ? 'block' : arguments[0];
+  this.viz = function (val) {
+    this.el.style.visibility = val;
 
-    if (this.el.style.display === 'none') {
-      this.el.style.display = disp;
-    } else {
-      this.el.style.display = 'none';
-    }
+    return this;
   };
 
   //---------Event Methods-----------------//
@@ -1276,13 +1327,13 @@ function Element(el) {
     return this;
   };
 
-  this.mouse = function () {
-    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+  this.mouse = function (sfx) {
+    var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
     if (this.el.addEventListener) {
-      events.mouse(this.el, cb);
+      events.mouse(sfx, this.el, cb);
     } else {
-      events.mouseIE(this.el, cb);
+      events.mouseIE(sfx, this.el, cb);
     }
     return this;
   };

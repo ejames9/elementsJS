@@ -736,7 +736,7 @@ function sideNavController() {
     });
 }
 
-// diff + (dom('html').scrolled() * 0.031)
+
 
 module.exports = {
                   getOffSets: getOffSets,

@@ -10,17 +10,20 @@ https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
 
+
+//<<=================Imports======================>>
 //es6 import
 import * as SNC from './sideNavControl.js';
 
-//CommonJS imports
-require('font-awesome');
+
 //elementsJS imports
 imports({
-    'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'scroll', '__'],
+    'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'show', 'hide', 'scroll', '__'],
         'marked': 'marked',
   'highlight.js': 'hljs'
 });
+//<<===============================>>
+
 
 //globals
 var commit = '5f9f194';
@@ -32,6 +35,38 @@ var mdUrl = 'md/elementsJSIODocs.md';
 var markDown;
 
 
+
+function addChainLinkIcons() {
+  console.log(dom('#docsMain h1, #docsMain h2'));
+  //Add link icons to all page links in documentation.
+  dom('#docsMain h1, #docsMain h2')
+            .every((element)=> {
+               element
+                  .core((el)=> {
+                    el.innerHTML += '<a class="anchors" style="display: inline;"><i class="fa fa-link"></i></a>';
+                  })
+                  .mouse('over', ()=> {
+                     element
+                        .last().first()
+                               .viz('visible')
+                  })
+                  .mouse('out', ()=> {
+                     element
+                        .last().first()
+                               .viz('hidden')
+                  });
+            });
+
+  <'.fa-link'/>
+            .every((element)=> {
+               element
+                  .viz('hidden')
+                  .color('#9d2635');
+
+
+            });
+  return;
+};
 
 
 function forkMeBaby() {
@@ -137,6 +172,7 @@ go(()=> {
               insertDocs(()=> {
                            forkMeBaby();
                         highLightCode();
+                    addChainLinkIcons();
                 SNC.sideNavController();
               });
               break;

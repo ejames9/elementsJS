@@ -25,6 +25,10 @@ URL: ""
 //TODO: addClass() method.
 //TODO: new log.dir() function.
 //TODO: .src, .href() etc.
+//TODO: add a class method, remove a class method.
+//TODO: .transform() method.
+//TODO: += html method.
+//TODO: transform methods. i.e. this.turnX(), this.turnY.
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -483,6 +487,7 @@ module.exports = {
               aft: aft,
              show: show,
              hide: hide,
+             size: size,
             clone: clone,
             spark: spark,
              blur: blur,

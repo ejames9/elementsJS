@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _sideNavControl = __webpack_require__(1);
 
@@ -52,12 +52,10 @@
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-	//CommonJS imports
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"font-awesome\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	//elementsJS imports
 
 	///-------Begin Module requires---------///
-
+	var _$ = __webpack_require__(2)._$;
 	/*
 	elementsJSIO.js
 	JavaScript file for the elementsJS project site.
@@ -68,8 +66,9 @@
 	https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 	*/
 
+	//<<=================Imports======================>>
 	//es6 import
-	var _$ = __webpack_require__(2)._$;
+
 	var dom = __webpack_require__(2).dom;
 	var make = __webpack_require__(2).make;
 	///|------------------------------------|//
@@ -83,6 +82,8 @@
 	var ajax = elementsJS.ajax;
 	var on = elementsJS.on;
 	var click = elementsJS.click;
+	var show = elementsJS.show;
+	var hide = elementsJS.hide;
 	var scroll = elementsJS.scroll;
 	var __ = elementsJS.__;
 
@@ -91,6 +92,8 @@
 	var hljs = __webpack_require__(11);
 
 	///End Module requires///
+
+	//<<===============================>>
 
 	//globals
 	var commit = '5f9f194';
@@ -101,12 +104,32 @@
 	var mdUrl = 'md/elementsJSIODocs.md';
 	var markDown;
 
+	function addChainLinkIcons() {
+	  console.log(dom('#docsMain h1, #docsMain h2'));
+	  //Add link icons to all page links in documentation.
+	  dom('#docsMain h1, #docsMain h2').every(function (element) {
+	    element.core(function (el) {
+	      el.innerHTML += '<a class="anchors" style="display: inline;"><i class="fa fa-link"></i></a>';
+	    }).mouse('over', function () {
+	      element.last().first().viz('visible');
+	    }).mouse('out', function () {
+	      element.last().first().viz('hidden');
+	    });
+	  });
+
+	  var elem0 = _$('.fa-link') ? dom('.fa-link') : make('.fa-link').put("body");
+	  elem0.every(function (element) {
+	    element.viz('hidden').color('#9d2635');
+	  });
+	  return;
+	};
+
 	function forkMeBaby() {
 
-	  __('\n    <a id=\'fmLink\'>\n      <div id=\'forkMe\'>\n        <p>Fork Me on GitHub!</p>\n      </div>\n    </a>\n\n  ', '.jumbotron');
+	  __("\n    <a id='fmLink'>\n      <div id='forkMe'>\n        <p>Fork Me on GitHub!</p>\n      </div>\n    </a>\n\n  ", '.jumbotron');
 
-	  var elem0 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
-	  elem0.fore('#logo').href('https://github.com/ejames9/elementsJS');
+	  var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
+	  elem1.fore('#logo').href('https://github.com/ejames9/elementsJS');
 
 	  return;
 	}
@@ -126,10 +149,10 @@
 	function insertDocs(cb) {
 	  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
 	  ajax(url(rawGit, docsMenu), null, function (r) {
-	    var elem1 = _$('#content') ? dom('#content') : make('#content').put("body");
-	    elem1.html(r);
-	    var elem2 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-	    elem2.html(marked(markDown));
+	    var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
+	    elem2.html(r);
+	    var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+	    elem3.html(marked(markDown));
 
 	    var offSets = SNC.getOffSets();
 
@@ -189,6 +212,7 @@
 	        insertDocs(function () {
 	          forkMeBaby();
 	          highLightCode();
+	          addChainLinkIcons();
 	          SNC.sideNavController();
 	        });
 	        break;
@@ -741,8 +765,6 @@
 	            });
 	}
 
-	// diff + (dom('html').scrolled() * 0.031)
-
 	module.exports = {
 	            getOffSets: getOffSets,
 	            sideNavController: sideNavController
@@ -753,6 +775,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	var _module$exports;
 
 	var _element = __webpack_require__(3);
 
@@ -782,27 +806,27 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// require('babel-polyfill');
-
-	/*
-	Elements.js
-
-	A JavaScript DOM manipulation/Alias function Library.
-	This is the index file for the library. It contains alias functions for
-	all of the librarys' public functions. This makes it easy to import the
-	functions without a module prefix es6 style.
-
-	Author: Eric James Foster
-	EMail: maniphestival@gmail.com
-	License: MIT
-	Version: 1.0.0
-	URL: ""
-	*/
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; } /*
+	                                                                                                                                                                                                                  Elements.js
+	                                                                                                                                                                                                                  
+	                                                                                                                                                                                                                  A JavaScript DOM manipulation/Alias function Library.
+	                                                                                                                                                                                                                  This is the index file for the library. It contains alias functions for
+	                                                                                                                                                                                                                  all of the librarys' public functions. This makes it easy to import the
+	                                                                                                                                                                                                                  functions without a module prefix es6 style.
+	                                                                                                                                                                                                                  
+	                                                                                                                                                                                                                  Author: Eric James Foster
+	                                                                                                                                                                                                                  EMail: maniphestival@gmail.com
+	                                                                                                                                                                                                                  License: MIT
+	                                                                                                                                                                                                                  Version: 1.0.0
+	                                                                                                                                                                                                                  URL: ""
+	                                                                                                                                                                                                                  */
 
 	//FIXME: elements syntax not working in case condition of switch statement.
 	//FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
 
 	//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
+
+	// require('babel-polyfill');
 
 	var element = function element(el) {
 	  return new _element2.default();
@@ -1200,7 +1224,7 @@
 	  }
 	};
 
-	module.exports = {
+	module.exports = (_module$exports = {
 	  _$: _$,
 	  x: x,
 	  go: go,
@@ -1217,30 +1241,12 @@
 	  off: off,
 	  once: once,
 	  el: el,
-	  log: log,
-	  url: url,
-	  xhr: xhr,
-	  err: err,
-	  info: info,
-	  warn: warn,
-	  ajax: ajax,
-	  spark: spark,
-	  blur: blur,
-	  click: click,
-	  dblClick: dblClick,
-	  error: error,
-	  focus: focus,
-	  focusIn: focusIn,
-	  focusOut: focusOut,
-	  keyUp: keyUp,
-	  keyDown: keyDown,
-	  load: load,
-	  unLoad: unLoad,
-	  mouse: mouse,
-	  resize: resize,
-	  scroll: scroll,
-	  select: select
-	};
+	  fore: fore,
+	  aft: aft,
+	  show: show,
+	  hide: hide,
+	  size: size
+	}, _defineProperty(_module$exports, 'clone', clone), _defineProperty(_module$exports, 'log', log), _defineProperty(_module$exports, 'url', url), _defineProperty(_module$exports, 'xhr', xhr), _defineProperty(_module$exports, 'err', err), _defineProperty(_module$exports, 'info', info), _defineProperty(_module$exports, 'warn', warn), _defineProperty(_module$exports, 'ajax', ajax), _defineProperty(_module$exports, 'spark', spark), _defineProperty(_module$exports, 'blur', blur), _defineProperty(_module$exports, 'click', click), _defineProperty(_module$exports, 'dblClick', dblClick), _defineProperty(_module$exports, 'error', error), _defineProperty(_module$exports, 'focus', focus), _defineProperty(_module$exports, 'focusIn', focusIn), _defineProperty(_module$exports, 'focusOut', focusOut), _defineProperty(_module$exports, 'keyUp', keyUp), _defineProperty(_module$exports, 'keyDown', keyDown), _defineProperty(_module$exports, 'load', load), _defineProperty(_module$exports, 'unLoad', unLoad), _defineProperty(_module$exports, 'mouse', mouse), _defineProperty(_module$exports, 'resize', resize), _defineProperty(_module$exports, 'scroll', scroll), _defineProperty(_module$exports, 'select', select), _module$exports);
 
 	//DONE:30 functions: err(), info(), warn().
 	//DONE:130 Complete all standalone style functions.
@@ -1805,6 +1811,39 @@
 	      return val;
 	    }
 	  };
+
+	  this.transform = function (val) {
+	    this.el.style.transform = val;
+
+	    return this;
+	  };
+
+	  //<<========= Transform Methods ======================>>
+
+	  this.turn = function (val) {
+	    this.el.style.transform = 'rotate(' + String(val) + 'deg)';
+
+	    return this;
+	  };
+
+	  this.turnX = function (val) {
+	    this.el.style.transform = 'rotateX(' + String(val) + 'deg)';
+
+	    return this;
+	  };
+
+	  this.turnY = function (val) {
+	    this.el.style.transform = 'rotateY(' + String(val) + 'deg)';
+
+	    return this;
+	  };
+
+	  this.turnZ = function (val) {
+	    this.el.style.transform = 'rotateZ(' + String(val) + 'deg)';
+
+	    return this;
+	  };
+
 	  this.textAlign = function (val) {
 	    if (val !== undefined) {
 	      el.style.textAlign = val;
@@ -2110,18 +2149,40 @@
 	  };
 
 	  this.children = function (s) {
+	    var count = void 0,
+	        arr = [];
 	    if (s === 'all') {
-	      var _count = this.el.childNodes;
+	      count = this.el.childNodes;
+	    } else {
+	      count = this.el.children;
+	    }
+	    for (var i = 0; i < count.length; i++) {
+	      arr.push(new Element(count[i]));
+	    }
+	    return new Element(arr);
+	  };
+
+	  this.child = function () {
+	    var count = void 0;
+	    if ((0, _utilities.isArray)(this.el.children)) {
+	      var _count = this.el.children;
+	      _count = _count[0];
 	    } else {
 	      var _count2 = this.el.children;
 	    }
-	    return count;
+	    return new Element(count);
 	  };
 
 	  this.first = function (s) {
 	    //TEST:30 Make sure this works.
 	    var count = s === 'all' ? this.el.firstChild : this.el.firstElementChild;
-	    return count;
+	    return new Element(count);
+	  };
+
+	  this.last = function (s) {
+	    //TEST:30 Make sure this works.
+	    var count = s === 'all' ? this.el.lastChild : this.el.lastElementChild;
+	    return new Element(count);
 	  };
 
 	  this.id = function (val) {
@@ -2400,14 +2461,10 @@
 	    return this;
 	  };
 
-	  this.viz = function () {
-	    var disp = arguments.length <= 0 || arguments[0] === undefined ? 'block' : arguments[0];
+	  this.viz = function (val) {
+	    this.el.style.visibility = val;
 
-	    if (this.el.style.display === 'none') {
-	      this.el.style.display = disp;
-	    } else {
-	      this.el.style.display = 'none';
-	    }
+	    return this;
 	  };
 
 	  //---------Event Methods-----------------//
@@ -2533,13 +2590,13 @@
 	    return this;
 	  };
 
-	  this.mouse = function () {
-	    var cb = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+	  this.mouse = function (sfx) {
+	    var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	    if (this.el.addEventListener) {
-	      events.mouse(this.el, cb);
+	      events.mouse(sfx, this.el, cb);
 	    } else {
-	      events.mouseIE(this.el, cb);
+	      events.mouseIE(sfx, this.el, cb);
 	    }
 	    return this;
 	  };
@@ -3859,22 +3916,22 @@
 	//DOM function for inserting an element before a specified node.
 
 	var fore = function fore(ref, elem) {
-	  return el(ref).parentNode.insertBefore(el(elem), el(ref));
+	  return utils.queryDOM(ref).parentNode.insertBefore(utils.queryDOM(elem), utils.queryDOM(ref));
 	};
 
 	//DOM function for inserting an element after a specified node.
 	var aft = function aft(ref, elem) {
-	  ref = el(ref);
+	  ref = utils.queryDOM(ref);
 	  ref = ref.nextElementSibling;
 
-	  return ref.parentNode.insertBefore(el(elem), ref);
+	  return ref.parentNode.insertBefore(utils.queryDOM(elem), ref);
 	};
 
 	//DOM function for showing an element, or a list of elements.
 	var show = function show(elem) {
 	  var disp = arguments.length <= 1 || arguments[1] === undefined ? 'block' : arguments[1];
 
-	  elem = el(elem);
+	  elem = utils.queryDOM(elem);
 	  if (Array.isArray(elem)) {
 	    elem.forEach(function (l) {
 	      l.style.display = disp;
@@ -3886,7 +3943,7 @@
 
 	//DOM function for hiding an element, or a list of elements.
 	var hide = function hide(elem) {
-	  elem = el(elem);
+	  elem = utils.queryDOM(elem);
 
 	  if (Array.isArray(elem)) {
 	    elem.forEach(function (l) {
@@ -3899,7 +3956,7 @@
 
 	//DOM function for setting height and width of an element. 's' is an object, with height and width as keys.
 	var size = function size(elem, h, w) {
-	  elem = el(elem);
+	  elem = utils.queryDOM(elem);
 
 	  elem.style.height = h;
 	  elem.style.width = w;
