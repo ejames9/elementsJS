@@ -61,13 +61,13 @@ var markDown;
 function addChainLinkIcons() {
   console.log(dom('#docsMain h1, #docsMain h2'));
   //Add link icons to all page links in documentation.
-  dom('#docsMain h1, #docsMain h2').every(function (element) {
+  dom('h1 a, h2 a').every(function (element) {
     element.core(function (el) {
-      el.innerHTML += '<a class="anchors" style="display: inline;"><i class="fa fa-link"></i></a>';
+      el.innerHTML += '<i class="fa fa-link"></i>';
     }).mouse('over', function () {
-      element.last().first().viz('visible');
+      element.last().viz('visible');
     }).mouse('out', function () {
-      element.last().first().viz('hidden');
+      element.last().viz('hidden');
     });
   });
 

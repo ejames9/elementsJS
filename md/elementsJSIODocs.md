@@ -1,4 +1,4 @@
-# <a id='get-started'></a> <a class='titleLinks' id='installation'>Installation</a> 
+# <a class='titleLinks' id='installation'>Installation</a> 
 There are a couple different ways to use elementsJS. The first is by simply using the function library. The second, is to make use of the new convenient elements syntax. If you would like to use the elements syntax, a simple compilation step is necessary. If you'd like to learn more, [click here](#).
 
 The first step, however, is to simply install the library. elementsJS can be installed using either bower or npm package managers and *required* [CommonJS](http://www.commonjs.org/) style, or *import*-ed [es6](http://exploringjs.com/es6/ch_modules.html#_importing-and-exporting-in-detail) style. You may also include the cdn link in your html.
