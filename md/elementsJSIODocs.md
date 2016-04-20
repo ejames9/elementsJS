@@ -1099,7 +1099,8 @@ dom('#foo') //no 2nd arg., so el defaults to DOM Element object
 ```
 
 ## <a class='titleLinks' id='DOM-Elem-Methods'>DOM Element Methods</a>
-=========================================
+
+These element object methods are those that are most closely associated with the DOM Element object.
 
 
 ## `element.add(el)`
