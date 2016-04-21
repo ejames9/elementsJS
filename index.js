@@ -29,6 +29,7 @@ URL: ""
 //TODO: .transform() method.
 //TODO: += html method.
 //TODO: transform methods. i.e. this.turnX(), this.turnY.
+//TODO: .do(), do() animation functionality.
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 

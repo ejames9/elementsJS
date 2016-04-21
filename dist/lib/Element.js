@@ -44,6 +44,8 @@ function Element(el) {
     this.el = el;
   }
 
+  var self = this;
+
   if (!(this instanceof Element)) {
     return new Element();
   }
@@ -939,9 +941,23 @@ function Element(el) {
   };
 
   this.class = function (val) {
+    var mod = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
     if (val !== undefined) {
-      this.el.className = val;
-      return this;
+      if (null !== mod) {
+        if (mod === '+') {
+          this.el.classList.add(val);
+          return this;
+        } else if (mod == '-') {
+          this.el.classList.remove(val);
+          return this;
+        } else {
+          (0, _logger.err)('Invalid Argument');
+        }
+      } else {
+        this.el.className = val;
+        return this;
+      }
     } else {
       val = this.el.className;
       return val;
@@ -965,9 +981,20 @@ function Element(el) {
   };
 
   this.html = function (val) {
+    var mod = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
     if (val !== undefined) {
-      this.el.innerHTML = val;
-      return this;
+      if (null !== mod) {
+        if (mod === '+') {
+          this.el.innerHTML += val;
+          return this;
+        } else {
+          (0, _logger.err)('Invalid Argument');
+        }
+      } else {
+        this.el.innerHTML = val;
+        return this;
+      }
     } else {
       val = this.el.innerHTML;
       return val;
@@ -975,9 +1002,20 @@ function Element(el) {
   };
 
   this.text = function (val) {
+    var mod = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
     if (val !== undefined) {
-      this.el.textContent = val;
-      return this;
+      if (null !== mod) {
+        if (mod === '+') {
+          this.el.textContent += val;
+          return this;
+        } else {
+          (0, _logger.err)('Invalid Argument');
+        }
+      } else {
+        this.el.textContent = val;
+        return this;
+      }
     } else {
       val = this.el.textContent;
       return val;
@@ -1075,29 +1113,44 @@ function Element(el) {
     return off;
   };
 
-  this.scrolled = function () {
-    var r = this.el.scrollTop;
-
-    return r;
+  this.scrolled = function (val) {
+    if (val !== undefined) {
+      el.scrollTop = val;
+      return this;
+    } else {
+      val = el.scrollTop;
+      return val;
+    }
   };
 
-  this.scrollLeft = function () {
-    var r = this.el.scrollLeft;
-
-    return r;
+  this.scrollLeft = function (val) {
+    if (val !== undefined) {
+      el.scrollLeft = val;
+      return this;
+    } else {
+      val = el.scrollLeft;
+      return val;
+    }
   };
 
-  this.scrollHeight = function () {
-    var r = this.el.scrollLeft;
-
-    return r;
+  this.scrollHeight = function (val) {
+    if (val !== undefined) {
+      el.scrollHeight = val;
+      return this;
+    } else {
+      val = el.scrollHeight;
+      return val;
+    }
   };
 
-  this.scrollWidth = function () {
-    //TODO
-    var r = this.el.scrollWidth;
-
-    return r;
+  this.scrollWidth = function (val) {
+    if (val !== undefined) {
+      el.scrollWidth = val;
+      return this;
+    } else {
+      val = el.scrollWidth;
+      return val;
+    }
   };
 
   this.title = function (val) {
@@ -1429,26 +1482,49 @@ function Element(el) {
   };
 
   this.src = function (val) {
-    this.el.src = val;
-
-    return this;
-  };
-
-  this.href = function (val) {
-    this.el.href = val;
-
-    return this;
-  };
-
-  this.type = function (val) {
-    this.el.type = val;
-
-    return this;
+    if (val !== undefined) {
+      this.el.src = val;
+      return this;
+    } else {
+      val = this.el.src;
+      return val;
+    }
   };
 
   this.alt = function (val) {
-    this.el.alt = val;
+    if (val !== undefined) {
+      this.el.alt = val;
+      return this;
+    } else {
+      val = this.el.alt;
+      return val;
+    }
+  };
 
-    return this;
+  this.href = function (val) {
+    if (val !== undefined) {
+      this.el.href = val;
+      return this;
+    } else {
+      val = this.el.href;
+      return val;
+    }
+  };
+
+  this.hash = function () {
+    var _re = /\#.*/;
+    var hash = _re.exec(el.href);
+
+    return hash;
+  };
+
+  this.type = function (val) {
+    if (val !== undefined) {
+      this.el.type = val;
+      return this;
+    } else {
+      val = this.el.type;
+      return val;
+    }
   };
 };

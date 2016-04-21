@@ -18,7 +18,7 @@ import * as SNC from './sideNavControl.js';
 
 //elementsJS imports
 imports({
-    'elementsJS': ['imports', 'go', 'el', 'log', 'url', 'ajax', 'on', 'click', 'show', 'hide', 'scroll', '__'],
+    'elementsJS': ['imports', 'go', 'el', 'log', 'warn', 'url', 'ajax', 'on', 'click', 'show', 'hide', 'scroll', '__'],
         'marked': 'marked',
   'highlight.js': 'hljs'
 });
@@ -32,28 +32,30 @@ var rawGitCDN = 'https://cdn.rawgit.com/ejames9/elementsJS/' + commit +'/';
 
 var docsMenu = 'html/docsMenu.html';
 var mdUrl = 'md/elementsJSIODocs.md';
-var markDown;
+
+var markDown,
+    offSets;
 
 
 
+//Necessary code to add deep links to documentation.
 function addChainLinkIcons() {
   console.log(dom('#docsMain h1, #docsMain h2'));
   //Add link icons to all page links in documentation.
   dom('h1 a, h2 a')
             .every((element)=> {
                element
-                  .core((el)=> {
-                    el.innerHTML += '<i class="fa fa-link"></i>';
-                  })
+                  .html('<i class="fa fa-link"></i>', '+')
+                  .href('#' + element.id())
                   .mouse('over', ()=> {
                      element
                         .last()
-                               .viz('visible')
+                              .viz('visible')
                   })
                   .mouse('out', ()=> {
                      element
                         .last()
-                               .viz('hidden')
+                              .viz('hidden')
                   });
             });
 
@@ -61,7 +63,8 @@ function addChainLinkIcons() {
             .every((element)=> {
                element
                   .viz('hidden')
-                  .color('#9d2635');
+                  .color('#52218A')
+                  .turn(90);
 
 
             });
@@ -69,6 +72,8 @@ function addChainLinkIcons() {
 };
 
 
+
+//Custom fork me ribbon.
 function forkMeBaby() {
 
   __(`
@@ -110,12 +115,6 @@ function insertDocs(cb) {
     <'#docsMain'/>
               .html(marked(markDown));
 
-    const offSets = SNC.getOffSets();
-
-    for (var el in offSets) {
-      log('id: ' + el, 'red');
-      log('offSet: ' + offSets[el], ['red', 'blue'])
-    }
     cb();
   });
 }
@@ -149,32 +148,51 @@ function toggleNPMBar() {
 }
 
 
-//Initialization code to be run after DOM content is loaded.
-go(()=> {
-  //initialize ace code editor
-  var editor1 = ace.edit("editor1");
-      editor1.setTheme("ace/theme/elementsJSIO");
-      editor1.renderer.setShowGutter(false);
-      editor1.getSession()
-             .setMode("ace/mode/javascript");
+function iDCallback() {
+  forkMeBaby();
+  highLightCode();
+  addChainLinkIcons();
+  SNC.sideNavController();
 
-  var npmBar = document.getElementById('npm-bar');
-      npmBar.style.display = 'none';
+  dom('#sideNav li a')
+            .every((element)=> {
+               element
+                   .class('sNavLink', '+');
+            });
+  offSets = SNC.getOffSets();
 
+  for (var el in offSets) {
+    log('id: ' + el, 'red');
+    log('offSet: ' + offSets[el], ['red', 'blue'])
+  }
+}
+
+
+function clickController() {
   //Click Event Delegation ============================>>
+  var _re = /sNavLink/;
+
   var html = document.getElementsByTagName('html')[0];
-      html.addEventListener('click', function(e) {
-        switch(e.target) {
-          case (document.getElementById('install-info')):
+      html.addEventListener('click', (e)=> {
+
+        switch(true) {
+          case (e.target === document.getElementById('install-info')):
               toggleNPMBar();
               break;
-          case (document.getElementById('api-butn')):
-              insertDocs(()=> {
-                           forkMeBaby();
-                        highLightCode();
-                    addChainLinkIcons();
-                SNC.sideNavController();
-              });
+          case (e.target === document.getElementById('api-butn')):
+              insertDocs(iDCallback);
+              break;
+          case (_re.test(dom('#' + e.target.id).class())):
+              var hash = String(dom('#' + e.target.id).hash());
+              warn(hash);
+              e.preventDefault();
+
+              var hashSS = hash.substring(1, hash.length);
+              warn(hashSS);
+              warn(offSets[hashSS]);
+
+              <html/>
+                  .scrolled(offSets[hashSS] + 290);
               break;
           default:
               if (npmBar.style.display !== 'none') {
@@ -183,8 +201,23 @@ go(()=> {
               log(e);
         }
       });
+}
 
+
+//Initialization code to be run after DOM content is loaded.
+go(()=> {
+  //initialize ace code editor
+  var editor1 = ace.edit("editor1");
+      editor1.setTheme("ace/theme/elementsJSIO");
+      editor1.renderer.setShowGutter(false);
+      editor1.getSession()
+             .setMode("ace/mode/javascript");
+  //Set default display setting for the bower/npm installation bar.
+  <'#npm-bar'/>.display('none');
+  //Initialize the click controller.
+  clickController();
+  //Download the documentation markdown.
   getMarkDown();
-
+  //Create/install custom fork me ribbon.
   forkMeBaby();
 });

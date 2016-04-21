@@ -1673,5 +1673,7 @@ Hopefully by now you've gotten the hang of what the above line would do. Either 
 10. .children() .child() .first() diffs.
 11. new .last() method
 12. each() to every().
+13. changes to .html() .text().
+14. changes to .class()
 
 </a>
