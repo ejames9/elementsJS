@@ -170,37 +170,37 @@ function iDCallback() {
 
 function clickController() {
   //Click Event Delegation ============================>>
-  var _re = /sNavLink/;
+  var _re = /sNavLink/,
+     html = el('html');
 
-  var html = document.getElementsByTagName('html')[0];
-      html.addEventListener('click', (e)=> {
+  click(html, (e)=> {
+    switch(true) {
+      case (e.target === document.getElementById('install-info')):
+          toggleNPMBar();
+          break;
+      case (e.target === document.getElementById('api-butn')):
+          insertDocs(iDCallback);
+          break;
+      case (_re.test(dom('#' + e.target.id).class())):
+          var hash = String(dom('#' + e.target.id).hash());
+          warn(hash);
+          e.preventDefault();
 
-        switch(true) {
-          case (e.target === document.getElementById('install-info')):
-              toggleNPMBar();
-              break;
-          case (e.target === document.getElementById('api-butn')):
-              insertDocs(iDCallback);
-              break;
-          case (_re.test(dom('#' + e.target.id).class())):
-              var hash = String(dom('#' + e.target.id).hash());
-              warn(hash);
-              e.preventDefault();
+          var hashSS = hash.substring(1, hash.length);
+          warn(hashSS);
+          warn(offSets[hashSS]);
 
-              var hashSS = hash.substring(1, hash.length);
-              warn(hashSS);
-              warn(offSets[hashSS]);
-
-              <html/>
-                  .scrolled(offSets[hashSS] + 290);
-              break;
-          default:
-              if (npmBar.style.display !== 'none') {
-                npmBar.style.display = 'none';
-              }
-              log(e);
-        }
-      });
+          <html/>
+              .scrolled(offSets[hashSS] + 290);
+          break;
+      default:
+          if (npmBar !== undefined) {
+            if (npmBar.style.display !== 'none') {
+              npmBar.style.display = 'none';
+            }
+          }
+    }
+  });
 }
 
 

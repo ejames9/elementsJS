@@ -101,7 +101,7 @@ function sideNavController() {
       (0, _elementsJS.scroll)(window, function () {
             switch (true) {
                   //0 - 13 Getting Started
-                  case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['get-started'] + diff + 50 || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['get-started'] + diff + 50:
+                  case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff:
                         //Find active list item, deactivate it.
                         dom('[class~=hot]').class('hot', '-');
                         //Find all menu lists, hide them.
@@ -110,9 +110,9 @@ function sideNavController() {
                         });
                         //Activate Getting Started list item.
                         var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-                        elem0.class('hot');
+                        elem0.class('hot').sib('next').class('hide', '+');
                         break;
-                  case dom('html').scrolled() > offSets['installation'] + diff + 50 && dom('html').scrolled() < offSets['usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff + 50 && dom('body').scrolled() < offSets['usage'] + diff:
+                  case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage'] + diff:
                         // log('YES', ['red', 'blue'] + diff);
                         //Find active list item, deactivate it.
                         dom('[class~=hot]').class('hot', '-');

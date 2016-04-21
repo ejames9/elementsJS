@@ -159,11 +159,10 @@ function iDCallback() {
 
 function clickController() {
   //Click Event Delegation ============================>>
-  var _re = /sNavLink/;
+  var _re = /sNavLink/,
+      html = el('html');
 
-  var html = document.getElementsByTagName('html')[0];
-  html.addEventListener('click', function (e) {
-
+  click(html, function (e) {
     switch (true) {
       case e.target === document.getElementById('install-info'):
         toggleNPMBar();
@@ -184,10 +183,11 @@ function clickController() {
         elem4.scrolled(offSets[hashSS] + 290);
         break;
       default:
-        if (npmBar.style.display !== 'none') {
-          npmBar.style.display = 'none';
+        if (npmBar !== undefined) {
+          if (npmBar.style.display !== 'none') {
+            npmBar.style.display = 'none';
+          }
         }
-        log(e);
     }
   });
 }
