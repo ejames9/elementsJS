@@ -109,7 +109,7 @@ function sideNavController() {
                               .class('hide');
                       });
               //Activate Getting Started list item.
-              <'#getStart'/>
+              <'#getStartLink'/>
                       .class('hot')
                       .sib('next')
                                 .class('hide', '+');
@@ -127,7 +127,7 @@ function sideNavController() {
                               .class('hide');
                       });
               //Activate Installation list item. Open parent list by removing .hide class.
-              <'#inst'/>
+              <'#instLink'/>
                       .class('hot')
                       .ma()
 											   .class('hide', '-');
@@ -136,7 +136,7 @@ function sideNavController() {
               dom('body').scrolled() > offSets['usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#use'/>
+              <'#useLink'/>
                       .class('hot');
               break;
         case (dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff ||
@@ -148,7 +148,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#interpInstall'/>
+              <'#interpInstallLink'/>
                       .class('hot')
                       .ma()
 													.class('hide', '-');
@@ -162,7 +162,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#imps'/>
+              <'#impsLink'/>
                       .class('hot')
               break;
         case (dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff ||
@@ -174,7 +174,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#domManip'/>
+              <'#domManipLink'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -183,70 +183,70 @@ function sideNavController() {
               dom('body').scrolled() > offSets['el-func'] + diff && dom('body').scrolled() < offSets['dom-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#el'/>
+              <'#elLink'/>
                       .class('hot');
               break;
         case (dom('html').scrolled() > offSets['dom-func'] + diff && dom('html').scrolled() < offSets['__-func'] + diff ||
               dom('body').scrolled() > offSets['dom-func'] + diff && dom('body').scrolled() < offSets['__-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#dom'/>
+              <'#domLink'/>
                       .class('hot');
               break;
         case (dom('html').scrolled() > offSets['__-func'] + diff && dom('html').scrolled() < offSets['make-func'] + diff ||
               dom('body').scrolled() > offSets['__-func'] + diff && dom('body').scrolled() < offSets['make-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#__'/>
+              <'#__Link'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['make-func'] + diff && dom('html').scrolled() < offSets['put-func'] + diff ||
               dom('body').scrolled() > offSets['make-func'] + diff && dom('body').scrolled() < offSets['put-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#make'/>
+              <'#makeLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['put-func'] + diff && dom('html').scrolled() < offSets['x-func'] + diff ||
               dom('body').scrolled() > offSets['put-func'] + diff && dom('body').scrolled() < offSets['x-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#put'/>
+              <'#putLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['x-func'] + diff && dom('html').scrolled() < offSets['fore-func'] + diff ||
               dom('body').scrolled() > offSets['x-func'] + diff && dom('body').scrolled() < offSets['fore-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#x'/>
+              <'#xLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['fore-func'] + diff && dom('html').scrolled() < offSets['aft-func'] + diff ||
               dom('body').scrolled() > offSets['fore-func'] + diff && dom('body').scrolled() < offSets['aft-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#fore'/>
+              <'#foreLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['aft-func'] + diff && dom('html').scrolled() < offSets['show-func'] + diff ||
               dom('body').scrolled() > offSets['aft-func'] + diff && dom('body').scrolled() < offSets['show-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#aft'/>
+              <'#aftLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['show-func'] + diff && dom('html').scrolled() < offSets['hide-func'] + diff ||
               dom('body').scrolled() > offSets['show-func'] + diff && dom('body').scrolled() < offSets['hide-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#show'/>
+              <'#showLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['hide-func'] + diff && dom('html').scrolled() < offSets['size-func'] + diff ||
               dom('body').scrolled() > offSets['hide-func'] + diff && dom('body').scrolled() < offSets['size-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#hyde'/>
+              <'#hydeLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff ||
@@ -258,7 +258,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#size'/>
+              <'#sizeLink'/>
                       .class('hot')
                       .ma()
 													.class('hide', '-');
@@ -272,7 +272,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#eventHand'/>
+              <'#eventHandLink'/>
                       .class('hot')
                       .sib('next')
 													    .class('hide', '-');
@@ -281,133 +281,133 @@ function sideNavController() {
               dom('body').scrolled() > offSets['go-func'] + diff && dom('body').scrolled() < offSets['on-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#go'/>
+              <'#goLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['on-func'] + diff && dom('html').scrolled() < offSets['off-func'] + diff ||
               dom('body').scrolled() > offSets['on-func'] + diff && dom('body').scrolled() < offSets['off-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#on'/>
+              <'#onLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['off-func'] + diff && dom('html').scrolled() < offSets['once-func'] + diff ||
               dom('body').scrolled() > offSets['off-func'] + diff && dom('body').scrolled() < offSets['once-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#off'/>
+              <'#offLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['once-func'] + diff && dom('html').scrolled() < offSets['spark-func'] + diff ||
               dom('body').scrolled() > offSets['once-func'] + diff && dom('body').scrolled() < offSets['spark-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#once'/>
+              <'#onceLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['spark-func'] + diff && dom('html').scrolled() < offSets['click-func'] + diff ||
               dom('body').scrolled() > offSets['spark-func'] + diff && dom('body').scrolled() < offSets['click-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#spark'/>
+              <'#sparkLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['click-func'] + diff && dom('html').scrolled() < offSets['dblClick-func'] + diff ||
               dom('body').scrolled() > offSets['click-func'] + diff && dom('body').scrolled() < offSets['dblClick-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#click'/>
+              <'#clickLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['dblClick-func'] + diff && dom('html').scrolled() < offSets['blur-func'] + diff ||
               dom('body').scrolled() > offSets['dblClick-func'] + diff && dom('body').scrolled() < offSets['blur-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#dbl'/>
+              <'#dblLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['blur-func'] + diff && dom('html').scrolled() < offSets['error-func'] + diff ||
               dom('body').scrolled() > offSets['blur-func'] + diff && dom('body').scrolled() < offSets['error-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#blur'/>
+              <'#blurLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['error-func'] + diff && dom('html').scrolled() < offSets['focus-func'] + diff ||
               dom('body').scrolled() > offSets['error-func'] + diff && dom('body').scrolled() < offSets['focus-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#error'/>
+              <'#errorLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['focus-func'] + diff && dom('html').scrolled() < offSets['focusIn-func'] + diff ||
               dom('body').scrolled() > offSets['focus-func'] + diff && dom('body').scrolled() < offSets['focusIn-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#focus'/>
+              <'#focusLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['focusIn-func'] + diff && dom('html').scrolled() < offSets['focusOut-func'] + diff ||
               dom('body').scrolled() > offSets['focusIn-func'] + diff && dom('body').scrolled() < offSets['focusOut-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#focusIn'/>
+              <'#focusInLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['focusOut-func'] + diff && dom('html').scrolled() < offSets['keyUp-func'] + diff ||
               dom('body').scrolled() > offSets['focusOut-func'] + diff && dom('body').scrolled() < offSets['keyUp-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#focusOut'/>
+              <'#focusOutLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['keyUp-func'] + diff && dom('html').scrolled() < offSets['keyDown-func'] + diff ||
               dom('body').scrolled() > offSets['keyUp-func'] + diff && dom('body').scrolled() < offSets['keyDown-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#keyUp'/>
+              <'#keyUpLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['keyDown-func'] + diff && dom('html').scrolled() < offSets['load-func'] + diff ||
               dom('body').scrolled() > offSets['keyDown-func'] + diff && dom('body').scrolled() < offSets['load-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#keyDown'/>
+              <'#keyDownLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['load-func'] + diff && dom('html').scrolled() < offSets['unLoad-func'] + diff ||
               dom('body').scrolled() > offSets['load-func'] + diff && dom('body').scrolled() < offSets['unLoad-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#load'/>
+              <'#loadLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['unLoad-func'] + diff && dom('html').scrolled() < offSets['mouse-func'] + diff ||
               dom('body').scrolled() > offSets['unLoad-func'] + diff && dom('body').scrolled() < offSets['mouse-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#unLoad'/>
+              <'#unLoadLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['mouse-func'] + diff && dom('html').scrolled() < offSets['resize-func'] + diff ||
               dom('body').scrolled() > offSets['mouse-func'] + diff && dom('body').scrolled() < offSets['resize-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#mouse'/>
+              <'#mouseLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['resize-func'] + diff && dom('html').scrolled() < offSets['scroll-func'] + diff ||
               dom('body').scrolled() > offSets['resize-func'] + diff && dom('body').scrolled() < offSets['scroll-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#resize'/>
+              <'#resizeLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['scroll-func'] + diff && dom('html').scrolled() < offSets['select-func'] + diff ||
               dom('body').scrolled() > offSets['scroll-func'] + diff && dom('body').scrolled() < offSets['select-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#scroll'/>
+              <'#scrollLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['select-func'] + diff && dom('html').scrolled() < offSets['http'] + diff ||
@@ -419,7 +419,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#select'/>
+              <'#selectLink'/>
                       .class('hot')
                       .ma()
 													.class('hide', '-');
@@ -434,7 +434,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#httpReq'/>
+              <'#httpReqLink'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -443,7 +443,7 @@ function sideNavController() {
               dom('body').scrolled() > offSets['xhr-func'] + diff && dom('body').scrolled() < offSets['ajax-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#xhr'/>
+              <'#xhrLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['ajax-func'] + diff && dom('html').scrolled() < offSets['loggers'] + diff ||
@@ -456,7 +456,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#ajax'/>
+              <'#ajaxLink'/>
                       .class('hot')
                       .ma()
 													.class('hide', '-');
@@ -471,7 +471,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#logg'/>
+              <'#loggLink'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -480,21 +480,21 @@ function sideNavController() {
               dom('body').scrolled() > offSets['log-func'] + diff && dom('body').scrolled() < offSets['info-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#log'/>
+              <'#logLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['info-func'] + diff && dom('html').scrolled() < offSets['warn-func'] + diff ||
               dom('body').scrolled() > offSets['info-func'] + diff && dom('body').scrolled() < offSets['warn-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#info'/>
+              <'#infoLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['warn-func'] + diff && dom('html').scrolled() < offSets['err-func'] + diff ||
               dom('body').scrolled() > offSets['warn-func'] + diff && dom('body').scrolled() < offSets['err-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#warn'/>
+              <'#warnLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['err-func'] + diff && dom('html').scrolled() < offSets['utils'] + diff ||
@@ -507,7 +507,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#err'/>
+              <'#errLink'/>
                       .class('hot')
                       .ma()
 													.class('hide', '-');
@@ -522,7 +522,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#utilFunc'/>
+              <'#utilFuncLink'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -531,7 +531,7 @@ function sideNavController() {
               dom('body').scrolled() > offSets['proto-func'] + diff && dom('body').scrolled() < offSets['shifter-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#proto'/>
+              <'#protoLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['shifter-func'] + diff && dom('html').scrolled() < offSets['elem-obj'] + diff ||
@@ -544,7 +544,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#shifter'/>
+              <'#shifterLink'/>
                       .class('hot')
                       .ma()
 													.class('hide', '-');
@@ -559,7 +559,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#elemObj'/>
+              <'#elemObjLink'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -568,14 +568,14 @@ function sideNavController() {
               dom('body').scrolled() > offSets['element-const'] + diff && dom('body').scrolled() < offSets['dom2-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#elemConst'/>
+              <'#elemConstLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['dom2-func'] + diff && dom('html').scrolled() < offSets['make2-func'] + diff ||
               dom('body').scrolled() > offSets['dom2-func'] + diff && dom('body').scrolled() < offSets['make2-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#dom2'/>
+              <'#dom2Link'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['make2-func'] + diff && dom('html').scrolled() < offSets['elem-obj-methods'] + diff ||
@@ -588,7 +588,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#make2'/>
+              <'#make2Link'/>
                       .class('hot')
                       .ma()
 													.class('hide', '-');
@@ -603,7 +603,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#elemObjMethods'/>
+              <'#elemObjMethodsLink'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -612,35 +612,35 @@ function sideNavController() {
               dom('body').scrolled() > offSets['element-font-ex'] + diff && dom('body').scrolled() < offSets['style-methods'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#fontExamp'/>
+              <'#fontExampLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['style-methods'] + diff && dom('html').scrolled() < offSets['core-func'] + diff ||
               dom('body').scrolled() > offSets['style-methods'] + diff && dom('body').scrolled() < offSets['core-func'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#stylMethods'/>
+              <'#stylMethodsLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['core-func'] + diff && dom('html').scrolled() < offSets['DOM-Elem-Methods'] + diff ||
               dom('body').scrolled() > offSets['core-func'] + diff && dom('body').scrolled() < offSets['DOM-Elem-Methods'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#core'/>
+              <'#coreLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('html').scrolled() < offSets['event-methods'] + diff ||
               dom('body').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('body').scrolled() < offSets['event-methods'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#domMethods'/>
+              <'#domMethodsLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['event-methods'] + diff && dom('html').scrolled() < offSets['Util-Methods'] + diff ||
               dom('body').scrolled() > offSets['event-methods'] + diff && dom('body').scrolled() < offSets['Util-Methods'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#eventMethods'/>
+              <'#eventMethodsLink'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['Util-Methods'] + diff && dom('html').scrolled() < offSets['elements-syntax'] + diff ||
@@ -653,7 +653,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#utilMethods'/>
+              <'#utilMethodsLink'/>
                       .class('hot')
                       .ma()
 													.class('hide', '-');
@@ -668,7 +668,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#elemsSyntax'/>
+              <'#elemsSyntaxLink'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -677,56 +677,56 @@ function sideNavController() {
               dom('body').scrolled() > offSets['elemsyntax-func1'] + diff && dom('body').scrolled() < offSets['elemsyntax-func2'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#func1'/>
+              <'#func1Link'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['elemsyntax-func2'] + diff && dom('html').scrolled() < offSets['elemsyntax-func3'] + diff ||
               dom('body').scrolled() > offSets['elemsyntax-func2'] + diff && dom('body').scrolled() < offSets['elemsyntax-func3'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#func2'/>
+              <'#func2Link'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['elemsyntax-func3'] + diff && dom('html').scrolled() < offSets['elemsyntax-func4'] + diff ||
               dom('body').scrolled() > offSets['elemsyntax-func3'] + diff && dom('body').scrolled() < offSets['elemsyntax-func4'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#func3'/>
+              <'#func3Link'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['elemsyntax-func4'] + diff && dom('html').scrolled() < offSets['elemsyntax-func5'] + diff ||
               dom('body').scrolled() > offSets['elemsyntax-func4'] + diff && dom('body').scrolled() < offSets['elemsyntax-func5'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#func4'/>
+              <'#func4Link'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['elemsyntax-func5'] + diff && dom('html').scrolled() < offSets['elemsyntax-func6'] + diff ||
               dom('body').scrolled() > offSets['elemsyntax-func5'] + diff && dom('body').scrolled() < offSets['elemsyntax-func6'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#func5'/>
+              <'#func5Link'/>
                           .class('hot');
               break;
         case (dom('html').scrolled() > offSets['elemsyntax-func6'] + diff && dom('html').scrolled() < offSets['append-syntax'] + diff ||
               dom('body').scrolled() > offSets['elemsyntax-func6'] + diff && dom('body').scrolled() < offSets['append-syntax'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#func6'/>
+              <'#func6Link'/>
                       .class('hot');
               break;
         case (dom('html').scrolled() > offSets['append-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func7'] + diff ||
               dom('body').scrolled() > offSets['append-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func7'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#appendStax'/>
+              <'#appendStaxLink'/>
                       .class('hot');
               break;
         case (dom('html').scrolled() > offSets['elemsyntax-func7'] + diff ||
               dom('body').scrolled() > offSets['elemsyntax-func7'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
-              <'#func7'/>
+              <'#func7Link'/>
                       .class('hot');
               break;
 

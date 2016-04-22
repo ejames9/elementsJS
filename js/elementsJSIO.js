@@ -174,6 +174,12 @@ function clickController() {
      html = el('html');
 
   click(html, (e)=> {
+    log(e.target.tagName === 'CODE' || e.target.tagName === 'A', ['red', 'blue']);
+    console.log(e.target.parentNode);
+    // console.log(dom('#' + e.target.parentNode.id).class(), ['red', 'blue']);
+    log(('#' + e.target.parentNode.id), ['red', 'yellow']);
+
+
     switch(true) {
       case (e.target === document.getElementById('install-info')):
           toggleNPMBar();
@@ -181,7 +187,19 @@ function clickController() {
       case (e.target === document.getElementById('api-butn')):
           insertDocs(iDCallback);
           break;
-      case (_re.test(dom('#' + e.target.id).class())):
+      case (e.target.tagName === 'CODE'):
+          var hash = String(dom('#' + e.target.parentNode.id).hash());
+          warn(hash);
+          e.preventDefault();
+
+          var hashSS = hash.substring(1, hash.length);
+          warn(hashSS);
+          warn(offSets[hashSS]);
+
+          <html/>
+              .scrolled(offSets[hashSS] + 290);
+          break;
+      case (e.target.tagName === 'A'):
           var hash = String(dom('#' + e.target.id).hash());
           warn(hash);
           e.preventDefault();
@@ -194,7 +212,9 @@ function clickController() {
               .scrolled(offSets[hashSS] + 290);
           break;
       default:
-          if (npmBar !== undefined) {
+          var npmBar = el('#npm-bar');
+          console.log(npmBar);
+          if (npmBar !== null) {
             if (npmBar.style.display !== 'none') {
               npmBar.style.display = 'none';
             }

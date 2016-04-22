@@ -163,6 +163,11 @@ function clickController() {
       html = el('html');
 
   click(html, function (e) {
+    log(e.target.tagName === 'CODE' || e.target.tagName === 'A', ['red', 'blue']);
+    console.log(e.target.parentNode);
+    // console.log(dom('#' + e.target.parentNode.id).class(), ['red', 'blue']);
+    log('#' + e.target.parentNode.id, ['red', 'yellow']);
+
     switch (true) {
       case e.target === document.getElementById('install-info'):
         toggleNPMBar();
@@ -170,8 +175,8 @@ function clickController() {
       case e.target === document.getElementById('api-butn'):
         insertDocs(iDCallback);
         break;
-      case _re.test(dom('#' + e.target.id).class()):
-        var hash = String(dom('#' + e.target.id).hash());
+      case e.target.tagName === 'CODE':
+        var hash = String(dom('#' + e.target.parentNode.id).hash());
         warn(hash);
         e.preventDefault();
 
@@ -182,8 +187,22 @@ function clickController() {
         var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
         elem4.scrolled(offSets[hashSS] + 290);
         break;
+      case e.target.tagName === 'A':
+        var hash = String(dom('#' + e.target.id).hash());
+        warn(hash);
+        e.preventDefault();
+
+        var hashSS = hash.substring(1, hash.length);
+        warn(hashSS);
+        warn(offSets[hashSS]);
+
+        var elem5 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+        elem5.scrolled(offSets[hashSS] + 290);
+        break;
       default:
-        if (npmBar !== undefined) {
+        var npmBar = el('#npm-bar');
+        console.log(npmBar);
+        if (npmBar !== null) {
           if (npmBar.style.display !== 'none') {
             npmBar.style.display = 'none';
           }
@@ -200,8 +219,8 @@ go(function () {
   editor1.renderer.setShowGutter(false);
   editor1.getSession().setMode("ace/mode/javascript");
   //Set default display setting for the bower/npm installation bar.
-  var elem5 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-  elem5.display('none');
+  var elem6 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+  elem6.display('none');
   //Initialize the click controller.
   clickController();
   //Download the documentation markdown.
