@@ -25,67 +25,106 @@ kristi,
 /*--------------------------Tag Stylings----------------- */
 
 
-svg {
-  max-height: 80px;
-  max-width: 80px;
-}
-
-path {
-  position: absolute;
-  left: 0;
-}
-
 a {
   padding-top: 25px;
   padding-bottom: 25px;
 }
-
-i {
-  padding-left: 20px;
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+a:focus {
+  outline: 0;
+  outline-style: none;
+  -moz-outline-style: none;
 }
 
-body {
-  padding-top: 50px;
+h1 a {
+  color: #FF8A22;
   padding-bottom: 20px;
-  /*background-color: #cda6ec;*/
+  text-decoration: none;
+  outline: 0;
+}
+h1 a:link {
+  color: #FF8A22;
+  text-decoration: none;
+}
+h1 a:hover {
+  color: #FF8A22;
+  text-decoration: none;
 }
 
-#docsMain h2, #docsMain  h1 {
-  /*display: inline-block;*/
-  margin-right: 15px;
+h1 a:active {
+  color: #FF8A22;
+  text-decoration: none;
 }
 
-h2, h1 {
-  font-family: helvetica neue;
-  font-weight: 500;
+h1 a:visited {
+  color: #FF8A22;
+  text-decoration: none;
+}
+h2 a {
   color: #52218A;
+  text-decoration: none;
+  outline: 0;
 }
-
-h4, h3 {
-  font-family: helvetica neue;
-  font-weight: 500;
+h2 a:link {
   color: #52218A;
+  text-decoration: none;
 }
-
-p, ul {
-  font-family: helvetica neue;
-  font-weight: 300;
+h2 a:hover {
   color: #52218A;
+  text-decoration: none;
 }
-
-ul {
-  list-style: none;
-  text-align: right;
+h2 a:active {
+  color: #52218A;
+  text-decoration: none;
+}
+h2 a:visited {
+  color: #52218A;
+  text-decoration: none;
 }
 
 ul > li > a {
   padding: 0;
 }
 
-pre {
-  border: 1px dotted  #52218A;
-  padding: 0px;
+#sideNav a:hover {
+  font-weight: bolder;
+  color: #FF8A22;
 
+}
+#sideNav a:focus {
+  font-weight: bolder;
+  color: #FF8A22;
+  text-decoration: none;
+
+}
+#sideNav a code:hover {
+  color: #fff;
+  background-color: #52218A;
+  border: 1px solid #FF8A22;
+  border-radius: 15px;
+}
+#sideNav a code:active {
+  color: #52218A;
+  background-color: #FF8A22;
+  border: 1px solid #52218A;
+  border-radius: 15px;
+}
+#sideNav a code:focus {
+  color: #52218A;
+  background-color: #FF8A22;
+  border: 1px solid #52218A;
+  border-radius: 15px;
+}
+
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  /*background-color: #cda6ec;*/
 }
 
 pre code {
@@ -95,6 +134,7 @@ pre code {
 code {
   font-family: bpmono;
   border-radius: 5px;
+  color: #9d2635;
 }
 
 
@@ -113,6 +153,24 @@ code {
   border-radius: 15px;
 }
 
+
+h2, h1 {
+  font-family: helvetica neue;
+  font-weight: 500;
+  color: #52218A;
+}
+
+h4, h3 {
+  font-family: helvetica neue;
+  font-weight: 500;
+  color: #52218A;
+}
+
+#docsMain h2, #docsMain  h1 {
+  /*display: inline-block;*/
+  margin-right: 15px;
+}
+
 #docsMain h1 {
   background-color: #39175E;
   color: #FF8A22;
@@ -128,37 +186,38 @@ code {
 }
 
 
-h1 a {
-  color: #FF8A22;
-  padding-bottom: 20px;
+
+i {
+  padding-left: 20px;
 }
-h1 a:hover {
-  color: #FF8A22;
-  text-decoration: none;
+
+path {
+  position: absolute;
+  left: 0;
 }
-h2 a {
+
+pre {
+  border: 1px dotted  #52218A;
+  padding: 0px;
+
+}
+
+
+p, ul {
+  font-family: helvetica neue;
+  font-weight: 300;
   color: #52218A;
 }
-h2 a:hover {
-  color: #52218A;
-  text-decoration: none;
+
+svg {
+  max-height: 80px;
+  max-width: 80px;
 }
 
-
-
-
-
-/*pre  {
-  background-color: black;
-}*/
-
-/*h1:hover a {
-  display: inline;
+ul {
+  list-style: none;
+  text-align: right;
 }
-h2:hover a {
-  display: inline;
-}*/
-
 
 
 /*--------------------------NavBar Styles--------------------*/
@@ -355,7 +414,6 @@ iframe {
 
 
 
-
 #followSVG {
   position: relative;
   height: 22px;
@@ -428,7 +486,7 @@ iframe {
 
 
 
-/*----------------------npm -----------------------------*/
+/*----------------------npm bar-----------------------------*/
 
 #npm-bar {
   padding-top: 35px;
@@ -569,13 +627,19 @@ iframe {
 
 
 .fa-link {
-  color: #52218A;
-  /*transform: rotate(90deg);*/
   position: relative;
-  /*margin-left: 30px;*/
   padding-right: 30px;
   text-shadow: 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22;
+  font-size: 6px;
+}
 
+#faLink {
+  color: #52218A;
+  font-size: 25px;
+}
+#faLink:hover {
+  color: #FF8A22;
+  text-shadow: 0 0 0.2em #9d2635, 0 0 0.2em #9d2635;
 }
 
 
@@ -718,14 +782,6 @@ iframe {
 .hide {
   display: none;
 }
-
-/*.fa-link {
-  color: #9d2635;
-  display: inline;
-  transform: rotate(90deg);
-  top: 0;
-
-}*/
 
 .anchors {
   padding-top: 0px;

@@ -16,7 +16,7 @@ URL: ""
 //FIXME: elements syntax not working in parenthesis.
 //FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
 //FIXME: Can't put elements in comments.
-//FIXME: HTML interfering with regExp's.
+//DONE: HTML interfering with regExp's.
 //FIXME: can't use file blobs with import() func.
 
 //TODO: Complete <elem> syntax docs.

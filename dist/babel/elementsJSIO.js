@@ -65,7 +65,7 @@ function addChainLinkIcons() {
   console.log(dom('#docsMain h1, #docsMain h2'));
   //Add link icons to all page links in documentation.
   dom('h1 a, h2 a').every(function (element) {
-    element.html('<i class="fa fa-link"></i>', '+').href('#' + element.id()).mouse('over', function () {
+    element.html('<i id="faLink" class="fa fa-link"></i>', '+').href('#' + element.id()).mouse('over', function () {
       element.last().viz('visible');
     }).mouse('out', function () {
       element.last().viz('hidden');
@@ -90,10 +90,10 @@ function forkMeBaby() {
   return;
 }
 
-//This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
+//This function highlights all of the  blocks in the docs, after the insertDocs function is completed.
 function highLightCode() {
   console.log(dom('pre code'));
-  //Get access to all <pre><code> blocks......
+  //Get access to all blocks......
   dom('pre code').every(function (element) {
     //highlight blocks.
     hljs.highlightBlock(element.el);
@@ -149,55 +149,58 @@ function iDCallback() {
   dom('#sideNav li a').every(function (element) {
     element.class('sNavLink', '+');
   });
-  offSets = SNC.getOffSets();
-
-  for (var el in offSets) {
-    log('id: ' + el, 'red');
-    log('offSet: ' + offSets[el], ['red', 'blue']);
-  }
+  // for (var el in offSets) {
+  //   log('id: ' + el, 'red');
+  //   log('offSet: ' + offSets[el], ['red', 'blue'])
+  // }
 }
 
 function clickController() {
   //Click Event Delegation ============================>>
   var _re = /sNavLink/,
-      html = el('html');
+      html = el('html'),
+      hash,
+      hashSS;
 
   click(html, function (e) {
-    log(e.target.tagName === 'CODE' || e.target.tagName === 'A', ['red', 'blue']);
-    console.log(e.target.parentNode);
-    // console.log(dom('#' + e.target.parentNode.id).class(), ['red', 'blue']);
-    log('#' + e.target.parentNode.id, ['red', 'yellow']);
-
-    switch (true) {
-      case e.target === document.getElementById('install-info'):
+    switch (3 + 6 === 9) {
+      case e.target === el('install-info'):
         toggleNPMBar();
         break;
-      case e.target === document.getElementById('api-butn'):
+      case e.target === el('api-butn'):
         insertDocs(iDCallback);
         break;
-      case e.target.tagName === 'CODE':
-        var hash = String(dom('#' + e.target.parentNode.id).hash());
-        warn(hash);
+      case e.target.tagName === 'I':
         e.preventDefault();
 
-        var hashSS = hash.substring(1, hash.length);
-        warn(hashSS);
-        warn(offSets[hashSS]);
+        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
+        hashSS = hash.substring(1, hash.length);
 
         var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem4.scrolled(offSets[hashSS] + 290);
+        elem4.scrolled(offSets[hashSS] + 285);
         break;
-      case e.target.tagName === 'A':
-        var hash = String(dom('#' + e.target.id).hash());
-        warn(hash);
+      case e.target.tagName === 'CODE':
         e.preventDefault();
 
-        var hashSS = hash.substring(1, hash.length);
+        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
+        hashSS = hash.substring(1, hash.length);
+
+        var elem5 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+        elem5.scrolled(offSets[hashSS] + 285);
+        break;
+      case e.target.tagName === 'A':
+        log(e.target.tagName, 'red');
+        e.preventDefault();
+
+        offSets = SNC.getOffSets();
+        hash = String(dom('#' + e.target.id).hash());
+        hashSS = hash.substring(1, hash.length);
+
         warn(hashSS);
         warn(offSets[hashSS]);
 
-        var elem5 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem5.scrolled(offSets[hashSS] + 290);
+        var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+        elem6.scrolled(offSets[hashSS] + 285);
         break;
       default:
         var npmBar = el('#npm-bar');
@@ -219,8 +222,8 @@ go(function () {
   editor1.renderer.setShowGutter(false);
   editor1.getSession().setMode("ace/mode/javascript");
   //Set default display setting for the bower/npm installation bar.
-  var elem6 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-  elem6.display('none');
+  var elem7 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+  elem7.display('none');
   //Initialize the click controller.
   clickController();
   //Download the documentation markdown.

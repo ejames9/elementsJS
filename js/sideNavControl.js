@@ -16,7 +16,7 @@ function getOffSets() {
 
   var offSets = {};
       offSets['installation']        = el('#installation').offsetTop;
-      offSets['usage']               = el('#Usage').offsetTop;
+      offSets['Usage']               = el('#Usage').offsetTop;
       offSets['interpreter-install'] = el('#interpreter-install').offsetTop;
       offSets['imports']             = el('#imports').offsetTop;
       offSets['DOM']                 = el('#DOM').offsetTop;
@@ -109,13 +109,13 @@ function sideNavController() {
                               .class('hide');
                       });
               //Activate Getting Started list item.
-              <'#getStartLink'/>
+              <'#getStart'/>
                       .class('hot')
                       .sib('next')
                                 .class('hide', '+');
               break;
-        case (dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['usage'] + diff ||
-              dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['usage'] + diff):
+        case (dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['Usage'] + diff ||
+              dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff):
               // log('YES', ['red', 'blue'] + diff);
               //Find active list item, deactivate it.
               dom('[class~=hot]')
@@ -132,8 +132,8 @@ function sideNavController() {
                       .ma()
 											   .class('hide', '-');
               break;
-        case (dom('html').scrolled() > offSets['usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff ||
-              dom('body').scrolled() > offSets['usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff):
+        case (dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff ||
+              dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff):
               dom('[class~=hot]')
 											.class('hot', '-');
               <'#useLink'/>
@@ -162,7 +162,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#impsLink'/>
+              <'#imps'/>
                       .class('hot')
               break;
         case (dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff ||
@@ -174,7 +174,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#domManipLink'/>
+              <'#domManip'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -272,7 +272,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#eventHandLink'/>
+              <'#eventHand'/>
                       .class('hot')
                       .sib('next')
 													    .class('hide', '-');
@@ -434,7 +434,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#httpReqLink'/>
+              <'#httpReq'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -471,7 +471,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#loggLink'/>
+              <'#logg'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -522,7 +522,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#utilFuncLink'/>
+              <'#utilFunc'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -559,7 +559,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#elemObjLink'/>
+              <'#elemObj'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -603,7 +603,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#elemObjMethodsLink'/>
+              <'#elemObjMethods'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -668,7 +668,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              <'#elemsSyntaxLink'/>
+              <'#elemsSyntax'/>
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');

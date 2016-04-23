@@ -45,7 +45,7 @@ function addChainLinkIcons() {
   dom('h1 a, h2 a')
             .every((element)=> {
                element
-                  .html('<i class="fa fa-link"></i>', '+')
+                  .html('<i id="faLink" class="fa fa-link"></i>', '+')
                   .href('#' + element.id())
                   .mouse('over', ()=> {
                      element
@@ -93,10 +93,10 @@ function forkMeBaby() {
 }
 
 
-//This function highlights all of the <code> blocks in the docs, after the insertDocs function is completed.
+//This function highlights all of the  blocks in the docs, after the insertDocs function is completed.
 function highLightCode() {
   console.log(dom('pre code'));
-  //Get access to all <pre><code> blocks......
+  //Get access to all blocks......
   dom('pre code')
           .every((element)=> {
              //highlight blocks.
@@ -159,57 +159,61 @@ function iDCallback() {
                element
                    .class('sNavLink', '+');
             });
-  offSets = SNC.getOffSets();
-
-  for (var el in offSets) {
-    log('id: ' + el, 'red');
-    log('offSet: ' + offSets[el], ['red', 'blue'])
-  }
+  // for (var el in offSets) {
+  //   log('id: ' + el, 'red');
+  //   log('offSet: ' + offSets[el], ['red', 'blue'])
+  // }
 }
 
 
 function clickController() {
   //Click Event Delegation ============================>>
   var _re = /sNavLink/,
-     html = el('html');
+     html = el('html'),
+     hash,
+     hashSS;
 
   click(html, (e)=> {
-    log(e.target.tagName === 'CODE' || e.target.tagName === 'A', ['red', 'blue']);
-    console.log(e.target.parentNode);
-    // console.log(dom('#' + e.target.parentNode.id).class(), ['red', 'blue']);
-    log(('#' + e.target.parentNode.id), ['red', 'yellow']);
-
-
-    switch(true) {
-      case (e.target === document.getElementById('install-info')):
+    switch(3+6===9) {
+      case (e.target === el('install-info')):
           toggleNPMBar();
           break;
-      case (e.target === document.getElementById('api-butn')):
+      case (e.target === el('api-butn')):
           insertDocs(iDCallback);
           break;
-      case (e.target.tagName === 'CODE'):
-          var hash = String(dom('#' + e.target.parentNode.id).hash());
-          warn(hash);
+      case (e.target.tagName === 'I'):
           e.preventDefault();
 
-          var hashSS = hash.substring(1, hash.length);
-          warn(hashSS);
-          warn(offSets[hashSS]);
+          offSets = SNC.getOffSets(),
+             hash = String(dom('#' + e.target.parentNode.id).hash());
+           hashSS = hash.substring(1, hash.length);
 
           <html/>
-              .scrolled(offSets[hashSS] + 290);
+              .scrolled(offSets[hashSS] + 285);
+          break;
+      case (e.target.tagName === 'CODE'):
+          e.preventDefault();
+
+          offSets = SNC.getOffSets(),
+             hash = String(dom('#' + e.target.parentNode.id).hash());
+           hashSS = hash.substring(1, hash.length);
+
+          <html/>
+              .scrolled(offSets[hashSS] + 285);
           break;
       case (e.target.tagName === 'A'):
-          var hash = String(dom('#' + e.target.id).hash());
-          warn(hash);
+          log(e.target.tagName, 'red');
           e.preventDefault();
 
-          var hashSS = hash.substring(1, hash.length);
+          offSets = SNC.getOffSets();
+             hash = String(dom('#' + e.target.id).hash());
+           hashSS = hash.substring(1, hash.length);
+
           warn(hashSS);
           warn(offSets[hashSS]);
 
           <html/>
-              .scrolled(offSets[hashSS] + 290);
+              .scrolled(offSets[hashSS] + 285);
           break;
       default:
           var npmBar = el('#npm-bar');
