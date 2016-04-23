@@ -164,10 +164,10 @@ function clickController() {
 
   click(html, function (e) {
     switch (3 + 6 === 9) {
-      case e.target === el('install-info'):
+      case e.target === el('#install-info'):
         toggleNPMBar();
         break;
-      case e.target === el('api-butn'):
+      case e.target === el('#api-butn'):
         insertDocs(iDCallback);
         break;
       case e.target.tagName === 'I':
@@ -177,7 +177,7 @@ function clickController() {
         hashSS = hash.substring(1, hash.length);
 
         var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem4.scrolled(offSets[hashSS] + 285);
+        elem4.scrolled(offSets[hashSS] + 291);
         break;
       case e.target.tagName === 'CODE':
         e.preventDefault();
@@ -186,7 +186,7 @@ function clickController() {
         hashSS = hash.substring(1, hash.length);
 
         var elem5 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem5.scrolled(offSets[hashSS] + 285);
+        elem5.scrolled(offSets[hashSS] + 291);
         break;
       case e.target.tagName === 'A':
         log(e.target.tagName, 'red');
@@ -200,11 +200,10 @@ function clickController() {
         warn(offSets[hashSS]);
 
         var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem6.scrolled(offSets[hashSS] + 285);
+        elem6.scrolled(offSets[hashSS] + 291);
         break;
       default:
         var npmBar = el('#npm-bar');
-        console.log(npmBar);
         if (npmBar !== null) {
           if (npmBar.style.display !== 'none') {
             npmBar.style.display = 'none';
