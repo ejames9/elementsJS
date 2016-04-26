@@ -920,14 +920,28 @@ function Element(el) {
 
   this.first = function (s) {
     //TEST:30 Make sure this works.
-    var count = s === 'all' ? this.el.firstChild : this.el.firstElementChild;
-    return new Element(count);
+    var sib = s === 'node' ? this.el.firstChild : this.el.firstElementChild;
+    return new Element(sib);
+  };
+
+  this.second = function (s) {
+    //TEST:30 Make sure this works.
+    var sib = s === 'node' ? this.el.firstChild.nextSibling : this.el.firstElementChild.nextElementSibling;
+    return new Element(sib);
+  };
+
+  this.third = function (s) {
+    var varb = el.firstElementChild.nextElementSibling,
+        varb2 = el.firstChild.nextSibling,
+        //TEST:30 Make sure this works.
+    sib = s === 'node' ? varb2.nextSibling : varb.nextElementSibling;
+    return new Element(sib);
   };
 
   this.last = function (s) {
     //TEST:30 Make sure this works.
-    var count = s === 'all' ? this.el.lastChild : this.el.lastElementChild;
-    return new Element(count);
+    var sib = s === 'node' ? this.el.lastChild : this.el.lastElementChild;
+    return new Element(sib);
   };
 
   this.id = function (val) {
@@ -1192,9 +1206,13 @@ function Element(el) {
 
   this.on = function (ev, callback) {
     if (document.addEventListener) {
-      events.on(ev, this.el, callback);
+      events.on(ev, this.el, function (e) {
+        return callback(e, new Element(el));
+      });
     } else {
-      events.onIE(ev, this.el, callback);
+      events.on(ev, this.el, function (e) {
+        return callback(e, new Element(el));
+      });
     }
     return this;
   };
@@ -1210,9 +1228,13 @@ function Element(el) {
 
   this.once = function (ev, callback) {
     if (document.addEventListener) {
-      events.once(ev, this.el, callback);
+      events.once(ev, this.el, function (e) {
+        return callback(e, new Element(el));
+      });
     } else {
-      events.onceIE(ev, this.el, callback);
+      events.onceIE(ev, this.el, function (e) {
+        return callback(e, new Element(el));
+      });
     }
     return this;
   };

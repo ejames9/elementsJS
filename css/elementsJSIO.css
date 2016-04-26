@@ -790,6 +790,11 @@ iframe {
   padding-right: 3px;
 }
 
+.hot2 {
+  border-right: 1px solid #52218A;
+  padding-right: 3px;
+}
+
 .hide {
   display: none;
 }

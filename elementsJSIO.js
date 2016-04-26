@@ -83,6 +83,7 @@
 	var ajax = elementsJS.ajax;
 	var on = elementsJS.on;
 	var click = elementsJS.click;
+	var mouse = elementsJS.mouse;
 	var show = elementsJS.show;
 	var hide = elementsJS.hide;
 	var scroll = elementsJS.scroll;
@@ -190,6 +191,7 @@
 	  forkMeBaby();
 	  highLightCode();
 	  addChainLinkIcons();
+	  mouseEventController();
 	  SNC.sideNavController();
 
 	  dom('#sideNav li a').every(function (element) {
@@ -199,6 +201,83 @@
 	  //   log('id: ' + el, 'red');
 	  //   log('offSet: ' + offSets[el], ['red', 'blue'])
 	  // }
+	}
+
+	function mouseEventController() {
+	  //Mouse hover event Delegation ======================>>
+	  var html = el('html');
+
+	  mouse('over', html, function (e) {
+	    console.log(e.target);
+
+	    switch (e.target) {
+	      case el('#getStart'):
+	        dom('[name=hidden]').every(function (element) {
+	          element.class('hide', '+');
+	        });
+	        var elem4 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
+	        elem4.once('mouseout', function (e, element) {
+	          element.sib('next').class('hide', '+');
+	        }).sib('next').class('hide', '-');
+	        break;
+	      case el('#domManip'):
+	        dom('[name=hidden]').every(function (element) {
+	          element.class('hide', '+');
+	        });
+	        var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
+	        elem5.sib('next').class('hide', '-');
+	        break;
+	      case el('#eventHand'):
+	        dom('[name=hidden]').every(function (element) {
+	          element.class('hide', '+');
+	        });
+	        var elem6 = _$('#eventHand') ? dom('#eventHand') : make('#eventHand').put("body");
+	        elem6.sib('next').class('hide', '-');
+	        break;
+	      case el('#httpReq'):
+	        dom('[name=hidden]').every(function (element) {
+	          element.class('hide', '+');
+	        });
+	        var elem7 = _$('#httpReq') ? dom('#httpReq') : make('#httpReq').put("body");
+	        elem7.sib('next').class('hide', '-');
+	        break;
+	      case el('#logg'):
+	        dom('[name=hidden]').every(function (element) {
+	          element.class('hide', '+');
+	        });
+	        var elem8 = _$('#logg') ? dom('#logg') : make('#logg').put("body");
+	        elem8.sib('next').class('hide', '-');
+	        break;
+	      case el('#utilFunc'):
+	        dom('[name=hidden]').every(function (element) {
+	          element.class('hide', '+');
+	        });
+	        var elem9 = _$('#utilFunc') ? dom('#utilFunc') : make('#utilFunc').put("body");
+	        elem9.sib('next').class('hide', '-');
+	        break;
+	      case el('#elemObj'):
+	        dom('[name=hidden]').every(function (element) {
+	          element.class('hide', '+');
+	        });
+	        var elem10 = _$('#elemObj') ? dom('#elemObj') : make('#elemObj').put("body");
+	        elem10.sib('next').class('hide', '-');
+	        break;
+	      case el('#elemObjMethods'):
+	        dom('[name=hidden]').every(function (element) {
+	          element.class('hide', '+');
+	        });
+	        var elem11 = _$('#elemObjMethods') ? dom('#elemObjMethods') : make('#elemObjMethods').put("body");
+	        elem11.sib('next').class('hide', '-');
+	        break;
+	      case el('#elemsSyntax'):
+	        dom('[name=hidden]').every(function (element) {
+	          element.class('hide', '+');
+	        });
+	        var elem12 = _$('#elemsSyntax') ? dom('#elemsSyntax') : make('#elemsSyntax').put("body");
+	        elem12.sib('next').class('hide', '-');
+	        break;
+	    }
+	  });
 	}
 
 	function clickController() {
@@ -222,8 +301,8 @@
 	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
 	        hashSS = hash.substring(1, hash.length);
 
-	        var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem4.scrolled(offSets[hashSS] + 291);
+	        var elem13 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	        elem13.scrolled(offSets[hashSS] + 291);
 	        break;
 	      case e.target.tagName === 'CODE':
 	        e.preventDefault();
@@ -231,8 +310,8 @@
 	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
 	        hashSS = hash.substring(1, hash.length);
 
-	        var elem5 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem5.scrolled(offSets[hashSS] + 291);
+	        var elem14 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	        elem14.scrolled(offSets[hashSS] + 291);
 	        break;
 	      case e.target.tagName === 'A':
 	        log(e.target.tagName, 'red');
@@ -245,8 +324,8 @@
 	        warn(hashSS);
 	        warn(offSets[hashSS]);
 
-	        var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem6.scrolled(offSets[hashSS] + 291);
+	        var elem15 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	        elem15.scrolled(offSets[hashSS] + 291);
 	        break;
 	      default:
 	        var npmBar = el('#npm-bar');
@@ -267,8 +346,8 @@
 	  editor1.renderer.setShowGutter(false);
 	  editor1.getSession().setMode("ace/mode/javascript");
 	  //Set default display setting for the bower/npm installation bar.
-	  var elem7 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-	  elem7.display('none');
+	  var elem16 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+	  elem16.display('none');
 	  //Initialize the click controller.
 	  clickController();
 	  //Download the documentation markdown.
@@ -1222,15 +1301,15 @@
 	  }
 	};
 
-	var mouse = function mouse(el) {
-	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+	var mouse = function mouse(sfx, el) {
+	  var cb = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
 	  el = utils.queryDOM(el);
 
 	  if (document.addEventListener) {
-	    return events.mouse(el, cb);
+	    return events.mouse(sfx, el, cb);
 	  } else {
-	    return events.mouseIE(el, cb);
+	    return events.mouseIE(sfx, el, cb);
 	  }
 	};
 
@@ -2199,7 +2278,7 @@
 	  this.children = function (s) {
 	    var count = void 0,
 	        arr = [];
-	    if (s === 'all') {
+	    if (s === 'nodes') {
 	      count = this.el.childNodes;
 	    } else {
 	      count = this.el.children;
@@ -2223,14 +2302,28 @@
 
 	  this.first = function (s) {
 	    //TEST:30 Make sure this works.
-	    var count = s === 'all' ? this.el.firstChild : this.el.firstElementChild;
-	    return new Element(count);
+	    var sib = s === 'node' ? this.el.firstChild : this.el.firstElementChild;
+	    return new Element(sib);
+	  };
+
+	  this.second = function (s) {
+	    //TEST:30 Make sure this works.
+	    var sib = s === 'node' ? this.el.firstChild.nextSibling : this.el.firstElementChild.nextElementSibling;
+	    return new Element(sib);
+	  };
+
+	  this.third = function (s) {
+	    var varb = el.firstElementChild.nextElementSibling,
+	        varb2 = el.firstChild.nextSibling,
+	        //TEST:30 Make sure this works.
+	    sib = s === 'node' ? varb2.nextSibling : varb.nextElementSibling;
+	    return new Element(sib);
 	  };
 
 	  this.last = function (s) {
 	    //TEST:30 Make sure this works.
-	    var count = s === 'all' ? this.el.lastChild : this.el.lastElementChild;
-	    return new Element(count);
+	    var sib = s === 'node' ? this.el.lastChild : this.el.lastElementChild;
+	    return new Element(sib);
 	  };
 
 	  this.id = function (val) {
@@ -2500,9 +2593,13 @@
 
 	  this.on = function (ev, callback) {
 	    if (document.addEventListener) {
-	      events.on(ev, this.el, callback);
+	      events.on(ev, this.el, function (e) {
+	        return callback(e, new Element(el));
+	      });
 	    } else {
-	      events.onIE(ev, this.el, callback);
+	      events.on(ev, this.el, function (e) {
+	        return callback(e, new Element(el));
+	      });
 	    }
 	    return this;
 	  };
@@ -2518,9 +2615,13 @@
 
 	  this.once = function (ev, callback) {
 	    if (document.addEventListener) {
-	      events.once(ev, this.el, callback);
+	      events.once(ev, this.el, function (e) {
+	        return callback(e, new Element(el));
+	      });
 	    } else {
-	      events.onceIE(ev, this.el, callback);
+	      events.onceIE(ev, this.el, function (e) {
+	        return callback(e, new Element(el));
+	      });
 	    }
 	    return this;
 	  };
@@ -3335,21 +3436,23 @@
 
 	var once = function once(event, el, callback) {
 	  //DONE:60 Finish once function.
+	  var cb = callback;
 	  //DONE:80 Test once function.
-	  var callBack = function callBack() {
-	    callback();
+	  var callBack = function callBack(e) {
+	    cb(e);
 	    el.removeEventListener(event, callBack);
 	  };
 
 	  el = utils.queryDOM(el);
-	  (0, _logger.log)(el, 'red');
+
 	  return el.addEventListener(event, callBack);
 	};
 
 	var onceIE = function onceIE(event, el, callback) {
+	  var cb = callback;
 	  //DONE:90 Test onceIE function.
-	  var callBack = function callBack() {
-	    callback();
+	  var callBack = function callBack(e) {
+	    cb(e);
 	    el.detachEvent('on' + event, callBack);
 	  };
 
@@ -3710,8 +3813,8 @@
 	    el.addEventListener('mouse' + sufx, cb);
 	  }
 	}
-	function mouseIE(el) {
-	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+	function mouseIE(sfx, el) {
+	  var cb = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
 
 	  if (cb === null) {

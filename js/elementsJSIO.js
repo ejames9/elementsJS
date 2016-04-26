@@ -18,7 +18,7 @@ import * as SNC from './sideNavControl.js';
 
 //elementsJS imports
 imports({
-    'elementsJS': ['imports', 'go', 'el', 'log', 'warn', 'url', 'ajax', 'on', 'click', 'show', 'hide', 'scroll', '__'],
+    'elementsJS': ['imports', 'go', 'el', 'log', 'warn', 'url', 'ajax', 'on', 'click', 'mouse', 'show', 'hide', 'scroll', '__'],
         'marked': 'marked',
   'highlight.js': 'hljs'
 });
@@ -152,7 +152,9 @@ function iDCallback() {
   forkMeBaby();
   highLightCode();
   addChainLinkIcons();
+  mouseEventController();
   SNC.sideNavController();
+
 
   dom('#sideNav li a')
             .every((element)=> {
@@ -164,6 +166,120 @@ function iDCallback() {
   //   log('offSet: ' + offSets[el], ['red', 'blue'])
   // }
 }
+
+
+
+
+function mouseEventController() {
+  //Mouse hover event Delegation ======================>>
+  const html = el('html');
+
+  mouse('over', html, function(e) {
+    console.log(e.target);
+
+    switch(e.target) {
+      case (el('#getStart')):
+          dom('[name=hidden]')
+                    .every((element)=> {
+                       element
+                          .class('hide', '+')
+                   });
+          <'#getStart'/>
+                    .once('mouseout', (e, element)=> {
+                       element
+                          .sib('next')
+                                  .class('hide', '+');
+                    })
+                    .sib('next')
+                            .class('hide', '-');
+          break;
+      case (el('#domManip')):
+          dom('[name=hidden]')
+                    .every((element)=> {
+                      element
+                          .class('hide', '+')
+                    });
+          <'#domManip'/>
+                    .sib('next')
+                            .class('hide', '-');
+          break;
+      case (el('#eventHand')):
+          dom('[name=hidden]')
+                    .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
+          <'#eventHand'/>
+                    .sib('next')
+                          .class('hide', '-');
+          break;
+      case (el('#httpReq')):
+          dom('[name=hidden]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
+          <'#httpReq'/>
+                   .sib('next')
+                          .class('hide', '-');
+          break;
+      case (el('#logg')):
+          dom('[name=hidden]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
+          <'#logg'/>
+                   .sib('next')
+                          .class('hide', '-');
+          break;
+      case (el('#utilFunc')):
+          dom('[name=hidden]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                        });
+          <'#utilFunc'/>
+                    .sib('next')
+                          .class('hide', '-');
+          break;
+      case (el('#elemObj')):
+          dom('[name=hidden]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
+          <'#elemObj'/>
+                   .sib('next')
+                          .class('hide', '-');
+          break;
+      case (el('#elemObjMethods')):
+          dom('[name=hidden]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
+          <'#elemObjMethods'/>
+                   .sib('next')
+                          .class('hide', '-');
+          break;
+      case (el('#elemsSyntax')):
+          dom('[name=hidden]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
+          <'#elemsSyntax'/>
+                   .sib('next')
+                          .class('hide', '-');
+          break;
+    }
+  });
+
+
+}
+
+
 
 
 function clickController() {

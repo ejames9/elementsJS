@@ -48,9 +48,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //FIXME: elements syntax not working in parenthesis.
 //FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
 //FIXME: Can't put elements in comments.
-//FIXME: HTML interfering with regExp's.
+//DONE: HTML interfering with regExp's.
 //FIXME: can't use file blobs with import() func.
 
+//TODO: make some functions complete operations for arrays automagically, instead of needing .every().
+//TODO: Make all event functions like once(), .once().
 //TODO: Complete <elem> syntax docs.
 //TODO: change apropo methods to properties.
 //TODO: .sib() does not return element.......
@@ -416,15 +418,15 @@ var unLoad = function unLoad(el) {
   }
 };
 
-var mouse = function mouse(el) {
-  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+var mouse = function mouse(sfx, el) {
+  var cb = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
   el = utils.queryDOM(el);
 
   if (document.addEventListener) {
-    return events.mouse(el, cb);
+    return events.mouse(sfx, el, cb);
   } else {
-    return events.mouseIE(el, cb);
+    return events.mouseIE(sfx, el, cb);
   }
 };
 

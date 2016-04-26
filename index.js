@@ -19,6 +19,8 @@ URL: ""
 //DONE: HTML interfering with regExp's.
 //FIXME: can't use file blobs with import() func.
 
+//TODO: make some functions complete operations for arrays automagically, instead of needing .every().
+//TODO: Make all event functions like once(), .once().
 //TODO: Complete <elem> syntax docs.
 //TODO: change apropo methods to properties.
 //TODO: .sib() does not return element.......
@@ -413,13 +415,13 @@ var unLoad = function(el, cb=null) {
 };
 
 
-var mouse = function(el, cb=null) {
+var mouse = function(sfx, el, cb=null) {
   el = utils.queryDOM(el);
 
   if (document.addEventListener) {
-    return events.mouse(el, cb);
+    return events.mouse(sfx, el, cb);
   } else {
-    return events.mouseIE(el, cb);
+    return events.mouseIE(sfx, el, cb);
   }
 };
 

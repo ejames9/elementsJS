@@ -100,21 +100,23 @@ var offIE = function offIE(event, el, callback) {
 
 var once = function once(event, el, callback) {
   //DONE:60 Finish once function.
+  var cb = callback;
   //DONE:80 Test once function.
-  var callBack = function callBack() {
-    callback();
+  var callBack = function callBack(e) {
+    cb(e);
     el.removeEventListener(event, callBack);
   };
 
   el = utils.queryDOM(el);
-  (0, _logger.log)(el, 'red');
+
   return el.addEventListener(event, callBack);
 };
 
 var onceIE = function onceIE(event, el, callback) {
+  var cb = callback;
   //DONE:90 Test onceIE function.
-  var callBack = function callBack() {
-    callback();
+  var callBack = function callBack(e) {
+    cb(e);
     el.detachEvent('on' + event, callBack);
   };
 
@@ -475,8 +477,8 @@ function mouse(sufx, el) {
     el.addEventListener('mouse' + sufx, cb);
   }
 }
-function mouseIE(el) {
-  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+function mouseIE(sufx, el) {
+  var cb = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
 
   if (cb === null) {
