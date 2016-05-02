@@ -283,50 +283,42 @@ function mouseOverController() {
                 elem6.second().class('hide', '-');
                 break;
             case e.target === el('#httpList') || e.target.parentNode === el('#httpList'):
-                // dom('[name=hidden]')
-                //           .every((element)=> {
-                //              element
-                //                 .class('hide', '+')
-                //           });
+                dom('[class~=shorts]').every(function (element) {
+                    element.class('hide', '+');
+                });
                 var elem7 = _$('#httpList') ? dom('#httpList') : make('#httpList').put("body");
                 elem7.second().class('hide', '-');
                 break;
             case e.target === el('#loggList') || e.target.parentNode === el('#loggList'):
-                // dom('[name=hidden]')
-                //          .every((element)=> {
-                //             element
-                //                 .class('hide', '+')
-                //               });
+                dom('[class~=shorts]').every(function (element) {
+                    element.class('hide', '+');
+                });
                 var elem8 = _$('#loggList') ? dom('#loggList') : make('#loggList').put("body");
                 elem8.second().class('hide', '-');
                 break;
             case e.target === el('#utilsList') || e.target.parentNode === el('#utilsList'):
-                // dom('[name=hidden]')
-                //          .every((element)=> {
-                //             element
-                //                 .class('hide', '+')
-                //          });
+                dom('[name=hidden]').every(function (element) {
+                    element.class('hide', '+');
+                });
                 var elem9 = _$('#utilsList') ? dom('#utilsList') : make('#utilsList').put("body");
                 elem9.second().class('hide', '-');
                 break;
             case e.target === el('#elemObjList') || e.target.parentNode === el('#elemObjList'):
-                // dom('[name=hidden]')
-                //          .every((element)=> {
-                //             element
-                //                 .class('hide', '+')
-                //          });
+                dom('[class~=shorts]').every(function (element) {
+                    element.class('hide', '+');
+                });
                 var elem10 = _$('#elemObjList') ? dom('#elemObjList') : make('#elemObjList').put("body");
                 elem10.second().class('hide', '-');
                 break;
             case e.target === el('#eOMethodsList') || e.target.parentNode === el('#eOMethodsList'):
-                dom('[name=hidden]').every(function (element) {
+                dom('[class~=shorts]').every(function (element) {
                     element.class('hide', '+');
                 });
                 var elem11 = _$('#eOMethodsList') ? dom('#eOMethodsList') : make('#eOMethodsList').put("body");
                 elem11.second().class('hide', '-');
                 break;
             case e.target === el('#eStaxList') || e.target.parentNode === el('#eStaxList'):
-                dom('[name=hidden]').every(function (element) {
+                dom('[class~=shorts]').every(function (element) {
                     element.class('hide', '+');
                 });
                 var elem12 = _$('#eStaxList') ? dom('#eStaxList') : make('#eStaxList').put("body");

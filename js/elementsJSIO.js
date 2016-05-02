@@ -334,61 +334,61 @@ function mouseOverController() {
                           .class('hide', '-');
           break;
       case (e.target === el('#httpList') || e.target.parentNode === el('#httpList')):
-          // dom('[name=hidden]')
-          //           .every((element)=> {
-          //              element
-          //                 .class('hide', '+')
-          //           });
+          dom('[class~=shorts]')
+               .every((element)=> {
+                  element
+                      .class('hide', '+')
+               });
           <'#httpList'/>
                     .second()
                           .class('hide', '-');
           break;
       case (e.target === el('#loggList') || e.target.parentNode === el('#loggList')):
-          // dom('[name=hidden]')
-          //          .every((element)=> {
-          //             element
-          //                 .class('hide', '+')
-          //               });
+          dom('[class~=shorts]')
+               .every((element)=> {
+                  element
+                      .class('hide', '+')
+               });
           <'#loggList'/>
                     .second()
                           .class('hide', '-');
           break;
       case (e.target === el('#utilsList') || e.target.parentNode === el('#utilsList')):
-          // dom('[name=hidden]')
-          //          .every((element)=> {
-          //             element
-          //                 .class('hide', '+')
-          //          });
+          dom('[name=hidden]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
           <'#utilsList'/>
                    .second()
                           .class('hide', '-');
           break;
       case (e.target === el('#elemObjList') || e.target.parentNode === el('#elemObjList')):
-          // dom('[name=hidden]')
-          //          .every((element)=> {
-          //             element
-          //                 .class('hide', '+')
-          //          });
+          dom('[class~=shorts]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
           <'#elemObjList'/>
                    .second()
                           .class('hide', '-');
           break;
       case (e.target === el('#eOMethodsList') || e.target.parentNode === el('#eOMethodsList')):
-          dom('[name=hidden]')
-                   .every((element)=> {
-                      element
-                          .class('hide', '+')
-                   });
+          dom('[class~=shorts]')
+               .every((element)=> {
+                  element
+                      .class('hide', '+')
+               });
           <'#eOMethodsList'/>
                    .second()
                           .class('hide', '-');
           break;
       case (e.target === el('#eStaxList') || e.target.parentNode === el('#eStaxList')):
-          dom('[name=hidden]')
-                   .every((element)=> {
-                      element
-                          .class('hide', '+')
-                   });
+          dom('[class~=shorts]')
+               .every((element)=> {
+                  element
+                      .class('hide', '+')
+               });
           <'#eStaxList'/>
                    .second()
                           .class('hide', '-');
