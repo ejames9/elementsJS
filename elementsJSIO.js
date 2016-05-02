@@ -109,251 +109,354 @@
 
 	//Necessary code to add deep links to documentation.
 	function addChainLinkIcons() {
-	  console.log(dom('#docsMain h1, #docsMain h2'));
-	  //Add link icons to all page links in documentation.
-	  dom('h1 a, h2 a').every(function (element) {
-	    element.html('<i id="faLink" class="fa fa-link"></i>', '+').href('#' + element.id()).mouse('over', function () {
-	      element.last().viz('visible');
-	    }).mouse('out', function () {
-	      element.last().viz('hidden');
+	    console.log(dom('#docsMain h1, #docsMain h2'));
+	    //Add link icons to all page links in documentation.
+	    dom('h1 a, h2 a').every(function (element) {
+	        element.html('<i id="faLink" class="fa fa-link"></i>', '+').href('#' + element.id()).mouse('over', function () {
+	            element.last().viz('visible');
+	        }).mouse('out', function () {
+	            element.last().viz('hidden');
+	        });
 	    });
-	  });
-
-	  var elem0 = _$('.fa-link') ? dom('.fa-link') : make('.fa-link').put("body");
-	  elem0.every(function (element) {
-	    element.viz('hidden').color('#52218A').turn(90);
-	  });
-	  return;
-	};
+	    //Make adustments to fa-link icons.
+	    var elem0 = _$('.fa-link') ? dom('.fa-link') : make('.fa-link').put("body");
+	    elem0.every(function (element) {
+	        element.viz('hidden').color('#52218A').turn(90);
+	    });
+	    return;
+	}
 
 	//Custom fork me ribbon.
 	function forkMeBaby() {
-
-	  __("\n    <a id='fmLink'>\n      <div id='forkMe'>\n        <p>Fork Me on GitHub!</p>\n      </div>\n    </a>\n\n  ", '.jumbotron');
-
-	  var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
-	  elem1.fore('#logo').href('https://github.com/ejames9/elementsJS');
-
-	  return;
+	    //Add forkme ribbon html.
+	    __("\n    <a id='fmLink'>\n      <div id='forkMe'>\n        <p>Fork Me on GitHub!</p>\n      </div>\n    </a>\n\n  ", '.jumbotron');
+	    //Make adjustments to #fmLink.
+	    var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
+	    elem1.fore('#logo').href('https://github.com/ejames9/elementsJS');
+	    return;
 	}
 
 	//This function highlights all of the  blocks in the docs, after the insertDocs function is completed.
 	function highLightCode() {
-	  console.log(dom('pre code'));
-	  //Get access to all blocks......
-	  dom('pre code').every(function (element) {
-	    //highlight blocks.
-	    hljs.highlightBlock(element.el);
-	  });
-	  return;
+	    console.log(dom('pre code'));
+	    //Get access to all blocks......
+	    dom('pre code').every(function (element) {
+	        //highlight blocks.
+	        hljs.highlightBlock(element.el);
+	    });
+	    return;
 	}
 
 	//Documentation page change function
 	function insertDocs(cb) {
-	  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
-	  ajax(url(rawGit, docsMenu), null, function (r) {
-	    var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
-	    elem2.html(r);
-	    var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-	    elem3.html(marked(markDown));
-
-	    cb();
-	  });
+	    //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
+	    ajax(url(rawGit, docsMenu), null, function (r) {
+	        var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
+	        elem2.html(r);
+	        var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+	        elem3.html(marked(markDown));
+	        //Call callback functions.
+	        cb();
+	    });
 	}
 
 	//After page loads, load elementsJSIODocs.md into a variable.
 	function getMarkDown() {
-	  var addy = url(rawGit, mdUrl);
-	  var xhr = new XMLHttpRequest();
-	  xhr.onloadend = function () {
-	    if (xhr.status === 200) {
-	      var r = this.responseText;
+	    var addy = url(rawGit, mdUrl);
+	    var xhr = new XMLHttpRequest();
+	    xhr.onloadend = function () {
+	        if (xhr.status === 200) {
+	            var r = this.responseText;
 
-	      markDown = r;
-	    }
-	  };
-	  xhr.open('GET', addy);
-	  xhr.send();
+	            markDown = r;
+	        }
+	    };
+	    xhr.open('GET', addy);
+	    xhr.send();
 	}
 
 	//Function for toggling npm/bower install info panel.
 	function toggleNPMBar() {
-	  var npmBar = document.getElementById('npm-bar');
+	    var npmBar = document.getElementById('npm-bar');
 
-	  if (npmBar.style.display === 'none') {
-	    npmBar.style.display = 'block';
-	  } else {
-	    npmBar.style.display = 'none';
-	  }
-	}
-
-	function iDCallback() {
-	  forkMeBaby();
-	  highLightCode();
-	  addChainLinkIcons();
-	  mouseEventController();
-	  SNC.sideNavController();
-
-	  dom('#sideNav li a').every(function (element) {
-	    element.class('sNavLink', '+');
-	  });
-	  // for (var el in offSets) {
-	  //   log('id: ' + el, 'red');
-	  //   log('offSet: ' + offSets[el], ['red', 'blue'])
-	  // }
-	}
-
-	function mouseEventController() {
-	  //Mouse hover event Delegation ======================>>
-	  var html = el('html');
-
-	  mouse('over', html, function (e) {
-	    console.log(e.target);
-
-	    switch (e.target) {
-	      case el('#getStart'):
-	        dom('[name=hidden]').every(function (element) {
-	          element.class('hide', '+');
-	        });
-	        var elem4 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-	        elem4.once('mouseout', function (e, element) {
-	          element.sib('next').class('hide', '+');
-	        }).sib('next').class('hide', '-');
-	        break;
-	      case el('#domManip'):
-	        dom('[name=hidden]').every(function (element) {
-	          element.class('hide', '+');
-	        });
-	        var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
-	        elem5.sib('next').class('hide', '-');
-	        break;
-	      case el('#eventHand'):
-	        dom('[name=hidden]').every(function (element) {
-	          element.class('hide', '+');
-	        });
-	        var elem6 = _$('#eventHand') ? dom('#eventHand') : make('#eventHand').put("body");
-	        elem6.sib('next').class('hide', '-');
-	        break;
-	      case el('#httpReq'):
-	        dom('[name=hidden]').every(function (element) {
-	          element.class('hide', '+');
-	        });
-	        var elem7 = _$('#httpReq') ? dom('#httpReq') : make('#httpReq').put("body");
-	        elem7.sib('next').class('hide', '-');
-	        break;
-	      case el('#logg'):
-	        dom('[name=hidden]').every(function (element) {
-	          element.class('hide', '+');
-	        });
-	        var elem8 = _$('#logg') ? dom('#logg') : make('#logg').put("body");
-	        elem8.sib('next').class('hide', '-');
-	        break;
-	      case el('#utilFunc'):
-	        dom('[name=hidden]').every(function (element) {
-	          element.class('hide', '+');
-	        });
-	        var elem9 = _$('#utilFunc') ? dom('#utilFunc') : make('#utilFunc').put("body");
-	        elem9.sib('next').class('hide', '-');
-	        break;
-	      case el('#elemObj'):
-	        dom('[name=hidden]').every(function (element) {
-	          element.class('hide', '+');
-	        });
-	        var elem10 = _$('#elemObj') ? dom('#elemObj') : make('#elemObj').put("body");
-	        elem10.sib('next').class('hide', '-');
-	        break;
-	      case el('#elemObjMethods'):
-	        dom('[name=hidden]').every(function (element) {
-	          element.class('hide', '+');
-	        });
-	        var elem11 = _$('#elemObjMethods') ? dom('#elemObjMethods') : make('#elemObjMethods').put("body");
-	        elem11.sib('next').class('hide', '-');
-	        break;
-	      case el('#elemsSyntax'):
-	        dom('[name=hidden]').every(function (element) {
-	          element.class('hide', '+');
-	        });
-	        var elem12 = _$('#elemsSyntax') ? dom('#elemsSyntax') : make('#elemsSyntax').put("body");
-	        elem12.sib('next').class('hide', '-');
-	        break;
+	    if (npmBar.style.display === 'none') {
+	        npmBar.style.display = 'block';
+	    } else {
+	        npmBar.style.display = 'none';
 	    }
-	  });
+	}
+
+	//A collection of callback functions to be called once documentation is inserted into its' place.
+	function iDCallback() {
+	    forkMeBaby();
+	    highLightCode();
+	    addChainLinkIcons();
+	    mouseOutController();
+	    mouseOverController();
+	    SNC.sideNavController();
+
+	    dom('#sideNav li a').every(function (element) {
+	        element.class('sNavLink', '+');
+	    });
+	}
+
+	//Boolean function returns true if given function has given ancestor, and false otherwise. Checks 6 parents deep.
+	function hasAncestor(l, ance) {
+	    var tick,
+	        ancestor = el(ance),
+	        ancestors = [];
+
+	    ancestors.push(l.parentNode);
+	    ancestors.push(ancestors[0].parentNode);
+	    ancestors.push(ancestors[1].parentNode);
+	    ancestors.push(ancestors[2].parentNode);
+	    ancestors.push(ancestors[3].parentNode);
+	    // ancestors.push(ancestors[4].parentNode);
+
+	    // console.log(ancestors);
+	    tick = 0;
+
+	    for (var i = 0; i < ancestors.length; i++) {
+	        if (ancestors[i] === ancestor) tick++;
+	    }
+	    if (tick > 0) return true;else return false;
+	}
+
+	//Function for controlling when the #sideNav doc menu collapses.
+	function mouseOutController() {
+	    //Mouse out event delegation =======================>>
+	    var html = el('html');
+
+	    var stateOne = function stateOne(elem) {
+	        dom('[class~=hot]').class('hot', '-');
+
+	        dom('[name=hidden]').every(function (element) {
+	            element.class('hide');
+	        });
+	        dom(elem).class('hot').sib('next').class('hide', '-');
+	    };
+
+	    var stateTwo = function stateTwo(elem) {
+	        dom('[class~=hot]').class('hot', '-');
+
+	        dom('[name=hidden]').every(function (element) {
+	            element.class('hide');
+	        });
+	        dom(elem).class('hot').ma().class('hide', '-');
+	    };
+
+	    var stateThree = function stateThree(elem) {
+	        dom('[class~=hot]').class('hot', '-');
+	        dom('[name=hidden]').every(function (element) {
+	            element.class('hide');
+	        });
+	        dom(elem).class('hot').ma().class('hide', '-');
+	    };
+
+	    var stateFour = function stateFour(elem) {
+	        dom('[class~=hot]').class('hot', '-');
+	        dom('[name=hidden]').every(function (element) {
+	            element.class('hide');
+	        });
+	        dom(elem).class('hot');
+	    };
+
+	    var stateFive = function stateFive(elem) {
+	        dom('[class~=hot]').class('hot', '-');
+	        dom('[name=hidden]').every(function (element) {
+	            element.class('hide');
+	        });
+	        dom(elem).class('hot').sib('next').class('hide', '+');
+	    };
+
+	    mouse('out', html, function (e) {
+	        if (hasAncestor(e.target, '#sideNav')) {
+	            return;
+	        } else {
+	            switch (sideNavState[0]) {
+	                case 1:
+	                    stateOne(sideNavState[1]);
+	                    break;
+	                case 2:
+	                    stateTwo(sideNavState[1]);
+	                    break;
+	                case 3:
+	                    stateThree(sideNavState[1]);
+	                    break;
+	                case 4:
+	                    stateFour(sideNavState[1]);
+	                    break;
+	                case 5:
+	                    stateFive(sideNavState[1]);
+	                    break;
+	                default:
+	                    break;
+	            }
+	        }
+	    });
+	}
+
+	//Function for controlling the expanding (on hover) of #sideNav menu lists.
+	function mouseOverController() {
+	    //Mouse over event Delegation ======================>>
+	    var html = el('html');
+
+	    mouse('over', html, function (e) {
+	        // console.log(e);
+	        // console.log(e.target);
+	        // console.log(e.relatedTarget);
+
+	        switch (9 + 9 === 18) {
+	            case e.target === el('#gsList') || e.target.parentNode === el('#gsList'):
+	                dom('[name=hidden]').every(function (element) {
+	                    element.class('hide', '+');
+	                });
+	                var elem4 = _$('#gsList') ? dom('#gsList') : make('#gsList').put("body");
+	                elem4.second().class('hide', '-');
+	                break;
+	            case e.target === el('#domList') || e.target.parentNode === el('#domList'):
+	                dom('[name=hidden]').every(function (element) {
+	                    element.class('hide', '+');
+	                });
+	                var elem5 = _$('#domList') ? dom('#domList') : make('#domList').put("body");
+	                elem5.second().class('hide', '-');
+	                break;
+	            case e.target === el('#eventList') || e.target.parentNode === el('#eventList'):
+	                dom('[name=hidden]').every(function (element) {
+	                    element.class('hide', '+');
+	                });
+	                var elem6 = _$('#eventList') ? dom('#eventList') : make('#eventList').put("body");
+	                elem6.second().class('hide', '-');
+	                break;
+	            case e.target === el('#httpList') || e.target.parentNode === el('#httpList'):
+	                // dom('[name=hidden]')
+	                //           .every((element)=> {
+	                //              element
+	                //                 .class('hide', '+')
+	                //           });
+	                var elem7 = _$('#httpList') ? dom('#httpList') : make('#httpList').put("body");
+	                elem7.second().class('hide', '-');
+	                break;
+	            case e.target === el('#loggList') || e.target.parentNode === el('#loggList'):
+	                // dom('[name=hidden]')
+	                //          .every((element)=> {
+	                //             element
+	                //                 .class('hide', '+')
+	                //               });
+	                var elem8 = _$('#loggList') ? dom('#loggList') : make('#loggList').put("body");
+	                elem8.second().class('hide', '-');
+	                break;
+	            case e.target === el('#utilsList') || e.target.parentNode === el('#utilsList'):
+	                // dom('[name=hidden]')
+	                //          .every((element)=> {
+	                //             element
+	                //                 .class('hide', '+')
+	                //          });
+	                var elem9 = _$('#utilsList') ? dom('#utilsList') : make('#utilsList').put("body");
+	                elem9.second().class('hide', '-');
+	                break;
+	            case e.target === el('#elemObjList') || e.target.parentNode === el('#elemObjList'):
+	                // dom('[name=hidden]')
+	                //          .every((element)=> {
+	                //             element
+	                //                 .class('hide', '+')
+	                //          });
+	                var elem10 = _$('#elemObjList') ? dom('#elemObjList') : make('#elemObjList').put("body");
+	                elem10.second().class('hide', '-');
+	                break;
+	            case e.target === el('#eOMethodsList') || e.target.parentNode === el('#eOMethodsList'):
+	                dom('[name=hidden]').every(function (element) {
+	                    element.class('hide', '+');
+	                });
+	                var elem11 = _$('#eOMethodsList') ? dom('#eOMethodsList') : make('#eOMethodsList').put("body");
+	                elem11.second().class('hide', '-');
+	                break;
+	            case e.target === el('#eStaxList') || e.target.parentNode === el('#eStaxList'):
+	                dom('[name=hidden]').every(function (element) {
+	                    element.class('hide', '+');
+	                });
+	                var elem12 = _$('#eStaxList') ? dom('#eStaxList') : make('#eStaxList').put("body");
+	                elem12.second().class('hide', '-');
+	                break;
+
+	        };
+	    });
 	}
 
 	function clickController() {
-	  //Click Event Delegation ============================>>
-	  var _re = /sNavLink/,
-	      html = el('html'),
-	      hash,
-	      hashSS;
+	    //Click Event Delegation ============================>>
+	    var _re = /sNavLink/,
+	        html = el('html'),
+	        hash,
+	        hashSS;
 
-	  click(html, function (e) {
-	    switch (3 + 6 === 9) {
-	      case e.target === el('#install-info'):
-	        toggleNPMBar();
-	        break;
-	      case e.target === el('#api-butn'):
-	        insertDocs(iDCallback);
-	        break;
-	      case e.target.tagName === 'I':
-	        e.preventDefault();
+	    click(html, function (e) {
+	        switch (3 + 6 === 9) {
+	            case e.target === el('#install-info'):
+	                toggleNPMBar();
+	                break;
+	            case e.target === el('#api-butn'):
+	                insertDocs(iDCallback);
+	                break;
+	            case e.target.tagName === 'I':
+	                e.preventDefault();
 
-	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
-	        hashSS = hash.substring(1, hash.length);
+	                offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
+	                hashSS = hash.substring(1, hash.length);
 
-	        var elem13 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem13.scrolled(offSets[hashSS] + 291);
-	        break;
-	      case e.target.tagName === 'CODE':
-	        e.preventDefault();
+	                var elem13 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	                elem13.scrolled(offSets[hashSS] + 291);
+	                break;
+	            case e.target.tagName === 'CODE':
+	                e.preventDefault();
 
-	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
-	        hashSS = hash.substring(1, hash.length);
+	                offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
+	                hashSS = hash.substring(1, hash.length);
 
-	        var elem14 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem14.scrolled(offSets[hashSS] + 291);
-	        break;
-	      case e.target.tagName === 'A':
-	        log(e.target.tagName, 'red');
-	        e.preventDefault();
+	                var elem14 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	                elem14.scrolled(offSets[hashSS] + 291);
+	                break;
+	            case e.target.tagName === 'A':
+	                log(e.target.tagName, 'red');
+	                e.preventDefault();
 
-	        offSets = SNC.getOffSets();
-	        hash = String(dom('#' + e.target.id).hash());
-	        hashSS = hash.substring(1, hash.length);
+	                offSets = SNC.getOffSets();
+	                hash = String(dom('#' + e.target.id).hash());
+	                hashSS = hash.substring(1, hash.length);
 
-	        warn(hashSS);
-	        warn(offSets[hashSS]);
+	                warn(hashSS);
+	                warn(offSets[hashSS]);
 
-	        var elem15 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem15.scrolled(offSets[hashSS] + 291);
-	        break;
-	      default:
-	        var npmBar = el('#npm-bar');
-	        if (npmBar !== null) {
-	          if (npmBar.style.display !== 'none') {
-	            npmBar.style.display = 'none';
-	          }
+	                var elem15 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	                elem15.scrolled(offSets[hashSS] + 291);
+	                break;
+	            default:
+	                var npmBar = el('#npm-bar');
+	                if (npmBar !== null) {
+	                    if (npmBar.style.display !== 'none') {
+	                        npmBar.style.display = 'none';
+	                    }
+	                }
 	        }
-	    }
-	  });
+	    });
 	}
 
 	//Initialization code to be run after DOM content is loaded.
 	go(function () {
-	  //initialize ace code editor
-	  var editor1 = ace.edit("editor1");
-	  editor1.setTheme("ace/theme/elementsJSIO");
-	  editor1.renderer.setShowGutter(false);
-	  editor1.getSession().setMode("ace/mode/javascript");
-	  //Set default display setting for the bower/npm installation bar.
-	  var elem16 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-	  elem16.display('none');
-	  //Initialize the click controller.
-	  clickController();
-	  //Download the documentation markdown.
-	  getMarkDown();
-	  //Create/install custom fork me ribbon.
-	  forkMeBaby();
+	    //initialize ace code editor
+	    var editor1 = ace.edit("editor1");
+	    editor1.setTheme("ace/theme/elementsJSIO");
+	    editor1.renderer.setShowGutter(false);
+	    editor1.getSession().setMode("ace/mode/javascript");
+	    //Set default display setting for the bower/npm installation bar.
+	    var elem16 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+	    elem16.display('none');
+	    //Initialize the click controller.
+	    clickController();
+	    //Download the documentation markdown.
+	    getMarkDown();
+	    //Create/install custom fork me ribbon.
+	    forkMeBaby();
 	});
 
 /***/ },
@@ -377,6 +480,8 @@
 	Author: Eric James Foster
 	License: MIT
 	*/
+
+	window.sideNavState = [];
 
 	function getOffSets() {
 
@@ -473,6 +578,8 @@
 	                        //Activate Getting Started list item.
 	                        var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
 	                        elem0.class('hot').sib('next').class('hide', '+');
+
+	                        sideNavState = [5, '#getStart'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['Usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff:
 	                        // log('YES', ['red', 'blue'] + diff);
@@ -485,11 +592,15 @@
 	                        //Activate Installation list item. Open parent list by removing .hide class.
 	                        var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
 	                        elem1.class('hot').ma().class('hide', '-');
+
+	                        sideNavState = [2, '#instLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
 	                        elem2.class('hot');
+
+	                        sideNavState = [3, '#useLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -498,6 +609,8 @@
 	                        });
 	                        var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
 	                        elem3.class('hot').ma().class('hide', '-');
+
+	                        sideNavState = [2, '#interpInstallLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -506,6 +619,8 @@
 	                        });
 	                        var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
 	                        elem4.class('hot');
+
+	                        sideNavState = [4, '#imps'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -514,56 +629,78 @@
 	                        });
 	                        var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
 	                        elem5.class('hot').sib('next').class('hide', '-');
+
+	                        sideNavState = [1, '#domManip'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['el-func'] + diff && dom('html').scrolled() < offSets['dom-func'] + diff || dom('body').scrolled() > offSets['el-func'] + diff && dom('body').scrolled() < offSets['dom-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem6 = _$('#elLink') ? dom('#elLink') : make('#elLink').put("body");
 	                        elem6.class('hot');
+
+	                        sideNavState = [3, '#elLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['dom-func'] + diff && dom('html').scrolled() < offSets['__-func'] + diff || dom('body').scrolled() > offSets['dom-func'] + diff && dom('body').scrolled() < offSets['__-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem7 = _$('#domLink') ? dom('#domLink') : make('#domLink').put("body");
 	                        elem7.class('hot');
+
+	                        sideNavState = [3, '#domLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['__-func'] + diff && dom('html').scrolled() < offSets['make-func'] + diff || dom('body').scrolled() > offSets['__-func'] + diff && dom('body').scrolled() < offSets['make-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem8 = _$('#__Link') ? dom('#__Link') : make('#__Link').put("body");
 	                        elem8.class('hot');
+
+	                        sideNavState = [3, '#domLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['make-func'] + diff && dom('html').scrolled() < offSets['put-func'] + diff || dom('body').scrolled() > offSets['make-func'] + diff && dom('body').scrolled() < offSets['put-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem9 = _$('#makeLink') ? dom('#makeLink') : make('#makeLink').put("body");
 	                        elem9.class('hot');
+
+	                        sideNavState = [3, '#makeLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['put-func'] + diff && dom('html').scrolled() < offSets['x-func'] + diff || dom('body').scrolled() > offSets['put-func'] + diff && dom('body').scrolled() < offSets['x-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem10 = _$('#putLink') ? dom('#putLink') : make('#putLink').put("body");
 	                        elem10.class('hot');
+
+	                        sideNavState = [3, '#putLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['x-func'] + diff && dom('html').scrolled() < offSets['fore-func'] + diff || dom('body').scrolled() > offSets['x-func'] + diff && dom('body').scrolled() < offSets['fore-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem11 = _$('#xLink') ? dom('#xLink') : make('#xLink').put("body");
 	                        elem11.class('hot');
+
+	                        sideNavState = [3, '#xLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['fore-func'] + diff && dom('html').scrolled() < offSets['aft-func'] + diff || dom('body').scrolled() > offSets['fore-func'] + diff && dom('body').scrolled() < offSets['aft-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem12 = _$('#foreLink') ? dom('#foreLink') : make('#foreLink').put("body");
 	                        elem12.class('hot');
+
+	                        sideNavState = [3, '#foreLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['aft-func'] + diff && dom('html').scrolled() < offSets['show-func'] + diff || dom('body').scrolled() > offSets['aft-func'] + diff && dom('body').scrolled() < offSets['show-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem13 = _$('#aftLink') ? dom('#aftLink') : make('#aftLink').put("body");
 	                        elem13.class('hot');
+
+	                        sideNavState = [3, '#aftLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['show-func'] + diff && dom('html').scrolled() < offSets['hide-func'] + diff || dom('body').scrolled() > offSets['show-func'] + diff && dom('body').scrolled() < offSets['hide-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem14 = _$('#showLink') ? dom('#showLink') : make('#showLink').put("body");
 	                        elem14.class('hot');
+
+	                        sideNavState = [3, '#showLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['hide-func'] + diff && dom('html').scrolled() < offSets['size-func'] + diff || dom('body').scrolled() > offSets['hide-func'] + diff && dom('body').scrolled() < offSets['size-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem15 = _$('#hydeLink') ? dom('#hydeLink') : make('#hydeLink').put("body");
 	                        elem15.class('hot');
+
+	                        sideNavState = [3, '#hydeLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff || dom('body').scrolled() > offSets['size-func'] + diff && dom('body').scrolled() < offSets['event-handle'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -572,6 +709,8 @@
 	                        });
 	                        var elem16 = _$('#sizeLink') ? dom('#sizeLink') : make('#sizeLink').put("body");
 	                        elem16.class('hot').ma().class('hide', '-');
+
+	                        sideNavState = [2, '#sizeLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['event-handle'] + diff && dom('html').scrolled() < offSets['go-func'] + diff || dom('body').scrolled() > offSets['event-handle'] + diff && dom('body').scrolled() < offSets['go-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -580,101 +719,141 @@
 	                        });
 	                        var elem17 = _$('#eventHand') ? dom('#eventHand') : make('#eventHand').put("body");
 	                        elem17.class('hot').sib('next').class('hide', '-');
+
+	                        sideNavState = [1, '#eventHand'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['go-func'] + diff && dom('html').scrolled() < offSets['on-func'] + diff || dom('body').scrolled() > offSets['go-func'] + diff && dom('body').scrolled() < offSets['on-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem18 = _$('#goLink') ? dom('#goLink') : make('#goLink').put("body");
 	                        elem18.class('hot');
+
+	                        sideNavState = [3, '#goLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['on-func'] + diff && dom('html').scrolled() < offSets['off-func'] + diff || dom('body').scrolled() > offSets['on-func'] + diff && dom('body').scrolled() < offSets['off-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem19 = _$('#onLink') ? dom('#onLink') : make('#onLink').put("body");
 	                        elem19.class('hot');
+
+	                        sideNavState = [3, '#onLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['off-func'] + diff && dom('html').scrolled() < offSets['once-func'] + diff || dom('body').scrolled() > offSets['off-func'] + diff && dom('body').scrolled() < offSets['once-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem20 = _$('#offLink') ? dom('#offLink') : make('#offLink').put("body");
 	                        elem20.class('hot');
+
+	                        sideNavState = [3, '#offLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['once-func'] + diff && dom('html').scrolled() < offSets['spark-func'] + diff || dom('body').scrolled() > offSets['once-func'] + diff && dom('body').scrolled() < offSets['spark-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem21 = _$('#onceLink') ? dom('#onceLink') : make('#onceLink').put("body");
 	                        elem21.class('hot');
+
+	                        sideNavState = [3, '#onceLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['spark-func'] + diff && dom('html').scrolled() < offSets['click-func'] + diff || dom('body').scrolled() > offSets['spark-func'] + diff && dom('body').scrolled() < offSets['click-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem22 = _$('#sparkLink') ? dom('#sparkLink') : make('#sparkLink').put("body");
 	                        elem22.class('hot');
+
+	                        sideNavState = [3, '#sparkLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['click-func'] + diff && dom('html').scrolled() < offSets['dblClick-func'] + diff || dom('body').scrolled() > offSets['click-func'] + diff && dom('body').scrolled() < offSets['dblClick-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem23 = _$('#clickLink') ? dom('#clickLink') : make('#clickLink').put("body");
 	                        elem23.class('hot');
+
+	                        sideNavState = [3, '#clickLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['dblClick-func'] + diff && dom('html').scrolled() < offSets['blur-func'] + diff || dom('body').scrolled() > offSets['dblClick-func'] + diff && dom('body').scrolled() < offSets['blur-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem24 = _$('#dblLink') ? dom('#dblLink') : make('#dblLink').put("body");
 	                        elem24.class('hot');
+
+	                        sideNavState = [3, '#dblLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['blur-func'] + diff && dom('html').scrolled() < offSets['error-func'] + diff || dom('body').scrolled() > offSets['blur-func'] + diff && dom('body').scrolled() < offSets['error-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem25 = _$('#blurLink') ? dom('#blurLink') : make('#blurLink').put("body");
 	                        elem25.class('hot');
+
+	                        sideNavState = [3, '#blurLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['error-func'] + diff && dom('html').scrolled() < offSets['focus-func'] + diff || dom('body').scrolled() > offSets['error-func'] + diff && dom('body').scrolled() < offSets['focus-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem26 = _$('#errorLink') ? dom('#errorLink') : make('#errorLink').put("body");
 	                        elem26.class('hot');
+
+	                        sideNavState = [3, '#errorLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['focus-func'] + diff && dom('html').scrolled() < offSets['focusIn-func'] + diff || dom('body').scrolled() > offSets['focus-func'] + diff && dom('body').scrolled() < offSets['focusIn-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem27 = _$('#focusLink') ? dom('#focusLink') : make('#focusLink').put("body");
 	                        elem27.class('hot');
+
+	                        sideNavState = [3, '#focusLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['focusIn-func'] + diff && dom('html').scrolled() < offSets['focusOut-func'] + diff || dom('body').scrolled() > offSets['focusIn-func'] + diff && dom('body').scrolled() < offSets['focusOut-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem28 = _$('#focusInLink') ? dom('#focusInLink') : make('#focusInLink').put("body");
 	                        elem28.class('hot');
+
+	                        sideNavState = [3, '#focusInLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['focusOut-func'] + diff && dom('html').scrolled() < offSets['keyUp-func'] + diff || dom('body').scrolled() > offSets['focusOut-func'] + diff && dom('body').scrolled() < offSets['keyUp-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem29 = _$('#focusOutLink') ? dom('#focusOutLink') : make('#focusOutLink').put("body");
 	                        elem29.class('hot');
+
+	                        sideNavState = [3, '#focusOutLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['keyUp-func'] + diff && dom('html').scrolled() < offSets['keyDown-func'] + diff || dom('body').scrolled() > offSets['keyUp-func'] + diff && dom('body').scrolled() < offSets['keyDown-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem30 = _$('#keyUpLink') ? dom('#keyUpLink') : make('#keyUpLink').put("body");
 	                        elem30.class('hot');
+
+	                        sideNavState = [3, '#keyUpLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['keyDown-func'] + diff && dom('html').scrolled() < offSets['load-func'] + diff || dom('body').scrolled() > offSets['keyDown-func'] + diff && dom('body').scrolled() < offSets['load-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem31 = _$('#keyDownLink') ? dom('#keyDownLink') : make('#keyDownLink').put("body");
 	                        elem31.class('hot');
+
+	                        sideNavState = [3, '#keyDownLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['load-func'] + diff && dom('html').scrolled() < offSets['unLoad-func'] + diff || dom('body').scrolled() > offSets['load-func'] + diff && dom('body').scrolled() < offSets['unLoad-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem32 = _$('#loadLink') ? dom('#loadLink') : make('#loadLink').put("body");
 	                        elem32.class('hot');
+
+	                        sideNavState = [3, '#loadLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['unLoad-func'] + diff && dom('html').scrolled() < offSets['mouse-func'] + diff || dom('body').scrolled() > offSets['unLoad-func'] + diff && dom('body').scrolled() < offSets['mouse-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem33 = _$('#unLoadLink') ? dom('#unLoadLink') : make('#unLoadLink').put("body");
 	                        elem33.class('hot');
+
+	                        sideNavState = [3, '#unLoadLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['mouse-func'] + diff && dom('html').scrolled() < offSets['resize-func'] + diff || dom('body').scrolled() > offSets['mouse-func'] + diff && dom('body').scrolled() < offSets['resize-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem34 = _$('#mouseLink') ? dom('#mouseLink') : make('#mouseLink').put("body");
 	                        elem34.class('hot');
+
+	                        sideNavState = [3, '#mouseLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['resize-func'] + diff && dom('html').scrolled() < offSets['scroll-func'] + diff || dom('body').scrolled() > offSets['resize-func'] + diff && dom('body').scrolled() < offSets['scroll-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem35 = _$('#resizeLink') ? dom('#resizeLink') : make('#resizeLink').put("body");
 	                        elem35.class('hot');
+
+	                        sideNavState = [3, '#resizeLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['scroll-func'] + diff && dom('html').scrolled() < offSets['select-func'] + diff || dom('body').scrolled() > offSets['scroll-func'] + diff && dom('body').scrolled() < offSets['select-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem36 = _$('#scrollLink') ? dom('#scrollLink') : make('#scrollLink').put("body");
 	                        elem36.class('hot');
+
+	                        sideNavState = [3, '#scrollLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['select-func'] + diff && dom('html').scrolled() < offSets['http'] + diff || dom('body').scrolled() > offSets['select-func'] + diff && dom('body').scrolled() < offSets['http'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -683,6 +862,8 @@
 	                        });
 	                        var elem37 = _$('#selectLink') ? dom('#selectLink') : make('#selectLink').put("body");
 	                        elem37.class('hot').ma().class('hide', '-');
+
+	                        sideNavState = [2, '#selectLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['http'] + diff && dom('html').scrolled() < offSets['xhr-func'] + diff || dom('body').scrolled() > offSets['http'] + diff && dom('body').scrolled() < offSets['xhr-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -692,11 +873,15 @@
 	                        });
 	                        var elem38 = _$('#httpReq') ? dom('#httpReq') : make('#httpReq').put("body");
 	                        elem38.class('hot').sib('next').class('hide', '-');
+
+	                        sideNavState = [1, '#httpReq'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['xhr-func'] + diff && dom('html').scrolled() < offSets['ajax-func'] + diff || dom('body').scrolled() > offSets['xhr-func'] + diff && dom('body').scrolled() < offSets['ajax-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem39 = _$('#xhrLink') ? dom('#xhrLink') : make('#xhrLink').put("body");
 	                        elem39.class('hot');
+
+	                        sideNavState = [3, '#xhrLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['ajax-func'] + diff && dom('html').scrolled() < offSets['loggers'] + diff || dom('body').scrolled() > offSets['ajax-func'] + diff && dom('body').scrolled() < offSets['loggers'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -706,6 +891,8 @@
 	                        });
 	                        var elem40 = _$('#ajaxLink') ? dom('#ajaxLink') : make('#ajaxLink').put("body");
 	                        elem40.class('hot').ma().class('hide', '-');
+
+	                        sideNavState = [2, '#ajaxLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['loggers'] + diff && dom('html').scrolled() < offSets['log-func'] + diff || dom('body').scrolled() > offSets['loggers'] + diff && dom('body').scrolled() < offSets['log-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -715,21 +902,29 @@
 	                        });
 	                        var elem41 = _$('#logg') ? dom('#logg') : make('#logg').put("body");
 	                        elem41.class('hot').sib('next').class('hide', '-');
+
+	                        sideNavState = [1, '#logg'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['log-func'] + diff && dom('html').scrolled() < offSets['info-func'] + diff || dom('body').scrolled() > offSets['log-func'] + diff && dom('body').scrolled() < offSets['info-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem42 = _$('#logLink') ? dom('#logLink') : make('#logLink').put("body");
 	                        elem42.class('hot');
+
+	                        sideNavState = [3, '#logLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['info-func'] + diff && dom('html').scrolled() < offSets['warn-func'] + diff || dom('body').scrolled() > offSets['info-func'] + diff && dom('body').scrolled() < offSets['warn-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem43 = _$('#infoLink') ? dom('#infoLink') : make('#infoLink').put("body");
 	                        elem43.class('hot');
+
+	                        sideNavState = [3, '#infoLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['warn-func'] + diff && dom('html').scrolled() < offSets['err-func'] + diff || dom('body').scrolled() > offSets['warn-func'] + diff && dom('body').scrolled() < offSets['err-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem44 = _$('#warnLink') ? dom('#warnLink') : make('#warnLink').put("body");
 	                        elem44.class('hot');
+
+	                        sideNavState = [3, '#warnLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['err-func'] + diff && dom('html').scrolled() < offSets['utils'] + diff || dom('body').scrolled() > offSets['err-func'] + diff && dom('body').scrolled() < offSets['utils'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -739,6 +934,8 @@
 	                        });
 	                        var elem45 = _$('#errLink') ? dom('#errLink') : make('#errLink').put("body");
 	                        elem45.class('hot').ma().class('hide', '-');
+
+	                        sideNavState = [2, '#errLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['utils'] + diff && dom('html').scrolled() < offSets['proto-func'] + diff || dom('body').scrolled() > offSets['utils'] + diff && dom('body').scrolled() < offSets['proto-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -748,11 +945,15 @@
 	                        });
 	                        var elem46 = _$('#utilFunc') ? dom('#utilFunc') : make('#utilFunc').put("body");
 	                        elem46.class('hot').sib('next').class('hide', '-');
+
+	                        sideNavState = [1, '#utilFunc'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['proto-func'] + diff && dom('html').scrolled() < offSets['shifter-func'] + diff || dom('body').scrolled() > offSets['proto-func'] + diff && dom('body').scrolled() < offSets['shifter-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem47 = _$('#protoLink') ? dom('#protoLink') : make('#protoLink').put("body");
 	                        elem47.class('hot');
+
+	                        sideNavState = [3, '#protoLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['shifter-func'] + diff && dom('html').scrolled() < offSets['elem-obj'] + diff || dom('body').scrolled() > offSets['shifter-func'] + diff && dom('body').scrolled() < offSets['elem-obj'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -762,6 +963,8 @@
 	                        });
 	                        var elem48 = _$('#shifterLink') ? dom('#shifterLink') : make('#shifterLink').put("body");
 	                        elem48.class('hot').ma().class('hide', '-');
+
+	                        sideNavState = [2, '#shifterLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elem-obj'] + diff && dom('html').scrolled() < offSets['element-const'] + diff || dom('body').scrolled() > offSets['elem-obj'] + diff && dom('body').scrolled() < offSets['element-const'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -771,16 +974,22 @@
 	                        });
 	                        var elem49 = _$('#elemObj') ? dom('#elemObj') : make('#elemObj').put("body");
 	                        elem49.class('hot').sib('next').class('hide', '-');
+
+	                        sideNavState = [1, '#elemObj'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['element-const'] + diff && dom('html').scrolled() < offSets['dom2-func'] + diff || dom('body').scrolled() > offSets['element-const'] + diff && dom('body').scrolled() < offSets['dom2-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem50 = _$('#elemConstLink') ? dom('#elemConstLink') : make('#elemConstLink').put("body");
 	                        elem50.class('hot');
+
+	                        sideNavState = [3, '#elemConstLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['dom2-func'] + diff && dom('html').scrolled() < offSets['make2-func'] + diff || dom('body').scrolled() > offSets['dom2-func'] + diff && dom('body').scrolled() < offSets['make2-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem51 = _$('#dom2Link') ? dom('#dom2Link') : make('#dom2Link').put("body");
 	                        elem51.class('hot');
+
+	                        sideNavState = [3, '#dom2Link'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['make2-func'] + diff && dom('html').scrolled() < offSets['elem-obj-methods'] + diff || dom('body').scrolled() > offSets['make2-func'] + diff && dom('body').scrolled() < offSets['elem-obj-methods'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -790,6 +999,8 @@
 	                        });
 	                        var elem52 = _$('#make2Link') ? dom('#make2Link') : make('#make2Link').put("body");
 	                        elem52.class('hot').ma().class('hide', '-');
+
+	                        sideNavState = [2, '#make2Link'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elem-obj-methods'] + diff && dom('html').scrolled() < offSets['element-font-ex'] + diff || dom('body').scrolled() > offSets['elem-obj-methods'] + diff && dom('body').scrolled() < offSets['element-font-ex'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -799,31 +1010,43 @@
 	                        });
 	                        var elem53 = _$('#elemObjMethods') ? dom('#elemObjMethods') : make('#elemObjMethods').put("body");
 	                        elem53.class('hot').sib('next').class('hide', '-');
+
+	                        sideNavState = [1, '#elemObjMethods'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['element-font-ex'] + diff && dom('html').scrolled() < offSets['style-methods'] + diff || dom('body').scrolled() > offSets['element-font-ex'] + diff && dom('body').scrolled() < offSets['style-methods'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem54 = _$('#fontExampLink') ? dom('#fontExampLink') : make('#fontExampLink').put("body");
 	                        elem54.class('hot');
+
+	                        sideNavState = [3, '#fontExampLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['style-methods'] + diff && dom('html').scrolled() < offSets['core-func'] + diff || dom('body').scrolled() > offSets['style-methods'] + diff && dom('body').scrolled() < offSets['core-func'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem55 = _$('#stylMethodsLink') ? dom('#stylMethodsLink') : make('#stylMethodsLink').put("body");
 	                        elem55.class('hot');
+
+	                        sideNavState = [3, '#stylMethodsLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['core-func'] + diff && dom('html').scrolled() < offSets['DOM-Elem-Methods'] + diff || dom('body').scrolled() > offSets['core-func'] + diff && dom('body').scrolled() < offSets['DOM-Elem-Methods'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem56 = _$('#coreLink') ? dom('#coreLink') : make('#coreLink').put("body");
 	                        elem56.class('hot');
+
+	                        sideNavState = [3, '#coreLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('html').scrolled() < offSets['event-methods'] + diff || dom('body').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('body').scrolled() < offSets['event-methods'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem57 = _$('#domMethodsLink') ? dom('#domMethodsLink') : make('#domMethodsLink').put("body");
 	                        elem57.class('hot');
+
+	                        sideNavState = [3, '#domMethodsLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['event-methods'] + diff && dom('html').scrolled() < offSets['Util-Methods'] + diff || dom('body').scrolled() > offSets['event-methods'] + diff && dom('body').scrolled() < offSets['Util-Methods'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem58 = _$('#eventMethodsLink') ? dom('#eventMethodsLink') : make('#eventMethodsLink').put("body");
 	                        elem58.class('hot');
+
+	                        sideNavState = [3, '#eventMethodsLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['Util-Methods'] + diff && dom('html').scrolled() < offSets['elements-syntax'] + diff || dom('body').scrolled() > offSets['Util-Methods'] + diff && dom('body').scrolled() < offSets['elements-syntax'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -833,6 +1056,8 @@
 	                        });
 	                        var elem59 = _$('#utilMethodsLink') ? dom('#utilMethodsLink') : make('#utilMethodsLink').put("body");
 	                        elem59.class('hot').ma().class('hide', '-');
+
+	                        sideNavState = [2, '#utilMethodsLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elements-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func1'] + diff || dom('body').scrolled() > offSets['elements-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func1'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
@@ -842,46 +1067,64 @@
 	                        });
 	                        var elem60 = _$('#elemsSyntax') ? dom('#elemsSyntax') : make('#elemsSyntax').put("body");
 	                        elem60.class('hot').sib('next').class('hide', '-');
+
+	                        sideNavState = [1, '#elemsSyntax'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elemsyntax-func1'] + diff && dom('html').scrolled() < offSets['elemsyntax-func2'] + diff || dom('body').scrolled() > offSets['elemsyntax-func1'] + diff && dom('body').scrolled() < offSets['elemsyntax-func2'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem61 = _$('#func1Link') ? dom('#func1Link') : make('#func1Link').put("body");
 	                        elem61.class('hot');
+
+	                        sideNavState = [3, '#func1Link'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elemsyntax-func2'] + diff && dom('html').scrolled() < offSets['elemsyntax-func3'] + diff || dom('body').scrolled() > offSets['elemsyntax-func2'] + diff && dom('body').scrolled() < offSets['elemsyntax-func3'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem62 = _$('#func2Link') ? dom('#func2Link') : make('#func2Link').put("body");
 	                        elem62.class('hot');
+
+	                        sideNavState = [3, '#func2Link'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elemsyntax-func3'] + diff && dom('html').scrolled() < offSets['elemsyntax-func4'] + diff || dom('body').scrolled() > offSets['elemsyntax-func3'] + diff && dom('body').scrolled() < offSets['elemsyntax-func4'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem63 = _$('#func3Link') ? dom('#func3Link') : make('#func3Link').put("body");
 	                        elem63.class('hot');
+
+	                        sideNavState = [3, '#func3Link'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elemsyntax-func4'] + diff && dom('html').scrolled() < offSets['elemsyntax-func5'] + diff || dom('body').scrolled() > offSets['elemsyntax-func4'] + diff && dom('body').scrolled() < offSets['elemsyntax-func5'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem64 = _$('#func4Link') ? dom('#func4Link') : make('#func4Link').put("body");
 	                        elem64.class('hot');
+
+	                        sideNavState = [3, '#func4Link'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elemsyntax-func5'] + diff && dom('html').scrolled() < offSets['elemsyntax-func6'] + diff || dom('body').scrolled() > offSets['elemsyntax-func5'] + diff && dom('body').scrolled() < offSets['elemsyntax-func6'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem65 = _$('#func5Link') ? dom('#func5Link') : make('#func5Link').put("body");
 	                        elem65.class('hot');
+
+	                        sideNavState = [3, '#func5Link'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elemsyntax-func6'] + diff && dom('html').scrolled() < offSets['append-syntax'] + diff || dom('body').scrolled() > offSets['elemsyntax-func6'] + diff && dom('body').scrolled() < offSets['append-syntax'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem66 = _$('#func6Link') ? dom('#func6Link') : make('#func6Link').put("body");
 	                        elem66.class('hot');
+
+	                        sideNavState = [3, '#func6Link'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['append-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func7'] + diff || dom('body').scrolled() > offSets['append-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func7'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem67 = _$('#appendStaxLink') ? dom('#appendStaxLink') : make('#appendStaxLink').put("body");
 	                        elem67.class('hot');
+
+	                        sideNavState = [3, '#appendStaxLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['elemsyntax-func7'] + diff || dom('body').scrolled() > offSets['elemsyntax-func7'] + diff:
 	                        dom('[class~=hot]').class('hot', '-');
 	                        var elem68 = _$('#func7Link') ? dom('#func7Link') : make('#func7Link').put("body");
 	                        elem68.class('hot');
+
+	                        sideNavState = [3, '#func7Link'];
 	                        break;
 
 	                  default:
@@ -2307,7 +2550,9 @@
 	  };
 
 	  this.second = function (s) {
-	    //TEST:30 Make sure this works.
+	    console.log(this.el);
+	    (0, _logger.log)(el.firstChild, 'red'); //TEST:30 Make sure this works.
+	    (0, _logger.log)(this.el.firstElementChild, 'yellow');
 	    var sib = s === 'node' ? this.el.firstChild.nextSibling : this.el.firstElementChild.nextElementSibling;
 	    return new Element(sib);
 	  };

@@ -19,6 +19,7 @@ URL: ""
 //DONE: HTML interfering with regExp's.
 //FIXME: can't use file blobs with import() func.
 
+//TODO: Should be able to use variables inside of elementJS elements.
 //TODO: make some functions complete operations for arrays automagically, instead of needing .every().
 //TODO: Make all event functions like once(), .once().
 //TODO: Complete <elem> syntax docs.

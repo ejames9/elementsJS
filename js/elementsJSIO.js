@@ -38,6 +38,8 @@ var markDown,
 
 
 
+
+
 //Necessary code to add deep links to documentation.
 function addChainLinkIcons() {
   console.log(dom('#docsMain h1, #docsMain h2'));
@@ -58,24 +60,21 @@ function addChainLinkIcons() {
                               .viz('hidden')
                   });
             });
-
+  //Make adustments to fa-link icons.
   <'.fa-link'/>
             .every((element)=> {
                element
                   .viz('hidden')
                   .color('#52218A')
                   .turn(90);
-
-
             });
   return;
-};
-
+}
 
 
 //Custom fork me ribbon.
 function forkMeBaby() {
-
+  //Add forkme ribbon html.
   __(`
     <a id='fmLink'>
       <div id='forkMe'>
@@ -84,11 +83,10 @@ function forkMeBaby() {
     </a>
 
   `, '.jumbotron');
-
+  //Make adjustments to #fmLink.
   <'#fmLink'/>
            .fore('#logo')
            .href('https://github.com/ejames9/elementsJS');
-
   return;
 }
 
@@ -114,7 +112,7 @@ function insertDocs(cb) {
               .html(r);
     <'#docsMain'/>
               .html(marked(markDown));
-
+    //Call callback functions.
     cb();
   });
 }
@@ -148,138 +146,257 @@ function toggleNPMBar() {
 }
 
 
+//A collection of callback functions to be called once documentation is inserted into its' place.
 function iDCallback() {
   forkMeBaby();
   highLightCode();
   addChainLinkIcons();
-  mouseEventController();
+  mouseOutController();
+  mouseOverController();
   SNC.sideNavController();
-
 
   dom('#sideNav li a')
             .every((element)=> {
                element
                    .class('sNavLink', '+');
             });
-  // for (var el in offSets) {
-  //   log('id: ' + el, 'red');
-  //   log('offSet: ' + offSets[el], ['red', 'blue'])
-  // }
 }
 
 
+//Boolean function returns true if given function has given ancestor, and false otherwise. Checks 6 parents deep.
+function hasAncestor(l, ance) {
+  var tick, ancestor = el(ance),
+           ancestors = [];
+
+  ancestors.push(l.parentNode);
+  ancestors.push(ancestors[0].parentNode);
+  ancestors.push(ancestors[1].parentNode);
+  ancestors.push(ancestors[2].parentNode);
+  ancestors.push(ancestors[3].parentNode);
+  // ancestors.push(ancestors[4].parentNode);
+
+  // console.log(ancestors);
+  tick = 0;
+
+  for (var i = 0; i < ancestors.length; i++) {
+    if (ancestors[i] === ancestor) tick++;
+  }
+  if (tick > 0) return true;
+
+  else return false;
+}
 
 
-function mouseEventController() {
-  //Mouse hover event Delegation ======================>>
+//Function for controlling when the #sideNav doc menu collapses.
+function mouseOutController() {
+  //Mouse out event delegation =======================>>
+  const html = el('html');
+
+  var stateOne = (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
+
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+            .sib('next')
+                    .class('hide', '-');
+  }
+
+  var stateTwo = (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
+
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+            .ma()
+                .class('hide', '-');
+  }
+
+  var stateThree = (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+            .ma()
+                .class('hide', '-');
+  }
+
+  var stateFour = (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+  }
+
+  var stateFive = (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+            .sib('next')
+                      .class('hide', '+');
+  }
+
+
+  mouse('out', html, (e)=> {
+    if (hasAncestor(e.target, '#sideNav')) {
+      return;
+    } else {
+      switch(sideNavState[0]) {
+        case (1):
+            stateOne(sideNavState[1]);
+            break;
+        case (2):
+            stateTwo(sideNavState[1]);
+            break;
+        case (3):
+            stateThree(sideNavState[1]);
+            break;
+        case (4):
+            stateFour(sideNavState[1]);
+            break;
+        case (5):
+            stateFive(sideNavState[1]);
+            break;
+        default:
+            break;
+      }
+    }
+
+  });
+}
+
+
+//Function for controlling the expanding (on hover) of #sideNav menu lists.
+function mouseOverController() {
+  //Mouse over event Delegation ======================>>
   const html = el('html');
 
   mouse('over', html, function(e) {
-    console.log(e.target);
+    // console.log(e);
+    // console.log(e.target);
+    // console.log(e.relatedTarget);
 
-    switch(e.target) {
-      case (el('#getStart')):
+    switch(9+9===18) {
+      case (e.target === el('#gsList') || e.target.parentNode === el('#gsList')):
           dom('[name=hidden]')
                     .every((element)=> {
-                       element
+                        element
                           .class('hide', '+')
                    });
-          <'#getStart'/>
-                    .once('mouseout', (e, element)=> {
-                       element
-                          .sib('next')
-                                  .class('hide', '+');
-                    })
-                    .sib('next')
-                            .class('hide', '-');
+          <'#gsList'/>
+                    .second()
+                          .class('hide', '-');
           break;
-      case (el('#domManip')):
+      case (e.target === el('#domList') || e.target.parentNode === el('#domList')):
           dom('[name=hidden]')
                     .every((element)=> {
-                      element
+                       element
                           .class('hide', '+')
                     });
-          <'#domManip'/>
-                    .sib('next')
-                            .class('hide', '-');
+          <'#domList'/>
+                    .second()
+                          .class('hide', '-');
           break;
-      case (el('#eventHand')):
+      case (e.target === el('#eventList') || e.target.parentNode === el('#eventList')):
           dom('[name=hidden]')
                     .every((element)=> {
-                      element
+                        element
                           .class('hide', '+')
                    });
-          <'#eventHand'/>
-                    .sib('next')
+          <'#eventList'/>
+                    .second()
                           .class('hide', '-');
           break;
-      case (el('#httpReq')):
+      case (e.target === el('#httpList') || e.target.parentNode === el('#httpList')):
+          // dom('[name=hidden]')
+          //           .every((element)=> {
+          //              element
+          //                 .class('hide', '+')
+          //           });
+          <'#httpList'/>
+                    .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#loggList') || e.target.parentNode === el('#loggList')):
+          // dom('[name=hidden]')
+          //          .every((element)=> {
+          //             element
+          //                 .class('hide', '+')
+          //               });
+          <'#loggList'/>
+                    .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#utilsList') || e.target.parentNode === el('#utilsList')):
+          // dom('[name=hidden]')
+          //          .every((element)=> {
+          //             element
+          //                 .class('hide', '+')
+          //          });
+          <'#utilsList'/>
+                   .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#elemObjList') || e.target.parentNode === el('#elemObjList')):
+          // dom('[name=hidden]')
+          //          .every((element)=> {
+          //             element
+          //                 .class('hide', '+')
+          //          });
+          <'#elemObjList'/>
+                   .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#eOMethodsList') || e.target.parentNode === el('#eOMethodsList')):
           dom('[name=hidden]')
                    .every((element)=> {
                       element
                           .class('hide', '+')
                    });
-          <'#httpReq'/>
-                   .sib('next')
+          <'#eOMethodsList'/>
+                   .second()
                           .class('hide', '-');
           break;
-      case (el('#logg')):
+      case (e.target === el('#eStaxList') || e.target.parentNode === el('#eStaxList')):
           dom('[name=hidden]')
                    .every((element)=> {
                       element
                           .class('hide', '+')
                    });
-          <'#logg'/>
-                   .sib('next')
+          <'#eStaxList'/>
+                   .second()
                           .class('hide', '-');
           break;
-      case (el('#utilFunc')):
-          dom('[name=hidden]')
-                   .every((element)=> {
-                      element
-                          .class('hide', '+')
-                        });
-          <'#utilFunc'/>
-                    .sib('next')
-                          .class('hide', '-');
-          break;
-      case (el('#elemObj')):
-          dom('[name=hidden]')
-                   .every((element)=> {
-                      element
-                          .class('hide', '+')
-                   });
-          <'#elemObj'/>
-                   .sib('next')
-                          .class('hide', '-');
-          break;
-      case (el('#elemObjMethods')):
-          dom('[name=hidden]')
-                   .every((element)=> {
-                      element
-                          .class('hide', '+')
-                   });
-          <'#elemObjMethods'/>
-                   .sib('next')
-                          .class('hide', '-');
-          break;
-      case (el('#elemsSyntax')):
-          dom('[name=hidden]')
-                   .every((element)=> {
-                      element
-                          .class('hide', '+')
-                   });
-          <'#elemsSyntax'/>
-                   .sib('next')
-                          .class('hide', '-');
-          break;
-    }
+
+    };
   });
-
-
 }
-
-
 
 
 function clickController() {
