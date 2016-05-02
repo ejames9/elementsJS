@@ -653,6 +653,10 @@ iframe {
   text-shadow: 0 0 0.2em #9d2635, 0 0 0.2em #9d2635;
 }
 
+#sideNav {
+  overflow: scroll;
+}
+
 
 /*-----------------------Media Queries--------------------*/
 
