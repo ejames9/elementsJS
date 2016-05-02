@@ -297,7 +297,7 @@ function mouseOverController() {
                 elem8.second().class('hide', '-');
                 break;
             case e.target === el('#utilsList') || e.target.parentNode === el('#utilsList'):
-                dom('[name=hidden]').every(function (element) {
+                dom('[class~=shorts]').every(function (element) {
                     element.class('hide', '+');
                 });
                 var elem9 = _$('#utilsList') ? dom('#utilsList') : make('#utilsList').put("body");
