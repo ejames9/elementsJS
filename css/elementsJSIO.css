@@ -623,6 +623,12 @@ iframe {
   margin-right: 10px;
 }
 
+#sideNav li ul li {
+  font-size: 12px;
+  /*margin-right: 10px;*/
+  padding-right: 10px;
+}
+
 #sideNav {
   padding-top: 55px;
 

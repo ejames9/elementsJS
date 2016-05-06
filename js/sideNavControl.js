@@ -9,12 +9,82 @@ License: MIT
 
 
 
-import { el, log, scroll, show } from 'elementsJS';
+import { el, log, scroll, show, mouse } from 'elementsJS';
 
 
+//global that documents what state the menu is currently in.
 window.sideNavState = [];
 
+//The control states for the sideNav Menu.
+const sideNavStates = {
+  stateOne: (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
 
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+            .sib('next')
+                    .class('hide', '-');
+  },
+  stateTwo: (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
+
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+            .ma()
+                .class('hide', '-');
+  },
+  stateThree: (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+            .ma()
+                .class('hide', '-');
+  },
+  stateFour: (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+  },
+  stateFive: (elem)=> {
+    dom('[class~=hot]')
+            .class('hot', '-');
+    dom('[name=hidden]')
+            .every((element)=> {
+                element
+                    .class('hide');
+            });
+    dom(elem)
+            .class('hot')
+            .sib('next')
+                      .class('hide', '+');
+  }
+};
+
+//Function for creating the offSets object, which contains the offsetTop property of all elements.
 function getOffSets() {
 
   var offSets = {};
@@ -91,6 +161,171 @@ function getOffSets() {
     return offSets;
 }
 
+
+//Boolean function returns true if given function has given ancestor, and false otherwise. Checks 6 parents deep.
+function hasAncestor(l, ance) {
+  var tick, ancestor = el(ance),
+           ancestors = [];
+
+  ancestors.push(l.parentNode);
+  ancestors.push(ancestors[0].parentNode);
+  ancestors.push(ancestors[1].parentNode);
+  ancestors.push(ancestors[2].parentNode);
+  ancestors.push(ancestors[3].parentNode);
+  // ancestors.push(ancestors[4].parentNode);
+
+  // console.log(ancestors);
+  tick = 0;
+
+  for (var i = 0; i < ancestors.length; i++) {
+    if (ancestors[i] === ancestor) tick++;
+  }
+  if (tick > 0) return true;
+
+  else return false;
+}
+
+
+//Function for controlling when the #sideNav doc menu collapses.
+function mouseOutController() {
+  //Mouse out event delegation =======================>>
+  const html = el('html');
+
+  mouse('out', html, (e)=> {
+    if (hasAncestor(e.target, '#sideNav')) {
+      return;
+    } else {
+      switch(sideNavState[0]) {
+        case (1):
+            sideNavStates.stateOne(sideNavState[1]);
+            break;
+        case (2):
+            sideNavStates.stateTwo(sideNavState[1]);
+            break;
+        case (3):
+            sideNavStates.stateThree(sideNavState[1]);
+            break;
+        case (4):
+            sideNavStates.stateFour(sideNavState[1]);
+            break;
+        case (5):
+            sideNavStates.stateFive(sideNavState[1]);
+            break;
+        default:
+            break;
+      }
+    }
+
+  });
+}
+
+
+//Function for controlling the expanding (on hover) of #sideNav menu lists.
+function mouseOverController() {
+  //Mouse over event Delegation ======================>>
+  const html = el('html');
+
+  mouse('over', html, function(e) {
+    // console.log(e);
+    // console.log(e.target);
+    // console.log(e.relatedTarget);
+
+    switch(9+9===18) {
+      case (e.target === el('#gsList') || e.target.parentNode === el('#gsList')):
+          dom('[name=hidden]')
+                    .every((element)=> {
+                        element
+                          .class('hide', '+')
+                   });
+          <'#gsList'/>
+                    .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#domList') || e.target.parentNode === el('#domList')):
+          dom('[name=hidden]')
+                    .every((element)=> {
+                       element
+                          .class('hide', '+')
+                    });
+          <'#domList'/>
+                    .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#eventList') || e.target.parentNode === el('#eventList')):
+          dom('[name=hidden]')
+                    .every((element)=> {
+                        element
+                          .class('hide', '+')
+                   });
+          <'#eventList'/>
+                    .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#httpList') || e.target.parentNode === el('#httpList')):
+          dom('[title~=shorts]')
+               .every((element)=> {
+                  element
+                      .class('hide', '+')
+               });
+          <'#httpList'/>
+                    .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#loggList') || e.target.parentNode === el('#loggList')):
+          dom('[title~=shorts]')
+               .every((element)=> {
+                  element
+                      .class('hide', '+')
+               });
+          <'#loggList'/>
+                    .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#utilsList') || e.target.parentNode === el('#utilsList')):
+          dom('[title~=shorts]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
+          <'#utilsList'/>
+                   .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#elemObjList') || e.target.parentNode === el('#elemObjList')):
+          dom('[title~=shorts]')
+                   .every((element)=> {
+                      element
+                          .class('hide', '+')
+                   });
+          <'#elemObjList'/>
+                   .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#eOMethodsList') || e.target.parentNode === el('#eOMethodsList')):
+          dom('[title~=shorts]')
+               .every((element)=> {
+                  element
+                      .class('hide', '+')
+               });
+          <'#eOMethodsList'/>
+                   .second()
+                          .class('hide', '-');
+          break;
+      case (e.target === el('#eStaxList') || e.target.parentNode === el('#eStaxList')):
+          dom('[title~=shorts]')
+               .every((element)=> {
+                  element
+                      .class('hide', '+')
+               });
+          <'#eStaxList'/>
+                   .second()
+                          .class('hide', '-');
+          break;
+
+    };
+  });
+}
+
 function sideNavController() {
   // console.log(dom('[name=hidden]'));
 
@@ -123,8 +358,8 @@ function sideNavController() {
               dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff):
               // log('YES', ['red', 'blue'] + diff);
               //Find active list item, deactivate it.
-              dom('[class~=hot]')
-											.class('hot', '-');
+              // dom('[class~=hot]')
+							// 				.class('hot', '-');
               //Find all menu lists, hide them.
               dom('[name=hidden]')
                       .every((element)=> {
@@ -133,7 +368,7 @@ function sideNavController() {
                       });
               //Activate Installation list item. Open parent list by removing .hide class.
               <'#instLink'/>
-                      .class('hot')
+                      .class('hot2')
                       .ma()
 											   .class('hide', '-');
 
@@ -141,24 +376,24 @@ function sideNavController() {
               break;
         case (dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff ||
               dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff):
-              dom('[class~=hot]')
-											.class('hot', '-');
+              // dom('[class~=hot]')
+							// 				.class('hot', '-');
               <'#useLink'/>
-                      .class('hot');
+                      .class('hot2');
 
               sideNavState = [3, '#useLink'];
               break;
         case (dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff ||
               dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff):
-              dom('[class~=hot]')
-											.class('hot', '-');
+              // dom('[class~=hot]')
+							// 				.class('hot', '-');
               dom('[name=hidden]')
                       .every((element)=> {
                           element
                               .class('hide');
                       });
               <'#interpInstallLink'/>
-                      .class('hot')
+                      .class('hot2')
                       .ma()
 													.class('hide', '-');
 
@@ -882,5 +1117,7 @@ function sideNavController() {
 
 module.exports = {
                   getOffSets: getOffSets,
-           sideNavController: sideNavController
+           sideNavController: sideNavController,
+         mouseOverController: mouseOverController,
+          mouseOutController: mouseOutController
 }
