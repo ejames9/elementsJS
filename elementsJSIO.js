@@ -620,7 +620,7 @@
 	                              element.class('hide');
 	                        });
 	                        var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
-	                        elem5.class('hot').sib('next').class('hide', '-');
+	                        elem5.focus().class('hot').sib('next').class('hide', '-');
 
 	                        sideNavState = [1, '#domManip'];
 	                        break;

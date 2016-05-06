@@ -188,6 +188,7 @@ function sideNavController() {
                               .class('hide');
                       });
               <'#domManip'/>
+                      .focus()
                       .class('hot')
                       .sib('next')
 															.class('hide', '-');
@@ -868,7 +869,7 @@ function sideNavController() {
               <'#func7Link'/>
                       .class('hot');
 
-              sideNavState = [3, '#func7Link'];        
+              sideNavState = [3, '#func7Link'];
               break;
 
         default:
