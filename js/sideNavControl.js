@@ -340,7 +340,7 @@ function sideNavController() {
               //Find active list item, deactivate it.
               dom('[class~=hot]')
 											.class('hot', '-');
-        
+
               //Find all menu lists, hide them.
               dom('[name=hidden]')
                       .every((element)=> {
@@ -361,8 +361,6 @@ function sideNavController() {
               //Find active list item, deactivate it.
               // dom('[class~=hot]')
 							// 				.class('hot', '-');
-              dom('[class~=hot2]')
-											.class('hot2', '-');
               //Find all menu lists, hide them.
               dom('[name=hidden]')
                       .every((element)=> {
@@ -381,7 +379,7 @@ function sideNavController() {
               dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff):
               // dom('[class~=hot]')
 							// 				.class('hot', '-');
-              dom('[class~=hot2]')
+              dom('[class=hot2]')
 											.class('hot2', '-');
               <'#useLink'/>
                       .class('hot2');
@@ -392,7 +390,7 @@ function sideNavController() {
               dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff):
               // dom('[class~=hot]')
 							// 				.class('hot', '-');
-              dom('[class~=hot2]')
+              dom('[class=hot2]')
 											.class('hot2', '-');
               dom('[name=hidden]')
                       .every((element)=> {
