@@ -399,7 +399,8 @@ function sideNavController() {
               <'#interpInstallLink'/>
                       .class('hot2')
                       .ma()
-													.class('hide', '-');
+													.class('hide', '-')
+                          // .class('hot', '+');
 
               sideNavState = [2, '#interpInstallLink'];
               break;
@@ -407,6 +408,8 @@ function sideNavController() {
               dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff):
               dom('[class=hot]')
 											.class('hot', '-');
+              dom('[class=hot2]')
+        							.class('hot2', '-');
               dom('[name=hidden]')
                       .every((element)=> {
                           element
