@@ -451,21 +451,21 @@
 	         return;
 	      } else {
 	         switch (sideNavState[0]) {
-	            case 1:
-	               sideNavStates.stateOne(sideNavState[1]);
-	               break;
-	            case 2:
-	               sideNavStates.stateTwo(sideNavState[1]);
-	               break;
-	            case 3:
-	               sideNavStates.stateThree(sideNavState[1]);
-	               break;
-	            case 4:
-	               sideNavStates.stateFour(sideNavState[1]);
-	               break;
-	            case 5:
-	               sideNavStates.stateFive(sideNavState[1]);
-	               break;
+	            // case (1):
+	            //     sideNavStates.stateOne(sideNavState[1]);
+	            //     break;
+	            // case (2):
+	            //     sideNavStates.stateTwo(sideNavState[1]);
+	            //     break;
+	            // case (3):
+	            //     sideNavStates.stateThree(sideNavState[1]);
+	            //     break;
+	            // case (4):
+	            //     sideNavStates.stateFour(sideNavState[1]);
+	            //     break;
+	            // case (5):
+	            //     sideNavStates.stateFive(sideNavState[1]);
+	            //     break;
 	            default:
 	               break;
 	         }
@@ -563,7 +563,7 @@
 	         //0 - 13 Getting Started
 	         case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff:
 	            //Find active list item, deactivate it.
-	            dom('[class~=hot]').class('hot', '-');
+	            dom('[class=hot]').class('hot', '-');
 
 	            //Find all menu lists, hide them.
 	            dom('[name=hidden]').every(function (element) {
@@ -571,16 +571,14 @@
 	            });
 	            //Activate Getting Started list item.
 	            var elem9 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-	            elem9.class('hot').sib('next').class('hide', '+');
+	            elem9.class('hot').focus().sib('next').class('hide', '+');
 
 	            sideNavState = [5, '#getStart'];
 	            break;
 	         case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['Usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff:
 	            // log('YES', ['red', 'blue'] + diff);
 	            //Find active list item, deactivate it.
-	            // dom('[class~=hot]')
-	            // 				.class('hot', '-');
-	            dom('[class*=hot2]').class('hot2', '-');
+	            dom('[class=hot2]').class('hot2', '-');
 	            //Find all menu lists, hide them.
 	            dom('[name=hidden]').every(function (element) {
 	               element.class('hide');
@@ -592,9 +590,7 @@
 	            sideNavState = [2, '#instLink'];
 	            break;
 	         case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
-	            // dom('[class~=hot]')
-	            // 				.class('hot', '-');
-	            dom('[class*=hot2]').class('hot2', '-');
+	            dom('[class=hot2]').class('hot2', '-');
 	            var elem11 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
 	            elem11.class('hot2');
 
@@ -603,7 +599,7 @@
 	         case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff:
 	            // dom('[class~=hot]')
 	            // 				.class('hot', '-');
-	            dom('[class*=hot2]').class('hot2', '-');
+	            dom('[class=hot2]').class('hot2', '-');
 	            dom('[name=hidden]').every(function (element) {
 	               element.class('hide');
 	            });
@@ -613,7 +609,7 @@
 	            sideNavState = [2, '#interpInstallLink'];
 	            break;
 	         case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff:
-	            dom('[class~=hot]').class('hot', '-');
+	            dom('[class=hot]').class('hot', '-');
 	            dom('[name=hidden]').every(function (element) {
 	               element.class('hide');
 	            });
@@ -623,7 +619,7 @@
 	            sideNavState = [4, '#imps'];
 	            break;
 	         case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff:
-	            dom('[class~=hot]').class('hot', '-');
+	            dom('[class=hot]').class('hot', '-');
 	            dom('[name=hidden]').every(function (element) {
 	               element.class('hide');
 	            });

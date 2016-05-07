@@ -338,7 +338,7 @@ function sideNavController() {
         case (dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff ||
               dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff):
               //Find active list item, deactivate it.
-              dom('[class=hot]')
+              dom('[class~=hot]')
 											.class('hot', '-');
 
               //Find all menu lists, hide them.
@@ -350,7 +350,6 @@ function sideNavController() {
               //Activate Getting Started list item.
               <'#getStart'/>
                       .class('hot')
-                      .focus()
                       .sib('next')
                                 .class('hide', '+');
 
@@ -360,8 +359,8 @@ function sideNavController() {
               dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff):
               // log('YES', ['red', 'blue'] + diff);
               //Find active list item, deactivate it.
-              dom('[class=hot2]')
-											.class('hot2', '-');
+              // dom('[class~=hot]')
+							// 				.class('hot', '-');
               //Find all menu lists, hide them.
               dom('[name=hidden]')
                       .every((element)=> {
@@ -378,6 +377,8 @@ function sideNavController() {
               break;
         case (dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff ||
               dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff):
+              // dom('[class~=hot]')
+							// 				.class('hot', '-');
               dom('[class=hot2]')
 											.class('hot2', '-');
               <'#useLink'/>
@@ -405,7 +406,7 @@ function sideNavController() {
               break;
         case (dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff ||
               dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff):
-              dom('[class=hot]')
+              dom('[class~=hot]')
 											.class('hot', '-');
               dom('[name=hidden]')
                       .every((element)=> {
@@ -419,7 +420,7 @@ function sideNavController() {
               break;
         case (dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff ||
               dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff):
-              dom('[class=hot]')
+              dom('[class~=hot]')
 											.class('hot', '-');
               dom('[name=hidden]')
                       .every((element)=> {
