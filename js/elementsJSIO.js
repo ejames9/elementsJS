@@ -20,7 +20,8 @@ import * as SNC from './sideNavControl.js';
 imports({
     'elementsJS': ['imports', 'go', 'el', 'log', 'warn', 'url', 'ajax', 'on', 'click', 'mouse', 'show', 'hide', 'scroll', '__'],
         'marked': 'marked',
-  'highlight.js': 'hljs'
+  'highlight.js': 'hljs',
+        'bowser': 'browser'
 });
 //<<===============================>>
 
@@ -188,8 +189,17 @@ function clickController() {
              hash = String(dom('#' + e.target.parentNode.id).hash());
            hashSS = hash.substring(1, hash.length);
 
-          <html/>
-              .scrolled(offSets[hashSS] + 291);
+           if (browser.gecko) {
+             log('gecko', 'red');
+
+             <html/>
+                 .scrolled(offSets[hashSS] + 291);
+           } else if (browser.safari) {
+             log('safari', 'blue');
+
+             <body/>
+                 .scrolled(offSets[hashSS] + 291);
+           }
           break;
       case (e.target.tagName === 'CODE'):
           e.preventDefault();
@@ -198,8 +208,17 @@ function clickController() {
              hash = String(dom('#' + e.target.parentNode.id).hash());
            hashSS = hash.substring(1, hash.length);
 
-          <html/>
-              .scrolled(offSets[hashSS] + 291);
+           if (browser.gecko) {
+             log('gecko', 'red');
+
+             <html/>
+                 .scrolled(offSets[hashSS] + 291);
+           } else if (browser.safari) {
+             log('safari', 'blue');
+
+             <body/>
+                 .scrolled(offSets[hashSS] + 291);
+           }
           break;
       case (e.target.tagName === 'A'):
           log(e.target.tagName, 'red');
@@ -212,8 +231,17 @@ function clickController() {
           warn(hashSS);
           warn(offSets[hashSS]);
 
-          <html/>
-              .scrolled(offSets[hashSS] + 291);
+          if (browser.gecko) {
+            log('gecko', 'red');
+
+            <html/>
+                .scrolled(offSets[hashSS] + 291);
+          } else if (browser.safari) {
+            log('safari', 'blue');
+
+            <body/>
+                .scrolled(offSets[hashSS] + 291);
+          }
           break;
       default:
           var npmBar = el('#npm-bar');

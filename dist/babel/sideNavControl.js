@@ -22,48 +22,55 @@ window.sideNavState = [];
 //The control states for the sideNav Menu.
 var sideNavStates = {
       stateOne: function stateOne(elem) {
-            dom('[class~=hot]').class('hot', '-');
+            dom('[class~=hot]').color('#52218A').class('hot', '-');
 
             dom('[name=hidden]').every(function (element) {
-                  element.class('hide');
+                  element.class('hide').sib('prev').fontWeight('300');
             });
-            dom(elem).class('hot').sib('next').class('hide', '-');
+            dom(elem).class('hot').color('#FF8A22').sib('next').class('hide', '-');
       },
       stateTwo: function stateTwo(elem) {
-            dom('[class~=hot]').class('hot', '-');
+            dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[class~=hot2]').class('hot2', '-');
             dom('[name=hidden]').every(function (element) {
-                  element.class('hide');
+                  element.class('hide').sib('prev').fontWeight('300');
             });
-            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').class('hot', '+');
+            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').class('hot');
       },
       stateThree: function stateThree(elem) {
+            dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[class~=hot2]').class('hot2', '-');
             dom('[name=hidden]').every(function (element) {
-                  element.class('hide');
+                  element.class('hide').sib('prev').fontWeight('300');
             });
-            dom(elem).class('hot2').ma().class('hide', '-');
+            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').class('hot');
       },
       stateFour: function stateFour(elem) {
-            dom('[class~=hot]').class('hot', '-');
+            dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[name=hidden]').every(function (element) {
-                  element.class('hide');
+                  element.class('hide').sib('prev').fontWeight('300');
             });
-            dom(elem).class('hot');
+            dom(elem).class('hot').color('#FF8A22');
       },
       stateFive: function stateFive(elem) {
-            dom('[class~=hot]').class('hot', '-');
+            dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[name=hidden]').every(function (element) {
-                  element.class('hide');
+                  element.class('hide').sib('prev').fontWeight('300');
             });
-            dom(elem).class('hot').sib('next').class('hide', '+');
+            dom(elem).class('hot').color('#FF8A22').sib('next').class('hide', '+');
       },
       stateSix: function stateSix(elem) {
             dom('[class~=hot2]').class('hot2', '-');
             dom('[name=hidden]').every(function (element) {
-                  element.class('hide');
+                  element.class('hide').sib('prev').fontWeight('300');
             });
             dom(elem).class('hot2').ma().class('hide', '-');
+      },
+      stateSeven: function stateSeven(elem) {
+            dom('[name=hidden]').every(function (element) {
+                  element.class('hide', '+').sib('prev').fontWeight('300');
+            });
+            dom(elem).first().fontWeight('500').sib('next').class('hide', '-');
       }
 
 };
@@ -214,67 +221,48 @@ function mouseOverController() {
 
             switch (9 + 9 === 18) {
                   case e.target === (0, _elementsJS.el)('#gsList') || e.target.parentNode === (0, _elementsJS.el)('#gsList'):
-                        dom('[name=hidden]').every(function (element) {
-                              element.class('hide', '+');
-                        });
-                        var elem0 = _$('#gsList') ? dom('#gsList') : make('#gsList').put("body");
-                        elem0.second().class('hide', '-');
+
+                        sideNavStates.stateSeven('#gsList');
+
                         break;
                   case e.target === (0, _elementsJS.el)('#domList') || e.target.parentNode === (0, _elementsJS.el)('#domList'):
-                        dom('[name=hidden]').every(function (element) {
-                              element.class('hide', '+');
-                        });
-                        var elem1 = _$('#domList') ? dom('#domList') : make('#domList').put("body");
-                        elem1.second().class('hide', '-');
+
+                        sideNavStates.stateSeven('#domList');
                         break;
                   case e.target === (0, _elementsJS.el)('#eventList') || e.target.parentNode === (0, _elementsJS.el)('#eventList'):
-                        dom('[name=hidden]').every(function (element) {
-                              element.class('hide', '+');
-                        });
-                        var elem2 = _$('#eventList') ? dom('#eventList') : make('#eventList').put("body");
-                        elem2.second().class('hide', '-');
+
+                        sideNavStates.stateSeven('#eventList');
+
                         break;
                   case e.target === (0, _elementsJS.el)('#httpList') || e.target.parentNode === (0, _elementsJS.el)('#httpList'):
-                        dom('[title~=shorts]').every(function (element) {
-                              element.class('hide', '+');
-                        });
-                        var elem3 = _$('#httpList') ? dom('#httpList') : make('#httpList').put("body");
-                        elem3.second().class('hide', '-');
+
+                        sideNavStates.stateSeven('#httpList');
+
                         break;
                   case e.target === (0, _elementsJS.el)('#loggList') || e.target.parentNode === (0, _elementsJS.el)('#loggList'):
-                        dom('[title~=shorts]').every(function (element) {
-                              element.class('hide', '+');
-                        });
-                        var elem4 = _$('#loggList') ? dom('#loggList') : make('#loggList').put("body");
-                        elem4.second().class('hide', '-');
+
+                        sideNavStates.stateSeven('#loggList');
+
                         break;
                   case e.target === (0, _elementsJS.el)('#utilsList') || e.target.parentNode === (0, _elementsJS.el)('#utilsList'):
-                        dom('[title~=shorts]').every(function (element) {
-                              element.class('hide', '+');
-                        });
-                        var elem5 = _$('#utilsList') ? dom('#utilsList') : make('#utilsList').put("body");
-                        elem5.second().class('hide', '-');
+
+                        sideNavStates.stateSeven('#utilsList');
+
                         break;
                   case e.target === (0, _elementsJS.el)('#elemObjList') || e.target.parentNode === (0, _elementsJS.el)('#elemObjList'):
-                        dom('[title~=shorts]').every(function (element) {
-                              element.class('hide', '+');
-                        });
-                        var elem6 = _$('#elemObjList') ? dom('#elemObjList') : make('#elemObjList').put("body");
-                        elem6.second().class('hide', '-');
+
+                        sideNavStates.stateSeven('#elemObjList');
+
                         break;
                   case e.target === (0, _elementsJS.el)('#eOMethodsList') || e.target.parentNode === (0, _elementsJS.el)('#eOMethodsList'):
-                        dom('[title~=shorts]').every(function (element) {
-                              element.class('hide', '+');
-                        });
-                        var elem7 = _$('#eOMethodsList') ? dom('#eOMethodsList') : make('#eOMethodsList').put("body");
-                        elem7.second().class('hide', '-');
+
+                        sideNavStates.stateSeven('#eOMethodsList');
+
                         break;
                   case e.target === (0, _elementsJS.el)('#eStaxList') || e.target.parentNode === (0, _elementsJS.el)('#eStaxList'):
-                        dom('[title~=shorts]').every(function (element) {
-                              element.class('hide', '+');
-                        });
-                        var elem8 = _$('#eStaxList') ? dom('#eStaxList') : make('#eStaxList').put("body");
-                        elem8.second().class('hide', '-');
+
+                        sideNavStates.stateSeven('#eStaxList');
+
                         break;
 
             };
@@ -292,15 +280,15 @@ function sideNavController() {
                   //0 - 13 Getting Started
                   case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff:
                         //Find active list item, deactivate it.
-                        dom('[class~=hot]').class('hot', '-');
+                        dom('[class~=hot]').color('#52218A').class('hot', '-');
 
                         //Find all menu lists, hide them.
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
                         });
                         //Activate Getting Started list item.
-                        var elem9 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-                        elem9.class('hot').sib('next').class('hide', '+');
+                        var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
+                        elem0.class('hot').color('#FF8A22').sib('next').class('hide', '+');
 
                         sideNavState = [5, '#getStart'];
                         break;
@@ -313,47 +301,47 @@ function sideNavController() {
                               element.class('hide');
                         });
                         //Activate Installation list item. Open parent list by removing .hide class.
-                        var elem10 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
-                        elem10.class('hot2').ma().class('hide', '-');
+                        var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
+                        elem1.class('hot2').ma().class('hide', '-');
 
                         sideNavState = [6, '#instLink'];
                         break;
                   case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
                         dom('[class~=hot2]').class('hot2', '-');
-                        var elem11 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
-                        elem11.class('hot2');
+                        var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
+                        elem2.class('hot2');
 
                         sideNavState = [3, '#useLink'];
                         break;
                   case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff:
-                        dom('[class~=hot]').class('hot', '-');
+                        dom('[class~=hot]').color('#52218A').class('hot', '-');
                         dom('[class~=hot2]').class('hot2', '-');
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
                         });
-                        var elem12 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
-                        elem12.class('hot2').ma().class('hide', '-').sib('prev').class('hot', '+');
+                        var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
+                        elem3.class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').class('hot', '+');
 
                         sideNavState = [2, '#interpInstallLink'];
                         break;
                   case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff:
-                        dom('[class~=hot]').class('hot', '-');
+                        dom('[class~=hot]').color('#52218A').class('hot', '-');
 
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
                         });
-                        var elem13 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
-                        elem13.class('hot');
+                        var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
+                        elem4.class('hot').color('#FF8A22');
 
                         sideNavState = [4, '#imps'];
                         break;
                   case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff:
-                        dom('[class~=hot]').class('hot', '-');
+                        dom('[class~=hot]').color('#52218A').class('hot', '-');
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
                         });
-                        var elem14 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
-                        elem14.class('hot').sib('next').class('hide', '-');
+                        var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
+                        elem5.class('hot').color('#FF8A22').sib('next').class('hide', '-');
 
                         sideNavState = [1, '#domManip'];
                         break;

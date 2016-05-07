@@ -19,69 +19,93 @@ window.sideNavState = [];
 const sideNavStates = {
   stateOne: (elem)=> {
     dom('[class~=hot]')
+            .color('#52218A')
             .class('hot', '-');
 
     dom('[name=hidden]')
             .every((element)=> {
                 element
-                    .class('hide');
+                    .class('hide')
+                    .sib('prev')
+                              .fontWeight('300');
             });
     dom(elem)
             .class('hot')
+            .color('#FF8A22')
             .sib('next')
                     .class('hide', '-');
   },
   stateTwo: (elem)=> {
     dom('[class~=hot]')
+            .color('#52218A')
             .class('hot', '-');
     dom('[class~=hot2]')
             .class('hot2', '-');
     dom('[name=hidden]')
             .every((element)=> {
                 element
-                    .class('hide');
+                    .class('hide')
+                    .sib('prev')
+                              .fontWeight('300');
             });
     dom(elem)
             .class('hot2')
             .ma()
                 .class('hide', '-')
                 .sib('prev')
-                        .class('hot', '+');
+                        .color('#FF8A22')
+                        .class('hot');
   },
   stateThree: (elem)=> {
+    dom('[class~=hot]')
+            .color('#52218A')
+            .class('hot', '-');
     dom('[class~=hot2]')
             .class('hot2', '-');
     dom('[name=hidden]')
             .every((element)=> {
                 element
-                    .class('hide');
+                    .class('hide')
+                    .sib('prev')
+                              .fontWeight('300');
             });
     dom(elem)
             .class('hot2')
             .ma()
-                .class('hide', '-');
+                .class('hide', '-')
+                .sib('prev')
+                        .color('#FF8A22')
+                        .class('hot');
   },
   stateFour: (elem)=> {
     dom('[class~=hot]')
+            .color('#52218A')
             .class('hot', '-');
     dom('[name=hidden]')
             .every((element)=> {
                 element
-                    .class('hide');
+                    .class('hide')
+                    .sib('prev')
+                              .fontWeight('300');
             });
     dom(elem)
             .class('hot')
+            .color('#FF8A22')
   },
   stateFive: (elem)=> {
     dom('[class~=hot]')
+            .color('#52218A')
             .class('hot', '-');
     dom('[name=hidden]')
             .every((element)=> {
                 element
-                    .class('hide');
+                    .class('hide')
+                    .sib('prev')
+                              .fontWeight('300');
             });
     dom(elem)
             .class('hot')
+            .color('#FF8A22')
             .sib('next')
                       .class('hide', '+');
   },
@@ -91,13 +115,29 @@ const sideNavStates = {
     dom('[name=hidden]')
             .every((element)=> {
                 element
-                    .class('hide');
+                    .class('hide')
+                    .sib('prev')
+                              .fontWeight('300');
             });
     dom(elem)
             .class('hot2')
             .ma()
                .class('hide', '-');
   },
+  stateSeven: (elem)=> {
+    dom('[name=hidden]')
+              .every((element)=> {
+                  element
+                    .class('hide', '+')
+                    .sib('prev')
+                              .fontWeight('300');
+             });
+    dom(elem)
+          .first()
+                .fontWeight('500')
+                .sib('next')
+                        .class('hide', '-');
+  }
 
 };
 
@@ -252,94 +292,48 @@ function mouseOverController() {
 
     switch(9+9===18) {
       case (e.target === el('#gsList') || e.target.parentNode === el('#gsList')):
-          dom('[name=hidden]')
-                    .every((element)=> {
-                        element
-                          .class('hide', '+')
-                   });
-          <'#gsList'/>
-                    .second()
-                          .class('hide', '-');
+
+          sideNavStates.stateSeven('#gsList');
+
           break;
       case (e.target === el('#domList') || e.target.parentNode === el('#domList')):
-          dom('[name=hidden]')
-                    .every((element)=> {
-                       element
-                          .class('hide', '+')
-                    });
-          <'#domList'/>
-                    .second()
-                          .class('hide', '-');
+
+          sideNavStates.stateSeven('#domList');
           break;
       case (e.target === el('#eventList') || e.target.parentNode === el('#eventList')):
-          dom('[name=hidden]')
-                    .every((element)=> {
-                        element
-                          .class('hide', '+')
-                   });
-          <'#eventList'/>
-                    .second()
-                          .class('hide', '-');
+
+          sideNavStates.stateSeven('#eventList');
+
           break;
       case (e.target === el('#httpList') || e.target.parentNode === el('#httpList')):
-          dom('[title~=shorts]')
-               .every((element)=> {
-                  element
-                      .class('hide', '+')
-               });
-          <'#httpList'/>
-                    .second()
-                          .class('hide', '-');
+
+          sideNavStates.stateSeven('#httpList');
+
           break;
       case (e.target === el('#loggList') || e.target.parentNode === el('#loggList')):
-          dom('[title~=shorts]')
-               .every((element)=> {
-                  element
-                      .class('hide', '+')
-               });
-          <'#loggList'/>
-                    .second()
-                          .class('hide', '-');
+
+          sideNavStates.stateSeven('#loggList');
+
           break;
       case (e.target === el('#utilsList') || e.target.parentNode === el('#utilsList')):
-          dom('[title~=shorts]')
-                   .every((element)=> {
-                      element
-                          .class('hide', '+')
-                   });
-          <'#utilsList'/>
-                   .second()
-                          .class('hide', '-');
+
+          sideNavStates.stateSeven('#utilsList');
+
           break;
       case (e.target === el('#elemObjList') || e.target.parentNode === el('#elemObjList')):
-          dom('[title~=shorts]')
-                   .every((element)=> {
-                      element
-                          .class('hide', '+')
-                   });
-          <'#elemObjList'/>
-                   .second()
-                          .class('hide', '-');
+
+          sideNavStates.stateSeven('#elemObjList');
+
           break;
       case (e.target === el('#eOMethodsList') || e.target.parentNode === el('#eOMethodsList')):
-          dom('[title~=shorts]')
-               .every((element)=> {
-                  element
-                      .class('hide', '+')
-               });
-          <'#eOMethodsList'/>
-                   .second()
-                          .class('hide', '-');
+
+          sideNavStates.stateSeven('#eOMethodsList');
+
           break;
       case (e.target === el('#eStaxList') || e.target.parentNode === el('#eStaxList')):
-          dom('[title~=shorts]')
-               .every((element)=> {
-                  element
-                      .class('hide', '+')
-               });
-          <'#eStaxList'/>
-                   .second()
-                          .class('hide', '-');
+
+          sideNavStates.stateSeven('#eStaxList');
+
           break;
 
     };
@@ -359,6 +353,7 @@ function sideNavController() {
               dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff):
               //Find active list item, deactivate it.
               dom('[class~=hot]')
+                      .color('#52218A')
 											.class('hot', '-');
 
               //Find all menu lists, hide them.
@@ -370,6 +365,7 @@ function sideNavController() {
               //Activate Getting Started list item.
               <'#getStart'/>
                       .class('hot')
+                      .color('#FF8A22')
                       .sib('next')
                                 .class('hide', '+');
 
@@ -407,6 +403,7 @@ function sideNavController() {
         case (dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff ||
               dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff):
               dom('[class~=hot]')
+                      .color('#52218A')
 											.class('hot', '-');
               dom('[class~=hot2]')
 											.class('hot2', '-');
@@ -420,6 +417,7 @@ function sideNavController() {
                       .ma()
 													.class('hide', '-')
                           .sib('prev')
+                                  .color('#FF8A22')
                                   .class('hot', '+');
 
               sideNavState = [2, '#interpInstallLink'];
@@ -427,6 +425,7 @@ function sideNavController() {
         case (dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff ||
               dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff):
               dom('[class~=hot]')
+                      .color('#52218A')
 											.class('hot', '-');
 
               dom('[name=hidden]')
@@ -436,12 +435,14 @@ function sideNavController() {
                       });
               <'#imps'/>
                       .class('hot')
+                      .color('#FF8A22');
 
               sideNavState = [4, '#imps'];
               break;
         case (dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff ||
               dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff):
               dom('[class~=hot]')
+                      .color('#52218A')
 											.class('hot', '-');
               dom('[name=hidden]')
                       .every((element)=> {
@@ -450,6 +451,7 @@ function sideNavController() {
                       });
               <'#domManip'/>
                       .class('hot')
+                      .color('#FF8A22')
                       .sib('next')
 															.class('hide', '-');
 

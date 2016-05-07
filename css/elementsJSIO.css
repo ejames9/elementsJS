@@ -47,7 +47,7 @@ a:active {
 }
 a:focus {
   outline: 0;
-  outline-style: none;
+  /*outline-style: none;*/
   -moz-outline-style: none;
 }
 
@@ -147,7 +147,7 @@ code {
 
 }
 #sideNav a:active {
-  display: inline-block;
+  display: block;
   font-weight: bolder;
   text-decoration: none;
   color: #FF8A22;
@@ -157,7 +157,7 @@ code {
 
 }
 #sideNav a:focus {
-  display: inline-block;
+  display: block;
   font-weight: bolder;
   text-decoration: none;
   color: #FF8A22;
@@ -618,6 +618,7 @@ iframe {
 }
 
 #sideNav a  {
+  text-wrap: none;
   color: #52218A;
 }
 
@@ -625,10 +626,16 @@ iframe {
   margin-right: 10px;
 }
 
+#sideNav li {
+  font-size: 17px;
+}
+
 #sideNav li ul li {
   font-size: 12px;
   /*margin-right: 10px;*/
   padding-right: 10px;
+  /*margin-top: 1px;
+  margin-bottom: 1px;*/
 }
 
 #sideNav {
@@ -797,7 +804,7 @@ iframe {
 .hot {
   border-right: 3px solid #52218A;
   padding-right: 3px;
-  color: #FF8A22;
+  font-weight: bolder;
 }
 
 .hot2 {
@@ -812,8 +819,4 @@ iframe {
 .anchors {
   padding-top: 0px;
   padding-bottom: 0px;
-}
-
-.padR0 {
-  margin-right: 0px;
 }

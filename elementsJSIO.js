@@ -93,6 +93,8 @@
 
 	var hljs = __webpack_require__(11);
 
+	var browser = __webpack_require__(165);
+
 	///End Module requires///
 
 	//<<===============================>>
@@ -221,8 +223,17 @@
 	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
 	        hashSS = hash.substring(1, hash.length);
 
-	        var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem4.scrolled(offSets[hashSS] + 291);
+	        if (browser.gecko) {
+	          log('gecko', 'red');
+
+	          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	          elem4.scrolled(offSets[hashSS] + 291);
+	        } else if (browser.safari) {
+	          log('safari', 'blue');
+
+	          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	          elem5.scrolled(offSets[hashSS] + 291);
+	        }
 	        break;
 	      case e.target.tagName === 'CODE':
 	        e.preventDefault();
@@ -230,8 +241,17 @@
 	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
 	        hashSS = hash.substring(1, hash.length);
 
-	        var elem5 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem5.scrolled(offSets[hashSS] + 291);
+	        if (browser.gecko) {
+	          log('gecko', 'red');
+
+	          var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	          elem6.scrolled(offSets[hashSS] + 291);
+	        } else if (browser.safari) {
+	          log('safari', 'blue');
+
+	          var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	          elem7.scrolled(offSets[hashSS] + 291);
+	        }
 	        break;
 	      case e.target.tagName === 'A':
 	        log(e.target.tagName, 'red');
@@ -244,8 +264,17 @@
 	        warn(hashSS);
 	        warn(offSets[hashSS]);
 
-	        var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem6.scrolled(offSets[hashSS] + 291);
+	        if (browser.gecko) {
+	          log('gecko', 'red');
+
+	          var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	          elem8.scrolled(offSets[hashSS] + 291);
+	        } else if (browser.safari) {
+	          log('safari', 'blue');
+
+	          var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	          elem9.scrolled(offSets[hashSS] + 291);
+	        }
 	        break;
 	      default:
 	        var npmBar = el('#npm-bar');
@@ -266,8 +295,8 @@
 	  editor1.renderer.setShowGutter(false);
 	  editor1.getSession().setMode("ace/mode/javascript");
 	  //Set default display setting for the bower/npm installation bar.
-	  var elem7 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-	  elem7.display('none');
+	  var elem10 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+	  elem10.display('none');
 	  //Initialize the click controller.
 	  clickController();
 	  //Download the documentation markdown.
@@ -304,48 +333,55 @@
 	//The control states for the sideNav Menu.
 	var sideNavStates = {
 	      stateOne: function stateOne(elem) {
-	            dom('[class~=hot]').class('hot', '-');
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
 
 	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
+	                  element.class('hide').sib('prev').fontWeight('300');
 	            });
-	            dom(elem).class('hot').sib('next').class('hide', '-');
+	            dom(elem).class('hot').color('#FF8A22').sib('next').class('hide', '-');
 	      },
 	      stateTwo: function stateTwo(elem) {
-	            dom('[class~=hot]').class('hot', '-');
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
 	            dom('[class~=hot2]').class('hot2', '-');
 	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
+	                  element.class('hide').sib('prev').fontWeight('300');
 	            });
-	            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').class('hot', '+');
+	            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').class('hot');
 	      },
 	      stateThree: function stateThree(elem) {
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
 	            dom('[class~=hot2]').class('hot2', '-');
 	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
+	                  element.class('hide').sib('prev').fontWeight('300');
 	            });
-	            dom(elem).class('hot2').ma().class('hide', '-');
+	            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').class('hot');
 	      },
 	      stateFour: function stateFour(elem) {
-	            dom('[class~=hot]').class('hot', '-');
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
 	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
+	                  element.class('hide').sib('prev').fontWeight('300');
 	            });
-	            dom(elem).class('hot');
+	            dom(elem).class('hot').color('#FF8A22');
 	      },
 	      stateFive: function stateFive(elem) {
-	            dom('[class~=hot]').class('hot', '-');
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
 	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
+	                  element.class('hide').sib('prev').fontWeight('300');
 	            });
-	            dom(elem).class('hot').sib('next').class('hide', '+');
+	            dom(elem).class('hot').color('#FF8A22').sib('next').class('hide', '+');
 	      },
 	      stateSix: function stateSix(elem) {
 	            dom('[class~=hot2]').class('hot2', '-');
 	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
+	                  element.class('hide').sib('prev').fontWeight('300');
 	            });
 	            dom(elem).class('hot2').ma().class('hide', '-');
+	      },
+	      stateSeven: function stateSeven(elem) {
+	            dom('[name=hidden]').every(function (element) {
+	                  element.class('hide', '+').sib('prev').fontWeight('300');
+	            });
+	            dom(elem).first().fontWeight('500').sib('next').class('hide', '-');
 	      }
 
 	};
@@ -496,67 +532,48 @@
 
 	            switch (9 + 9 === 18) {
 	                  case e.target === (0, _elementsJS.el)('#gsList') || e.target.parentNode === (0, _elementsJS.el)('#gsList'):
-	                        dom('[name=hidden]').every(function (element) {
-	                              element.class('hide', '+');
-	                        });
-	                        var elem0 = _$('#gsList') ? dom('#gsList') : make('#gsList').put("body");
-	                        elem0.second().class('hide', '-');
+
+	                        sideNavStates.stateSeven('#gsList');
+
 	                        break;
 	                  case e.target === (0, _elementsJS.el)('#domList') || e.target.parentNode === (0, _elementsJS.el)('#domList'):
-	                        dom('[name=hidden]').every(function (element) {
-	                              element.class('hide', '+');
-	                        });
-	                        var elem1 = _$('#domList') ? dom('#domList') : make('#domList').put("body");
-	                        elem1.second().class('hide', '-');
+
+	                        sideNavStates.stateSeven('#domList');
 	                        break;
 	                  case e.target === (0, _elementsJS.el)('#eventList') || e.target.parentNode === (0, _elementsJS.el)('#eventList'):
-	                        dom('[name=hidden]').every(function (element) {
-	                              element.class('hide', '+');
-	                        });
-	                        var elem2 = _$('#eventList') ? dom('#eventList') : make('#eventList').put("body");
-	                        elem2.second().class('hide', '-');
+
+	                        sideNavStates.stateSeven('#eventList');
+
 	                        break;
 	                  case e.target === (0, _elementsJS.el)('#httpList') || e.target.parentNode === (0, _elementsJS.el)('#httpList'):
-	                        dom('[title~=shorts]').every(function (element) {
-	                              element.class('hide', '+');
-	                        });
-	                        var elem3 = _$('#httpList') ? dom('#httpList') : make('#httpList').put("body");
-	                        elem3.second().class('hide', '-');
+
+	                        sideNavStates.stateSeven('#httpList');
+
 	                        break;
 	                  case e.target === (0, _elementsJS.el)('#loggList') || e.target.parentNode === (0, _elementsJS.el)('#loggList'):
-	                        dom('[title~=shorts]').every(function (element) {
-	                              element.class('hide', '+');
-	                        });
-	                        var elem4 = _$('#loggList') ? dom('#loggList') : make('#loggList').put("body");
-	                        elem4.second().class('hide', '-');
+
+	                        sideNavStates.stateSeven('#loggList');
+
 	                        break;
 	                  case e.target === (0, _elementsJS.el)('#utilsList') || e.target.parentNode === (0, _elementsJS.el)('#utilsList'):
-	                        dom('[title~=shorts]').every(function (element) {
-	                              element.class('hide', '+');
-	                        });
-	                        var elem5 = _$('#utilsList') ? dom('#utilsList') : make('#utilsList').put("body");
-	                        elem5.second().class('hide', '-');
+
+	                        sideNavStates.stateSeven('#utilsList');
+
 	                        break;
 	                  case e.target === (0, _elementsJS.el)('#elemObjList') || e.target.parentNode === (0, _elementsJS.el)('#elemObjList'):
-	                        dom('[title~=shorts]').every(function (element) {
-	                              element.class('hide', '+');
-	                        });
-	                        var elem6 = _$('#elemObjList') ? dom('#elemObjList') : make('#elemObjList').put("body");
-	                        elem6.second().class('hide', '-');
+
+	                        sideNavStates.stateSeven('#elemObjList');
+
 	                        break;
 	                  case e.target === (0, _elementsJS.el)('#eOMethodsList') || e.target.parentNode === (0, _elementsJS.el)('#eOMethodsList'):
-	                        dom('[title~=shorts]').every(function (element) {
-	                              element.class('hide', '+');
-	                        });
-	                        var elem7 = _$('#eOMethodsList') ? dom('#eOMethodsList') : make('#eOMethodsList').put("body");
-	                        elem7.second().class('hide', '-');
+
+	                        sideNavStates.stateSeven('#eOMethodsList');
+
 	                        break;
 	                  case e.target === (0, _elementsJS.el)('#eStaxList') || e.target.parentNode === (0, _elementsJS.el)('#eStaxList'):
-	                        dom('[title~=shorts]').every(function (element) {
-	                              element.class('hide', '+');
-	                        });
-	                        var elem8 = _$('#eStaxList') ? dom('#eStaxList') : make('#eStaxList').put("body");
-	                        elem8.second().class('hide', '-');
+
+	                        sideNavStates.stateSeven('#eStaxList');
+
 	                        break;
 
 	            };
@@ -574,15 +591,15 @@
 	                  //0 - 13 Getting Started
 	                  case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff:
 	                        //Find active list item, deactivate it.
-	                        dom('[class~=hot]').class('hot', '-');
+	                        dom('[class~=hot]').color('#52218A').class('hot', '-');
 
 	                        //Find all menu lists, hide them.
 	                        dom('[name=hidden]').every(function (element) {
 	                              element.class('hide');
 	                        });
 	                        //Activate Getting Started list item.
-	                        var elem9 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-	                        elem9.class('hot').sib('next').class('hide', '+');
+	                        var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
+	                        elem0.class('hot').color('#FF8A22').sib('next').class('hide', '+');
 
 	                        sideNavState = [5, '#getStart'];
 	                        break;
@@ -595,47 +612,47 @@
 	                              element.class('hide');
 	                        });
 	                        //Activate Installation list item. Open parent list by removing .hide class.
-	                        var elem10 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
-	                        elem10.class('hot2').ma().class('hide', '-');
+	                        var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
+	                        elem1.class('hot2').ma().class('hide', '-');
 
 	                        sideNavState = [6, '#instLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
 	                        dom('[class~=hot2]').class('hot2', '-');
-	                        var elem11 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
-	                        elem11.class('hot2');
+	                        var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
+	                        elem2.class('hot2');
 
 	                        sideNavState = [3, '#useLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff:
-	                        dom('[class~=hot]').class('hot', '-');
+	                        dom('[class~=hot]').color('#52218A').class('hot', '-');
 	                        dom('[class~=hot2]').class('hot2', '-');
 	                        dom('[name=hidden]').every(function (element) {
 	                              element.class('hide');
 	                        });
-	                        var elem12 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
-	                        elem12.class('hot2').ma().class('hide', '-').sib('prev').class('hot', '+');
+	                        var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
+	                        elem3.class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').class('hot', '+');
 
 	                        sideNavState = [2, '#interpInstallLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff:
-	                        dom('[class~=hot]').class('hot', '-');
+	                        dom('[class~=hot]').color('#52218A').class('hot', '-');
 
 	                        dom('[name=hidden]').every(function (element) {
 	                              element.class('hide');
 	                        });
-	                        var elem13 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
-	                        elem13.class('hot');
+	                        var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
+	                        elem4.class('hot').color('#FF8A22');
 
 	                        sideNavState = [4, '#imps'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff:
-	                        dom('[class~=hot]').class('hot', '-');
+	                        dom('[class~=hot]').color('#52218A').class('hot', '-');
 	                        dom('[name=hidden]').every(function (element) {
 	                              element.class('hide');
 	                        });
-	                        var elem14 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
-	                        elem14.class('hot').sib('next').class('hide', '-');
+	                        var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
+	                        elem5.class('hot').color('#FF8A22').sib('next').class('hide', '-');
 
 	                        sideNavState = [1, '#domManip'];
 	                        break;
@@ -22178,6 +22195,349 @@
 	    ]
 	  };
 	};
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Bowser - a browser detector
+	 * https://github.com/ded/bowser
+	 * MIT License | (c) Dustin Diaz 2015
+	 */
+
+	!function (name, definition) {
+	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
+	  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+	  else this[name] = definition()
+	}('bowser', function () {
+	  /**
+	    * See useragents.js for examples of navigator.userAgent
+	    */
+
+	  var t = true
+
+	  function detect(ua) {
+
+	    function getFirstMatch(regex) {
+	      var match = ua.match(regex);
+	      return (match && match.length > 1 && match[1]) || '';
+	    }
+
+	    function getSecondMatch(regex) {
+	      var match = ua.match(regex);
+	      return (match && match.length > 1 && match[2]) || '';
+	    }
+
+	    var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
+	      , likeAndroid = /like android/i.test(ua)
+	      , android = !likeAndroid && /android/i.test(ua)
+	      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
+	      , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
+	      , chromeos = /CrOS/.test(ua)
+	      , silk = /silk/i.test(ua)
+	      , sailfish = /sailfish/i.test(ua)
+	      , tizen = /tizen/i.test(ua)
+	      , webos = /(web|hpw)os/i.test(ua)
+	      , windowsphone = /windows phone/i.test(ua)
+	      , windows = !windowsphone && /windows/i.test(ua)
+	      , mac = !iosdevice && !silk && /macintosh/i.test(ua)
+	      , linux = !android && !sailfish && !tizen && !webos && /linux/i.test(ua)
+	      , edgeVersion = getFirstMatch(/edge\/(\d+(\.\d+)?)/i)
+	      , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
+	      , tablet = /tablet/i.test(ua)
+	      , mobile = !tablet && /[^-]mobi/i.test(ua)
+	      , result
+
+	    if (/opera|opr/i.test(ua)) {
+	      result = {
+	        name: 'Opera'
+	      , opera: t
+	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/yabrowser/i.test(ua)) {
+	      result = {
+	        name: 'Yandex Browser'
+	      , yandexbrowser: t
+	      , version: versionIdentifier || getFirstMatch(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/ucbrowser/i.test(ua)) {
+	      result = {
+	          name: 'UC Browser'
+	        , ucbrowser: t
+	        , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (windowsphone) {
+	      result = {
+	        name: 'Windows Phone'
+	      , windowsphone: t
+	      }
+	      if (edgeVersion) {
+	        result.msedge = t
+	        result.version = edgeVersion
+	      }
+	      else {
+	        result.msie = t
+	        result.version = getFirstMatch(/iemobile\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/msie|trident/i.test(ua)) {
+	      result = {
+	        name: 'Internet Explorer'
+	      , msie: t
+	      , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
+	      }
+	    } else if (chromeos) {
+	      result = {
+	        name: 'Chrome'
+	      , chromeos: t
+	      , chromeBook: t
+	      , chrome: t
+	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+	      }
+	    } else if (/chrome.+? edge/i.test(ua)) {
+	      result = {
+	        name: 'Microsoft Edge'
+	      , msedge: t
+	      , version: edgeVersion
+	      }
+	    }
+		else if (/vivaldi/i.test(ua)) {
+			result = {
+				name: 'Vivaldi'
+				, vivaldi: t
+				, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
+			}
+		}
+	    else if (/chrome|crios|crmo/i.test(ua)) {
+	      result = {
+	        name: 'Chrome'
+	      , chrome: t
+	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (iosdevice) {
+	      result = {
+	        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
+	      }
+	      // WTF: version is not part of user agent in web apps
+	      if (versionIdentifier) {
+	        result.version = versionIdentifier
+	      }
+	    }
+	    else if (sailfish) {
+	      result = {
+	        name: 'Sailfish'
+	      , sailfish: t
+	      , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/seamonkey\//i.test(ua)) {
+	      result = {
+	        name: 'SeaMonkey'
+	      , seamonkey: t
+	      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/firefox|iceweasel/i.test(ua)) {
+	      result = {
+	        name: 'Firefox'
+	      , firefox: t
+	      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
+	      }
+	      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
+	        result.firefoxos = t
+	      }
+	    }
+	    else if (silk) {
+	      result =  {
+	        name: 'Amazon Silk'
+	      , silk: t
+	      , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (android) {
+	      result = {
+	        name: 'Android'
+	      , version: versionIdentifier
+	      }
+	    }
+	    else if (/phantom/i.test(ua)) {
+	      result = {
+	        name: 'PhantomJS'
+	      , phantom: t
+	      , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
+	      result = {
+	        name: 'BlackBerry'
+	      , blackberry: t
+	      , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (webos) {
+	      result = {
+	        name: 'WebOS'
+	      , webos: t
+	      , version: versionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)
+	      };
+	      /touchpad\//i.test(ua) && (result.touchpad = t)
+	    }
+	    else if (/bada/i.test(ua)) {
+	      result = {
+	        name: 'Bada'
+	      , bada: t
+	      , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
+	      };
+	    }
+	    else if (tizen) {
+	      result = {
+	        name: 'Tizen'
+	      , tizen: t
+	      , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
+	      };
+	    }
+	    else if (/qupzilla/i.test(ua)) {
+	      result = {
+	        name: 'QupZilla'
+	        , qupzilla: t
+	        , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
+	      }
+	    }
+	    else if (/safari/i.test(ua)) {
+	      result = {
+	        name: 'Safari'
+	      , safari: t
+	      , version: versionIdentifier
+	      }
+	    }
+	    else if(/googlebot/i.test(ua)) {
+	      result = {
+	        name: 'Googlebot'
+	      , googlebot: t
+	      , version: getFirstMatch(/googlebot\/(\d+(\.\d+))/i) || versionIdentifier
+	      }
+	    }
+	    else {
+	      result = {
+	        name: getFirstMatch(/^(.*)\/(.*) /),
+	        version: getSecondMatch(/^(.*)\/(.*) /)
+	     };
+	   }
+
+	    // set webkit or gecko flag for browsers based on these engines
+	    if (!result.msedge && /(apple)?webkit/i.test(ua)) {
+	      result.name = result.name || "Webkit"
+	      result.webkit = t
+	      if (!result.version && versionIdentifier) {
+	        result.version = versionIdentifier
+	      }
+	    } else if (!result.opera && /gecko\//i.test(ua)) {
+	      result.name = result.name || "Gecko"
+	      result.gecko = t
+	      result.version = result.version || getFirstMatch(/gecko\/(\d+(\.\d+)?)/i)
+	    }
+
+	    // set OS flags for platforms that have multiple browsers
+	    if (!result.msedge && (android || result.silk)) {
+	      result.android = t
+	    } else if (iosdevice) {
+	      result[iosdevice] = t
+	      result.ios = t
+	    } else if (windows) {
+	      result.windows = t
+	    } else if (mac) {
+	      result.mac = t
+	    } else if (linux) {
+	      result.linux = t
+	    }
+
+	    // OS version extraction
+	    var osVersion = '';
+	    if (result.windowsphone) {
+	      osVersion = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i);
+	    } else if (iosdevice) {
+	      osVersion = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i);
+	      osVersion = osVersion.replace(/[_\s]/g, '.');
+	    } else if (android) {
+	      osVersion = getFirstMatch(/android[ \/-](\d+(\.\d+)*)/i);
+	    } else if (result.webos) {
+	      osVersion = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i);
+	    } else if (result.blackberry) {
+	      osVersion = getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i);
+	    } else if (result.bada) {
+	      osVersion = getFirstMatch(/bada\/(\d+(\.\d+)*)/i);
+	    } else if (result.tizen) {
+	      osVersion = getFirstMatch(/tizen[\/\s](\d+(\.\d+)*)/i);
+	    }
+	    if (osVersion) {
+	      result.osversion = osVersion;
+	    }
+
+	    // device type extraction
+	    var osMajorVersion = osVersion.split('.')[0];
+	    if (tablet || nexusTablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
+	      result.tablet = t
+	    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || nexusMobile || result.blackberry || result.webos || result.bada) {
+	      result.mobile = t
+	    }
+
+	    // Graded Browser Support
+	    // http://developer.yahoo.com/yui/articles/gbs
+	    if (result.msedge ||
+	        (result.msie && result.version >= 10) ||
+	        (result.yandexbrowser && result.version >= 15) ||
+			(result.vivaldi && result.version >= 1.0) ||
+	        (result.chrome && result.version >= 20) ||
+	        (result.firefox && result.version >= 20.0) ||
+	        (result.safari && result.version >= 6) ||
+	        (result.opera && result.version >= 10.0) ||
+	        (result.ios && result.osversion && result.osversion.split(".")[0] >= 6) ||
+	        (result.blackberry && result.version >= 10.1)
+	        ) {
+	      result.a = t;
+	    }
+	    else if ((result.msie && result.version < 10) ||
+	        (result.chrome && result.version < 20) ||
+	        (result.firefox && result.version < 20.0) ||
+	        (result.safari && result.version < 6) ||
+	        (result.opera && result.version < 10.0) ||
+	        (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
+	        ) {
+	      result.c = t
+	    } else result.x = t
+
+	    return result
+	  }
+
+	  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')
+
+	  bowser.test = function (browserList) {
+	    for (var i = 0; i < browserList.length; ++i) {
+	      var browserItem = browserList[i];
+	      if (typeof browserItem=== 'string') {
+	        if (browserItem in bowser) {
+	          return true;
+	        }
+	      }
+	    }
+	    return false;
+	  }
+
+	  /*
+	   * Set our detect method to the main bowser object so we can
+	   * reuse it to test other user agents.
+	   * This is needed to implement future tests.
+	   */
+	  bowser._detect = detect;
+
+	  return bowser
+	});
+
 
 /***/ }
 /******/ ]);

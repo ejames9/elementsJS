@@ -47,6 +47,8 @@ var marked = require("marked");
 
 var hljs = require("highlight.js");
 
+var browser = require("bowser");
+
 ///End Module requires///
 
 //<<===============================>>
@@ -175,8 +177,17 @@ function clickController() {
         offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
         hashSS = hash.substring(1, hash.length);
 
-        var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem4.scrolled(offSets[hashSS] + 291);
+        if (browser.gecko) {
+          log('gecko', 'red');
+
+          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          elem4.scrolled(offSets[hashSS] + 291);
+        } else if (browser.safari) {
+          log('safari', 'blue');
+
+          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          elem5.scrolled(offSets[hashSS] + 291);
+        }
         break;
       case e.target.tagName === 'CODE':
         e.preventDefault();
@@ -184,8 +195,17 @@ function clickController() {
         offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
         hashSS = hash.substring(1, hash.length);
 
-        var elem5 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem5.scrolled(offSets[hashSS] + 291);
+        if (browser.gecko) {
+          log('gecko', 'red');
+
+          var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          elem6.scrolled(offSets[hashSS] + 291);
+        } else if (browser.safari) {
+          log('safari', 'blue');
+
+          var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          elem7.scrolled(offSets[hashSS] + 291);
+        }
         break;
       case e.target.tagName === 'A':
         log(e.target.tagName, 'red');
@@ -198,8 +218,17 @@ function clickController() {
         warn(hashSS);
         warn(offSets[hashSS]);
 
-        var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem6.scrolled(offSets[hashSS] + 291);
+        if (browser.gecko) {
+          log('gecko', 'red');
+
+          var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          elem8.scrolled(offSets[hashSS] + 291);
+        } else if (browser.safari) {
+          log('safari', 'blue');
+
+          var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          elem9.scrolled(offSets[hashSS] + 291);
+        }
         break;
       default:
         var npmBar = el('#npm-bar');
@@ -220,8 +249,8 @@ go(function () {
   editor1.renderer.setShowGutter(false);
   editor1.getSession().setMode("ace/mode/javascript");
   //Set default display setting for the bower/npm installation bar.
-  var elem7 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-  elem7.display('none');
+  var elem10 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+  elem10.display('none');
   //Initialize the click controller.
   clickController();
   //Download the documentation markdown.
