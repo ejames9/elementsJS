@@ -248,9 +248,12 @@ go(function () {
   editor1.setTheme("ace/theme/elementsJSIO");
   editor1.renderer.setShowGutter(false);
   editor1.getSession().setMode("ace/mode/javascript");
+
+  var elem10 = _$('.jumbotron') ? dom('.jumbotron') : make('.jumbotron').put("body");
+  elem10.height(window.innerHeight);
   //Set default display setting for the bower/npm installation bar.
-  var elem10 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-  elem10.display('none');
+  var elem11 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+  elem11.display('none');
   //Initialize the click controller.
   clickController();
   //Download the documentation markdown.

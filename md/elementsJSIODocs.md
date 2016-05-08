@@ -180,7 +180,7 @@ elemsJS.make('#foo', 'button');
 utils.buildMenu();
 ```
 
-# <a class='titleLinks' id='DOM'>DOM Manipulation functions</a>
+# <a class='titleLinks' id='DOM'>DOM Manipulation Functions</a>
 --
 
 ## <a class='titleLinks' id='el-func'>`el(elem)`</a>
@@ -1675,5 +1675,7 @@ Hopefully by now you've gotten the hang of what the above line would do. Either 
 12. each() to every().
 13. changes to .html() .text().
 14. changes to .class()
+15. isArray() func.
+16. 
 
 </a>

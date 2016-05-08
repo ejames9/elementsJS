@@ -32,6 +32,7 @@ const sideNavStates = {
     dom(elem)
             .class('hot')
             .color('#FF8A22')
+            .fontWeight('500')
             .sib('next')
                     .class('hide', '-');
   },
@@ -54,6 +55,7 @@ const sideNavStates = {
                 .class('hide', '-')
                 .sib('prev')
                         .color('#FF8A22')
+                        .fontWeight('500')
                         .class('hot');
   },
   stateThree: (elem)=> {
@@ -75,6 +77,7 @@ const sideNavStates = {
                 .class('hide', '-')
                 .sib('prev')
                         .color('#FF8A22')
+                        .fontWeight('500')
                         .class('hot');
   },
   stateFour: (elem)=> {
@@ -91,6 +94,7 @@ const sideNavStates = {
     dom(elem)
             .class('hot')
             .color('#FF8A22')
+            .fontWeight('500');
   },
   stateFive: (elem)=> {
     dom('[class~=hot]')
@@ -106,6 +110,7 @@ const sideNavStates = {
     dom(elem)
             .class('hot')
             .color('#FF8A22')
+            .fontWeight('500')
             .sib('next')
                       .class('hide', '+');
   },
@@ -116,8 +121,8 @@ const sideNavStates = {
             .every((element)=> {
                 element
                     .class('hide')
-                    .sib('prev')
-                              .fontWeight('300');
+                    // .sib('prev')
+                    //           .fontWeight('300');
             });
     dom(elem)
             .class('hot2')
@@ -137,9 +142,25 @@ const sideNavStates = {
                 .fontWeight('500')
                 .sib('next')
                         .class('hide', '-');
+  },
+  stateEight: (elem)=> {
+    dom('[title~=shorts]')
+              .every((element)=> {
+                  element
+                    .class('hide', '+')
+                    .sib('prev')
+                              .fontWeight('300');
+             });
+    dom(elem)
+          .first()
+                .fontWeight('500')
+                .sib('next')
+                        .class('hide', '-');
   }
 
 };
+
+
 
 //Function for creating the offSets object, which contains the offsetTop property of all elements.
 function getOffSets() {
@@ -307,32 +328,32 @@ function mouseOverController() {
           break;
       case (e.target === el('#httpList') || e.target.parentNode === el('#httpList')):
 
-          sideNavStates.stateSeven('#httpList');
+          sideNavStates.stateEight('#httpList');
 
           break;
       case (e.target === el('#loggList') || e.target.parentNode === el('#loggList')):
 
-          sideNavStates.stateSeven('#loggList');
+          sideNavStates.stateEight('#loggList');
 
           break;
       case (e.target === el('#utilsList') || e.target.parentNode === el('#utilsList')):
 
-          sideNavStates.stateSeven('#utilsList');
+          sideNavStates.stateEight('#utilsList');
 
           break;
       case (e.target === el('#elemObjList') || e.target.parentNode === el('#elemObjList')):
 
-          sideNavStates.stateSeven('#elemObjList');
+          sideNavStates.stateEight('#elemObjList');
 
           break;
       case (e.target === el('#eOMethodsList') || e.target.parentNode === el('#eOMethodsList')):
 
-          sideNavStates.stateSeven('#eOMethodsList');
+          sideNavStates.stateEight('#eOMethodsList');
 
           break;
       case (e.target === el('#eStaxList') || e.target.parentNode === el('#eStaxList')):
 
-          sideNavStates.stateSeven('#eStaxList');
+          sideNavStates.stateEight('#eStaxList');
 
           break;
 
@@ -354,6 +375,7 @@ function sideNavController() {
               //Find active list item, deactivate it.
               dom('[class~=hot]')
                       .color('#52218A')
+                      .fontWeight('300')
 											.class('hot', '-');
 
               //Find all menu lists, hide them.
@@ -366,6 +388,7 @@ function sideNavController() {
               <'#getStart'/>
                       .class('hot')
                       .color('#FF8A22')
+                      .fontWeight('500')
                       .sib('next')
                                 .class('hide', '+');
 
@@ -387,7 +410,9 @@ function sideNavController() {
               <'#instLink'/>
                       .class('hot2')
                       .ma()
-											   .class('hide', '-');
+											   .class('hide', '-')
+                         .sib('prev')
+                                    .fontWeight('500');
 
               sideNavState = [6, '#instLink'];
               break;
@@ -404,6 +429,7 @@ function sideNavController() {
               dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff):
               dom('[class~=hot]')
                       .color('#52218A')
+                      .fontWeight('300')
 											.class('hot', '-');
               dom('[class~=hot2]')
 											.class('hot2', '-');
@@ -418,6 +444,7 @@ function sideNavController() {
 													.class('hide', '-')
                           .sib('prev')
                                   .color('#FF8A22')
+                                  .fontWeight('500')
                                   .class('hot', '+');
 
               sideNavState = [2, '#interpInstallLink'];
@@ -426,6 +453,7 @@ function sideNavController() {
               dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff):
               dom('[class~=hot]')
                       .color('#52218A')
+                      .fontWeight('300')
 											.class('hot', '-');
 
               dom('[name=hidden]')
@@ -435,7 +463,8 @@ function sideNavController() {
                       });
               <'#imps'/>
                       .class('hot')
-                      .color('#FF8A22');
+                      .color('#FF8A22')
+                      .fontWeight('500');
 
               sideNavState = [4, '#imps'];
               break;
@@ -443,6 +472,7 @@ function sideNavController() {
               dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff):
               dom('[class~=hot]')
                       .color('#52218A')
+                      .fontWeight('300')
 											.class('hot', '-');
               dom('[name=hidden]')
                       .every((element)=> {
@@ -452,6 +482,7 @@ function sideNavController() {
               <'#domManip'/>
                       .class('hot')
                       .color('#FF8A22')
+                      .fontWeight('500')
                       .sib('next')
 															.class('hide', '-');
 

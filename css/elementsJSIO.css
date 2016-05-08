@@ -67,13 +67,13 @@ body {
 }
 
 h2, h1 {
-  font-family: helvetica neue;
+  font-family: josefin sans, helvetica neue;
   font-weight: 500;
   color: #52218A;
 }
 
 h4, h3 {
-  font-family: helvetica neue;
+  font-family: josefin sans, helvetica neue;
   font-weight: 500;
   color: #52218A;
 }
@@ -283,8 +283,9 @@ h2 a:visited {
 
 
 #logo-text {
-  font-family: helvetica neue;
-  font-size: 78px;
+  font-family: josefin sans, helvetica neue;
+  font-weight: 600;
+  font-size: 96px;
   color: #FF8A22;
   text-align: center;
   text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
@@ -617,6 +618,13 @@ iframe {
   color: #52218A;
 }
 
+#sideNav {
+  padding-top: 55px;
+  text-wrap: none;
+  text-overflow: clip;
+  font-family: josefin sans;
+}
+
 #sideNav a  {
   text-wrap: none;
   color: #52218A;
@@ -638,10 +646,6 @@ iframe {
   margin-bottom: 1px;*/
 }
 
-#sideNav {
-  padding-top: 55px;
-
-}
 
 #docsMain {
   padding-top: 27px;
@@ -649,6 +653,7 @@ iframe {
 
 #lib {
   margin-top: 5px;
+  color: #9d2635;
 }
 
 
@@ -803,8 +808,8 @@ iframe {
 
 .hot {
   border-right: 3px solid #52218A;
-  padding-right: 3px;
-  font-weight: bolder;
+  padding-right: 5px;
+  font-weight: 500;
 }
 
 .hot2 {

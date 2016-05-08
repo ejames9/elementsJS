@@ -263,6 +263,9 @@ go(()=> {
       editor1.renderer.setShowGutter(false);
       editor1.getSession()
              .setMode("ace/mode/javascript");
+
+  <'.jumbotron'/>
+              .height(window.innerHeight);
   //Set default display setting for the bower/npm installation bar.
   <'#npm-bar'/>.display('none');
   //Initialize the click controller.
