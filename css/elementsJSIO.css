@@ -24,6 +24,9 @@ kristi,
 
 /*--------------------------Tag Stylings----------------- */
 
+html, body {
+  background-color: #39175E;
+}
 
 svg {
   max-height: 80px;
@@ -288,6 +291,7 @@ h2 a:visited {
   font-size: 96px;
   color: #FF8A22;
   text-align: center;
+  margin-bottom: 50px;
   text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
 }
 
@@ -321,6 +325,7 @@ h2 a:visited {
   top: 0;
   background-color: #39175E;
   margin-bottom: 0px;
+  padding-top: 100px;
 }
 
 #desc {
@@ -493,6 +498,10 @@ iframe {
   left: 3px;
   font-size: 6px;
   color: #cda6ec;
+}
+
+#content {
+  background-color: #39175E;
 }
 
 
