@@ -28,6 +28,15 @@ html, body {
   background-color: #39175E;
 }
 
+#body {
+  background-color: #39175E;
+
+}
+
+hr {
+  border: 1px solid #52218A;
+}
+
 svg {
   max-height: 80px;
   max-width: 80px;
@@ -235,9 +244,15 @@ h2 a:visited {
 /*--------------------------NavBar Styles--------------------*/
 
 #navbar {
+  font-family: josefin sans;
   background-color: #52218A;
   border: none;
 }
+
+#navbar li {
+  font-family: josefin sans;
+}
+
 #navbar2 {
   position: absolute;
   right: 60px;
@@ -581,7 +596,7 @@ iframe {
   margin-bottom: 5px;
 }
 #cdn {
-  /*background-color: #39175E;*/
+  background-color: #39175E;
   /*color: #52218A;*/
   left: 0;
   font-family: bpmono;
@@ -597,12 +612,20 @@ iframe {
 }
 
 #editor1 {
-  /*position: absolute;*/
+  border: 1px solid #52218A;
   height: 160px;
   width: 280px;
   border-radius: 7px;
   font-family: bpmono, source code pro, hack, monaco;
   margin-bottom: 5px;
+}
+
+.col-md-4:hover > h2,
+.col-md-4:hover > h4,
+.col-md-4:hover > ul li,
+.col-md-4:hover > div code span,
+.col-md-4:hover > p {
+  color: #FF8A22;
 }
 
 /*-----------------------Documentation--------------------*/
