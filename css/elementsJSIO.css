@@ -108,25 +108,74 @@ ul > li > a {
 }
 
 pre {
-  border: 1px dotted  #52218A;
+  border: none;
   padding: 0px;
 
 }
 
 pre code {
-    border: 2px solid #D3869B;
+    border: 1px solid #52218A;
+    border-radius: 3px;
+}
+pre code:hover {
+    border: 1px solid #FF8A22;
 }
 
+
 code {
-  font-family: bpmono;
+  font-family: inconsolata, bpmono;
   border-radius: 5px;
   color: #9d2635;
+}
+
+#docsMenu-container h1 a code {
+  border: 1px solid #FF8A22;
+  background-color: #39175E;
+  color: #FF8A22;
+  border-radius: 25px;
+  font-weight: 100;
+  padding: 7px 15px 7px 15px;
+}
+
+#docsMenu-container h2 a code {
+  border: 1px solid #FF8A22;
+  background-color: #39175E;
+  color: #52218A;
+  border-radius: 25px;
+  font-weight: 100;
+  padding: 7px 15px 7px 15px;
+}
+#docsMenu-container h2 a code:hover {
+  border: 1px solid #FF8A22;
+  background-color: #52218A;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 100;
+  padding: 7px 15px 7px 15px;
+}
+#docsMenu-container h2 code:hover {
+  border: 1px solid #FF8A22;
+  background-color: #52218A;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 100;
+  padding: 7px 15px 7px 15px;
+}
+
+
+
+#docsMenu-container p code,
+#docsMenu-container li code {
+  background-color: #39175E;
+  border: 1px solid #52218A;
+  color: #9d2635;
+  border-radius: 25px;
 }
 
 
 #docsMenu-container h2 code {
   border: 1px solid #FF8A22;
-  background-color: #fff;
+  background-color: #39175E;
   color: #52218A;
   border-radius: 25px;
   font-weight: 100;
@@ -134,10 +183,35 @@ code {
 }
 #sideNav code {
   color: #52218A;
-  background-color: #fff;
+  background-color: #39175E;
   border: 1px solid #FF8A22;
   border-radius: 15px;
 }
+
+#sideNav li a code  {
+  color: #52218A;
+  background-color: #39175E;
+  border: 1px solid #FF8A22;
+  border-radius: 15px;
+}
+
+#docsMain p:hover,
+#docsMain li:hover,
+#docsMain h1:hover,
+#docsMain h2:hover,
+#docsMain h3:hover,
+#docsMain h4:hover,
+#docsMain a:hover {
+  color: #FF8A22;
+}
+
+#docsMain p a:hover {
+  color: #9d2635;
+}
+#docsMain li a:hover {
+  color: #9d2635;
+}
+
 
 #docsMain h1 {
   background-color: #39175E;
@@ -192,6 +266,7 @@ code {
   border: 1px solid #52218A;
   border-radius: 15px;
 }
+
 
 
 h1 a {
@@ -303,10 +378,10 @@ h2 a:visited {
 #logo-text {
   font-family: josefin sans, helvetica neue;
   font-weight: 600;
-  font-size: 96px;
+  font-size: 112px;
   color: #FF8A22;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
   text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
 }
 
@@ -339,8 +414,8 @@ h2 a:visited {
 .jumbotron {
   top: 0;
   background-color: #39175E;
-  margin-bottom: 0px;
-  padding-top: 100px;
+  margin-bottom: 20px;
+  padding-top: 130px;
 }
 
 #desc {
@@ -371,19 +446,19 @@ h2 a:visited {
 #forkMe p {
   width: 100%;
   vertical-align: middle;
-  border-top: 1px dashed #fff;
-  border-bottom: 1px dashed #fff;
+  border-top: 1px dashed #FF8A22;
+  border-bottom: 1px dashed #FF8A22;
   padding: 3px 60px 3px 80px;
   margin: 0px;
-  color: #fff;
-  text-shadow: -1px -1px 0 #52218A, 1px -1px 0 #52218A, -1px 1px 0 #52218A, 1px 1px 0 #52218A;
-  /*text-shadow: -2px -2px 0 #52218A, 2px -2px 0 #52218A, -2px 2px 0 #52218A, 2px 2px 0 #52218A;
-  text-shadow: -0.5px -0.5px 0 #52218A, 0.5px -0.5px 0 #52218A, -0.5px 0.5px 0 #52218A, 0.5px 0.5px 0 #52218A;*/
+  color: #FF8A22;
+  text-shadow: -1px -1px 0 #39175E, 1px -1px 0 #39175E, -1px 1px 0 #39175E, 1px 1px 0 #39175E;
+  /*text-shadow: -2px -2px 0 #39175E, 2px -2px 0 #39175E, -2px 2px 0 #39175E, 2px 2px 0 #39175E;
+  text-shadow: -0.5px -0.5px 0 #39175E, 0.5px -0.5px 0 #39175E, -0.5px 0.5px 0 #39175E, 0.5px 0.5px 0 #39175E;*/
   font: 200 14px ranchers, molle, fascinate, josefin sans, comfortaa, satisfy, covered by your grace, audiowide, damion, nothing you could do, montserrat alternates, annie use your telescope, aclonica, berkshire swash, sue ellen francisco, life savers, galindo;
 }
 
 #forkMe {
-  background-color: #FF8A22;
+  background-color: #52218A;
   padding: 3px 0px 3px 0px;
   position: absolute;
   left: -60px;
@@ -623,7 +698,6 @@ iframe {
 .col-md-4:hover > h2,
 .col-md-4:hover > h4,
 .col-md-4:hover > ul li,
-.col-md-4:hover > div code span,
 .col-md-4:hover > p {
   color: #FF8A22;
 }
@@ -839,13 +913,13 @@ iframe {
 }
 
 .hot {
-  border-right: 3px solid #52218A;
+  border-right: 3px solid #9d2635;
   padding-right: 5px;
   font-weight: 500;
 }
 
 .hot2 {
-  border-right: 1px solid #52218A;
+  border-right: 1px solid #9d2635;
   padding-right: 3px;
 }
 
@@ -856,4 +930,11 @@ iframe {
 .anchors {
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+.hotCode {
+  color: #fff;
+  background-color: #52218A;
+  border: 1px solid #FF8A22;
+  border-radius: 15px;
 }

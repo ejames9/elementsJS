@@ -193,12 +193,12 @@ function clickController() {
              log('gecko', 'red');
 
              <html/>
-                 .scrolled(offSets[hashSS] + 291);
+                 .scrolled(offSets[hashSS] + 470);
            } else if (browser.safari) {
              log('safari', 'blue');
 
              <body/>
-                 .scrolled(offSets[hashSS] + 291);
+                 .scrolled(offSets[hashSS] + 470);
            }
           break;
       case (e.target.tagName === 'CODE'):
@@ -212,12 +212,12 @@ function clickController() {
              log('gecko', 'red');
 
              <html/>
-                 .scrolled(offSets[hashSS] + 291);
+                 .scrolled(offSets[hashSS] + 470);
            } else if (browser.safari) {
              log('safari', 'blue');
 
              <body/>
-                 .scrolled(offSets[hashSS] + 291);
+                 .scrolled(offSets[hashSS] + 470);
            }
           break;
       case (e.target.tagName === 'A'):
@@ -235,12 +235,12 @@ function clickController() {
             log('gecko', 'red');
 
             <html/>
-                .scrolled(offSets[hashSS] + 291);
+                .scrolled(offSets[hashSS] + 470);
           } else if (browser.safari) {
             log('safari', 'blue');
 
             <body/>
-                .scrolled(offSets[hashSS] + 291);
+                .scrolled(offSets[hashSS] + 470);
           }
           break;
       default:

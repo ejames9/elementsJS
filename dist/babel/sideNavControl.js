@@ -281,7 +281,7 @@ function sideNavController() {
       // console.log(dom('[name=hidden]'));
 
       var offSets = getOffSets(),
-          diff = 290;
+          diff = 466;
 
       (0, _elementsJS.scroll)(window, function () {
             switch (true) {

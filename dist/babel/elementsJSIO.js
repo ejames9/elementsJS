@@ -181,12 +181,12 @@ function clickController() {
           log('gecko', 'red');
 
           var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          elem4.scrolled(offSets[hashSS] + 291);
+          elem4.scrolled(offSets[hashSS] + 470);
         } else if (browser.safari) {
           log('safari', 'blue');
 
           var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          elem5.scrolled(offSets[hashSS] + 291);
+          elem5.scrolled(offSets[hashSS] + 470);
         }
         break;
       case e.target.tagName === 'CODE':
@@ -199,12 +199,12 @@ function clickController() {
           log('gecko', 'red');
 
           var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          elem6.scrolled(offSets[hashSS] + 291);
+          elem6.scrolled(offSets[hashSS] + 470);
         } else if (browser.safari) {
           log('safari', 'blue');
 
           var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          elem7.scrolled(offSets[hashSS] + 291);
+          elem7.scrolled(offSets[hashSS] + 470);
         }
         break;
       case e.target.tagName === 'A':
@@ -222,12 +222,12 @@ function clickController() {
           log('gecko', 'red');
 
           var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          elem8.scrolled(offSets[hashSS] + 291);
+          elem8.scrolled(offSets[hashSS] + 470);
         } else if (browser.safari) {
           log('safari', 'blue');
 
           var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          elem9.scrolled(offSets[hashSS] + 291);
+          elem9.scrolled(offSets[hashSS] + 470);
         }
         break;
       default:
