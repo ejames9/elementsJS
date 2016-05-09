@@ -38,7 +38,9 @@ const sideNavStates = {
   },
   stateTwo: (elem)=> {
     dom('[id~=hotCode]')
-            .id('');
+            .id('')
+            .bgColor('#39175E')
+            .color('#52218A');
     dom('[class~=hot]')
             .color('#52218A')
             .class('hot', '-');
@@ -60,11 +62,15 @@ const sideNavStates = {
                         .fontWeight('500')
                         .class('hot');
     dom(elem + ' a code')
-            .id('hotCode');
+            .id('hotCode')
+            .bgColor('#52218A')
+            .color('#fff');
   },
   stateThree: (elem)=> {
     dom('[id~=hotCode]')
-            .id('');
+            .id('')
+            .bgColor('#39175E')
+            .color('#52218A');
     dom('[class~=hot]')
             .color('#52218A')
             .class('hot', '-');
@@ -86,7 +92,9 @@ const sideNavStates = {
                         .fontWeight('500')
                         .class('hot');
     dom(elem + ' a code')
-            .id('hotCode');
+            .id('hotCode')
+            .bgColor('#52218A')
+            .color('#fff');
   },
   stateFour: (elem)=> {
     dom('[class~=hot]')
