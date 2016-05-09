@@ -30,20 +30,24 @@ var sideNavStates = {
             dom(elem).class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
       },
       stateTwo: function stateTwo(elem) {
+            dom('[id~=hotCode]').id('');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[class~=hot2]').class('hot2', '-');
             dom('[name=hidden]').every(function (element) {
                   element.class('hide').sib('prev').fontWeight('300');
             });
             dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
+            dom(elem + ' a code').id('hotCode');
       },
       stateThree: function stateThree(elem) {
+            dom('[id~=hotCode]').id('');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[class~=hot2]').class('hot2', '-');
             dom('[name=hidden]').every(function (element) {
                   element.class('hide').sib('prev').fontWeight('300');
             });
             dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
+            dom(elem + ' a code').id('hotCode');
       },
       stateFour: function stateFour(elem) {
             dom('[class~=hot]').color('#52218A').class('hot', '-');

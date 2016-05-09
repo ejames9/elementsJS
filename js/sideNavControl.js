@@ -37,6 +37,8 @@ const sideNavStates = {
                     .class('hide', '-');
   },
   stateTwo: (elem)=> {
+    dom('[id~=hotCode]')
+            .id('');
     dom('[class~=hot]')
             .color('#52218A')
             .class('hot', '-');
@@ -57,8 +59,12 @@ const sideNavStates = {
                         .color('#FF8A22')
                         .fontWeight('500')
                         .class('hot');
+    dom(elem + ' a code')
+            .id('hotCode');
   },
   stateThree: (elem)=> {
+    dom('[id~=hotCode]')
+            .id('');
     dom('[class~=hot]')
             .color('#52218A')
             .class('hot', '-');
@@ -79,6 +85,8 @@ const sideNavStates = {
                         .color('#FF8A22')
                         .fontWeight('500')
                         .class('hot');
+    dom(elem + ' a code')
+            .id('hotCode');
   },
   stateFour: (elem)=> {
     dom('[class~=hot]')
