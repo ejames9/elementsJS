@@ -227,47 +227,6 @@ code {
   max-height: 78px;
 }
 
-#sideNav a:hover {
-  font-weight: bolder;
-  color: #FF8A22;
-
-}
-#sideNav a:active {
-  display: block;
-  font-weight: bolder;
-  text-decoration: none;
-  color: #FF8A22;
-  /*border: 1px solid #52218A;*/
-  /*border-radius: 12px;*/
-  /*padding: 0px 4px 0px 4px;*/
-
-}
-#sideNav a:focus {
-  display: block;
-  font-weight: bolder;
-  text-decoration: none;
-  color: #FF8A22;
-  /*border: 1px solid #52218A;*/
-  /*border-radius: 12px;*/
-  /*padding: 0px 4px 0px 4px;*/
-
-
-}
-
-#sideNav a code:hover {
-  color: #fff;
-  background-color: #52218A;
-  border: 1px solid #FF8A22;
-  border-radius: 15px;
-}
-#sideNav a code:active {
-  color: #52218A;
-  background-color: #FF8A22;
-  border: 1px solid #52218A;
-  border-radius: 15px;
-}
-
-
 
 h1 a {
   color: #FF8A22;
@@ -731,17 +690,43 @@ iframe {
   font-family: josefin sans;
 }
 
+#sideNav li {
+  font-size: 17px;
+}
+
 #sideNav a  {
   text-wrap: none;
   color: #52218A;
 }
 
-#sideNav li a code {
-  margin-right: 10px;
-}
 
-#sideNav li {
-  font-size: 17px;
+
+#sideNav a:hover {
+  font-weight: bolder;
+  color: #FF8A22;
+
+}
+#sideNav a:active {
+  display: block;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #FF8A22;
+  /*border: 1px solid #52218A;*/
+  /*border-radius: 12px;*/
+  /*padding: 0px 4px 0px 4px;*/
+
+}
+#sideNav a:focus {
+  display: block;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #FF8A22;
+  /*border: 1px solid #52218A;*/
+  /*border-radius: 12px;*/
+  /*padding: 0px 4px 0px 4px;*/
+}
+#sideNav li a:hover {
+  color: #FF8A22;
 }
 
 #sideNav li ul li {
@@ -751,6 +736,35 @@ iframe {
   /*margin-top: 1px;
   margin-bottom: 1px;*/
 }
+
+#sideNav li ul li a:hover > code {
+  color: #fff;
+  background-color: #52218A;
+  border: 1px solid #FF8A22;
+  border-radius: 15px;
+}
+#sideNav li ul li a:hover {
+  color: #FF8A22;
+}
+
+
+#sideNav li ul li a code {
+  margin-right: 10px;
+}
+
+#sideNav li ul li a code:hover {
+  color: #fff;
+  background-color: #52218A;
+  border: 1px solid #FF8A22;
+  border-radius: 15px;
+}
+#sideNav li ul li a code:active {
+  color: #52218A;
+  background-color: #FF8A22;
+  border: 1px solid #52218A;
+  border-radius: 15px;
+}
+
 
 
 #docsMain {
@@ -930,11 +944,4 @@ iframe {
 .anchors {
   padding-top: 0px;
   padding-bottom: 0px;
-}
-
-#hotCode {
-  color: #fff;
-  background-color: #52218A;
-  border: 1px solid #FF8A22;
-  border-radius: 15px;
 }

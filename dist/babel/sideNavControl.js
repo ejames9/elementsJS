@@ -22,69 +22,126 @@ window.sideNavState = [];
 //The control states for the sideNav Menu.
 var sideNavStates = {
       stateOne: function stateOne(elem) {
+            dom('[class~=hot2]').class('hot2', '-');
+            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+            dom('[name=hotCode]').id('hotCode').class('hot2', '+');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
+            dom('#sideNav li a').every(function (element) {
+                  element.color('#52218A');
+            });
 
             dom('[name=hidden]').every(function (element) {
-                  element.class('hide').sib('prev').fontWeight('300');
+                  element.class('hide');
             });
             dom(elem).class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
       },
+
       stateTwo: function stateTwo(elem) {
-            dom('[id~=hotCode]').id('').bgColor('#39175E').color('#52218A');
+            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
-            dom('[class~=hot2]').class('hot2', '-');
-            dom('[name=hidden]').every(function (element) {
-                  element.class('hide').sib('prev').fontWeight('300');
-            });
-            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
-            dom(elem + ' a code').id('hotCode').bgColor('#52218A').color('#fff');
-      },
-      stateThree: function stateThree(elem) {
-            dom('[id~=hotCode]').id('').bgColor('#39175E').color('#52218A');
-            dom('[class~=hot]').color('#52218A').class('hot', '-');
-            dom('[class~=hot2]').class('hot2', '-');
-            dom('[name=hidden]').every(function (element) {
-                  element.class('hide').sib('prev').fontWeight('300');
-            });
-            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
-            dom(elem + ' a code').id('hotCode').bgColor('#52218A').color('#fff');
-      },
-      stateFour: function stateFour(elem) {
-            dom('[class~=hot]').color('#52218A').class('hot', '-');
-            dom('[name=hidden]').every(function (element) {
-                  element.class('hide').sib('prev').fontWeight('300');
-            });
-            dom(elem).class('hot').color('#FF8A22').fontWeight('500');
-      },
-      stateFive: function stateFive(elem) {
-            dom('[class~=hot]').color('#52218A').class('hot', '-');
-            dom('[name=hidden]').every(function (element) {
-                  element.class('hide').sib('prev').fontWeight('300');
-            });
-            dom(elem).class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
-      },
-      stateSix: function stateSix(elem) {
             dom('[class~=hot2]').class('hot2', '-');
             dom('[name=hidden]').every(function (element) {
                   element.class('hide');
-                  // .sib('prev')
-                  //           .fontWeight('300');
             });
+            dom('#sideNav li a').every(function (element) {
+                  element.color('#52218A');
+            });
+            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
+            dom(elem + ' a').id('hotCode').color('#FF8A22');
+      },
+
+      stateThree: function stateThree(elem) {
+            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+            dom('[class~=hot]').color('#52218A').class('hot', '-');
+            dom('[class~=hot2]').class('hot2', '-');
+            dom('[name=hidden]').every(function (element) {
+                  element.class('hide');
+            });
+            dom('#sideNav li a').every(function (element) {
+                  element.color('#52218A');
+            });
+            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
+            dom(elem + ' a code').id('hotCode').bgColor('#52218A').color('#fff');
+      },
+
+      stateFour: function stateFour(elem) {
+            dom('[class~=hot2]').class('hot2', '-');
+            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+            dom('[name=hotCode]').id('hotCode').class('hot2', '+');
+            dom('[class~=hot]').color('#52218A').class('hot', '-');
+            dom('[name=hidden]').every(function (element) {
+                  element.class('hide');
+            });
+            dom('#sideNav li a').every(function (element) {
+                  element.color('#52218A');
+            });
+            dom(elem).class('hot').color('#FF8A22').fontWeight('500');
+      },
+
+      stateFive: function stateFive(elem) {
+            dom('[class~=hot2]').class('hot2', '-');
+            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+            dom('[name=hotCode]').id('hotCode').class('hot2', '+');
+            dom('[class~=hot]').color('#52218A').class('hot', '-');
+            dom('[name=hidden]').every(function (element) {
+                  element.class('hide');
+            });
+            dom('#sideNav li a').every(function (element) {
+                  element.color('#52218A');
+            });
+            dom(elem).class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
+      },
+
+      stateSix: function stateSix(elem) {
+            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+            dom('[class~=hot2]').class('hot2', '-');
+            dom('[name=hidden]').every(function (element) {
+                  element.class('hide');
+            });
+            // dom('#sideNav li a')
+            //         .every((element)=> {
+            //             element
+            //                 .color('#52218A');
+            //         });
+            dom('#instLink a').id('hotCode').color('#FF8A22');
             dom(elem).class('hot2').ma().class('hide', '-');
       },
+
       stateSeven: function stateSeven(elem) {
             dom('[name=hidden]').every(function (element) {
-                  element.class('hide', '+').sib('prev').fontWeight('300');
+                  element.class('hide', '+');
             });
-            dom(elem).first().fontWeight('500').sib('next').class('hide', '-');
+            // dom('#sideNav li a')
+            //           .every((element)=> {
+            //               element
+            //                 .color('#52218A');
+            //           });
+            dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
       },
+
       stateEight: function stateEight(elem) {
             dom('[title~=shorts]').every(function (element) {
-                  element.class('hide', '+').sib('prev').fontWeight('300');
+                  element.class('hide', '+');
             });
-            dom(elem).first().fontWeight('500').sib('next').class('hide', '-');
-      }
+            // dom('#sideNav li a')
+            //           .every((element)=> {
+            //                element
+            //                 .color('#52218A');
+            //           });
+            dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
+      },
 
+      stateNine: function stateNine(elem) {
+            dom('[name=hidden]').every(function (element) {
+                  element.class('hide', '+');
+            });
+            // dom('#sideNav li a')
+            //           .every((element)=> {
+            //               element
+            //                 .color('#52218A');
+            //           });
+            dom(elem).fontWeight('500').color('#FF8A22');
+      }
 };
 
 //Function for creating the offSets object, which contains the offsetTop property of all elements.
@@ -237,6 +294,11 @@ function mouseOverController() {
                         sideNavStates.stateSeven('#gsList');
 
                         break;
+                  case e.target === (0, _elementsJS.el)('#imps') || e.target.parentNode === (0, _elementsJS.el)('#imps'):
+
+                        sideNavStates.stateNine('#imps');
+
+                        break;
                   case e.target === (0, _elementsJS.el)('#domList') || e.target.parentNode === (0, _elementsJS.el)('#domList'):
 
                         sideNavStates.stateSeven('#domList');
@@ -292,6 +354,8 @@ function sideNavController() {
                   //0 - 13 Getting Started
                   case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff:
                         //Find active list item, deactivate it.
+                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+                        dom('[name=hotCode]').id('hotCode');
                         dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
 
                         //Find all menu lists, hide them.
@@ -306,12 +370,14 @@ function sideNavController() {
                         break;
                   case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['Usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff:
                         // log('YES', ['red', 'blue'] + diff);
+                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
                         //Find active list item, deactivate it.
                         dom('[class~=hot2]').class('hot2', '-');
                         //Find all menu lists, hide them.
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
                         });
+                        dom('#instLink a').id('hotCode').color('#FF8A22');
                         //Activate Installation list item. Open parent list by removing .hide class.
                         var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
                         elem1.class('hot2').ma().class('hide', '-').sib('prev').fontWeight('500');
@@ -319,13 +385,16 @@ function sideNavController() {
                         sideNavState = [6, '#instLink'];
                         break;
                   case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
+                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
                         dom('[class~=hot2]').class('hot2', '-');
                         var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
                         elem2.class('hot2');
+                        dom('#useLink a').id('hotCode').color('#FF8A22');
 
-                        sideNavState = [3, '#useLink'];
+                        sideNavState = [2, '#useLink'];
                         break;
                   case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff:
+                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
                         dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
                         dom('[class~=hot2]').class('hot2', '-');
                         dom('[name=hidden]').every(function (element) {
@@ -333,14 +402,20 @@ function sideNavController() {
                         });
                         var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
                         elem3.class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot', '+');
+                        dom('#interpInstallLink a').id('hotCode').color('#FF8A22');
 
                         sideNavState = [2, '#interpInstallLink'];
                         break;
                   case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff:
+                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+                        dom('[name=hotCode]').id('hotCode');
                         dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
 
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
+                        });
+                        dom('#sideNav li a').every(function (element) {
+                              element.color('#52218A');
                         });
                         var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
                         elem4.class('hot').color('#FF8A22').fontWeight('500');
@@ -348,9 +423,14 @@ function sideNavController() {
                         sideNavState = [4, '#imps'];
                         break;
                   case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff:
+                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+                        dom('[name=hotCode]').id('hotCode');
                         dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
+                        });
+                        dom('#sideNav li a').every(function (element) {
+                              element.color('#52218A');
                         });
                         var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
                         elem5.class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
@@ -419,7 +499,7 @@ function sideNavController() {
                         break;
                   case dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff || dom('body').scrolled() > offSets['size-func'] + diff && dom('body').scrolled() < offSets['event-handle'] + diff:
 
-                        sideNavStates.stateTwo('#sizeLink');
+                        sideNavStates.stateThree('#sizeLink');
 
                         sideNavState = [2, '#sizeLink'];
                         break;
@@ -545,7 +625,7 @@ function sideNavController() {
                         break;
                   case dom('html').scrolled() > offSets['select-func'] + diff && dom('html').scrolled() < offSets['http'] + diff || dom('body').scrolled() > offSets['select-func'] + diff && dom('body').scrolled() < offSets['http'] + diff:
 
-                        sideNavStates.stateTwo('#selectLink');
+                        sideNavStates.stateThree('#selectLink');
 
                         sideNavState = [2, '#selectLink'];
                         break;
@@ -563,7 +643,7 @@ function sideNavController() {
                         break;
                   case dom('html').scrolled() > offSets['ajax-func'] + diff && dom('html').scrolled() < offSets['loggers'] + diff || dom('body').scrolled() > offSets['ajax-func'] + diff && dom('body').scrolled() < offSets['loggers'] + diff:
 
-                        sideNavStates.stateTwo('#ajaxLink');
+                        sideNavStates.stateThree('#ajaxLink');
 
                         sideNavState = [2, '#ajaxLink'];
                         break;
@@ -593,7 +673,7 @@ function sideNavController() {
                         break;
                   case dom('html').scrolled() > offSets['err-func'] + diff && dom('html').scrolled() < offSets['utils'] + diff || dom('body').scrolled() > offSets['err-func'] + diff && dom('body').scrolled() < offSets['utils'] + diff:
 
-                        sideNavStates.stateTwo('#errLink');
+                        sideNavStates.stateThree('#errLink');
 
                         sideNavState = [2, '#errLink'];
                         break;
@@ -611,7 +691,7 @@ function sideNavController() {
                         break;
                   case dom('html').scrolled() > offSets['shifter-func'] + diff && dom('html').scrolled() < offSets['elem-obj'] + diff || dom('body').scrolled() > offSets['shifter-func'] + diff && dom('body').scrolled() < offSets['elem-obj'] + diff:
 
-                        sideNavStates.stateTwo('#shifterLink');
+                        sideNavStates.stateThree('#shifterLink');
 
                         sideNavState = [2, '#shifterLink'];
                         break;
@@ -635,7 +715,7 @@ function sideNavController() {
                         break;
                   case dom('html').scrolled() > offSets['make2-func'] + diff && dom('html').scrolled() < offSets['elem-obj-methods'] + diff || dom('body').scrolled() > offSets['make2-func'] + diff && dom('body').scrolled() < offSets['elem-obj-methods'] + diff:
 
-                        sideNavStates.stateTwo('#make2Link');
+                        sideNavStates.stateThree('#make2Link');
 
                         sideNavState = [2, '#make2Link'];
                         break;
@@ -653,25 +733,25 @@ function sideNavController() {
                         break;
                   case dom('html').scrolled() > offSets['style-methods'] + diff && dom('html').scrolled() < offSets['core-func'] + diff || dom('body').scrolled() > offSets['style-methods'] + diff && dom('body').scrolled() < offSets['core-func'] + diff:
 
-                        sideNavStates.stateThree('#stylMethodsLink');
+                        sideNavStates.stateTwo('#stylMethodsLink');
 
                         sideNavState = [3, '#stylMethodsLink'];
                         break;
                   case dom('html').scrolled() > offSets['core-func'] + diff && dom('html').scrolled() < offSets['DOM-Elem-Methods'] + diff || dom('body').scrolled() > offSets['core-func'] + diff && dom('body').scrolled() < offSets['DOM-Elem-Methods'] + diff:
 
-                        sideNavStates.stateThree('#coreLink');
+                        sideNavStates.stateTwo('#coreLink');
 
                         sideNavState = [3, '#coreLink'];
                         break;
                   case dom('html').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('html').scrolled() < offSets['event-methods'] + diff || dom('body').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('body').scrolled() < offSets['event-methods'] + diff:
 
-                        sideNavStates.stateThree('#domMethodsLink');
+                        sideNavStates.stateTwo('#domMethodsLink');
 
                         sideNavState = [3, '#domMethodsLink'];
                         break;
                   case dom('html').scrolled() > offSets['event-methods'] + diff && dom('html').scrolled() < offSets['Util-Methods'] + diff || dom('body').scrolled() > offSets['event-methods'] + diff && dom('body').scrolled() < offSets['Util-Methods'] + diff:
 
-                        sideNavStates.stateThree('#eventMethodsLink');
+                        sideNavStates.stateTwo('#eventMethodsLink');
 
                         sideNavState = [3, '#eventMethodsLink'];
                         break;
