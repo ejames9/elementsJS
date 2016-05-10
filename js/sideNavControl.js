@@ -20,17 +20,17 @@ const sideNavStates = {
   stateOne: (elem)=> {
     dom('[class~=hot2]')
             .class('hot2', '-');
-    dom('#hotCode')
-            .id('')
+    dom('[title=hotCode]')
+            .title('')
             .bgColor('#39175E')
             .color('#52218A');
     dom('[name=hotCode]')
-            .id('hotCode')
+            .title('hotCode')
             .class('hot2', '+');
     dom('[class~=hot]')
             .color('#52218A')
             .class('hot', '-');
-    dom('[class~=list-head]')
+    dom('[name=listHead]')
             .every((element)=> {
               element
                   .color('#52218A');
@@ -50,8 +50,8 @@ const sideNavStates = {
   },
 
   stateTwo: (elem)=> {
-    dom('#hotCode')
-            .id('')
+    dom('[title=hotCode]')
+            .title('')
             .bgColor('#39175E')
             .color('#52218A');
     dom('[class~=hot]')
@@ -64,7 +64,7 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    dom('[class~=list-head]')
+    dom('[name=listHead]')
             .every((element)=> {
                 element
                     .color('#52218A');
@@ -78,13 +78,13 @@ const sideNavStates = {
                         .fontWeight('500')
                         .class('hot');
     dom(elem + ' a')
-            .id('hotCode')
+            .title('hotCode')
             .color('#FF8A22');
   },
 
   stateThree: (elem)=> {
-    dom('#hotCode')
-            .id('')
+    dom('[title=hotCode]')
+            .title('')
             .bgColor('#39175E')
             .color('#52218A');
     dom('[class~=hot]')
@@ -97,7 +97,7 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    dom('[class~=list-head]')
+    dom('[name=listHead]')
             .every((element)=> {
                 element
                     .color('#52218A');
@@ -111,7 +111,7 @@ const sideNavStates = {
                         .fontWeight('500')
                         .class('hot');
     dom(elem + ' a code')
-            .id('hotCode')
+            .title('hotCode')
             .bgColor('#52218A')
             .color('#fff');
   },
@@ -119,12 +119,12 @@ const sideNavStates = {
   stateFour: (elem)=> {
     dom('[class~=hot2]')
             .class('hot2', '-');
-    dom('#hotCode')
-            .id('')
+    dom('[title=hotCode]')
+            .title('')
             .bgColor('#39175E')
             .color('#52218A');
     dom('[name=hotCode]')
-            .id('hotCode')
+            .title('hotCode')
             .class('hot2', '+');
     dom('[class~=hot]')
             .color('#52218A')
@@ -134,7 +134,7 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    dom('[class~=list-head]')
+    dom('[name=listHead]')
             .every((element)=> {
                 element
                     .color('#52218A');
@@ -148,12 +148,12 @@ const sideNavStates = {
   stateFive: (elem)=> {
     dom('[class~=hot2]')
             .class('hot2', '-');
-    dom('#hotCode')
-            .id('')
+    dom('[title=hotCode]')
+            .title('')
             .bgColor('#39175E')
             .color('#52218A');
     dom('[name=hotCode]')
-            .id('hotCode')
+            .title('hotCode')
             .class('hot2', '+');
     dom('[class~=hot]')
             .color('#52218A')
@@ -163,7 +163,7 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    dom('[class~=list-head]')
+    dom('[name=listHead]')
             .every((element)=> {
                 element
                     .color('#52218A');
@@ -177,8 +177,8 @@ const sideNavStates = {
   },
 
   stateSix: (elem)=> {
-    dom('#hotCode')
-            .id('')
+    dom('[title=hotCode]')
+            .title('')
             .bgColor('#39175E')
             .color('#52218A');
     dom('[class~=hot2]')
@@ -188,13 +188,13 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    dom('[class~=list-head]')
+    dom('[name=listHead]')
             .every((element)=> {
                 element
                     .color('#52218A');
             });
     dom('#instLink a')
-            .id('hotCode')
+            .title('hotCode')
             .color('#FF8A22');
     dom(elem)
             .class('hot2')
@@ -208,7 +208,7 @@ const sideNavStates = {
                   element
                     .class('hide', '+')
              });
-    dom('[class~=list-head]')
+    dom('[name=listHead]')
               .every((element)=> {
                   element
                     .color('#52218A');
@@ -227,7 +227,7 @@ const sideNavStates = {
                   element
                     .class('hide', '+')
              });
-    dom('[class~=list-head]')
+    dom('[name=listHead]')
               .every((element)=> {
                    element
                     .color('#52218A');
@@ -246,7 +246,7 @@ const sideNavStates = {
                   element
                     .class('hide', '+')
              });
-    dom('[class~=list-head]')
+    dom('[name=listHead]')
               .every((element)=> {
                   element
                     .color('#52218A');
@@ -475,12 +475,12 @@ function sideNavController() {
         case (dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff ||
               dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff):
               //Find active list item, deactivate it.
-              dom('#hotCode')
-                      .id('')
+              dom('[title=hotCode]')
+                      .title('')
                       .bgColor('#39175E')
                       .color('#52218A');
               dom('[name=hotCode]')
-                      .id('hotCode');
+                      .title('hotCode');
               dom('[class~=hot]')
                       .color('#52218A')
                       .fontWeight('300')
@@ -505,8 +505,8 @@ function sideNavController() {
         case (dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['Usage'] + diff ||
               dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff):
               // log('YES', ['red', 'blue'] + diff);
-              dom('#hotCode')
-                      .id('')
+              dom('[title=hotCode]')
+                      .title('')
                       .bgColor('#39175E')
                       .color('#52218A');
               //Find active list item, deactivate it.
@@ -519,7 +519,7 @@ function sideNavController() {
                               .class('hide');
                       });
               dom('#instLink a')
-                      .id('hotCode')
+                      .title('hotCode')
                       .color('#FF8A22');
               //Activate Installation list item. Open parent list by removing .hide class.
               <'#instLink'/>
@@ -533,8 +533,8 @@ function sideNavController() {
               break;
         case (dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff ||
               dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff):
-              dom('#hotCode')
-                      .id('')
+              dom('[title=hotCode]')
+                      .title('')
                       .bgColor('#39175E')
                       .color('#52218A');
               dom('[class~=hot2]')
@@ -542,15 +542,15 @@ function sideNavController() {
               <'#useLink'/>
                       .class('hot2');
               dom('#useLink a')
-                      .id('hotCode')
+                      .title('hotCode')
                       .color('#FF8A22');
 
               sideNavState = [2, '#useLink'];
               break;
         case (dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff ||
               dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff):
-              dom('#hotCode')
-                      .id('')
+              dom('[title=hotCode]')
+                      .title('')
                       .bgColor('#39175E')
                       .color('#52218A');
               dom('[class~=hot]')
@@ -573,19 +573,19 @@ function sideNavController() {
                                   .fontWeight('500')
                                   .class('hot', '+');
               dom('#interpInstallLink a')
-                          .id('hotCode')
+                          .title('hotCode')
                           .color('#FF8A22');
 
               sideNavState = [2, '#interpInstallLink'];
               break;
         case (dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff ||
               dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff):
-              dom('#hotCode')
-                      .id('')
+              dom('[title=hotCode]')
+                      .title('')
                       .bgColor('#39175E')
                       .color('#52218A');
               dom('[name=hotCode]')
-                      .id('hotCode');
+                      .title('hotCode');
               dom('[class~=hot]')
                       .color('#52218A')
                       .fontWeight('300')
@@ -596,7 +596,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              dom('[class~=list-head]')
+              dom('[name=listHead]')
                       .every((element)=> {
                           element
                               .color('#52218A');
@@ -610,12 +610,12 @@ function sideNavController() {
               break;
         case (dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff ||
               dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff):
-              dom('#hotCode')
-                      .id('')
+              dom('[title=hotCode]')
+                      .title('')
                       .bgColor('#39175E')
                       .color('#52218A');
               dom('[name=hotCode]')
-                      .id('hotCode');
+                      .title('hotCode');
               dom('[class~=hot]')
                       .color('#52218A')
                       .fontWeight('300')
@@ -625,7 +625,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              dom('[class~=list-head]')
+              dom('[name=listHead]')
                       .every((element)=> {
                           element
                               .color('#52218A');

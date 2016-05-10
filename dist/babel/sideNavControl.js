@@ -26,7 +26,7 @@ var sideNavStates = {
             dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
             dom('[name=hotCode]').id('hotCode').class('hot2', '+');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
-            dom('[class~=list-head]').every(function (element) {
+            dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
 
@@ -43,7 +43,7 @@ var sideNavStates = {
             dom('[name=hidden]').every(function (element) {
                   element.class('hide');
             });
-            dom('[class~=list-head]').every(function (element) {
+            dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
             dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
@@ -57,7 +57,7 @@ var sideNavStates = {
             dom('[name=hidden]').every(function (element) {
                   element.class('hide');
             });
-            dom('[class~=list-head]').every(function (element) {
+            dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
             dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
@@ -72,7 +72,7 @@ var sideNavStates = {
             dom('[name=hidden]').every(function (element) {
                   element.class('hide');
             });
-            dom('[class~=list-head]').every(function (element) {
+            dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
             dom(elem).class('hot').color('#FF8A22').fontWeight('500');
@@ -86,7 +86,7 @@ var sideNavStates = {
             dom('[name=hidden]').every(function (element) {
                   element.class('hide');
             });
-            dom('[class~=list-head]').every(function (element) {
+            dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
             dom(elem).class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
@@ -98,7 +98,7 @@ var sideNavStates = {
             dom('[name=hidden]').every(function (element) {
                   element.class('hide');
             });
-            dom('[class~=list-head]').every(function (element) {
+            dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
             dom('#instLink a').id('hotCode').color('#FF8A22');
@@ -109,7 +109,7 @@ var sideNavStates = {
             dom('[name=hidden]').every(function (element) {
                   element.class('hide', '+');
             });
-            dom('[class~=list-head]').every(function (element) {
+            dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
             dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
@@ -119,7 +119,7 @@ var sideNavStates = {
             dom('[title~=shorts]').every(function (element) {
                   element.class('hide', '+');
             });
-            dom('[class~=list-head]').every(function (element) {
+            dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
             dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
@@ -129,7 +129,7 @@ var sideNavStates = {
             dom('[name=hidden]').every(function (element) {
                   element.class('hide', '+');
             });
-            dom('[class~=list-head]').every(function (element) {
+            dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
             dom(elem).fontWeight('500').color('#FF8A22');
@@ -406,7 +406,7 @@ function sideNavController() {
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
                         });
-                        dom('[class~=list-head]').every(function (element) {
+                        dom('[name=listHead]').every(function (element) {
                               element.color('#52218A');
                         });
                         var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
@@ -421,7 +421,7 @@ function sideNavController() {
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
                         });
-                        dom('[class~=list-head]').every(function (element) {
+                        dom('[name=listHead]').every(function (element) {
                               element.color('#52218A');
                         });
                         var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
