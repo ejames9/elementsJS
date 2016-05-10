@@ -30,7 +30,7 @@ const sideNavStates = {
     dom('[class~=hot]')
             .color('#52218A')
             .class('hot', '-');
-    dom('#sideNav li a')
+    dom('[class~=list-head]')
             .every((element)=> {
               element
                   .color('#52218A');
@@ -64,7 +64,7 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    dom('#sideNav li a')
+    dom('[class~=list-head]')
             .every((element)=> {
                 element
                     .color('#52218A');
@@ -97,7 +97,7 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    dom('#sideNav li a')
+    dom('[class~=list-head]')
             .every((element)=> {
                 element
                     .color('#52218A');
@@ -134,7 +134,7 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    dom('#sideNav li a')
+    dom('[class~=list-head]')
             .every((element)=> {
                 element
                     .color('#52218A');
@@ -163,7 +163,7 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    dom('#sideNav li a')
+    dom('[class~=list-head]')
             .every((element)=> {
                 element
                     .color('#52218A');
@@ -188,11 +188,11 @@ const sideNavStates = {
                 element
                     .class('hide')
             });
-    // dom('#sideNav li a')
-    //         .every((element)=> {
-    //             element
-    //                 .color('#52218A');
-    //         });
+    dom('[class~=list-head]')
+            .every((element)=> {
+                element
+                    .color('#52218A');
+            });
     dom('#instLink a')
             .id('hotCode')
             .color('#FF8A22');
@@ -208,11 +208,11 @@ const sideNavStates = {
                   element
                     .class('hide', '+')
              });
-    // dom('#sideNav li a')
-    //           .every((element)=> {
-    //               element
-    //                 .color('#52218A');
-    //           });
+    dom('[class~=list-head]')
+              .every((element)=> {
+                  element
+                    .color('#52218A');
+              });
     dom(elem)
           .first()
                 .fontWeight('500')
@@ -227,11 +227,11 @@ const sideNavStates = {
                   element
                     .class('hide', '+')
              });
-    // dom('#sideNav li a')
-    //           .every((element)=> {
-    //                element
-    //                 .color('#52218A');
-    //           });
+    dom('[class~=list-head]')
+              .every((element)=> {
+                   element
+                    .color('#52218A');
+              });
     dom(elem)
           .first()
                 .fontWeight('500')
@@ -246,11 +246,11 @@ const sideNavStates = {
                   element
                     .class('hide', '+')
              });
-    // dom('#sideNav li a')
-    //           .every((element)=> {
-    //               element
-    //                 .color('#52218A');
-    //           });
+    dom('[class~=list-head]')
+              .every((element)=> {
+                  element
+                    .color('#52218A');
+              });
     dom(elem)
             .fontWeight('500')
             .color('#FF8A22');
@@ -596,7 +596,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              dom('#sideNav li a')
+              dom('[class~=list-head]')
                       .every((element)=> {
                           element
                               .color('#52218A');
@@ -625,7 +625,7 @@ function sideNavController() {
                           element
                               .class('hide');
                       });
-              dom('#sideNav li a')
+              dom('[class~=list-head]')
                       .every((element)=> {
                           element
                               .color('#52218A');
