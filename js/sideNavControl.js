@@ -199,7 +199,9 @@ const sideNavStates = {
     dom(elem)
             .class('hot2')
             .ma()
-               .class('hide', '-');
+               .class('hide', '-')
+               .sib('prev')
+                        .color('#FF8A22');
   },
 
   stateSeven: (elem)=> {
@@ -213,6 +215,8 @@ const sideNavStates = {
                   element
                     .color('#52218A');
               });
+    dom('[class=hot]')
+              .color('#FF8A22');
     dom(elem)
           .first()
                 .fontWeight('500')
@@ -232,6 +236,8 @@ const sideNavStates = {
                    element
                     .color('#52218A');
               });
+    dom('[class=hot]')
+              .color('#FF8A22');
     dom(elem)
           .first()
                 .fontWeight('500')
@@ -241,6 +247,15 @@ const sideNavStates = {
   },
 
   stateNine: (elem)=> {
+    dom(elem)
+            .color('#FF8A22')
+            .first()
+                  .bgColor('#52218A')
+                  .color('#fff')
+  },
+
+  stateTen: (elem)=> {
+    //Make cold.
     dom('[name=hidden]')
               .every((element)=> {
                   element
@@ -251,10 +266,24 @@ const sideNavStates = {
                   element
                     .color('#52218A');
               });
+    dom('#gsList ul li a')
+              .every((element)=> {
+                element
+                    .color('#52218A');
+              });
+    //Make Hot.
+    dom('[class=hot]')
+              .color('#FF8A22');
+    dom('#gsList')
+          .first()
+                .color('#FF8A22')
+                .sib('next')
+                        .class('hide', '-');
     dom(elem)
-            .fontWeight('500')
-            .color('#FF8A22');
-  }
+          .first()
+                .color('#FF8A22');
+  },
+
 };
 
 
@@ -409,9 +438,9 @@ function mouseOverController() {
     // console.log(e.relatedTarget);
 
     switch(9+9===18) {
-      case (e.target === el('#gsList') || e.target.parentNode === el('#gsList')):
-
-          sideNavStates.stateSeven('#gsList');
+      case (e.target === el('#gsList') || e.target.parentNode === el('#gsList') || e.target.parentNode.parentNode === el('#gsList')):
+          console.log('#' + e.target.id);
+          sideNavStates.stateTen('#' + e.target.id);
 
           break;
       case (e.target === el('#imps') || e.target.parentNode === el('#imps')):

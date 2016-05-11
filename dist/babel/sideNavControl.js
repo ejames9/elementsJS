@@ -23,8 +23,8 @@ window.sideNavState = [];
 var sideNavStates = {
       stateOne: function stateOne(elem) {
             dom('[class~=hot2]').class('hot2', '-');
-            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
-            dom('[name=hotCode]').id('hotCode').class('hot2', '+');
+            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+            dom('[name=hotCode]').title('hotCode').class('hot2', '+');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
@@ -37,7 +37,7 @@ var sideNavStates = {
       },
 
       stateTwo: function stateTwo(elem) {
-            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[class~=hot2]').class('hot2', '-');
             dom('[name=hidden]').every(function (element) {
@@ -47,11 +47,11 @@ var sideNavStates = {
                   element.color('#52218A');
             });
             dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
-            dom(elem + ' a').id('hotCode').color('#FF8A22');
+            dom(elem + ' a').title('hotCode').color('#FF8A22');
       },
 
       stateThree: function stateThree(elem) {
-            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[class~=hot2]').class('hot2', '-');
             dom('[name=hidden]').every(function (element) {
@@ -61,13 +61,13 @@ var sideNavStates = {
                   element.color('#52218A');
             });
             dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
-            dom(elem + ' a code').id('hotCode').bgColor('#52218A').color('#fff');
+            dom(elem + ' a code').title('hotCode').bgColor('#52218A').color('#fff');
       },
 
       stateFour: function stateFour(elem) {
             dom('[class~=hot2]').class('hot2', '-');
-            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
-            dom('[name=hotCode]').id('hotCode').class('hot2', '+');
+            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+            dom('[name=hotCode]').title('hotCode').class('hot2', '+');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[name=hidden]').every(function (element) {
                   element.class('hide');
@@ -80,8 +80,8 @@ var sideNavStates = {
 
       stateFive: function stateFive(elem) {
             dom('[class~=hot2]').class('hot2', '-');
-            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
-            dom('[name=hotCode]').id('hotCode').class('hot2', '+');
+            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+            dom('[name=hotCode]').title('hotCode').class('hot2', '+');
             dom('[class~=hot]').color('#52218A').class('hot', '-');
             dom('[name=hidden]').every(function (element) {
                   element.class('hide');
@@ -93,7 +93,7 @@ var sideNavStates = {
       },
 
       stateSix: function stateSix(elem) {
-            dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
             dom('[class~=hot2]').class('hot2', '-');
             dom('[name=hidden]').every(function (element) {
                   element.class('hide');
@@ -101,8 +101,8 @@ var sideNavStates = {
             dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
-            dom('#instLink a').id('hotCode').color('#FF8A22');
-            dom(elem).class('hot2').ma().class('hide', '-');
+            dom('#instLink a').title('hotCode').color('#FF8A22');
+            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22');
       },
 
       stateSeven: function stateSeven(elem) {
@@ -112,6 +112,7 @@ var sideNavStates = {
             dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
+            dom('[class=hot]').color('#FF8A22');
             dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
       },
 
@@ -122,18 +123,31 @@ var sideNavStates = {
             dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
+            dom('[class=hot]').color('#FF8A22');
             dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
       },
 
       stateNine: function stateNine(elem) {
+            dom(elem).color('#FF8A22').first().bgColor('#52218A').color('#fff');
+      },
+
+      stateTen: function stateTen(elem) {
+            //Make cold.
             dom('[name=hidden]').every(function (element) {
                   element.class('hide', '+');
             });
             dom('[name=listHead]').every(function (element) {
                   element.color('#52218A');
             });
-            dom(elem).fontWeight('500').color('#FF8A22');
+            dom('#gsList ul li a').every(function (element) {
+                  element.color('#52218A');
+            });
+            //Make Hot.
+            dom('[class=hot]').color('#FF8A22');
+            dom('#gsList').first().color('#FF8A22').sib('next').class('hide', '-');
+            dom(elem).first().color('#FF8A22');
       }
+
 };
 
 //Function for creating the offSets object, which contains the offsetTop property of all elements.
@@ -281,9 +295,9 @@ function mouseOverController() {
             // console.log(e.relatedTarget);
 
             switch (9 + 9 === 18) {
-                  case e.target === (0, _elementsJS.el)('#gsList') || e.target.parentNode === (0, _elementsJS.el)('#gsList'):
-
-                        sideNavStates.stateSeven('#gsList');
+                  case e.target === (0, _elementsJS.el)('#gsList') || e.target.parentNode === (0, _elementsJS.el)('#gsList') || e.target.parentNode.parentNode === (0, _elementsJS.el)('#gsList'):
+                        console.log('#' + e.target.id);
+                        sideNavStates.stateTen('#' + e.target.id);
 
                         break;
                   case e.target === (0, _elementsJS.el)('#imps') || e.target.parentNode === (0, _elementsJS.el)('#imps'):
@@ -346,8 +360,8 @@ function sideNavController() {
                   //0 - 13 Getting Started
                   case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff:
                         //Find active list item, deactivate it.
-                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
-                        dom('[name=hotCode]').id('hotCode');
+                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+                        dom('[name=hotCode]').title('hotCode');
                         dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
 
                         //Find all menu lists, hide them.
@@ -362,14 +376,14 @@ function sideNavController() {
                         break;
                   case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['Usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff:
                         // log('YES', ['red', 'blue'] + diff);
-                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
                         //Find active list item, deactivate it.
                         dom('[class~=hot2]').class('hot2', '-');
                         //Find all menu lists, hide them.
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
                         });
-                        dom('#instLink a').id('hotCode').color('#FF8A22');
+                        dom('#instLink a').title('hotCode').color('#FF8A22');
                         //Activate Installation list item. Open parent list by removing .hide class.
                         var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
                         elem1.class('hot2').ma().class('hide', '-').sib('prev').fontWeight('500');
@@ -377,16 +391,16 @@ function sideNavController() {
                         sideNavState = [6, '#instLink'];
                         break;
                   case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
-                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
                         dom('[class~=hot2]').class('hot2', '-');
                         var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
                         elem2.class('hot2');
-                        dom('#useLink a').id('hotCode').color('#FF8A22');
+                        dom('#useLink a').title('hotCode').color('#FF8A22');
 
                         sideNavState = [2, '#useLink'];
                         break;
                   case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff:
-                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
+                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
                         dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
                         dom('[class~=hot2]').class('hot2', '-');
                         dom('[name=hidden]').every(function (element) {
@@ -394,13 +408,13 @@ function sideNavController() {
                         });
                         var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
                         elem3.class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot', '+');
-                        dom('#interpInstallLink a').id('hotCode').color('#FF8A22');
+                        dom('#interpInstallLink a').title('hotCode').color('#FF8A22');
 
                         sideNavState = [2, '#interpInstallLink'];
                         break;
                   case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff:
-                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
-                        dom('[name=hotCode]').id('hotCode');
+                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+                        dom('[name=hotCode]').title('hotCode');
                         dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
 
                         dom('[name=hidden]').every(function (element) {
@@ -415,8 +429,8 @@ function sideNavController() {
                         sideNavState = [4, '#imps'];
                         break;
                   case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff:
-                        dom('#hotCode').id('').bgColor('#39175E').color('#52218A');
-                        dom('[name=hotCode]').id('hotCode');
+                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+                        dom('[name=hotCode]').title('hotCode');
                         dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
