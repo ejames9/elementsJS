@@ -1676,6 +1676,8 @@ Hopefully by now you've gotten the hang of what the above line would do. Either 
 13. changes to .html() .text().
 14. changes to .class()
 15. isArray() func.
-16. 
+16. err() to error()
+17. this.func() method.
+18. 
 
 </a>

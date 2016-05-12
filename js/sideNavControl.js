@@ -9,7 +9,7 @@ License: MIT
 
 
 
-import { el, log, scroll, show, mouse } from 'elementsJS';
+import { el, log, err, scroll, show, mouse } from 'elementsJS';
 
 
 //global that documents what state the menu is currently in.
@@ -18,6 +18,15 @@ window.sideNavState = [];
 //The control states for the sideNav Menu.
 const sideNavStates = {
   stateOne: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+    //Make cold.
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
     dom('[class~=hot2]')
             .class('hot2', '-');
     dom('[title=hotCode]')
@@ -35,12 +44,28 @@ const sideNavStates = {
               element
                   .color('#52218A');
             });
-
+    try {
+      dom('#gsList ul li a')
+                .every((element)=> {
+                                  console.log(element);
+                  element
+                      .func(()=> {
+                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                          element
+                              .color('#52218A');
+                        }
+                      });
+                });
+    }
+    catch(error) {
+      err(error);
+    }
     dom('[name=hidden]')
             .every((element)=> {
                 element
                     .class('hide')
             });
+    //Make hot.
     dom(elem)
             .class('hot')
             .color('#FF8A22')
@@ -50,6 +75,15 @@ const sideNavStates = {
   },
 
   stateTwo: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
+    //Make cold.
     dom('[title=hotCode]')
             .title('')
             .bgColor('#39175E')
@@ -69,6 +103,23 @@ const sideNavStates = {
                 element
                     .color('#52218A');
             });
+    try {
+      dom('#gsList ul li a')
+                .every((element)=> {
+                                  console.log(element);
+                  element
+                      .func(()=> {
+                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                          element
+                              .color('#52218A');
+                        }
+                      });
+                });
+    }
+    catch(error) {
+      err(error);
+    }
+    //Make hot.
     dom(elem)
             .class('hot2')
             .ma()
@@ -83,6 +134,15 @@ const sideNavStates = {
   },
 
   stateThree: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
+    //Make cold.
     dom('[title=hotCode]')
             .title('')
             .bgColor('#39175E')
@@ -102,6 +162,23 @@ const sideNavStates = {
                 element
                     .color('#52218A');
             });
+    try {
+      dom('#gsList ul li a')
+                .every((element)=> {
+                                  console.log(element);
+                  element
+                      .func(()=> {
+                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                          element
+                              .color('#52218A');
+                        }
+                      });
+                });
+    }
+    catch(error) {
+      err(error);
+    }
+    //Make hot.
     dom(elem)
             .class('hot2')
             .ma()
@@ -117,6 +194,15 @@ const sideNavStates = {
   },
 
   stateFour: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
+    //Make cold.
     dom('[class~=hot2]')
             .class('hot2', '-');
     dom('[title=hotCode]')
@@ -124,7 +210,7 @@ const sideNavStates = {
             .bgColor('#39175E')
             .color('#52218A');
     dom('[name=hotCode]')
-            .title('hotCode')
+            // .title('hotCode')
             .class('hot2', '+');
     dom('[class~=hot]')
             .color('#52218A')
@@ -139,13 +225,42 @@ const sideNavStates = {
                 element
                     .color('#52218A');
             });
+    try {
+      dom('#gsList ul li a')
+                .every((element, a)=> {
+                                  console.log(a.length);
+                  element
+                      .func(()=> {
+                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                          element
+                              .color('#52218A');
+                        }
+                      });
+                });
+    }
+    catch(error) {
+      err(error);
+    }
+    //Make hot.
     dom(elem)
             .class('hot')
             .color('#FF8A22')
-            .fontWeight('500');
+            .first()
+                   .title('hotCode')
+                   .bgColor('#52218A')
+                   .color('#fff');
   },
 
   stateFive: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
+    //Make cold.
     dom('[class~=hot2]')
             .class('hot2', '-');
     dom('[title=hotCode]')
@@ -168,6 +283,23 @@ const sideNavStates = {
                 element
                     .color('#52218A');
             });
+    try {
+      dom('#gsList ul li a')
+                .every((element, a)=> {
+                                  console.log(a.length);
+                  element
+                      .func(()=> {
+                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                          element
+                              .color('#52218A');
+                        }
+                      });
+                });
+    }
+    catch(error) {
+      err(error);
+    }
+    //Make hot.
     dom(elem)
             .class('hot')
             .color('#FF8A22')
@@ -177,6 +309,14 @@ const sideNavStates = {
   },
 
   stateSix: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
     dom('[title=hotCode]')
             .title('')
             .bgColor('#39175E')
@@ -193,6 +333,23 @@ const sideNavStates = {
                 element
                     .color('#52218A');
             });
+    try {
+      dom('#gsList ul li a')
+                .every((element, a)=> {
+                                  console.log(a.length);
+                  element
+                      .func(()=> {
+                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                          element
+                              .color('#52218A');
+                        }
+                      });
+                });
+    }
+    catch(error) {
+      err(error);
+    }
+    //Make hot.
     dom('#instLink a')
             .title('hotCode')
             .color('#FF8A22');
@@ -205,18 +362,26 @@ const sideNavStates = {
   },
 
   stateSeven: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
     dom('[name=hidden]')
-              .every((element)=> {
+            .every((element)=> {
                   element
                     .class('hide', '+')
              });
     dom('[name=listHead]')
-              .every((element)=> {
+            .every((element)=> {
                   element
                     .color('#52218A');
               });
     dom('[class=hot]')
-              .color('#FF8A22');
+            .color('#FF8A22');
     dom(elem)
           .first()
                 .fontWeight('500')
@@ -226,6 +391,14 @@ const sideNavStates = {
   },
 
   stateEight: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
     dom('[title~=shorts]')
               .every((element)=> {
                   element
@@ -247,6 +420,24 @@ const sideNavStates = {
   },
 
   stateNine: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
+    //Make cold.
+    dom('[name=listHead]')
+              .every((element)=> {
+                   element
+                    .color('#52218A');
+              });
+    //Make hot.
+    dom('[class=hot]')
+              .color('#FF8A22');
+    dom
     dom(elem)
             .color('#FF8A22')
             .first()
@@ -255,6 +446,14 @@ const sideNavStates = {
   },
 
   stateTen: (elem)=> {
+    //Logic.
+    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+      // return;
+    } else {
+      dom('#imps code')
+            .bgColor('#39175E')
+            .color('#52218A');
+    }
     //Make cold.
     dom('[name=hidden]')
               .every((element)=> {
@@ -269,7 +468,12 @@ const sideNavStates = {
     dom('#gsList ul li a')
               .every((element)=> {
                 element
-                    .color('#52218A');
+                    .func(()=> {
+                      if (String(element) !== String(dom('[class=hot2]').first())) {
+                        element
+                            .color('#52218A');
+                      }
+                    });
               });
     //Make Hot.
     dom('[class=hot]')
@@ -279,9 +483,14 @@ const sideNavStates = {
                 .color('#FF8A22')
                 .sib('next')
                         .class('hide', '-');
-    dom(elem)
-          .first()
-                .color('#FF8A22');
+    try {
+      dom(elem)
+            .first()
+                  .color('#FF8A22');
+    }
+    catch (error) {
+      err(error);
+    }
   },
 
 };
@@ -371,12 +580,17 @@ function hasAncestor(l, ance) {
   var tick, ancestor = el(ance),
            ancestors = [];
 
-  ancestors.push(l.parentNode);
-  ancestors.push(ancestors[0].parentNode);
-  ancestors.push(ancestors[1].parentNode);
-  ancestors.push(ancestors[2].parentNode);
-  ancestors.push(ancestors[3].parentNode);
-  // ancestors.push(ancestors[4].parentNode);
+  try {
+    ancestors.push(l.parentNode);
+    ancestors.push(ancestors[0].parentNode);
+    ancestors.push(ancestors[1].parentNode);
+    ancestors.push(ancestors[2].parentNode);
+    ancestors.push(ancestors[3].parentNode);
+    ancestors.push(ancestors[4].parentNode);
+  }
+  catch(error) {
+    err(error);
+  }
 
   // console.log(ancestors);
   tick = 0;
@@ -613,8 +827,6 @@ function sideNavController() {
                       .title('')
                       .bgColor('#39175E')
                       .color('#52218A');
-              dom('[name=hotCode]')
-                      .title('hotCode');
               dom('[class~=hot]')
                       .color('#52218A')
                       .fontWeight('300')
@@ -633,7 +845,10 @@ function sideNavController() {
               <'#imps'/>
                       .class('hot')
                       .color('#FF8A22')
-                      .fontWeight('500');
+                      .first()
+                             .title('hotCode')
+                             .bgColor('#52218A')
+                             .color('#fff');
 
               sideNavState = [4, '#imps'];
               break;
@@ -743,7 +958,7 @@ function sideNavController() {
 
               sideNavStates.stateThree('#sizeLink');
 
-              sideNavState = [2, '#sizeLink'];
+              sideNavState = [3, '#sizeLink'];
               break;
         case (dom('html').scrolled() > offSets['event-handle'] + diff && dom('html').scrolled() < offSets['go-func'] + diff ||
               dom('body').scrolled() > offSets['event-handle'] + diff && dom('body').scrolled() < offSets['go-func'] + diff):
@@ -890,7 +1105,7 @@ function sideNavController() {
 
               sideNavStates.stateThree('#selectLink');
 
-              sideNavState = [2, '#selectLink'];
+              sideNavState = [3, '#selectLink'];
               break;
         case (dom('html').scrolled() > offSets['http'] + diff && dom('html').scrolled() < offSets['xhr-func'] + diff ||
               dom('body').scrolled() > offSets['http'] + diff && dom('body').scrolled() < offSets['xhr-func'] + diff):
@@ -911,7 +1126,7 @@ function sideNavController() {
 
               sideNavStates.stateThree('#ajaxLink');
 
-              sideNavState = [2, '#ajaxLink'];
+              sideNavState = [3, '#ajaxLink'];
               break;
         case (dom('html').scrolled() > offSets['loggers'] + diff && dom('html').scrolled() < offSets['log-func'] + diff ||
               dom('body').scrolled() > offSets['loggers'] + diff && dom('body').scrolled() < offSets['log-func'] + diff):
@@ -946,7 +1161,7 @@ function sideNavController() {
 
               sideNavStates.stateThree('#errLink');
 
-              sideNavState = [2, '#errLink'];
+              sideNavState = [3, '#errLink'];
               break;
         case (dom('html').scrolled() > offSets['utils'] + diff && dom('html').scrolled() < offSets['proto-func'] + diff ||
               dom('body').scrolled() > offSets['utils'] + diff && dom('body').scrolled() < offSets['proto-func'] + diff):
@@ -967,7 +1182,7 @@ function sideNavController() {
 
               sideNavStates.stateThree('#shifterLink');
 
-              sideNavState = [2, '#shifterLink'];
+              sideNavState = [3, '#shifterLink'];
               break;
         case (dom('html').scrolled() > offSets['elem-obj'] + diff && dom('html').scrolled() < offSets['element-const'] + diff ||
               dom('body').scrolled() > offSets['elem-obj'] + diff && dom('body').scrolled() < offSets['element-const'] + diff):
@@ -995,7 +1210,7 @@ function sideNavController() {
 
               sideNavStates.stateThree('#make2Link');
 
-              sideNavState = [2, '#make2Link'];
+              sideNavState = [3, '#make2Link'];
               break;
         case (dom('html').scrolled() > offSets['elem-obj-methods'] + diff && dom('html').scrolled() < offSets['element-font-ex'] + diff ||
               dom('body').scrolled() > offSets['elem-obj-methods'] + diff && dom('body').scrolled() < offSets['element-font-ex'] + diff):
@@ -1016,28 +1231,28 @@ function sideNavController() {
 
               sideNavStates.stateTwo('#stylMethodsLink');
 
-              sideNavState = [3, '#stylMethodsLink'];
+              sideNavState = [2, '#stylMethodsLink'];
               break;
         case (dom('html').scrolled() > offSets['core-func'] + diff && dom('html').scrolled() < offSets['DOM-Elem-Methods'] + diff ||
               dom('body').scrolled() > offSets['core-func'] + diff && dom('body').scrolled() < offSets['DOM-Elem-Methods'] + diff):
 
               sideNavStates.stateTwo('#coreLink');
 
-              sideNavState = [3, '#coreLink'];
+              sideNavState = [2, '#coreLink'];
               break;
         case (dom('html').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('html').scrolled() < offSets['event-methods'] + diff ||
               dom('body').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('body').scrolled() < offSets['event-methods'] + diff):
 
               sideNavStates.stateTwo('#domMethodsLink');
 
-              sideNavState = [3, '#domMethodsLink'];
+              sideNavState = [2, '#domMethodsLink'];
               break;
         case (dom('html').scrolled() > offSets['event-methods'] + diff && dom('html').scrolled() < offSets['Util-Methods'] + diff ||
               dom('body').scrolled() > offSets['event-methods'] + diff && dom('body').scrolled() < offSets['Util-Methods'] + diff):
 
               sideNavStates.stateTwo('#eventMethodsLink');
 
-              sideNavState = [3, '#eventMethodsLink'];
+              sideNavState = [2, '#eventMethodsLink'];
               break;
         case (dom('html').scrolled() > offSets['Util-Methods'] + diff && dom('html').scrolled() < offSets['elements-syntax'] + diff ||
               dom('body').scrolled() > offSets['Util-Methods'] + diff && dom('body').scrolled() < offSets['elements-syntax'] + diff):

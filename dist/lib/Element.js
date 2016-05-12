@@ -1450,7 +1450,7 @@ function Element(el) {
 
   this.every = function (eachFunc) {
     this.els.forEach(function (elem, i, a) {
-      eachFunc(elem, a);
+      eachFunc(elem, a, i);
     });
     return this;
   };
@@ -1484,6 +1484,17 @@ function Element(el) {
     //   eachCount = '';
     // }
     (0, _logger.log)(eachCount, 'white');
+    return this;
+  };
+
+  this.func = function (func) {
+    var mod = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+    if (null === mod) {
+      func(this.el);
+    } else if (mod === 'style') {
+      func(this.el.style);
+    }
     return this;
   };
 
