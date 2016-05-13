@@ -33,6 +33,7 @@ URL: ""
 //TODO: += html method.
 //TODO: transform methods. i.e. this.turnX(), this.turnY.
 //TODO: .do(), do() animation functionality.
+//TODO: be able to create element object from e.target.....
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -51,7 +52,7 @@ import * as DOM from './lib/DOM';
 
 
 var element = function(el) {
-  return new Element();
+  return new Element(el);
 };
 
 /*This function copies the prototype object of a superConstructor to the prototype object
@@ -464,6 +465,7 @@ var select = function(el, cb=null) {
 
 
 module.exports = {
+          element: element,
                _$: _$,
                 x: x,
                go: go,

@@ -65,13 +65,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //TODO: += html method.
 //TODO: transform methods. i.e. this.turnX(), this.turnY.
 //TODO: .do(), do() animation functionality.
+//TODO: be able to create element object from e.target.....
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
 // require('babel-polyfill');
 
 var element = function element(el) {
-  return new _element2.default();
+  return new _element2.default(el);
 };
 
 /*This function copies the prototype object of a superConstructor to the prototype object
@@ -468,6 +469,7 @@ var select = function select(el) {
 };
 
 module.exports = (_module$exports = {
+  element: element,
   _$: _$,
   x: x,
   go: go,

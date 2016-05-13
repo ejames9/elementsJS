@@ -29,6 +29,7 @@ var make = require("elementsJS").make;
 
 var elementsJS = require("elementsJS");
 var imports = elementsJS.imports;
+var element = elementsJS.element;
 var go = elementsJS.go;
 var el = elementsJS.el;
 var log = elementsJS.log;
@@ -212,7 +213,7 @@ function clickController() {
         e.preventDefault();
 
         offSets = SNC.getOffSets();
-        hash = String(dom('#' + e.target.id).hash());
+        hash = String(element(e.target).hash());
         hashSS = hash.substring(1, hash.length);
 
         warn(hashSS);
@@ -230,6 +231,29 @@ function clickController() {
           elem9.scrolled(offSets[hashSS] + 470);
         }
         break;
+      // case (e.target.tagName === 'P'):
+      // console.log(element(e.target).color());
+      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
+      //         console.log(element(e.target).color());
+      //         element(e.target).color('rgb(255, 138, 34)');
+      //       } else {
+      //         element(e.target).color('rgb(82, 33, 138)');
+      //       }
+      //     break;
+      // case (e.target.tagName === 'H1' || e.target.tagName === 'H2' || e.target.tagName === 'H3' || e.target.tagName === 'H4'):
+      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
+      //         element(e.target).color('rgb(255, 138, 34)');
+      //       } else {
+      //         element(e.target).color('rgb(82, 33, 138)');
+      //       }
+      //     break;
+      // case (e.target.tagName === 'LI'):
+      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
+      //         element(e.target).color('rgb(255, 138, 34)');
+      //       } else {
+      //         element(e.target).color('rgb(82, 33, 138)');
+      //       }
+      //     break;
       default:
         var npmBar = el('#npm-bar');
         if (npmBar !== null) {

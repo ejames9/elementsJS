@@ -75,6 +75,7 @@
 
 	var elementsJS = __webpack_require__(2);
 	var imports = elementsJS.imports;
+	var element = elementsJS.element;
 	var go = elementsJS.go;
 	var el = elementsJS.el;
 	var log = elementsJS.log;
@@ -258,7 +259,7 @@
 	        e.preventDefault();
 
 	        offSets = SNC.getOffSets();
-	        hash = String(dom('#' + e.target.id).hash());
+	        hash = String(element(e.target).hash());
 	        hashSS = hash.substring(1, hash.length);
 
 	        warn(hashSS);
@@ -276,6 +277,29 @@
 	          elem9.scrolled(offSets[hashSS] + 470);
 	        }
 	        break;
+	      // case (e.target.tagName === 'P'):
+	      // console.log(element(e.target).color());
+	      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
+	      //         console.log(element(e.target).color());
+	      //         element(e.target).color('rgb(255, 138, 34)');
+	      //       } else {
+	      //         element(e.target).color('rgb(82, 33, 138)');
+	      //       }
+	      //     break;
+	      // case (e.target.tagName === 'H1' || e.target.tagName === 'H2' || e.target.tagName === 'H3' || e.target.tagName === 'H4'):
+	      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
+	      //         element(e.target).color('rgb(255, 138, 34)');
+	      //       } else {
+	      //         element(e.target).color('rgb(82, 33, 138)');
+	      //       }
+	      //     break;
+	      // case (e.target.tagName === 'LI'):
+	      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
+	      //         element(e.target).color('rgb(255, 138, 34)');
+	      //       } else {
+	      //         element(e.target).color('rgb(82, 33, 138)');
+	      //       }
+	      //     break;
 	      default:
 	        var npmBar = el('#npm-bar');
 	        if (npmBar !== null) {
@@ -1368,7 +1392,7 @@
 	// require('babel-polyfill');
 
 	var element = function element(el) {
-	  return new _element2.default();
+	  return new _element2.default(el);
 	};
 
 	/*This function copies the prototype object of a superConstructor to the prototype object
@@ -1764,6 +1788,7 @@
 	};
 
 	module.exports = (_module$exports = {
+	  element: element,
 	  _$: _$,
 	  x: x,
 	  go: go,
