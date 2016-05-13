@@ -19,8 +19,8 @@ window.sideNavState = [];
 const sideNavStates = {
   stateOne: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
-      // return;
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+      // Do Nothing at all.
     } else {
     //Make cold.
       dom('#imps code')
@@ -45,12 +45,12 @@ const sideNavStates = {
                   .color('#52218A');
             });
     try {
+      var tick = 0;
       dom('#gsList ul li a')
                 .every((element)=> {
-                                  console.log(element);
                   element
                       .func(()=> {
-                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                        if (element.title() !== 'hotCode') {
                           element
                               .color('#52218A');
                         }
@@ -76,7 +76,7 @@ const sideNavStates = {
 
   stateTwo: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
       // return;
     } else {
       dom('#imps code')
@@ -104,12 +104,12 @@ const sideNavStates = {
                     .color('#52218A');
             });
     try {
+      var tick = 0;
       dom('#gsList ul li a')
                 .every((element)=> {
-                                  console.log(element);
                   element
                       .func(()=> {
-                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                        if (element.title() !== 'hotCode') {
                           element
                               .color('#52218A');
                         }
@@ -135,7 +135,7 @@ const sideNavStates = {
 
   stateThree: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
       // return;
     } else {
       dom('#imps code')
@@ -163,12 +163,12 @@ const sideNavStates = {
                     .color('#52218A');
             });
     try {
+      var tick = 0;
       dom('#gsList ul li a')
                 .every((element)=> {
-                                  console.log(element);
                   element
                       .func(()=> {
-                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                        if (element.title() !== 'hotCode') {
                           element
                               .color('#52218A');
                         }
@@ -195,7 +195,7 @@ const sideNavStates = {
 
   stateFour: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
       // return;
     } else {
       dom('#imps code')
@@ -226,12 +226,12 @@ const sideNavStates = {
                     .color('#52218A');
             });
     try {
+      var tick = 0;
       dom('#gsList ul li a')
                 .every((element, a)=> {
-                                  console.log(a.length);
                   element
                       .func(()=> {
-                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                        if (element.title() !== 'hotCode') {
                           element
                               .color('#52218A');
                         }
@@ -253,7 +253,7 @@ const sideNavStates = {
 
   stateFive: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
       // return;
     } else {
       dom('#imps code')
@@ -284,12 +284,12 @@ const sideNavStates = {
                     .color('#52218A');
             });
     try {
+      var tick = 0;
       dom('#gsList ul li a')
                 .every((element, a)=> {
-                                  console.log(a.length);
                   element
                       .func(()=> {
-                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                        if (element.title() !== 'hotCode') {
                           element
                               .color('#52218A');
                         }
@@ -310,7 +310,7 @@ const sideNavStates = {
 
   stateSix: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
       // return;
     } else {
       dom('#imps code')
@@ -334,12 +334,12 @@ const sideNavStates = {
                     .color('#52218A');
             });
     try {
+      var tick = 0;
       dom('#gsList ul li a')
                 .every((element, a)=> {
-                                  console.log(a.length);
                   element
                       .func(()=> {
-                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                        if (element.title() !== 'hotCode') {
                           element
                               .color('#52218A');
                         }
@@ -363,7 +363,7 @@ const sideNavStates = {
 
   stateSeven: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
       // return;
     } else {
       dom('#imps code')
@@ -392,7 +392,7 @@ const sideNavStates = {
 
   stateEight: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
       // return;
     } else {
       dom('#imps code')
@@ -421,8 +421,8 @@ const sideNavStates = {
 
   stateNine: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
-      // return;
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+      // Do nothing;
     } else {
       dom('#imps code')
             .bgColor('#39175E')
@@ -437,7 +437,7 @@ const sideNavStates = {
     //Make hot.
     dom('[class=hot]')
               .color('#FF8A22');
-    dom
+  
     dom(elem)
             .color('#FF8A22')
             .first()
@@ -447,8 +447,8 @@ const sideNavStates = {
 
   stateTen: (elem)=> {
     //Logic.
-    if (String(dom('[class=hot]')) === String(dom('#imps'))) {
-      // return;
+    if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+      // Do nothing;
     } else {
       dom('#imps code')
             .bgColor('#39175E')
@@ -469,7 +469,7 @@ const sideNavStates = {
               .every((element)=> {
                 element
                     .func(()=> {
-                      if (String(element) !== String(dom('[class=hot2]').first())) {
+                      if (element.title() !== 'hotCode') {
                         element
                             .color('#52218A');
                       }

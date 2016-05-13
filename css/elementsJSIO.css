@@ -456,28 +456,6 @@ iframe {
 .gthbBtn:hover > #watchSVG {
   fill: #52218A;
 }
-/*.gthbBtn:active > #starSVG {
-  fill: #52218A;
-  background-color: #fff;
-  box-shadow: 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff;
-
-}
-.gthbBtn:active > #followSVG {
-  fill: #52218A;
-  background-color: #fff;
-  box-shadow: 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff;
-
-
-
-}
-.gthbBtn:active > #watchSVG {
-  fill: #52218A;
-  background-color: #fff;
-  box-shadow: 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff, 0 0 0.2em #fff;
-*/
-
-
-
 
 #followSVG {
   position: relative;
@@ -501,8 +479,10 @@ iframe {
   width: 22px;
   top: 4px;
   fill: #FF8A22;
+}
 
-
+#api-butn:active {
+  color: white;
 }
 
 /*----Jumbotron Main Logo----*/

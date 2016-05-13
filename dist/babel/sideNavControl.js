@@ -23,8 +23,8 @@ window.sideNavState = [];
 var sideNavStates = {
       stateOne: function stateOne(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
-                  // return;
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+                  // Do Nothing at all.
             } else {
                         //Make cold.
                         dom('#imps code').bgColor('#39175E').color('#52218A');
@@ -37,10 +37,10 @@ var sideNavStates = {
                   element.color('#52218A');
             });
             try {
+                  var tick = 0;
                   dom('#gsList ul li a').every(function (element) {
-                        console.log(element);
                         element.func(function () {
-                              if (String(element) !== String(dom('[class=hot2]').first())) {
+                              if (element.title() !== 'hotCode') {
                                     element.color('#52218A');
                               }
                         });
@@ -57,7 +57,7 @@ var sideNavStates = {
 
       stateTwo: function stateTwo(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
                   // return;
             } else {
                         dom('#imps code').bgColor('#39175E').color('#52218A');
@@ -73,10 +73,10 @@ var sideNavStates = {
                   element.color('#52218A');
             });
             try {
+                  var tick = 0;
                   dom('#gsList ul li a').every(function (element) {
-                        console.log(element);
                         element.func(function () {
-                              if (String(element) !== String(dom('[class=hot2]').first())) {
+                              if (element.title() !== 'hotCode') {
                                     element.color('#52218A');
                               }
                         });
@@ -91,7 +91,7 @@ var sideNavStates = {
 
       stateThree: function stateThree(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
                   // return;
             } else {
                         dom('#imps code').bgColor('#39175E').color('#52218A');
@@ -107,10 +107,10 @@ var sideNavStates = {
                   element.color('#52218A');
             });
             try {
+                  var tick = 0;
                   dom('#gsList ul li a').every(function (element) {
-                        console.log(element);
                         element.func(function () {
-                              if (String(element) !== String(dom('[class=hot2]').first())) {
+                              if (element.title() !== 'hotCode') {
                                     element.color('#52218A');
                               }
                         });
@@ -125,7 +125,7 @@ var sideNavStates = {
 
       stateFour: function stateFour(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
                   // return;
             } else {
                         dom('#imps code').bgColor('#39175E').color('#52218A');
@@ -144,10 +144,10 @@ var sideNavStates = {
                   element.color('#52218A');
             });
             try {
+                  var tick = 0;
                   dom('#gsList ul li a').every(function (element, a) {
-                        console.log(a.length);
                         element.func(function () {
-                              if (String(element) !== String(dom('[class=hot2]').first())) {
+                              if (element.title() !== 'hotCode') {
                                     element.color('#52218A');
                               }
                         });
@@ -161,7 +161,7 @@ var sideNavStates = {
 
       stateFive: function stateFive(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
                   // return;
             } else {
                         dom('#imps code').bgColor('#39175E').color('#52218A');
@@ -178,10 +178,10 @@ var sideNavStates = {
                   element.color('#52218A');
             });
             try {
+                  var tick = 0;
                   dom('#gsList ul li a').every(function (element, a) {
-                        console.log(a.length);
                         element.func(function () {
-                              if (String(element) !== String(dom('[class=hot2]').first())) {
+                              if (element.title() !== 'hotCode') {
                                     element.color('#52218A');
                               }
                         });
@@ -195,7 +195,7 @@ var sideNavStates = {
 
       stateSix: function stateSix(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
                   // return;
             } else {
                         dom('#imps code').bgColor('#39175E').color('#52218A');
@@ -209,10 +209,10 @@ var sideNavStates = {
                   element.color('#52218A');
             });
             try {
+                  var tick = 0;
                   dom('#gsList ul li a').every(function (element, a) {
-                        console.log(a.length);
                         element.func(function () {
-                              if (String(element) !== String(dom('[class=hot2]').first())) {
+                              if (element.title() !== 'hotCode') {
                                     element.color('#52218A');
                               }
                         });
@@ -227,7 +227,7 @@ var sideNavStates = {
 
       stateSeven: function stateSeven(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
                   // return;
             } else {
                         dom('#imps code').bgColor('#39175E').color('#52218A');
@@ -244,7 +244,7 @@ var sideNavStates = {
 
       stateEight: function stateEight(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
                   // return;
             } else {
                         dom('#imps code').bgColor('#39175E').color('#52218A');
@@ -261,8 +261,8 @@ var sideNavStates = {
 
       stateNine: function stateNine(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
-                  // return;
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+                  // Do nothing;
             } else {
                         dom('#imps code').bgColor('#39175E').color('#52218A');
                   }
@@ -272,14 +272,14 @@ var sideNavStates = {
             });
             //Make hot.
             dom('[class=hot]').color('#FF8A22');
-            dom;
+
             dom(elem).color('#FF8A22').first().bgColor('#52218A').color('#fff');
       },
 
       stateTen: function stateTen(elem) {
             //Logic.
-            if (String(dom('[class=hot]')) === String(dom('#imps'))) {
-                  // return;
+            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+                  // Do nothing;
             } else {
                         dom('#imps code').bgColor('#39175E').color('#52218A');
                   }
@@ -292,7 +292,7 @@ var sideNavStates = {
             });
             dom('#gsList ul li a').every(function (element) {
                   element.func(function () {
-                        if (String(element) !== String(dom('[class=hot2]').first())) {
+                        if (element.title() !== 'hotCode') {
                               element.color('#52218A');
                         }
                   });
