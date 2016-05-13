@@ -457,6 +457,10 @@ iframe {
   fill: #52218A;
 }
 
+.gthbBtn:active {
+  background-color: white;
+}
+
 #followSVG {
   position: relative;
   height: 22px;
@@ -482,7 +486,8 @@ iframe {
 }
 
 #api-butn:active {
-  color: white;
+  color: #52218A;
+  background-color: white;
 }
 
 /*----Jumbotron Main Logo----*/

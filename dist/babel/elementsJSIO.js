@@ -249,11 +249,9 @@ go(function () {
   editor1.renderer.setShowGutter(false);
   editor1.getSession().setMode("ace/mode/javascript");
 
-  var elem10 = _$('#jumbo') ? dom('#jumbo') : make('#jumbo').put("body");
-  elem10.height(window.innerHeight);
   //Set default display setting for the bower/npm installation bar.
-  var elem11 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-  elem11.display('none');
+  var elem10 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+  elem10.display('none');
   //Initialize the click controller.
   clickController();
   //Download the documentation markdown.
