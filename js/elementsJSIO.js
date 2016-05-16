@@ -45,15 +45,6 @@ var highLitElements = [];
 
 
 
-//Dropdown menu function for creating documentation page, and scrolling to specified offset.
-function dropDownWiring(elem) {
-  insertDocs(iDCallback);
-
-  offSets = SNC.getOffSets();
-     hash = String(element(elem).hash());
-   hashSS = hash.substring(1, hash.length);
-}
-
 
 
 //Necessary code to add deep links to documentation.
@@ -122,6 +113,8 @@ function highLightCode() {
 
 //Documentation page change function
 function initDocsPage(elem=null) {
+  var hash,
+      hashSS;
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, (r)=> {
     <'#content'/>
@@ -132,7 +125,7 @@ function initDocsPage(elem=null) {
     forkMeBaby();
     highLightCode();
     addChainLinkIcons();
-    
+
     SNC.mouseOutController();
     SNC.mouseOverController();
     SNC.sideNavController();
@@ -156,6 +149,17 @@ function initDocsPage(elem=null) {
 
         <body/>
             .scrolled(offSets[hashSS] + 470);
+      }
+    } else {
+
+      if (browser.gecko) {
+
+        <html/>
+            .scrolled(0);
+      } else if (browser.webkit) {
+
+        <body/>
+            .scrolled(0);
       }
     }
   });
@@ -190,26 +194,6 @@ function toggleNPMBar() {
 }
 
 
-//A collection of callback functions to be called once documentation is inserted into its' place.
-// function iDCallback() {
-//   forkMeBaby();
-//   highLightCode();
-//   addChainLinkIcons();
-//   SNC.mouseOutController();
-//   SNC.mouseOverController();
-//   SNC.sideNavController();
-//
-//   dom('#sideNav li a')
-//             .every((element)=> {
-//                element
-//                    .class('sNavLink', '+');
-//             });
-// }
-
-
-
-
-
 function clickController() {
   //Click Event Delegation ============================>>
   var _re = /sNavLink/,
@@ -218,12 +202,25 @@ function clickController() {
      hashSS;
 
   click(html, (e)=> {
+    console.log(e.target.className);
     switch(3+6===9) {
       case (e.target === el('#install-info')):
           toggleNPMBar();
           break;
       case (e.target === el('#api-butn')):
           initDocsPage();
+          break;
+      case (e.target.className === 'dropDown' || e.target.className === 'navMenu'):
+          e.preventDefault();
+
+          initDocsPage(e.target);
+
+          dom('[class~=active]')
+                        .class('active', '-');
+
+          element(e.target)
+                        .ma()
+                          .class('active', '+');
           break;
       case (e.target.tagName === 'I'):
           e.preventDefault();

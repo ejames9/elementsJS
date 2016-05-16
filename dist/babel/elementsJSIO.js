@@ -35,7 +35,7 @@ var go = elementsJS.go;
 var el = elementsJS.el;
 var log = elementsJS.log;
 var err = elementsJS.err;
-var warn = elementsJS.warn;
+var info = elementsJS.info;
 var url = elementsJS.url;
 var ajax = elementsJS.ajax;
 var on = elementsJS.on;
@@ -101,7 +101,7 @@ function forkMeBaby() {
   return;
 }
 
-//This function highlights all of the  blocks in the docs, after the insertDocs function is completed.
+//This function highlights all of the blocks in the docs, after the insertDocs function is completed.
 function highLightCode() {
   console.log(dom('pre code'));
   //Get access to all blocks......
@@ -113,7 +113,10 @@ function highLightCode() {
 }
 
 //Documentation page change function
-function insertDocs(cb) {
+function initDocsPage() {
+  var elem = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+  var hash, hashSS;
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, function (r) {
     var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
@@ -121,7 +124,44 @@ function insertDocs(cb) {
     var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
     elem3.html(marked(markDown));
     //Call callback functions.
-    cb();
+    forkMeBaby();
+    highLightCode();
+    addChainLinkIcons();
+
+    SNC.mouseOutController();
+    SNC.mouseOverController();
+    SNC.sideNavController();
+
+    dom('#sideNav li a').every(function (element) {
+      element.class('sNavLink', '+');
+    });
+    if (null !== elem) {
+
+      offSets = SNC.getOffSets();
+      hash = String(element(elem).hash());
+      hashSS = hash.substring(1, hash.length);
+
+      if (browser.gecko) {
+
+        var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+        elem4.scrolled(offSets[hashSS] + 470);
+      } else if (browser.webkit) {
+
+        var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+        elem5.scrolled(offSets[hashSS] + 470);
+      }
+    } else {
+
+      if (browser.gecko) {
+
+        var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+        elem6.scrolled(0);
+      } else if (browser.webkit) {
+
+        var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+        elem7.scrolled(0);
+      }
+    }
   });
 }
 
@@ -151,20 +191,6 @@ function toggleNPMBar() {
   }
 }
 
-//A collection of callback functions to be called once documentation is inserted into its' place.
-function iDCallback() {
-  forkMeBaby();
-  highLightCode();
-  addChainLinkIcons();
-  SNC.mouseOutController();
-  SNC.mouseOverController();
-  SNC.sideNavController();
-
-  dom('#sideNav li a').every(function (element) {
-    element.class('sNavLink', '+');
-  });
-}
-
 function clickController() {
   //Click Event Delegation ============================>>
   var _re = /sNavLink/,
@@ -173,59 +199,28 @@ function clickController() {
       hashSS;
 
   click(html, function (e) {
+    console.log(e.target.className);
     switch (3 + 6 === 9) {
       case e.target === el('#install-info'):
         toggleNPMBar();
         break;
       case e.target === el('#api-butn'):
-        insertDocs(iDCallback);
+        initDocsPage();
+        break;
+      case e.target.className === 'dropDown' || e.target.className === 'navMenu':
+        e.preventDefault();
+
+        initDocsPage(e.target);
+
+        dom('[class~=active]').class('active', '-');
+
+        element(e.target).ma().class('active', '+');
         break;
       case e.target.tagName === 'I':
         e.preventDefault();
 
         offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
         hashSS = hash.substring(1, hash.length);
-
-        if (browser.gecko) {
-          log('gecko', 'red');
-
-          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          elem4.scrolled(offSets[hashSS] + 470);
-        } else if (browser.webkit) {
-          log('webkit', 'blue');
-
-          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          elem5.scrolled(offSets[hashSS] + 470);
-        }
-        break;
-      case e.target.tagName === 'CODE':
-        e.preventDefault();
-
-        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
-        hashSS = hash.substring(1, hash.length);
-
-        if (browser.gecko) {
-          log('gecko', 'red');
-
-          var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          elem6.scrolled(offSets[hashSS] + 470);
-        } else if (browser.webkit) {
-          log('webkit', 'blue');
-
-          var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          elem7.scrolled(offSets[hashSS] + 470);
-        }
-        break;
-      case e.target.tagName === 'A':
-        log(e.target.tagName, 'red');
-        e.preventDefault();
-
-        offSets = SNC.getOffSets();
-        hash = String(element(e.target).hash());
-        hashSS = hash.substring(1, hash.length);
-
-        warn(hashSS);
-        warn(offSets[hashSS]);
 
         if (browser.gecko) {
           log('gecko', 'red');
@@ -237,6 +232,47 @@ function clickController() {
 
           var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
           elem9.scrolled(offSets[hashSS] + 470);
+        }
+        break;
+      case e.target.tagName === 'CODE':
+        e.preventDefault();
+
+        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
+        hashSS = hash.substring(1, hash.length);
+
+        if (browser.gecko) {
+          log('gecko', 'red');
+
+          var elem10 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          elem10.scrolled(offSets[hashSS] + 470);
+        } else if (browser.webkit) {
+          log('webkit', 'blue');
+
+          var elem11 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          elem11.scrolled(offSets[hashSS] + 470);
+        }
+        break;
+      case e.target.tagName === 'A':
+        log(e.target.tagName, 'red');
+        e.preventDefault();
+
+        offSets = SNC.getOffSets();
+        hash = String(element(e.target).hash());
+        hashSS = hash.substring(1, hash.length);
+
+        info(hashSS);
+        info(offSets[hashSS]);
+
+        if (browser.gecko) {
+          log('gecko', 'red');
+
+          var elem12 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          elem12.scrolled(offSets[hashSS] + 470);
+        } else if (browser.webkit) {
+          log('webkit', 'blue');
+
+          var elem13 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          elem13.scrolled(offSets[hashSS] + 470);
         }
         break;
       case e.target.id === 'col1' || hasAncestor(e.target, '#col1'):
@@ -324,8 +360,8 @@ go(function () {
   editor1.getSession().setMode("ace/mode/javascript");
 
   //Set default display setting for the bower/npm installation bar.
-  var elem10 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-  elem10.display('none');
+  var elem14 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+  elem14.display('none');
   //Initialize the click controller.
   clickController();
   //Download the documentation markdown.
