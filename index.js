@@ -52,7 +52,15 @@ import * as DOM from './lib/DOM';
 
 
 var element = function(el) {
-  return new Element(el);
+  if (utils.isArray(el)) {
+    let arr = [];
+    for (var i = 0; i < el.length; i++) {
+      arr.push(new Element(el[i]));
+    }
+    return new Element(arr);
+  } else {
+    return new Element(el);
+  }
 };
 
 /*This function copies the prototype object of a superConstructor to the prototype object
@@ -215,6 +223,10 @@ var warn = function(text, tyme) {
 
 var shifter = function(onFunc, offFunc) {
   return utils.shifter(onFunc, offFunc);
+};
+
+var hasAncestor = function(l, ance) {
+  return utils.hasAncestor(l, ance);
 };
 
 
@@ -477,6 +489,7 @@ module.exports = {
             clone: clone,
           isArray: isArray,
         functions: functions,
+      hasAncestor: hasAncestor,
               put: put,
                on: on,
               off: off,

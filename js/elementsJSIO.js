@@ -18,7 +18,7 @@ import * as SNC from './sideNavControl.js';
 
 //elementsJS imports
 imports({
-    'elementsJS': ['imports', 'element', 'go', 'el', 'log', 'warn', 'url', 'ajax', 'on', 'click', 'mouse', 'show', 'hide', 'scroll', '__'],
+    'elementsJS': ['imports', 'element', 'hasAncestor', 'go', 'el', 'log', 'err', 'info', 'url', 'ajax', 'on', 'click', 'mouse', 'show', 'hide', 'scroll', '__'],
         'marked': 'marked',
   'highlight.js': 'hljs',
         'bowser': 'browser'
@@ -37,7 +37,22 @@ var mdUrl = 'md/elementsJSIODocs.md';
 var markDown,
     offSets;
 
+//main page click flags.
+var col1ClickFlag = true;
+var col2ClickFlag = true;
+var col3ClickFlag = true;
+var highLitElements = [];
 
+
+
+//Dropdown menu function for creating documentation page, and scrolling to specified offset.
+function dropDownWiring(elem) {
+  insertDocs(iDCallback);
+
+  offSets = SNC.getOffSets();
+     hash = String(element(elem).hash());
+   hashSS = hash.substring(1, hash.length);
+}
 
 
 
@@ -92,7 +107,7 @@ function forkMeBaby() {
 }
 
 
-//This function highlights all of the  blocks in the docs, after the insertDocs function is completed.
+//This function highlights all of the blocks in the docs, after the insertDocs function is completed.
 function highLightCode() {
   console.log(dom('pre code'));
   //Get access to all blocks......
@@ -106,7 +121,7 @@ function highLightCode() {
 
 
 //Documentation page change function
-function insertDocs(cb) {
+function initDocsPage(elem=null) {
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, (r)=> {
     <'#content'/>
@@ -114,7 +129,35 @@ function insertDocs(cb) {
     <'#docsMain'/>
               .html(marked(markDown));
     //Call callback functions.
-    cb();
+    forkMeBaby();
+    highLightCode();
+    addChainLinkIcons();
+    
+    SNC.mouseOutController();
+    SNC.mouseOverController();
+    SNC.sideNavController();
+
+    dom('#sideNav li a')
+              .every((element)=> {
+                 element
+                     .class('sNavLink', '+');
+              });
+    if (null !== elem) {
+
+      offSets = SNC.getOffSets();
+         hash = String(element(elem).hash());
+       hashSS = hash.substring(1, hash.length);
+
+      if (browser.gecko) {
+
+        <html/>
+            .scrolled(offSets[hashSS] + 470);
+      } else if (browser.webkit) {
+
+        <body/>
+            .scrolled(offSets[hashSS] + 470);
+      }
+    }
   });
 }
 
@@ -148,20 +191,20 @@ function toggleNPMBar() {
 
 
 //A collection of callback functions to be called once documentation is inserted into its' place.
-function iDCallback() {
-  forkMeBaby();
-  highLightCode();
-  addChainLinkIcons();
-  SNC.mouseOutController();
-  SNC.mouseOverController();
-  SNC.sideNavController();
-
-  dom('#sideNav li a')
-            .every((element)=> {
-               element
-                   .class('sNavLink', '+');
-            });
-}
+// function iDCallback() {
+//   forkMeBaby();
+//   highLightCode();
+//   addChainLinkIcons();
+//   SNC.mouseOutController();
+//   SNC.mouseOverController();
+//   SNC.sideNavController();
+//
+//   dom('#sideNav li a')
+//             .every((element)=> {
+//                element
+//                    .class('sNavLink', '+');
+//             });
+// }
 
 
 
@@ -180,7 +223,7 @@ function clickController() {
           toggleNPMBar();
           break;
       case (e.target === el('#api-butn')):
-          insertDocs(iDCallback);
+          initDocsPage();
           break;
       case (e.target.tagName === 'I'):
           e.preventDefault();
@@ -194,8 +237,8 @@ function clickController() {
 
              <html/>
                  .scrolled(offSets[hashSS] + 470);
-           } else if (browser.safari) {
-             log('safari', 'blue');
+           } else if (browser.webkit) {
+             log('webkit', 'blue');
 
              <body/>
                  .scrolled(offSets[hashSS] + 470);
@@ -213,8 +256,8 @@ function clickController() {
 
              <html/>
                  .scrolled(offSets[hashSS] + 470);
-           } else if (browser.safari) {
-             log('safari', 'blue');
+           } else if (browser.webkit) {
+             log('webkit', 'blue');
 
              <body/>
                  .scrolled(offSets[hashSS] + 470);
@@ -228,44 +271,102 @@ function clickController() {
              hash = String(element(e.target).hash());
            hashSS = hash.substring(1, hash.length);
 
-          warn(hashSS);
-          warn(offSets[hashSS]);
+          info(hashSS);
+          info(offSets[hashSS]);
 
           if (browser.gecko) {
             log('gecko', 'red');
 
             <html/>
                 .scrolled(offSets[hashSS] + 470);
-          } else if (browser.safari) {
-            log('safari', 'blue');
+          } else if (browser.webkit) {
+            log('webkit', 'blue');
 
             <body/>
                 .scrolled(offSets[hashSS] + 470);
           }
           break;
-      // case (e.target.tagName === 'P'):
-      // console.log(element(e.target).color());
-      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
-      //         console.log(element(e.target).color());
-      //         element(e.target).color('rgb(255, 138, 34)');
-      //       } else {
-      //         element(e.target).color('rgb(82, 33, 138)');
-      //       }
-      //     break;
-      // case (e.target.tagName === 'H1' || e.target.tagName === 'H2' || e.target.tagName === 'H3' || e.target.tagName === 'H4'):
-      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
-      //         element(e.target).color('rgb(255, 138, 34)');
-      //       } else {
-      //         element(e.target).color('rgb(82, 33, 138)');
-      //       }
-      //     break;
-      // case (e.target.tagName === 'LI'):
-      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
-      //         element(e.target).color('rgb(255, 138, 34)');
-      //       } else {
-      //         element(e.target).color('rgb(82, 33, 138)');
-      //       }
-      //     break;
+      case (e.target.id === 'col1' || hasAncestor(e.target, '#col1')):
+            if (col1ClickFlag) {
+              dom('#col1 h2, #col1 h4, #col1 p, #col1 ul li')
+                              .every((child)=> {
+                                 child
+                                    .color('rgb(255, 138, 34)');
+                              });
+              col1ClickFlag = false
+            } else {
+              dom('#col1 h2, #col1 h4, #col1 p, #col1 ul li')
+                              .every((child)=> {
+                                 child
+                                    .color('');
+                              });
+              col1ClickFlag = true;
+            }
+          break;
+      case (e.target.id === 'col2' || hasAncestor(e.target, '#col2')):
+            if (col2ClickFlag) {
+              dom('#col2 h2, #col2 h4, #col2 p, #col2 ul li')
+                              .every((child)=> {
+                                 child
+                                    .color('rgb(255, 138, 34)');
+                              });
+              col2ClickFlag = false
+            } else {
+              dom('#col2 h2, #col2 h4, #col2 p, #col2 ul li')
+                              .every((child)=> {
+                                 child
+                                    .color('');
+                              });
+              col2ClickFlag = true;
+            }
+          break;
+      case (e.target.id === 'col3' || hasAncestor(e.target, '#col3')):
+            if (col3ClickFlag) {
+              dom('#col3 h2, #col3 h4, #col3 p, #col3 ul li')
+                              .every((child)=> {
+                                 child
+                                    .color('rgb(255, 138, 34)');
+                              });
+              col3ClickFlag = false
+            } else {
+              dom('#col3 h2, #col3 h4, #col3 p, #col3 ul li')
+                              .every((child)=> {
+                                 child
+                                    .color('');
+                              });
+              col3ClickFlag = true;
+            }
+          break;
+      case (e.target.tagName === 'P' || e.target.tagName === 'LI'):
+            if (highLitElements.indexOf(e.target) === -1) {
+              highLitElements.push(e.target);
+            } else {
+              let index = highLitElements.indexOf(e.target);
+                          highLitElements.splice(index, 1);
+
+              element(e.target).color('');
+            }
+            element(highLitElements)
+                          .every((element)=> {
+                             element
+                                  .color('rgb(255, 138, 34)');
+                          });
+          break;
+      case (e.target.tagName === 'H1' || e.target.tagName === 'H2' || e.target.tagName === 'H3' || e.target.tagName === 'H4'):
+      if (highLitElements.indexOf(e.target) === -1) {
+        highLitElements.push(e.target);
+      } else {
+        let index = highLitElements.indexOf(e.target);
+                    highLitElements.splice(index, 1);
+
+        element(e.target).color('');
+      }
+      element(highLitElements)
+                    .every((element)=> {
+                       element
+                            .color('rgb(255, 138, 34)');
+                    });
+    break;
       default:
           var npmBar = el('#npm-bar');
           if (npmBar !== null) {

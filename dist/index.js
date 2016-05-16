@@ -72,7 +72,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // require('babel-polyfill');
 
 var element = function element(el) {
-  return new _element2.default(el);
+  if (utils.isArray(el)) {
+    var arr = [];
+    for (var i = 0; i < el.length; i++) {
+      arr.push(new _element2.default(el[i]));
+    }
+    return new _element2.default(arr);
+  } else {
+    return new _element2.default(el);
+  }
 };
 
 /*This function copies the prototype object of a superConstructor to the prototype object
@@ -216,6 +224,10 @@ var warn = function warn(text, tyme) {
 
 var shifter = function shifter(onFunc, offFunc) {
   return utils.shifter(onFunc, offFunc);
+};
+
+var hasAncestor = function hasAncestor(l, ance) {
+  return utils.hasAncestor(l, ance);
 };
 
 //This practically useless function will lock up the browser for a preset amount of time.
@@ -481,6 +493,7 @@ module.exports = (_module$exports = {
   clone: clone,
   isArray: isArray,
   functions: functions,
+  hasAncestor: hasAncestor,
   put: put,
   on: on,
   off: off,

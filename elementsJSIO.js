@@ -76,9 +76,11 @@
 	var elementsJS = __webpack_require__(2);
 	var imports = elementsJS.imports;
 	var element = elementsJS.element;
+	var hasAncestor = elementsJS.hasAncestor;
 	var go = elementsJS.go;
 	var el = elementsJS.el;
 	var log = elementsJS.log;
+	var err = elementsJS.err;
 	var warn = elementsJS.warn;
 	var url = elementsJS.url;
 	var ajax = elementsJS.ajax;
@@ -109,6 +111,12 @@
 	var mdUrl = 'md/elementsJSIODocs.md';
 
 	var markDown, offSets;
+
+	//main page click flags.
+	var col1ClickFlag = true;
+	var col2ClickFlag = true;
+	var col3ClickFlag = true;
+	var highLitElements = [];
 
 	//Necessary code to add deep links to documentation.
 	function addChainLinkIcons() {
@@ -229,8 +237,8 @@
 
 	          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
 	          elem4.scrolled(offSets[hashSS] + 470);
-	        } else if (browser.safari) {
-	          log('safari', 'blue');
+	        } else if (browser.webkit) {
+	          log('webkit', 'blue');
 
 	          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
 	          elem5.scrolled(offSets[hashSS] + 470);
@@ -247,8 +255,8 @@
 
 	          var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
 	          elem6.scrolled(offSets[hashSS] + 470);
-	        } else if (browser.safari) {
-	          log('safari', 'blue');
+	        } else if (browser.webkit) {
+	          log('webkit', 'blue');
 
 	          var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
 	          elem7.scrolled(offSets[hashSS] + 470);
@@ -270,36 +278,78 @@
 
 	          var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
 	          elem8.scrolled(offSets[hashSS] + 470);
-	        } else if (browser.safari) {
-	          log('safari', 'blue');
+	        } else if (browser.webkit) {
+	          log('webkit', 'blue');
 
 	          var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
 	          elem9.scrolled(offSets[hashSS] + 470);
 	        }
 	        break;
-	      // case (e.target.tagName === 'P'):
-	      // console.log(element(e.target).color());
-	      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
-	      //         console.log(element(e.target).color());
-	      //         element(e.target).color('rgb(255, 138, 34)');
-	      //       } else {
-	      //         element(e.target).color('rgb(82, 33, 138)');
-	      //       }
-	      //     break;
-	      // case (e.target.tagName === 'H1' || e.target.tagName === 'H2' || e.target.tagName === 'H3' || e.target.tagName === 'H4'):
-	      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
-	      //         element(e.target).color('rgb(255, 138, 34)');
-	      //       } else {
-	      //         element(e.target).color('rgb(82, 33, 138)');
-	      //       }
-	      //     break;
-	      // case (e.target.tagName === 'LI'):
-	      //       if (element(e.target).color() === 'rgb(82, 33, 138)') {
-	      //         element(e.target).color('rgb(255, 138, 34)');
-	      //       } else {
-	      //         element(e.target).color('rgb(82, 33, 138)');
-	      //       }
-	      //     break;
+	      case e.target.id === 'col1' || hasAncestor(e.target, '#col1'):
+	        if (col1ClickFlag) {
+	          dom('#col1 h2, #col1 h4, #col1 p, #col1 ul li').every(function (child) {
+	            child.color('rgb(255, 138, 34)');
+	          });
+	          col1ClickFlag = false;
+	        } else {
+	          dom('#col1 h2, #col1 h4, #col1 p, #col1 ul li').every(function (child) {
+	            child.color('');
+	          });
+	          col1ClickFlag = true;
+	        }
+	        break;
+	      case e.target.id === 'col2' || hasAncestor(e.target, '#col2'):
+	        if (col2ClickFlag) {
+	          dom('#col2 h2, #col2 h4, #col2 p, #col2 ul li').every(function (child) {
+	            child.color('rgb(255, 138, 34)');
+	          });
+	          col2ClickFlag = false;
+	        } else {
+	          dom('#col2 h2, #col2 h4, #col2 p, #col2 ul li').every(function (child) {
+	            child.color('');
+	          });
+	          col2ClickFlag = true;
+	        }
+	        break;
+	      case e.target.id === 'col3' || hasAncestor(e.target, '#col3'):
+	        if (col3ClickFlag) {
+	          dom('#col3 h2, #col3 h4, #col3 p, #col3 ul li').every(function (child) {
+	            child.color('rgb(255, 138, 34)');
+	          });
+	          col3ClickFlag = false;
+	        } else {
+	          dom('#col3 h2, #col3 h4, #col3 p, #col3 ul li').every(function (child) {
+	            child.color('');
+	          });
+	          col3ClickFlag = true;
+	        }
+	        break;
+	      case e.target.tagName === 'P' || e.target.tagName === 'LI':
+	        if (highLitElements.indexOf(e.target) === -1) {
+	          highLitElements.push(e.target);
+	        } else {
+	          var index = highLitElements.indexOf(e.target);
+	          highLitElements.splice(index, 1);
+
+	          element(e.target).color('');
+	        }
+	        element(highLitElements).every(function (element) {
+	          element.color('rgb(255, 138, 34)');
+	        });
+	        break;
+	      case e.target.tagName === 'H1' || e.target.tagName === 'H2' || e.target.tagName === 'H3' || e.target.tagName === 'H4':
+	        if (highLitElements.indexOf(e.target) === -1) {
+	          highLitElements.push(e.target);
+	        } else {
+	          var _index = highLitElements.indexOf(e.target);
+	          highLitElements.splice(_index, 1);
+
+	          element(e.target).color('');
+	        }
+	        element(highLitElements).every(function (element) {
+	          element.color('rgb(255, 138, 34)');
+	        });
+	        break;
 	      default:
 	        var npmBar = el('#npm-bar');
 	        if (npmBar !== null) {
@@ -1392,7 +1442,15 @@
 	// require('babel-polyfill');
 
 	var element = function element(el) {
-	  return new _element2.default(el);
+	  if (utils.isArray(el)) {
+	    var arr = [];
+	    for (var i = 0; i < el.length; i++) {
+	      arr.push(new _element2.default(el[i]));
+	    }
+	    return new _element2.default(arr);
+	  } else {
+	    return new _element2.default(el);
+	  }
 	};
 
 	/*This function copies the prototype object of a superConstructor to the prototype object
@@ -1535,6 +1593,10 @@
 
 	var shifter = function shifter(onFunc, offFunc) {
 	  return utils.shifter(onFunc, offFunc);
+	};
+
+	var hasAncestor = function hasAncestor(l, ance) {
+	  return utils.hasAncestor(l, ance);
 	};
 
 	//This practically useless function will lock up the browser for a preset amount of time.
@@ -1800,6 +1862,7 @@
 	  clone: clone,
 	  isArray: isArray,
 	  functions: functions,
+	  hasAncestor: hasAncestor,
 	  put: put,
 	  on: on,
 	  off: off,
@@ -1863,6 +1926,7 @@
 	    this.els = el;
 	  } else {
 	    this.el = el;
+	    this.col = el.style.color;
 	  }
 
 	  var self = this;
@@ -3773,13 +3837,39 @@
 	  };
 	};
 
+	//Boolean function returns true if given function has given ancestor, and false otherwise. Checks 6 parents deep.
+	function hasAncestor(l, ance) {
+	  var tick,
+	      ancestor = queryDOM(ance),
+	      ancestors = [];
+
+	  try {
+	    ancestors.push(l.parentNode);
+	    ancestors.push(ancestors[0].parentNode);
+	    ancestors.push(ancestors[1].parentNode);
+	    ancestors.push(ancestors[2].parentNode);
+	    ancestors.push(ancestors[3].parentNode);
+	    ancestors.push(ancestors[4].parentNode);
+	  } catch (error) {
+	    (0, _logger.err)(error);
+	  }
+
+	  tick = 0;
+
+	  for (var i = 0; i < ancestors.length; i++) {
+	    if (ancestors[i] === ancestor) tick++;
+	  }
+	  if (tick > 0) return true;else return false;
+	};
+
 	module.exports = {
 	  queryDOM: queryDOM,
 	  functions: functions,
 	  isArray: isArray,
 	  shifter: shifter,
 	  sleep: sleep,
-	  proto: proto
+	  proto: proto,
+	  hasAncestor: hasAncestor
 	};
 
 /***/ },

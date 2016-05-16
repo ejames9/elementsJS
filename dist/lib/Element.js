@@ -42,6 +42,7 @@ function Element(el) {
     this.els = el;
   } else {
     this.el = el;
+    this.col = el.style.color;
   }
 
   var self = this;
