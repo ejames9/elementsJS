@@ -9,7 +9,7 @@ License: MIT
 
 
 
-import { el, log, err, scroll, show, mouse } from 'elementsJS';
+import { el, log, err, scroll, show, mouse, hasAncestor } from 'elementsJS';
 
 
 //global that documents what state the menu is currently in.
@@ -437,7 +437,7 @@ const sideNavStates = {
     //Make hot.
     dom('[class=hot]')
               .color('#FF8A22');
-  
+
     dom(elem)
             .color('#FF8A22')
             .first()
@@ -576,32 +576,32 @@ function getOffSets() {
 
 
 //Boolean function returns true if given function has given ancestor, and false otherwise. Checks 6 parents deep.
-function hasAncestor(l, ance) {
-  var tick, ancestor = el(ance),
-           ancestors = [];
-
-  try {
-    ancestors.push(l.parentNode);
-    ancestors.push(ancestors[0].parentNode);
-    ancestors.push(ancestors[1].parentNode);
-    ancestors.push(ancestors[2].parentNode);
-    ancestors.push(ancestors[3].parentNode);
-    ancestors.push(ancestors[4].parentNode);
-  }
-  catch(error) {
-    err(error);
-  }
-
-  // console.log(ancestors);
-  tick = 0;
-
-  for (var i = 0; i < ancestors.length; i++) {
-    if (ancestors[i] === ancestor) tick++;
-  }
-  if (tick > 0) return true;
-
-  else return false;
-}
+// function hasAncestor(l, ance) {
+//   var tick, ancestor = el(ance),
+//            ancestors = [];
+//
+//   try {
+//     ancestors.push(l.parentNode);
+//     ancestors.push(ancestors[0].parentNode);
+//     ancestors.push(ancestors[1].parentNode);
+//     ancestors.push(ancestors[2].parentNode);
+//     ancestors.push(ancestors[3].parentNode);
+//     ancestors.push(ancestors[4].parentNode);
+//   }
+//   catch(error) {
+//     err(error);
+//   }
+//
+//   // console.log(ancestors);
+//   tick = 0;
+//
+//   for (var i = 0; i < ancestors.length; i++) {
+//     if (ancestors[i] === ancestor) tick++;
+//   }
+//   if (tick > 0) return true;
+//
+//   else return false;
+// }
 
 
 //Function for controlling when the #sideNav doc menu collapses.

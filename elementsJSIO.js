@@ -245,13 +245,18 @@
 	      hashSS;
 
 	  click(html, function (e) {
-	    console.log(e.target.className);
+	    console.log(e.target);
 	    switch (3 + 6 === 9) {
 	      case e.target === el('#install-info'):
 	        toggleNPMBar();
 	        break;
 	      case e.target === el('#api-butn'):
 	        initDocsPage();
+	        break;
+	      case e.target.id === 'homeNavMenu' || hasAncestor(e.target, '#logo'):
+	        e.preventDefault();
+
+	        window.location.reload();
 	        break;
 	      case e.target.className === 'dropDown' || e.target.className === 'navMenu':
 	        e.preventDefault();
@@ -809,30 +814,32 @@
 	}
 
 	//Boolean function returns true if given function has given ancestor, and false otherwise. Checks 6 parents deep.
-	function hasAncestor(l, ance) {
-	      var tick,
-	          ancestor = (0, _elementsJS.el)(ance),
-	          ancestors = [];
-
-	      try {
-	            ancestors.push(l.parentNode);
-	            ancestors.push(ancestors[0].parentNode);
-	            ancestors.push(ancestors[1].parentNode);
-	            ancestors.push(ancestors[2].parentNode);
-	            ancestors.push(ancestors[3].parentNode);
-	            ancestors.push(ancestors[4].parentNode);
-	      } catch (error) {
-	            (0, _elementsJS.err)(error);
-	      }
-
-	      // console.log(ancestors);
-	      tick = 0;
-
-	      for (var i = 0; i < ancestors.length; i++) {
-	            if (ancestors[i] === ancestor) tick++;
-	      }
-	      if (tick > 0) return true;else return false;
-	}
+	// function hasAncestor(l, ance) {
+	//   var tick, ancestor = el(ance),
+	//            ancestors = [];
+	//
+	//   try {
+	//     ancestors.push(l.parentNode);
+	//     ancestors.push(ancestors[0].parentNode);
+	//     ancestors.push(ancestors[1].parentNode);
+	//     ancestors.push(ancestors[2].parentNode);
+	//     ancestors.push(ancestors[3].parentNode);
+	//     ancestors.push(ancestors[4].parentNode);
+	//   }
+	//   catch(error) {
+	//     err(error);
+	//   }
+	//
+	//   // console.log(ancestors);
+	//   tick = 0;
+	//
+	//   for (var i = 0; i < ancestors.length; i++) {
+	//     if (ancestors[i] === ancestor) tick++;
+	//   }
+	//   if (tick > 0) return true;
+	//
+	//   else return false;
+	// }
 
 	//Function for controlling when the #sideNav doc menu collapses.
 	function mouseOutController() {
@@ -840,7 +847,7 @@
 	      var html = (0, _elementsJS.el)('html');
 
 	      (0, _elementsJS.mouse)('out', html, function (e) {
-	            if (hasAncestor(e.target, '#sideNav')) {
+	            if ((0, _elementsJS.hasAncestor)(e.target, '#sideNav')) {
 	                  return;
 	            } else {
 	                  switch (sideNavState[0]) {
@@ -3876,19 +3883,33 @@
 	//Boolean function returns true if given function has given ancestor, and false otherwise. Checks 6 parents deep.
 	function hasAncestor(l, ance) {
 	  var tick,
-	      ancestor = queryDOM(ance),
-	      ancestors = [];
+	      ancestor,
+	      ancestors = [1, 2, 3, 4, 5];
 
-	  try {
-	    ancestors.push(l.parentNode);
-	    ancestors.push(ancestors[0].parentNode);
-	    ancestors.push(ancestors[1].parentNode);
-	    ancestors.push(ancestors[2].parentNode);
-	    ancestors.push(ancestors[3].parentNode);
-	    ancestors.push(ancestors[4].parentNode);
-	  } catch (error) {
-	    (0, _logger.err)(error);
+	  if (typeof ance === 'string') {
+	    ancestor = queryDOM(ance);
+	  } else {
+	    ancestor = ance;
 	  }
+
+	  ancestors[0] = l.parentNode;
+	  ancestors[1] = ancestors[0].parentNode;
+	  if (!!ancestors[1].parentNode) {
+	    ancestors[2] = ancestors[1].parentNode;
+	  }
+	  if (!!ancestors[2].parentNode) {
+	    ancestors[3] = ancestors[2].parentNode;
+	  }
+	  if (!!ancestors[3].parentNode) {
+	    ancestors[4] = ancestors[3].parentNode;
+	  }
+	  var dir = {};
+	  dir.ance = ance;
+	  dir.l = l;
+	  dir.ancestor = ancestor;
+	  dir.ancestors = ancestors;
+
+	  console.log(dir);
 
 	  tick = 0;
 

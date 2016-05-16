@@ -199,13 +199,18 @@ function clickController() {
       hashSS;
 
   click(html, function (e) {
-    console.log(e.target.className);
+    console.log(e.target);
     switch (3 + 6 === 9) {
       case e.target === el('#install-info'):
         toggleNPMBar();
         break;
       case e.target === el('#api-butn'):
         initDocsPage();
+        break;
+      case e.target.id === 'homeNavMenu' || hasAncestor(e.target, '#logo'):
+        e.preventDefault();
+
+        window.location.reload();
         break;
       case e.target.className === 'dropDown' || e.target.className === 'navMenu':
         e.preventDefault();
