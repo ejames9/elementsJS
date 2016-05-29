@@ -10,18 +10,18 @@ https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
 
-
 //<<=================Imports======================>>
 //es6 import
 import * as SNC from './sideNavControl.js';
 
 
-//elementsJS imports
+//elementsJS imports <html/>
 imports({
-    'elementsJS': ['imports', 'element', 'hasAncestor', 'go', 'el', 'log', 'err', 'info', 'url', 'ajax', 'on', 'click', 'mouse', 'show', 'hide', 'scroll', '__'],
-        'marked': 'marked',
-  'highlight.js': 'hljs',
-        'bowser': 'browser'
+       'elementsJS': ['imports', 'element', 'hasAncestor', 'isDOMElement', 'go', 'el', 'inspect', 'log', 'err', 'info', 'url', 'ajax', 'on', 'click', 'mouse', 'show', 'hide', 'scroll', '__'],
+           'marked': 'marked',
+     'highlight.js': 'hljs',
+'../../js/testy.js': ['testy'],
+           'bowser': 'browser'
 });
 //<<===============================>>
 
@@ -46,12 +46,11 @@ var highLitElements = [];
 
 
 
-
 //Necessary code to add deep links to documentation.
 function addChainLinkIcons() {
-  console.log(dom('#docsMain h1, #docsMain h2'));
+  console.log(<'#docsMain h1, #docsMain h2'/>); 
   //Add link icons to all page links in documentation.
-  dom('h1 a, h2 a')
+  <'h1 a, h2 a'/>
             .every((element)=> {
                element
                   .html('<i id="faLink" class="fa fa-link"></i>', '+')
@@ -82,14 +81,14 @@ function addChainLinkIcons() {
 //Custom fork me ribbon.
 function forkMeBaby() {
   //Add forkme ribbon html.
-  __(`
+  <div class='jumbotron'>
     <a id='fmLink'>
       <div id='forkMe'>
         <p>Fork Me on GitHub!</p>
       </div>
     </a>
+  </div>
 
-  `, '.jumbotron');
   //Make adjustments to #fmLink.
   <'#fmLink'/>
            .fore('#logo')
@@ -100,9 +99,9 @@ function forkMeBaby() {
 
 //This function highlights all of the blocks in the docs, after the insertDocs function is completed.
 function highLightCode() {
-  console.log(dom('pre code'));
+  console.log(<'pre code'/>);
   //Get access to all blocks......
-  dom('pre code')
+  <'pre code'/>
           .every((element)=> {
              //highlight blocks.
              hljs.highlightBlock(element.el);
@@ -130,15 +129,16 @@ function initDocsPage(elem=null) {
     SNC.mouseOverController();
     SNC.sideNavController();
 
-    dom('#sideNav li a')
+    <'#sideNav li a'/>
               .every((element)=> {
                  element
                      .class('sNavLink', '+');
               });
+
     if (null !== elem) {
 
       offSets = SNC.getOffSets();
-         hash = String(element(elem).hash());
+         hash = String(<elem/>.hash());
        hashSS = hash.substring(1, hash.length);
 
       if (browser.gecko) {
@@ -197,20 +197,20 @@ function toggleNPMBar() {
 function clickController() {
   //Click Event Delegation ============================>>
   var _re = /sNavLink/,
-     html = el('html'),
+     html = <'html'>,
      hash,
      hashSS;
 
-  click(html, (e)=> {
-    console.log(e.target);
+  click(<'html'>, (e)=> {
     switch(3+6===9) {
-      case (e.target === el('#install-info')):
+      case (e.target === <'#install-info'>):
           toggleNPMBar();
           break;
-      case (e.target === el('#api-butn')):
+      case (e.target === <'#api-butn'>):
+          inspect(<e.target/>);
           initDocsPage();
           break;
-      case (e.target.id === 'homeNavMenu' || hasAncestor(e.target, '#logo')):
+      case (e.target.id === 'homeNavMenu' || hasAncestor(e.target, '#navBarLogo')):
           e.preventDefault();
 
           window.location.reload();
@@ -220,18 +220,18 @@ function clickController() {
 
           initDocsPage(e.target);
 
-          dom('[class~=active]')
+          <'[class~=active]'/>
                         .class('active', '-');
 
-          element(e.target)
-                        .ma()
-                          .class('active', '+');
+          <e.target/>
+                    .ma()
+                        .class('active', '+');
           break;
       case (e.target.tagName === 'I'):
           e.preventDefault();
 
           offSets = SNC.getOffSets(),
-             hash = String(dom('#' + e.target.parentNode.id).hash());
+             hash = String(<'#' + e.target.parentNode.id/>.hash());
            hashSS = hash.substring(1, hash.length);
 
            if (browser.gecko) {
@@ -250,7 +250,7 @@ function clickController() {
           e.preventDefault();
 
           offSets = SNC.getOffSets(),
-             hash = String(dom('#' + e.target.parentNode.id).hash());
+             hash = String(<'#' + e.target.parentNode.id/>.hash());
            hashSS = hash.substring(1, hash.length);
 
            if (browser.gecko) {
@@ -270,7 +270,7 @@ function clickController() {
           e.preventDefault();
 
           offSets = SNC.getOffSets();
-             hash = String(element(e.target).hash());
+             hash = String(<e.target/>.hash());
            hashSS = hash.substring(1, hash.length);
 
           info(hashSS);
@@ -290,14 +290,14 @@ function clickController() {
           break;
       case (e.target.id === 'col1' || hasAncestor(e.target, '#col1')):
             if (col1ClickFlag) {
-              dom('#col1 h2, #col1 h4, #col1 p, #col1 ul li')
+              <'#col1 h2, #col1 h4, #col1 p, #col1 ul li'/>
                               .every((child)=> {
                                  child
                                     .color('rgb(255, 138, 34)');
                               });
               col1ClickFlag = false
             } else {
-              dom('#col1 h2, #col1 h4, #col1 p, #col1 ul li')
+              <'#col1 h2, #col1 h4, #col1 p, #col1 ul li'/>
                               .every((child)=> {
                                  child
                                     .color('');
@@ -307,14 +307,14 @@ function clickController() {
           break;
       case (e.target.id === 'col2' || hasAncestor(e.target, '#col2')):
             if (col2ClickFlag) {
-              dom('#col2 h2, #col2 h4, #col2 p, #col2 ul li')
+              <'#col2 h2, #col2 h4, #col2 p, #col2 ul li'/>
                               .every((child)=> {
                                  child
                                     .color('rgb(255, 138, 34)');
                               });
               col2ClickFlag = false
             } else {
-              dom('#col2 h2, #col2 h4, #col2 p, #col2 ul li')
+              <'#col2 h2, #col2 h4, #col2 p, #col2 ul li'/>
                               .every((child)=> {
                                  child
                                     .color('');
@@ -324,14 +324,14 @@ function clickController() {
           break;
       case (e.target.id === 'col3' || hasAncestor(e.target, '#col3')):
             if (col3ClickFlag) {
-              dom('#col3 h2, #col3 h4, #col3 p, #col3 ul li')
+              <'#col3 h2, #col3 h4, #col3 p, #col3 ul li'/>
                               .every((child)=> {
                                  child
                                     .color('rgb(255, 138, 34)');
                               });
               col3ClickFlag = false
             } else {
-              dom('#col3 h2, #col3 h4, #col3 p, #col3 ul li')
+              <'#col3 h2, #col3 h4, #col3 p, #col3 ul li'/>
                               .every((child)=> {
                                  child
                                     .color('');
@@ -346,9 +346,9 @@ function clickController() {
               let index = highLitElements.indexOf(e.target);
                           highLitElements.splice(index, 1);
 
-              element(e.target).color('');
+              <e.target/>.color('');
             }
-            element(highLitElements)
+            <highLitElements/>
                           .every((element)=> {
                              element
                                   .color('rgb(255, 138, 34)');
@@ -361,16 +361,16 @@ function clickController() {
         let index = highLitElements.indexOf(e.target);
                     highLitElements.splice(index, 1);
 
-        element(e.target).color('');
+        <e.target/>.color('');
       }
-      element(highLitElements)
+      <highLitElements/>
                     .every((element)=> {
                        element
                             .color('rgb(255, 138, 34)');
                     });
     break;
       default:
-          var npmBar = el('#npm-bar');
+          var npmBar = <'#npm-bar'>;
           if (npmBar !== null) {
             if (npmBar.style.display !== 'none') {
               npmBar.style.display = 'none';
@@ -383,7 +383,7 @@ function clickController() {
 
 //Initialization code to be run after DOM content is loaded.
 go(()=> {
-  //initialize ace code editor
+  //initialize ace code editor.
   var editor1 = ace.edit("editor1");
       editor1.setTheme("ace/theme/elementsJSIO");
       editor1.renderer.setShowGutter(false);
@@ -398,4 +398,54 @@ go(()=> {
   getMarkDown();
   //Create/install custom fork me ribbon.
   forkMeBaby();
+
+  //Reset scrollTop on load.
+  on('load', window, ()=> {
+    if (browser.gecko) {
+
+      <html/>
+          .scrolled(0);
+    } else if (browser.webkit) {
+
+      setTimeout(()=> {
+        <body/>
+            .scrolled(0);
+      }, 50);
+    }
+  });
+
+
+
+  ///<======Tests======>///
+
+  var val = testy(90, 9);
+            info(val);
+
+  log(isDOMElement(<'#col3'>), 'green');
+
+  var elem = <'#npm-bar'>;
+
+  log(isDOMElement(<html/>), 'red');
+  inspect(<'#api-butn'/>);
+  inspect(<'#navBarLogo'/>);
+  inspect(<'#fluffButt'/>);
+
+
+
+
+
+  inspect(<'#col3 h2, #col3 h4, #col3 p, #col3 ul li'/>);
+
+  inspect(<'[class~=active]'/>);
+
+
+
+  <'#shazz'<input='.puts'=2/>/>
+                  .every((element)=> {
+                    element
+                        .size('50px', '50px')
+                        .html('shitballs');
+                  });
+
+  inspect(element(989));
 });

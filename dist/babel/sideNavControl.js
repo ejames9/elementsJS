@@ -6,6 +6,7 @@ var _elementsJS = require("elementsJS");
 var _$ = require("elementsJS")._$;
 var dom = require("elementsJS").dom;
 var make = require("elementsJS").make;
+var element = require("elementsJS").element;
 ///|------------------------------------|//
 
 /*
@@ -534,8 +535,10 @@ function sideNavController() {
                               element.class('hide');
                         });
                         //Activate Getting Started list item.
-                        var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-                        elem0.class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
+                        (function () {
+                              var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
+                              return elem0;
+                        })().class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
 
                         sideNavState = [5, '#getStart'];
                         break;
@@ -550,16 +553,20 @@ function sideNavController() {
                         });
                         dom('#instLink a').title('hotCode').color('#FF8A22');
                         //Activate Installation list item. Open parent list by removing .hide class.
-                        var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
-                        elem1.class('hot2').ma().class('hide', '-').sib('prev').fontWeight('500');
+                        (function () {
+                              var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
+                              return elem1;
+                        })().class('hot2').ma().class('hide', '-').sib('prev').fontWeight('500');
 
                         sideNavState = [6, '#instLink'];
                         break;
                   case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
                         dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
                         dom('[class~=hot2]').class('hot2', '-');
-                        var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
-                        elem2.class('hot2');
+                        (function () {
+                              var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
+                              return elem2;
+                        })().class('hot2');
                         dom('#useLink a').title('hotCode').color('#FF8A22');
 
                         sideNavState = [2, '#useLink'];
@@ -571,8 +578,10 @@ function sideNavController() {
                         dom('[name=hidden]').every(function (element) {
                               element.class('hide');
                         });
-                        var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
-                        elem3.class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot', '+');
+                        (function () {
+                              var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
+                              return elem3;
+                        })().class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot', '+');
                         dom('#interpInstallLink a').title('hotCode').color('#FF8A22');
 
                         sideNavState = [2, '#interpInstallLink'];
@@ -587,8 +596,10 @@ function sideNavController() {
                         dom('[name=listHead]').every(function (element) {
                               element.color('#52218A');
                         });
-                        var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
-                        elem4.class('hot').color('#FF8A22').first().title('hotCode').bgColor('#52218A').color('#fff');
+                        (function () {
+                              var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
+                              return elem4;
+                        })().class('hot').color('#FF8A22').first().title('hotCode').bgColor('#52218A').color('#fff');
 
                         sideNavState = [4, '#imps'];
                         break;
@@ -602,8 +613,10 @@ function sideNavController() {
                         dom('[name=listHead]').every(function (element) {
                               element.color('#52218A');
                         });
-                        var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
-                        elem5.class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
+                        (function () {
+                              var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
+                              return elem5;
+                        })().class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
 
                         sideNavState = [1, '#domManip'];
                         break;

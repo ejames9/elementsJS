@@ -1678,6 +1678,11 @@ Hopefully by now you've gotten the hang of what the above line would do. Either 
 15. isArray() func.
 16. err() to error()
 17. this.func() method.
-18. 
+18. hasAncestor()
+19. inspect()
+20. url()
+21. lookBehind()
+22. isElement()
+23. 
 
 </a>

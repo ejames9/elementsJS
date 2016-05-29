@@ -414,7 +414,7 @@ h2 a:visited {
   vertical-align: middle;
   border-top: 1px dashed #FF8A22;
   border-bottom: 1px dashed #FF8A22;
-  padding: 3px 60px 3px 80px;
+  padding: 3px 160px 3px 70px;
   margin: 0px;
   color: #FF8A22;
   text-shadow: -1px -1px 0 #39175E, 1px -1px 0 #39175E, -1px 1px 0 #39175E, 1px 1px 0 #39175E;
@@ -427,8 +427,8 @@ h2 a:visited {
   background-color: #52218A;
   padding: 3px 0px 3px 0px;
   position: absolute;
-  left: -60px;
-  top: 120px;
+  left: -70px;
+  top: 80px;
   transform: rotate(-45deg);
 }
 

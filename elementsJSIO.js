@@ -52,7 +52,7 @@
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-	//elementsJS imports
+	//elementsJS imports <html/>
 
 	///-------Begin Module requires---------///
 	var _$ = __webpack_require__(2)._$;
@@ -71,14 +71,17 @@
 
 	var dom = __webpack_require__(2).dom;
 	var make = __webpack_require__(2).make;
+	var element = __webpack_require__(2).element;
 	///|------------------------------------|//
 
 	var elementsJS = __webpack_require__(2);
 	var imports = elementsJS.imports;
 	var element = elementsJS.element;
 	var hasAncestor = elementsJS.hasAncestor;
+	var isDOMElement = elementsJS.isDOMElement;
 	var go = elementsJS.go;
 	var el = elementsJS.el;
+	var inspect = elementsJS.inspect;
 	var log = elementsJS.log;
 	var err = elementsJS.err;
 	var info = elementsJS.info;
@@ -96,7 +99,10 @@
 
 	var hljs = __webpack_require__(11);
 
-	var browser = __webpack_require__(165);
+	var _testy = __webpack_require__(165);
+	var testy = _testy.testy;
+
+	var browser = __webpack_require__(166);
 
 	///End Module requires///
 
@@ -130,8 +136,10 @@
 	    });
 	  });
 	  //Make adustments to fa-link icons.
-	  var elem0 = _$('.fa-link') ? dom('.fa-link') : make('.fa-link').put("body");
-	  elem0.every(function (element) {
+	  (function () {
+	    var elem0 = _$('.fa-link') ? dom('.fa-link') : make('.fa-link').put("body");
+	    return elem0;
+	  })().every(function (element) {
 	    element.viz('hidden').color('#52218A').turn(90);
 	  });
 	  return;
@@ -140,10 +148,13 @@
 	//Custom fork me ribbon.
 	function forkMeBaby() {
 	  //Add forkme ribbon html.
-	  __("\n    <a id='fmLink'>\n      <div id='forkMe'>\n        <p>Fork Me on GitHub!</p>\n      </div>\n    </a>\n\n  ", '.jumbotron');
+	  _$(".jumbotron") ? __("<a id='fmLink'> <div id='forkMe'> <p>Fork Me on GitHub! </p> </div> </a>", ".jumbotron") : __("<div class='jumbotron'> <a id='fmLink'> <div id='forkMe'> <p>Fork Me on GitHub! </p> </div> </a> </div>");
+
 	  //Make adjustments to #fmLink.
-	  var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
-	  elem1.fore('#logo').href('https://github.com/ejames9/elementsJS');
+	  (function () {
+	    var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
+	    return elem1;
+	  })().fore('#logo').href('https://github.com/ejames9/elementsJS');
 	  return;
 	}
 
@@ -165,10 +176,14 @@
 	  var hash, hashSS;
 	  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
 	  ajax(url(rawGit, docsMenu), null, function (r) {
-	    var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
-	    elem2.html(r);
-	    var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-	    elem3.html(marked(markDown));
+	    (function () {
+	      var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
+	      return elem2;
+	    })().html(r);
+	    (function () {
+	      var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+	      return elem3;
+	    })().html(marked(markDown));
 	    //Call callback functions.
 	    forkMeBaby();
 	    highLightCode();
@@ -181,6 +196,7 @@
 	    dom('#sideNav li a').every(function (element) {
 	      element.class('sNavLink', '+');
 	    });
+
 	    if (null !== elem) {
 
 	      offSets = SNC.getOffSets();
@@ -189,23 +205,31 @@
 
 	      if (browser.gecko) {
 
-	        var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem4.scrolled(offSets[hashSS] + 470);
+	        (function () {
+	          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	          return elem4;
+	        })().scrolled(offSets[hashSS] + 470);
 	      } else if (browser.webkit) {
 
-	        var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	        elem5.scrolled(offSets[hashSS] + 470);
+	        (function () {
+	          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	          return elem5;
+	        })().scrolled(offSets[hashSS] + 470);
 	      }
 	    } else {
 
 	      if (browser.gecko) {
 
-	        var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        elem6.scrolled(0);
+	        (function () {
+	          var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	          return elem6;
+	        })().scrolled(0);
 	      } else if (browser.webkit) {
 
-	        var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	        elem7.scrolled(0);
+	        (function () {
+	          var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	          return elem7;
+	        })().scrolled(0);
 	      }
 	    }
 	  });
@@ -244,16 +268,16 @@
 	      hash,
 	      hashSS;
 
-	  click(html, function (e) {
-	    console.log(e.target);
+	  click(el('html'), function (e) {
 	    switch (3 + 6 === 9) {
 	      case e.target === el('#install-info'):
 	        toggleNPMBar();
 	        break;
 	      case e.target === el('#api-butn'):
+	        inspect(element(e.target));
 	        initDocsPage();
 	        break;
-	      case e.target.id === 'homeNavMenu' || hasAncestor(e.target, '#logo'):
+	      case e.target.id === 'homeNavMenu' || hasAncestor(e.target, '#navBarLogo'):
 	        e.preventDefault();
 
 	        window.location.reload();
@@ -270,37 +294,45 @@
 	      case e.target.tagName === 'I':
 	        e.preventDefault();
 
-	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
+	        offSets = SNC.getOffSets(), hash = String(element(e.target.parentNode.id).hash());
 	        hashSS = hash.substring(1, hash.length);
 
 	        if (browser.gecko) {
 	          log('gecko', 'red');
 
-	          var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	          elem8.scrolled(offSets[hashSS] + 470);
+	          (function () {
+	            var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	            return elem8;
+	          })().scrolled(offSets[hashSS] + 470);
 	        } else if (browser.webkit) {
 	          log('webkit', 'blue');
 
-	          var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	          elem9.scrolled(offSets[hashSS] + 470);
+	          (function () {
+	            var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	            return elem9;
+	          })().scrolled(offSets[hashSS] + 470);
 	        }
 	        break;
 	      case e.target.tagName === 'CODE':
 	        e.preventDefault();
 
-	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
+	        offSets = SNC.getOffSets(), hash = String(element(e.target.parentNode.id).hash());
 	        hashSS = hash.substring(1, hash.length);
 
 	        if (browser.gecko) {
 	          log('gecko', 'red');
 
-	          var elem10 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	          elem10.scrolled(offSets[hashSS] + 470);
+	          (function () {
+	            var elem10 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	            return elem10;
+	          })().scrolled(offSets[hashSS] + 470);
 	        } else if (browser.webkit) {
 	          log('webkit', 'blue');
 
-	          var elem11 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	          elem11.scrolled(offSets[hashSS] + 470);
+	          (function () {
+	            var elem11 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	            return elem11;
+	          })().scrolled(offSets[hashSS] + 470);
 	        }
 	        break;
 	      case e.target.tagName === 'A':
@@ -317,13 +349,17 @@
 	        if (browser.gecko) {
 	          log('gecko', 'red');
 
-	          var elem12 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	          elem12.scrolled(offSets[hashSS] + 470);
+	          (function () {
+	            var elem12 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	            return elem12;
+	          })().scrolled(offSets[hashSS] + 470);
 	        } else if (browser.webkit) {
 	          log('webkit', 'blue');
 
-	          var elem13 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	          elem13.scrolled(offSets[hashSS] + 470);
+	          (function () {
+	            var elem13 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	            return elem13;
+	          })().scrolled(offSets[hashSS] + 470);
 	        }
 	        break;
 	      case e.target.id === 'col1' || hasAncestor(e.target, '#col1'):
@@ -404,21 +440,79 @@
 
 	//Initialization code to be run after DOM content is loaded.
 	go(function () {
-	  //initialize ace code editor
+	  //initialize ace code editor.
 	  var editor1 = ace.edit("editor1");
 	  editor1.setTheme("ace/theme/elementsJSIO");
 	  editor1.renderer.setShowGutter(false);
 	  editor1.getSession().setMode("ace/mode/javascript");
 
 	  //Set default display setting for the bower/npm installation bar.
-	  var elem14 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-	  elem14.display('none');
+	  (function () {
+	    var elem14 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+	    return elem14;
+	  })().display('none');
 	  //Initialize the click controller.
 	  clickController();
 	  //Download the documentation markdown.
 	  getMarkDown();
 	  //Create/install custom fork me ribbon.
 	  forkMeBaby();
+
+	  //Reset scrollTop on load.
+	  on('load', window, function () {
+	    if (browser.gecko) {
+
+	      (function () {
+	        var elem15 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	        return elem15;
+	      })().scrolled(0);
+	    } else if (browser.webkit) {
+
+	      setTimeout(function () {
+	        (function () {
+	          var elem16 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	          return elem16;
+	        })().scrolled(0);
+	      }, 50);
+	    }
+	  });
+
+	  ///<======Tests======>///
+
+	  var val = testy(90, 9);
+	  info(val);
+
+	  log(isDOMElement(el('#col3')), 'green');
+
+	  var elem = el('#npm-bar');
+
+	  log(isDOMElement(function () {
+	    var elem17 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	    return elem17;
+	  }()), 'red');
+	  inspect(function () {
+	    var elem18 = _$('#api-butn') ? dom('#api-butn') : make('#api-butn').put("body");
+	    return elem18;
+	  }());
+	  inspect(function () {
+	    var elem19 = _$('#navBarLogo') ? dom('#navBarLogo') : make('#navBarLogo').put("body");
+	    return elem19;
+	  }());
+	  inspect(function () {
+	    var elem20 = _$('#fluffButt') ? dom('#fluffButt') : make('#fluffButt').put("body");
+	    return elem20;
+	  }());
+
+	  inspect(dom('#col3 h2, #col3 h4, #col3 p, #col3 ul li'));
+
+	  inspect(dom('[class~=active]'));
+
+	  _$('#shazz') ? dom('#shazz') : make('#shazz').put("body");
+	  element([make('.puts', "input").put('#shazz'), make('.puts', "input").put('#shazz')]).every(function (element) {
+	    element.size('50px', '50px').html('shitballs');
+	  });
+
+	  inspect(element(989));
 	});
 
 /***/ },
@@ -433,6 +527,7 @@
 	var _$ = __webpack_require__(2)._$;
 	var dom = __webpack_require__(2).dom;
 	var make = __webpack_require__(2).make;
+	var element = __webpack_require__(2).element;
 	///|------------------------------------|//
 
 	/*
@@ -961,8 +1056,10 @@
 	                              element.class('hide');
 	                        });
 	                        //Activate Getting Started list item.
-	                        var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-	                        elem0.class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
+	                        (function () {
+	                              var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
+	                              return elem0;
+	                        })().class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
 
 	                        sideNavState = [5, '#getStart'];
 	                        break;
@@ -977,16 +1074,20 @@
 	                        });
 	                        dom('#instLink a').title('hotCode').color('#FF8A22');
 	                        //Activate Installation list item. Open parent list by removing .hide class.
-	                        var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
-	                        elem1.class('hot2').ma().class('hide', '-').sib('prev').fontWeight('500');
+	                        (function () {
+	                              var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
+	                              return elem1;
+	                        })().class('hot2').ma().class('hide', '-').sib('prev').fontWeight('500');
 
 	                        sideNavState = [6, '#instLink'];
 	                        break;
 	                  case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
 	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
 	                        dom('[class~=hot2]').class('hot2', '-');
-	                        var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
-	                        elem2.class('hot2');
+	                        (function () {
+	                              var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
+	                              return elem2;
+	                        })().class('hot2');
 	                        dom('#useLink a').title('hotCode').color('#FF8A22');
 
 	                        sideNavState = [2, '#useLink'];
@@ -998,8 +1099,10 @@
 	                        dom('[name=hidden]').every(function (element) {
 	                              element.class('hide');
 	                        });
-	                        var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
-	                        elem3.class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot', '+');
+	                        (function () {
+	                              var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
+	                              return elem3;
+	                        })().class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot', '+');
 	                        dom('#interpInstallLink a').title('hotCode').color('#FF8A22');
 
 	                        sideNavState = [2, '#interpInstallLink'];
@@ -1014,8 +1117,10 @@
 	                        dom('[name=listHead]').every(function (element) {
 	                              element.color('#52218A');
 	                        });
-	                        var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
-	                        elem4.class('hot').color('#FF8A22').first().title('hotCode').bgColor('#52218A').color('#fff');
+	                        (function () {
+	                              var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
+	                              return elem4;
+	                        })().class('hot').color('#FF8A22').first().title('hotCode').bgColor('#52218A').color('#fff');
 
 	                        sideNavState = [4, '#imps'];
 	                        break;
@@ -1029,8 +1134,10 @@
 	                        dom('[name=listHead]').every(function (element) {
 	                              element.color('#52218A');
 	                        });
-	                        var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
-	                        elem5.class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
+	                        (function () {
+	                              var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
+	                              return elem5;
+	                        })().class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
 
 	                        sideNavState = [1, '#domManip'];
 	                        break;
@@ -1485,15 +1592,31 @@
 	// require('babel-polyfill');
 
 	var element = function element(el) {
-	  if (utils.isArray(el)) {
-	    var arr = [];
-	    for (var i = 0; i < el.length; i++) {
-	      arr.push(new _element2.default(el[i]));
-	    }
-	    return new _element2.default(arr);
-	  } else {
+	  if (isDOMElement(el)) {
 	    return new _element2.default(el);
+	  } else if (utils.isArray(el)) {
+	    if (isElement(el[0])) {
+	      return new _element2.default(el);
+	    } else if (isDOMElement(el[0])) {
+	      var arr = [];
+	      for (var i = 0; i < el.length; i++) {
+	        arr.push(new _element2.default(el[i]));
+	      }
+	      return new _element2.default(arr);
+	    } else {
+	      throw new Error('Invalid Array.');
+	    }
+	  } else {
+	    err('Invalid Argument.');
 	  }
+	};
+
+	var isElement = function isElement(el) {
+	  return utils.isElement(el);
+	};
+
+	var isDOMElement = function isDOMElement(el) {
+	  return utils.isDOMElement(el);
 	};
 
 	/*This function copies the prototype object of a superConstructor to the prototype object
@@ -1634,12 +1757,21 @@
 	  return consol.warn(text, tyme);
 	};
 
+	//console.dir-like function.
+	var inspect = function inspect(obj) {
+	  return consol.inspect(obj);
+	};
+
 	var shifter = function shifter(onFunc, offFunc) {
 	  return utils.shifter(onFunc, offFunc);
 	};
 
 	var hasAncestor = function hasAncestor(l, ance) {
 	  return utils.hasAncestor(l, ance);
+	};
+
+	var lookBehind = function lookBehind(leftContextRE, matchRE, subject) {
+	  return utils.lookBehind(leftContextRE, matchRE, subject);
 	};
 
 	//This practically useless function will lock up the browser for a preset amount of time.
@@ -1904,8 +2036,11 @@
 	  proto: proto,
 	  clone: clone,
 	  isArray: isArray,
+	  isElement: isElement,
+	  isDOMElement: isDOMElement,
 	  functions: functions,
 	  hasAncestor: hasAncestor,
+	  lookBehind: lookBehind,
 	  put: put,
 	  on: on,
 	  off: off,
@@ -1916,7 +2051,7 @@
 	  show: show,
 	  hide: hide,
 	  size: size
-	}, _defineProperty(_module$exports, 'clone', clone), _defineProperty(_module$exports, 'log', log), _defineProperty(_module$exports, 'url', url), _defineProperty(_module$exports, 'xhr', xhr), _defineProperty(_module$exports, 'err', err), _defineProperty(_module$exports, 'info', info), _defineProperty(_module$exports, 'warn', warn), _defineProperty(_module$exports, 'ajax', ajax), _defineProperty(_module$exports, 'spark', spark), _defineProperty(_module$exports, 'blur', blur), _defineProperty(_module$exports, 'click', click), _defineProperty(_module$exports, 'dblClick', dblClick), _defineProperty(_module$exports, 'error', error), _defineProperty(_module$exports, 'focus', focus), _defineProperty(_module$exports, 'focusIn', focusIn), _defineProperty(_module$exports, 'focusOut', focusOut), _defineProperty(_module$exports, 'keyUp', keyUp), _defineProperty(_module$exports, 'keyDown', keyDown), _defineProperty(_module$exports, 'load', load), _defineProperty(_module$exports, 'unLoad', unLoad), _defineProperty(_module$exports, 'mouse', mouse), _defineProperty(_module$exports, 'resize', resize), _defineProperty(_module$exports, 'scroll', scroll), _defineProperty(_module$exports, 'select', select), _module$exports);
+	}, _defineProperty(_module$exports, 'clone', clone), _defineProperty(_module$exports, 'log', log), _defineProperty(_module$exports, 'url', url), _defineProperty(_module$exports, 'xhr', xhr), _defineProperty(_module$exports, 'err', err), _defineProperty(_module$exports, 'info', info), _defineProperty(_module$exports, 'warn', warn), _defineProperty(_module$exports, 'inspect', inspect), _defineProperty(_module$exports, 'ajax', ajax), _defineProperty(_module$exports, 'spark', spark), _defineProperty(_module$exports, 'blur', blur), _defineProperty(_module$exports, 'click', click), _defineProperty(_module$exports, 'dblClick', dblClick), _defineProperty(_module$exports, 'error', error), _defineProperty(_module$exports, 'focus', focus), _defineProperty(_module$exports, 'focusIn', focusIn), _defineProperty(_module$exports, 'focusOut', focusOut), _defineProperty(_module$exports, 'keyUp', keyUp), _defineProperty(_module$exports, 'keyDown', keyDown), _defineProperty(_module$exports, 'load', load), _defineProperty(_module$exports, 'unLoad', unLoad), _defineProperty(_module$exports, 'mouse', mouse), _defineProperty(_module$exports, 'resize', resize), _defineProperty(_module$exports, 'scroll', scroll), _defineProperty(_module$exports, 'select', select), _module$exports);
 
 	//DONE:30 functions: err(), info(), warn().
 	//DONE:130 Complete all standalone style functions.
@@ -1969,7 +2104,7 @@
 	    this.els = el;
 	  } else {
 	    this.el = el;
-	    this.col = el.style.color;
+	    this.element = true;
 	  }
 
 	  var self = this;
@@ -3065,6 +3200,9 @@
 	    if (val !== undefined) {
 	      el.scrollTop = val;
 	      return this;
+	    } else if (val === 0) {
+	      el.scrollTop = 0;
+	      return this;
 	    } else {
 	      val = el.scrollTop;
 	      return val;
@@ -3387,6 +3525,7 @@
 	    this.els.forEach(function (elem, i, a) {
 	      eachFunc(elem, a, i);
 	    });
+
 	    return this;
 	  };
 
@@ -3589,7 +3728,7 @@
 	        bgColor = '',
 	        css = 'background: ' + bgColor + '; color: ' + color;
 
-	    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+	    return console.error('%c' + text + '%s', css, '   '.repeat(10) + t);
 	  }
 	};
 
@@ -3628,7 +3767,7 @@
 	        bgColor = '',
 	        css = 'background: ' + bgColor + '; color: ' + color;
 
-	    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+	    return console.info('%c' + text + '%s', css, '   '.repeat(10) + t);
 	  }
 	};
 
@@ -3668,15 +3807,20 @@
 	        bgColor = '',
 	        css = 'background: ' + bgColor + '; color: ' + color;
 
-	    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+	    return console.warn('%c' + text + '%s', css, '   '.repeat(10) + t);
 	  }
+	};
+
+	var inspect = function inspect(obj) {
+	  return console.log(obj);
 	};
 
 	module.exports = {
 	  log: log,
 	  err: err,
 	  info: info,
-	  warn: warn
+	  warn: warn,
+	  inspect: inspect
 	};
 
 /***/ },
@@ -3760,11 +3904,6 @@
 	var isArray = function isArray(arr) {
 	  return Array.isArray(arr);
 	};
-
-	/*This function combines querySelector and querySelectorAll, and becomes a noop if 'el' is a variable. There is an optional 2nd argument 'mod', that
-	accepts the string 'all' to modify behaviour of the function. By default, 'mod' is null. If the string 'all' is passed as the 2nd argument, the function
-	will use querySelectorAll() instead of querySelector(), meaning an array will be returned if possible. */
-
 	/*
 	utilities.js
 
@@ -3775,6 +3914,21 @@
 	License: ISC
 	*/
 
+	var isElement = function isElement(el) {
+	  if (el.element) {
+	    return true;
+	  } else {
+	    return false;
+	  }
+	};
+
+	var isDOMElement = function isDOMElement(el) {
+	  return el.tagName ? true : false;
+	};
+
+	/*This function combines querySelector and querySelectorAll, and becomes a noop if 'el' is a variable. There is an optional 2nd argument 'mod', that
+	accepts the string 'all' to modify behaviour of the function. By default, 'mod' is null. If the string 'all' is passed as the 2nd argument, the function
+	will use querySelectorAll() instead of querySelector(), meaning an array will be returned if possible. */
 	var queryDOM = function queryDOM(el) {
 
 	  var lm = void 0,
@@ -3903,13 +4057,14 @@
 	  if (!!ancestors[3].parentNode) {
 	    ancestors[4] = ancestors[3].parentNode;
 	  }
-	  var dir = {};
-	  dir.ance = ance;
-	  dir.l = l;
-	  dir.ancestor = ancestor;
-	  dir.ancestors = ancestors;
-
-	  console.log(dir);
+	  //For inspection....
+	  // var dir           = {};
+	  //     dir.ance      = ance;
+	  //     dir.l         = l;
+	  //     dir.ancestor  = ancestor;
+	  //     dir.ancestors = ancestors;
+	  //
+	  // console.log(dir);
 
 	  tick = 0;
 
@@ -3919,14 +4074,32 @@
 	  if (tick > 0) return true;else return false;
 	};
 
+	function lookBehind(leftContextRE, matchRE, subject) {
+	  var returnMatch, match, leftContext;
+
+	  match = matchRE.exec(subject);
+	  leftContext = substring(0, subject.indexOf(match));
+
+	  if (leftContextRE.test(leftContext)) {
+	    returnMatch = match;
+	  } else {
+	    returnMatch = false;
+	  }
+
+	  return returnMatch;
+	};
+
 	module.exports = {
 	  queryDOM: queryDOM,
 	  functions: functions,
 	  isArray: isArray,
+	  isElement: isElement,
+	  isDOMElement: isDOMElement,
 	  shifter: shifter,
 	  sleep: sleep,
 	  proto: proto,
-	  hasAncestor: hasAncestor
+	  hasAncestor: hasAncestor,
+	  lookBehind: lookBehind
 	};
 
 /***/ },
@@ -22642,6 +22815,76 @@
 
 /***/ },
 /* 165 */
+/***/ function(module, exports) {
+
+	
+
+	function testy(a, b) {
+	  return a + b;
+	};
+
+	module.exports = {testy: testy};
+
+
+
+
+	// Selector	Example	Example description	CSS
+	// .class	.intro	Selects all elements with class="intro"	1
+	// #id	#firstname	Selects the element with id="firstname"	1
+	// *	*	Selects all elements	2
+	// element	p	Selects all <p> elements	1
+	// element,element
+	// element element	div p	Selects all <p> elements inside <div> elements	1
+	// element>element	div > p	Selects all <p> elements where the parent is a <div> element	2
+	// element+element	div + p	Selects all <p> elements that are placed immediately after <div> elements	2
+	// element1~element2	p ~ ul	Selects every <ul> element that are preceded by a <p> element	3
+	// [attribute]	[target]	Selects all elements with a target attribute	2
+	// [attribute=value]	[target=_blank]	Selects all elements with target="_blank"	2
+	// [attribute~=value]	[title~=flower]	Selects all elements with a title attribute containing the word "flower"	2
+	// [attribute|=value]	[lang|=en]	Selects all elements with a lang attribute value starting with "en"	2
+	// [attribute^=value]	a[href^="https"]	Selects every <a> element whose href attribute value begins with "https"	3
+	// [attribute$=value]	a[href$=".pdf"]	Selects every <a> element whose href attribute value ends with ".pdf"	3
+	// [attribute*=value]	a[href*="w3schools"]	Selects every <a> element whose href attribute value contains the substring "w3schools"	3
+	// :active	a:active	Selects the active link	1
+	// ::after	p::after	Insert something after the content of each <p> element	2
+	// ::before	p::before	Insert something before the content of each <p> element	2
+	// :checked	input:checked	Selects every checked <input> element	3
+	// :disabled	input:disabled	Selects every disabled <input> element	3
+	// :empty	p:empty	Selects every <p> element that has no children (including text nodes)	3
+	// :enabled
+	// :first-child	p:first-child	Selects every <p> element that is the first child of its parent	2
+	// ::first-letter	p::first-letter	Selects the first letter of every <p> element	1
+	// ::first-line	p::first-line	Selects the first line of every <p> element	1
+	// :first-of-type	p:first-of-type	Selects every <p> element that is the first <p> element of its parent	3
+	// :focus	input:focus	Selects the input element which has focus	2
+	// :hover	a:hover	Selects links on mouse over	1
+	// :in-range	input:in-range	Selects input elements with a value within a specified range	3
+	// :invalid	input:invalid	Selects all input elements with an invalid value	3
+	// :lang(language)	p:lang(it)	Selects every <p> element with a lang attribute equal to "it" (Italian)	2
+	// :last-child	p:last-child	Selects every <p> element that is the last child of its parent	3
+	// :last-of-type	p:last-of-type	Selects every <p> element that is the last <p> element of its parent	3
+	// :link	a:link	Selects all unvisited links	1
+	// :not(selector)	:not(p)	Selects every element that is not a <p> element	3
+	// :nth-child(n)	p:nth-child(2)	Selects every <p> element that is the second child of its parent	3
+	// :nth-last-child(n)	p:nth-last-child(2)	Selects every <p> element that is the second child of its parent, counting from the last child	3
+	// :nth-last-of-type(n)	p:nth-last-of-type(2)	Selects every <p> element that is the second <p> element of its parent, counting from the last child	3
+	// :nth-of-type(n)	p:nth-of-type(2)	Selects every <p> element that is the second <p> element of its parent	3
+	// :only-of-type	p:only-of-type	Selects every <p> element that is the only <p> element of its parent	3
+	// :only-child	p:only-child	Selects every <p> element that is the only child of its parent	3
+	// :optional	input:optional	Selects input elements with no "required" attribute	3
+	// :out-of-range	input:out-of-range	Selects input elements with a value outside a specified range	3
+	// :read-only	input:read-only	Selects input elements with the "readonly" attribute specified	3
+	// :read-write	input:read-write	Selects input elements with the "readonly" attribute NOT specified	3
+	// :required	input:required	Selects input elements with the "required" attribute specified	3
+	// :root	:root	Selects the document's root element	3
+	// ::selection	::selection	Selects the portion of an element that is selected by a user
+	// :target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)	3
+	// :valid
+	// :visited
+
+
+/***/ },
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!

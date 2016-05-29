@@ -13,27 +13,27 @@ Version: 1.0.0
 URL: ""
 */
 
-//FIXME: elements syntax not working in parenthesis.
+//DONE: elements syntax not working in parenthesis.
 //FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
-//FIXME: Can't put elements in comments.
+//DONE: Can't put elements in comments.
 //DONE: HTML interfering with regExp's.
-//FIXME: can't use file blobs with import() func.
+//DONE: can't use file blobs with import() func.
 
-//TODO: Should be able to use variables inside of elementJS elements.
+//DONE: Should be able to use variables inside of elementJS elements.
 //TODO: make some functions complete operations for arrays automagically, instead of needing .every().
 //TODO: Make all event functions like once(), .once().
 //TODO: Complete <elem> syntax docs.
 //TODO: change apropo methods to properties.
-//TODO: .sib() does not return element.......
-//TODO: addClass() method.
-//TODO: new log.dir() function.
-//TODO: .src, .href() etc.
-//TODO: add a class method, remove a class method.
-//TODO: .transform() method.
-//TODO: += html method.
-//TODO: transform methods. i.e. this.turnX(), this.turnY.
+//DONE: .sib() does not return element.......
+//DONE: addClass() method.
+//DONE: new log.dir() function.
+//DONE: .src, .href() etc.
+//DONE: add a class method, remove a class method.
+//TODO: more .transform() methods.
+//DONE: += html method.
+//DONE: transform methods. i.e. this.turnX(), this.turnY.
 //TODO: .do(), do() animation functionality.
-//TODO: be able to create element object from e.target.....
+//DONE: be able to create element object from e.target.....
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -52,15 +52,31 @@ import * as DOM from './lib/DOM';
 
 
 var element = function(el) {
-  if (utils.isArray(el)) {
-    let arr = [];
-    for (var i = 0; i < el.length; i++) {
-      arr.push(new Element(el[i]));
-    }
-    return new Element(arr);
-  } else {
+  if (isDOMElement(el)) {
     return new Element(el);
+  } else if (utils.isArray(el)) {
+    if (isElement(el[0])) {
+      return new Element(el);
+    } else if (isDOMElement(el[0])){
+      let arr = [];
+      for (var i = 0; i < el.length; i++) {
+        arr.push(new Element(el[i]));
+      }
+      return new Element(arr);
+    } else {
+      throw new Error('Invalid Array.');
+    }
+  } else {
+    throw new Error('Invalid Argument.');
   }
+};
+
+var isElement = function(el) {
+  return utils.isElement(el);
+};
+
+var isDOMElement = function(el) {
+  return utils.isDOMElement(el);
 };
 
 /*This function copies the prototype object of a superConstructor to the prototype object
@@ -71,31 +87,11 @@ var proto = function(construct, superConstruct) {
 };
 
 
-/*This convenience function sets imported module function names as global variables, so that
-the module variable doesn't need to preface every function.*/
-var functions = function(funcs, mod) {                                      //TEST:110 Test this with other node_modules.
-  var context = mod || this;
-
-  if (Array.isArray(funcs)) {
-    log(mod, 'red');
-
-    funcs.forEach(function(func) {
-      var evil = new Function('window.' + func + ' = ' + 'this.' + func + ';');
-          evil.call(context);
-    }, context);
-  } else {
-    (function() {
-      var evil = new Function('window.' + funcs + ' = ' + 'this.' + funcs + ';');
-          evil.call(context);
-    }).apply(context);
-  }
-};
 
 
 //This function will simply return true if the given element exists in the DOM, and false otherwise. not a public function.
 var _$ = function(el) {
-  var l = (null !== utils.queryDOM(el));
-  return l;
+  return null !== utils.queryDOM(el);
 };
 
 
@@ -124,7 +120,7 @@ var dom = function(el) {
 };
 
 
-/*function for insterting template literals into the DOM.
+/*function for inserting template literals into the DOM.
 
 bones(`
 
@@ -220,6 +216,11 @@ var warn = function(text, tyme) {
   return consol.warn(text, tyme);
 };
 
+var inspect = function(obj) {
+  return consol.inspect(obj);
+};
+
+
 
 var shifter = function(onFunc, offFunc) {
   return utils.shifter(onFunc, offFunc);
@@ -229,7 +230,9 @@ var hasAncestor = function(l, ance) {
   return utils.hasAncestor(l, ance);
 };
 
-
+var lookBehind = function(leftContextRE, matchRE, subject) {
+  return utils.lookBehind(leftContextRE, matchRE, subject);
+};
 
 //This practically useless function will lock up the browser for a preset amount of time.
 var sleep = function(milliseconds) {
@@ -474,6 +477,28 @@ var select = function(el, cb=null) {
 
 
 
+//<<=================May have found a better solution.======================================>>//
+/*This convenience function sets imported module function names as global variables, so that
+the module variable doesn't need to preface every function.*/
+// var functions = function(funcs, mod) {
+//   var context = mod || this;
+//
+//   if (Array.isArray(funcs)) {
+//     log(mod, 'red');
+//
+//     funcs.forEach(function(func) {
+//       var evil = new Function('window.' + func + ' = ' + 'this.' + func + ';');
+//           evil.call(context);
+//     }, context);
+//   } else {
+//     (function() {
+//       var evil = new Function('window.' + funcs + ' = ' + 'this.' + funcs + ';');
+//           evil.call(context);
+//     }).apply(context);
+//   }
+// };
+
+
 
 
 module.exports = {
@@ -488,8 +513,11 @@ module.exports = {
             proto: proto,
             clone: clone,
           isArray: isArray,
-        functions: functions,
+        isElement: isElement,
+     isDOMElement: isDOMElement,
+        // functions: functions,
       hasAncestor: hasAncestor,
+       lookBehind: lookBehind,
               put: put,
                on: on,
               off: off,
@@ -501,6 +529,7 @@ module.exports = {
               err: err,
              info: info,
              warn: warn,
+          inspect: inspect,
              ajax: ajax,
              fore: fore,
               aft: aft,

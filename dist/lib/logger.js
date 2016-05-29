@@ -86,8 +86,13 @@ var err = function err(text, tyme) {
         bgColor = '',
         css = 'background: ' + bgColor + '; color: ' + color;
 
-    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+    return console.error('%c' + text + '%s', css, '   '.repeat(10) + t);
   }
+};
+
+//Console.error alias function.
+var error = function error(text) {
+  return console.error(text);
 };
 
 //Console.info alias function.
@@ -125,7 +130,7 @@ var info = function info(text, tyme) {
         bgColor = '',
         css = 'background: ' + bgColor + '; color: ' + color;
 
-    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+    return console.info('%c' + text + '%s', css, '   '.repeat(10) + t);
   }
 };
 
@@ -165,13 +170,18 @@ var warn = function warn(text, tyme) {
         bgColor = '',
         css = 'background: ' + bgColor + '; color: ' + color;
 
-    return console.log('%c' + text + '%s', css, '   '.repeat(10) + t);
+    return console.warn('%c' + text + '%s', css, '   '.repeat(10) + t);
   }
+};
+
+var inspect = function inspect(obj) {
+  return console.log(obj);
 };
 
 module.exports = {
   log: log,
   err: err,
   info: info,
-  warn: warn
+  warn: warn,
+  inspect: inspect
 };

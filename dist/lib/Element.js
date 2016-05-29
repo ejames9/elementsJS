@@ -35,14 +35,13 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 //DOING:10 List all functions that need to be added (.textContent, innerHTML etc.)
 //DOING:20 Complete all functions for this object.
-//IDEA: A method that incorporates jquery methods into El object (animation?).
 
 function Element(el) {
   if ((0, _utilities.isArray)(el)) {
     this.els = el;
   } else {
     this.el = el;
-    this.col = el.style.color;
+    this.element = true;
   }
 
   var self = this;
@@ -1131,6 +1130,9 @@ function Element(el) {
   this.scrolled = function (val) {
     if (val !== undefined) {
       el.scrollTop = val;
+      return this;
+    } else if (val === 0) {
+      el.scrollTop = 0;
       return this;
     } else {
       val = el.scrollTop;

@@ -9,11 +9,6 @@ var _logger = require('./logger');
 var isArray = function isArray(arr) {
   return Array.isArray(arr);
 };
-
-/*This function combines querySelector and querySelectorAll, and becomes a noop if 'el' is a variable. There is an optional 2nd argument 'mod', that
-accepts the string 'all' to modify behaviour of the function. By default, 'mod' is null. If the string 'all' is passed as the 2nd argument, the function
-will use querySelectorAll() instead of querySelector(), meaning an array will be returned if possible. */
-
 /*
 utilities.js
 
@@ -24,6 +19,21 @@ Author: Eric James Foster
 License: ISC
 */
 
+var isElement = function isElement(el) {
+  if (el.element) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+var isDOMElement = function isDOMElement(el) {
+  return el.tagName ? true : false;
+};
+
+/*This function combines querySelector and querySelectorAll, and becomes a noop if 'el' is a variable. There is an optional 2nd argument 'mod', that
+accepts the string 'all' to modify behaviour of the function. By default, 'mod' is null. If the string 'all' is passed as the 2nd argument, the function
+will use querySelectorAll() instead of querySelector(), meaning an array will be returned if possible. */
 var queryDOM = function queryDOM(el) {
 
   var lm = void 0,
@@ -153,14 +163,14 @@ function hasAncestor(l, ance) {
   if (!!ancestors[3].parentNode) {
     ancestors[4] = ancestors[3].parentNode;
   }
-
-  var dir = {};
-  dir.ance = ance;
-  dir.l = l;
-  dir.ancestor = ancestor;
-  dir.ancestors = ancestors;
-
-  console.log(dir);
+  //For inspection....
+  // var dir           = {};
+  //     dir.ance      = ance;
+  //     dir.l         = l;
+  //     dir.ancestor  = ancestor;
+  //     dir.ancestors = ancestors;
+  //
+  // console.log(dir);
 
   tick = 0;
 
@@ -170,12 +180,30 @@ function hasAncestor(l, ance) {
   if (tick > 0) return true;else return false;
 };
 
+function lookBehind(leftContextRE, matchRE, subject) {
+  var returnMatch, match, leftContext;
+
+  match = matchRE.exec(subject);
+  leftContext = substring(0, subject.indexOf(match));
+
+  if (leftContextRE.test(leftContext)) {
+    returnMatch = match;
+  } else {
+    returnMatch = false;
+  }
+
+  return returnMatch;
+};
+
 module.exports = {
   queryDOM: queryDOM,
   functions: functions,
   isArray: isArray,
+  isElement: isElement,
+  isDOMElement: isDOMElement,
   shifter: shifter,
   sleep: sleep,
   proto: proto,
-  hasAncestor: hasAncestor
+  hasAncestor: hasAncestor,
+  lookBehind: lookBehind
 };

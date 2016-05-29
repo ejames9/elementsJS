@@ -6,7 +6,7 @@ var SNC = _interopRequireWildcard(_sideNavControl);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-//elementsJS imports
+//elementsJS imports <html/>
 
 ///-------Begin Module requires---------///
 var _$ = require("elementsJS")._$;
@@ -25,14 +25,17 @@ https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 
 var dom = require("elementsJS").dom;
 var make = require("elementsJS").make;
+var element = require("elementsJS").element;
 ///|------------------------------------|//
 
 var elementsJS = require("elementsJS");
 var imports = elementsJS.imports;
 var element = elementsJS.element;
 var hasAncestor = elementsJS.hasAncestor;
+var isDOMElement = elementsJS.isDOMElement;
 var go = elementsJS.go;
 var el = elementsJS.el;
+var inspect = elementsJS.inspect;
 var log = elementsJS.log;
 var err = elementsJS.err;
 var info = elementsJS.info;
@@ -49,6 +52,9 @@ var __ = elementsJS.__;
 var marked = require("marked");
 
 var hljs = require("highlight.js");
+
+var _testy = require("../../js/testy.js");
+var testy = _testy.testy;
 
 var browser = require("bowser");
 
@@ -84,8 +90,10 @@ function addChainLinkIcons() {
     });
   });
   //Make adustments to fa-link icons.
-  var elem0 = _$('.fa-link') ? dom('.fa-link') : make('.fa-link').put("body");
-  elem0.every(function (element) {
+  (function () {
+    var elem0 = _$('.fa-link') ? dom('.fa-link') : make('.fa-link').put("body");
+    return elem0;
+  })().every(function (element) {
     element.viz('hidden').color('#52218A').turn(90);
   });
   return;
@@ -94,10 +102,13 @@ function addChainLinkIcons() {
 //Custom fork me ribbon.
 function forkMeBaby() {
   //Add forkme ribbon html.
-  __("\n    <a id='fmLink'>\n      <div id='forkMe'>\n        <p>Fork Me on GitHub!</p>\n      </div>\n    </a>\n\n  ", '.jumbotron');
+  _$(".jumbotron") ? __("<a id='fmLink'> <div id='forkMe'> <p>Fork Me on GitHub! </p> </div> </a>", ".jumbotron") : __("<div class='jumbotron'> <a id='fmLink'> <div id='forkMe'> <p>Fork Me on GitHub! </p> </div> </a> </div>");
+
   //Make adjustments to #fmLink.
-  var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
-  elem1.fore('#logo').href('https://github.com/ejames9/elementsJS');
+  (function () {
+    var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
+    return elem1;
+  })().fore('#logo').href('https://github.com/ejames9/elementsJS');
   return;
 }
 
@@ -119,10 +130,14 @@ function initDocsPage() {
   var hash, hashSS;
   //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
   ajax(url(rawGit, docsMenu), null, function (r) {
-    var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
-    elem2.html(r);
-    var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-    elem3.html(marked(markDown));
+    (function () {
+      var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
+      return elem2;
+    })().html(r);
+    (function () {
+      var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+      return elem3;
+    })().html(marked(markDown));
     //Call callback functions.
     forkMeBaby();
     highLightCode();
@@ -135,6 +150,7 @@ function initDocsPage() {
     dom('#sideNav li a').every(function (element) {
       element.class('sNavLink', '+');
     });
+
     if (null !== elem) {
 
       offSets = SNC.getOffSets();
@@ -143,23 +159,31 @@ function initDocsPage() {
 
       if (browser.gecko) {
 
-        var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem4.scrolled(offSets[hashSS] + 470);
+        (function () {
+          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          return elem4;
+        })().scrolled(offSets[hashSS] + 470);
       } else if (browser.webkit) {
 
-        var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-        elem5.scrolled(offSets[hashSS] + 470);
+        (function () {
+          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          return elem5;
+        })().scrolled(offSets[hashSS] + 470);
       }
     } else {
 
       if (browser.gecko) {
 
-        var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-        elem6.scrolled(0);
+        (function () {
+          var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          return elem6;
+        })().scrolled(0);
       } else if (browser.webkit) {
 
-        var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-        elem7.scrolled(0);
+        (function () {
+          var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          return elem7;
+        })().scrolled(0);
       }
     }
   });
@@ -198,16 +222,16 @@ function clickController() {
       hash,
       hashSS;
 
-  click(html, function (e) {
-    console.log(e.target);
+  click(el('html'), function (e) {
     switch (3 + 6 === 9) {
       case e.target === el('#install-info'):
         toggleNPMBar();
         break;
       case e.target === el('#api-butn'):
+        inspect(element(e.target));
         initDocsPage();
         break;
-      case e.target.id === 'homeNavMenu' || hasAncestor(e.target, '#logo'):
+      case e.target.id === 'homeNavMenu' || hasAncestor(e.target, '#navBarLogo'):
         e.preventDefault();
 
         window.location.reload();
@@ -224,37 +248,45 @@ function clickController() {
       case e.target.tagName === 'I':
         e.preventDefault();
 
-        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
+        offSets = SNC.getOffSets(), hash = String(element(e.target.parentNode.id).hash());
         hashSS = hash.substring(1, hash.length);
 
         if (browser.gecko) {
           log('gecko', 'red');
 
-          var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          elem8.scrolled(offSets[hashSS] + 470);
+          (function () {
+            var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+            return elem8;
+          })().scrolled(offSets[hashSS] + 470);
         } else if (browser.webkit) {
           log('webkit', 'blue');
 
-          var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          elem9.scrolled(offSets[hashSS] + 470);
+          (function () {
+            var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+            return elem9;
+          })().scrolled(offSets[hashSS] + 470);
         }
         break;
       case e.target.tagName === 'CODE':
         e.preventDefault();
 
-        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
+        offSets = SNC.getOffSets(), hash = String(element(e.target.parentNode.id).hash());
         hashSS = hash.substring(1, hash.length);
 
         if (browser.gecko) {
           log('gecko', 'red');
 
-          var elem10 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          elem10.scrolled(offSets[hashSS] + 470);
+          (function () {
+            var elem10 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+            return elem10;
+          })().scrolled(offSets[hashSS] + 470);
         } else if (browser.webkit) {
           log('webkit', 'blue');
 
-          var elem11 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          elem11.scrolled(offSets[hashSS] + 470);
+          (function () {
+            var elem11 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+            return elem11;
+          })().scrolled(offSets[hashSS] + 470);
         }
         break;
       case e.target.tagName === 'A':
@@ -271,13 +303,17 @@ function clickController() {
         if (browser.gecko) {
           log('gecko', 'red');
 
-          var elem12 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          elem12.scrolled(offSets[hashSS] + 470);
+          (function () {
+            var elem12 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+            return elem12;
+          })().scrolled(offSets[hashSS] + 470);
         } else if (browser.webkit) {
           log('webkit', 'blue');
 
-          var elem13 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          elem13.scrolled(offSets[hashSS] + 470);
+          (function () {
+            var elem13 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+            return elem13;
+          })().scrolled(offSets[hashSS] + 470);
         }
         break;
       case e.target.id === 'col1' || hasAncestor(e.target, '#col1'):
@@ -358,19 +394,77 @@ function clickController() {
 
 //Initialization code to be run after DOM content is loaded.
 go(function () {
-  //initialize ace code editor
+  //initialize ace code editor.
   var editor1 = ace.edit("editor1");
   editor1.setTheme("ace/theme/elementsJSIO");
   editor1.renderer.setShowGutter(false);
   editor1.getSession().setMode("ace/mode/javascript");
 
   //Set default display setting for the bower/npm installation bar.
-  var elem14 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-  elem14.display('none');
+  (function () {
+    var elem14 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+    return elem14;
+  })().display('none');
   //Initialize the click controller.
   clickController();
   //Download the documentation markdown.
   getMarkDown();
   //Create/install custom fork me ribbon.
   forkMeBaby();
+
+  //Reset scrollTop on load.
+  on('load', window, function () {
+    if (browser.gecko) {
+
+      (function () {
+        var elem15 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+        return elem15;
+      })().scrolled(0);
+    } else if (browser.webkit) {
+
+      setTimeout(function () {
+        (function () {
+          var elem16 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          return elem16;
+        })().scrolled(0);
+      }, 50);
+    }
+  });
+
+  ///<======Tests======>///
+
+  var val = testy(90, 9);
+  info(val);
+
+  log(isDOMElement(el('#col3')), 'green');
+
+  var elem = el('#npm-bar');
+
+  log(isDOMElement(function () {
+    var elem17 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+    return elem17;
+  }()), 'red');
+  inspect(function () {
+    var elem18 = _$('#api-butn') ? dom('#api-butn') : make('#api-butn').put("body");
+    return elem18;
+  }());
+  inspect(function () {
+    var elem19 = _$('#navBarLogo') ? dom('#navBarLogo') : make('#navBarLogo').put("body");
+    return elem19;
+  }());
+  inspect(function () {
+    var elem20 = _$('#fluffButt') ? dom('#fluffButt') : make('#fluffButt').put("body");
+    return elem20;
+  }());
+
+  inspect(dom('#col3 h2, #col3 h4, #col3 p, #col3 ul li'));
+
+  inspect(dom('[class~=active]'));
+
+  _$('#shazz') ? dom('#shazz') : make('#shazz').put("body");
+  element([make('.puts', "input").put('#shazz'), make('.puts', "input").put('#shazz')]).every(function (element) {
+    element.size('50px', '50px').html('shitballs');
+  });
+
+  inspect(element(989));
 });
