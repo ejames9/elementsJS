@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <title>elementsJS Library Unit Tests</title>
-  <link href="./lib/css/mocha.css" rel="stylesheet" />
+  <link href="./test/lib/css/mocha.css" rel="stylesheet" />
   <!--
     elementsJS Library Unit Tests with Mocha, Chai and  PhantomJS.
   -->
@@ -16,15 +16,15 @@
   <div id="mocha"></div>
   <div id="element"></div>
 
-  <script src="./lib/js/chai.js" type="text/javascript"></script>
-  <script src="./lib/js/mocha.js" type="text/javascript"></script>
+  <script src="./test/lib/js/chai.js" type="text/javascript"></script>
+  <script src="./test/lib/js/mocha.js" type="text/javascript"></script>
   <script type="text/javascript">
     mocha.ui('bdd');
     mocha.reporter('html');
     expect = chai.expect;
   </script>
-  <script src="./elements.js" type="text/javascript"></script>
-  <script src="./elementsJSLibTests.js" type="text/javascript"></script>
+  <script src="./test/elements.js" type="text/javascript"></script>
+  <script src="./test/elementsJSLibTests.js" type="text/javascript"></script>
   <script type="text/javascript">
     if ('mochaPhantomJS' in window) {
       mochaPhantomJS.run();
