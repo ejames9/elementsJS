@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     _404_.style.display = 'none';
     moka.style.visibility = 'visible';
 
-    mochaPhantomJS.run();
+    // mocha.run();
   });
+
+  if (TEST_FLAG) {
+    moka.style.visibility = 'visible';
+  }
 });
