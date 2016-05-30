@@ -51,7 +51,7 @@ h1 span {
   color: #52218A;
   border: 3px solid #52218A;
   transition-delay:  1s;
-  transition-duration: 1s;
+  transition-duration: 5s;
 }
 /*#logo:hover > #nav-logo {
   border: 3px solid #52218A;
@@ -105,8 +105,4 @@ h1 span {
   bottom: -4px;
   left: 3px;
   font-size: 6px;
-}
-
-#mocha {
-  display: none;
 }
