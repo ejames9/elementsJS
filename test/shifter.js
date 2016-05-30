@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   logo.addEventListener('click', function() {
     _404_.style.display = 'none';
-    moka.style.display = 'block';
+    moka.style.visibility = 'visible';
 
     mochaPhantomJS.run();
   });
