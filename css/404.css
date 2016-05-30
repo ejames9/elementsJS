@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:700|Poiret+One|Exo+2:900|Quicksand:700|Maven+Pro:900|Orbitron:500|Rubik:500|Economica:700|Philosopher:700|Permanent+Marker|Rock+Salt|Jura:600|Voltaire|Special+Elite|Gochi+Hand|Just+Another+Hand|Homemade+Apple|Homenaje|Nixie+One|Fredericka+the+Great|Cabin+Sketch:700|Chelsea+Market|Monoton|Baumans|Prosto+One|Happy+Monkey|Aladin|NTR|Ruslan+Display|Amarante|Raleway+Dots|Henny+Penny|Monofett|Sonsie+One|Mystery+Quest|Akronim|Londrina+Shadow|Warnes|Londrina+Sketch|Atomic+Age|Original+Surfer|Fascinate|Modak);
 
 /*
 elementsJS.io Custom 404.css =>>>>
@@ -6,6 +7,7 @@ elementsJS.io Custom 404.css =>>>>
 html {
   background-color: #39175E;
   color: #52218A;
+  font-family: ubuntu;
 }
 
 body {
@@ -19,12 +21,13 @@ h1 span {
 
 #_404 {
   color: #FF8A22;
-  font-size: 222px;
+  font-size: 282px;
   margin-bottom: 20px;
   margin-top: 20px;
 
 }
 
 #message {
+  color: #FF8A22;
   font-size: 28px;
 }
