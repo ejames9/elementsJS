@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
   logo.addEventListener('click', function() {
     _404_.style.display = 'none';
     moka.style.visibility = 'visible';
+    
+    TEST_FLAG = true;
 
     // mocha.run();
   });
