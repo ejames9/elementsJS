@@ -10,10 +10,19 @@ html {
 
 body {
   text-align: center;
+  vertical-align: middle;
+  padding: 100px 0px 200px 0px;
+}
+h1 span {
+  color:  #9d2635;
 }
 
 #_404 {
-  font-size: 72px;
+  color: #FF8A22;
+  font-size: 322px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
 }
 
 #message {
