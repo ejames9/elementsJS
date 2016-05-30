@@ -9,6 +9,9 @@ elementsJS.io Custom 404.html =>>>>
   <meta charset="utf-8">
   <title>404 - You're out of your elementsJS.</title>
   <script src="./test/lib/js/bowser.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    if (bowser) console.log('bowser');
+  </script>
   <link href="./test/lib/css/mocha.css" rel="stylesheet" />
   <link href="./css/404.css" rel="stylesheet" />
 </head>
@@ -21,7 +24,8 @@ elementsJS.io Custom 404.html =>>>>
   <script src="./test/lib/js/chai.js" type="text/javascript"></script>
   <script src="./test/lib/js/mocha.js" type="text/javascript"></script>
   <script type="text/javascript">
-    // window.initMochaPhantomJS();
+    window.initMochaPhantomJS();
+    
     mocha.ui('bdd');
     mocha.reporter('html');
     expect = chai.expect;
