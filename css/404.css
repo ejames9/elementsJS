@@ -1,0 +1,21 @@
+
+/*
+elementsJS.io Custom 404.css =>>>>
+*/
+
+html {
+  background-color: #39175E;
+  color: #52218A;
+}
+
+body {
+  text-align: center;
+}
+
+#_404 {
+  font-size: 72px;
+}
+
+#message {
+  font-size: 28px;
+}
