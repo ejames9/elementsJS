@@ -106,3 +106,7 @@ h1 span {
   left: 3px;
   font-size: 6px;
 }
+
+#mocha {
+  display: none;
+}
