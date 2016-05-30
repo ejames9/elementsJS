@@ -44,13 +44,14 @@ elementsJS.io Custom 404.html =>>>>
     mocha.ui('bdd');
     mocha.reporter('html');
     expect = chai.expect;
-
+  </script>
+  <script src="./test/elementsJSLibTests.js" type="text/javascript"></script>
+  <script                                    type="text/javascript">
     if ('mochaPhantomJS' in window) {
       mochaPhantomJS.run();
     } else {
       mocha.run();
     }
   </script>
-  <script src="./test/elementsJSLibTests.js" type="text/javascript"></script>
 </body>
 </html>
