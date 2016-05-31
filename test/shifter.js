@@ -13,26 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   _404_ = document.getElementById('_404_content');
 
   logo.addEventListener('click', function() {
-    codeTerminal();
-
-    // if (passCode()) {
-    //   var
-    //   delCookie = document.getElementById('delCookie');
-    //
-    //   _404_.style.display = 'none';
-    //   moka.style.visibility = 'visible';
-    //
-    //   document.cookie = 'TESTFLAG=true';
-    //
-    //   // mocha.run();
-    //   delCookie.addEventListener('click', function() {
-    //     document.cookie = "TESTFLAG=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-    //
-    //     _404_.style.display = 'block';
-    //     moka.style.visibility = 'hidden';
-    //     console.log('cookie: ' + document.cookie);
-    //   });
-    // }
+    passCodeTerminal();
   });
 
   if (getCookie('TESTFLAG')) {
@@ -69,7 +50,19 @@ function getCookie(cname) {
 }
 
 
-function codeTerminal() {
+function fireUpRejection() {
+  dom('.unaryInput')
+                  .every(function(element) {
+                    element
+                        .display('none').el
+                        .value = '';
+                  });
+
+}
+
+
+
+function passCodeTerminal() {
   var
   codeKey = [],
   rawGit  = 'https://rawgit.com/ejames9/elementsJS/gh-pages/',
@@ -77,12 +70,41 @@ function codeTerminal() {
 
 
   function validateKeyCode() {
+    //Say what now?
+    if (xhr(url(rawGit, hashKey)).slice(3, 36).slice(0, -1) === md5(String(codeKey))) {
 
-    if (xhr(url(rawGit, hashKey)).slice(3, 36) == md5(String(codeKey))) {
-      info('Itza Miracle');
+      //Inner validation function closure.
+      function fireUpTests() {
+        var
+        delCookie = document.getElementById('delCookie');
+        dom('.unaryInput')
+                        .every(function(element) {
+                          element
+                              .ma().el.removeChild(element.el);
+                        });
+        dom('#codeShader').ma().el.removeChild(el('#codeShader'));
+
+        el('#_404_content').style.display = 'none';
+        el('#mocha').style.visibility = 'visible';
+
+        document.cookie = 'TESTFLAG=true';
+        // mocha.run();
+        delCookie.addEventListener('click', function() {
+          document.cookie = "TESTFLAG=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
+          el('#_404_content').style.display = 'block';
+          el('#mocha').style.visibility = 'hidden';
+          console.log('cookie: ' + document.cookie);
+        });
+      }
+
+      setTimeout(function() {
+        fireUpTests();
+      }, 1000);
+    } else {
+      fireUpRejection();
     }
   }
-
 
   function starDigitFour() {
     el('#unary4').value = '*';
