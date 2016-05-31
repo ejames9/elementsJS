@@ -7,34 +7,93 @@ elementsJS.io Custom 404.css =>>>>
 html {
   background-color: #39175E;
   color: #52218A;
-  font-family: economica, jura, maven pro, orbitron, rubik, philosopher, permanent marker;;
+  font-family: economica, jura, maven pro, orbitron, rubik, philosopher, permanent marker;
 }
 
 body {
+  height: 100%;
+  width: 100%;
   text-align: center;
   vertical-align: middle;
-  padding: 100px 0px 200px 0px;
 }
 h1 span {
   color:  #9d2635;
 }
 
+/*
+==============================404 Page Styles========>>>>
+*/
+#_404_content {
+  position: relative;
+  top: 130px;
+}
+
 #_404 {
+  /*position: relative;*/
   color: #FF8A22;
   font-size: 362px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
-
 
 }
 
 #message {
+
   color: #FF8A22;
   font-size: 34px;
   text-shadow: 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A, 0 0 0.2em #52218A;
+  bottom: 100px;
 }
 
+
+/*
+==============================Code Terminal Styles========>>>>
+*/
+
+#codeShader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*height: 100%;
+  width: 100%;*/
+  background-color: #000;
+  opacity: 0.8;
+  z-index: 9;
+}
+
+#codeTerminal {
+  position: relative;
+  top: -380px;
+  z-index: 10;
+}
+
+.unaryInput {
+  height: 80px;
+  width: 80px;
+  border: 1px solid #cda6ec;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #cda6ec;
+  margin-right: 15px;
+  font-size: 100px;
+  text-align: center;
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+/*
+==============================Test Logo Styles========>>>>
+*/
 #logo {
   font-family: helvetica neue;
   position: absolute;
@@ -72,7 +131,7 @@ h1 span {
   width: 60px;
   /*border: 3px solid #39175E;*/
   border-radius: 7px;
-  font-family: ;
+  /*font-family: ;*/
   font-size: 32px;
   text-align: center;
 }
@@ -89,7 +148,7 @@ h1 span {
   bottom: 0px;
   left: 7px;
   font-size: 9px;
-  font-weight: 200;
+  /*font-weight: 200;*/
   text-align: center;
 }
 
@@ -105,4 +164,24 @@ h1 span {
   bottom: -4px;
   left: 3px;
   font-size: 6px;
+}
+
+
+/*
+==============================TEST Page Styles========>>>>
+*/
+#delCookie {
+  position: absolute;
+  height: 20px;
+  width: 60px;
+  border: 1px solid #cda6ec;
+  border-radius: 5px;
+  background-color: transparent;
+  right: 100px;
+  bottom: 100px;
+}
+
+#delCookie:active {
+  border: 1px solid #fff;
+
 }

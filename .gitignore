@@ -1,1 +1,14 @@
+#node
 node_modules
+
+#crap
+crap
+
+#Tests
+test
+
+#Graphics
+images
+
+#Compiled Code
+dist
