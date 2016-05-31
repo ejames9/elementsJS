@@ -15,6 +15,7 @@ https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 import * as SNC from './sideNavControl.js';
 
 
+
 //elementsJS imports <html/>
 imports({
        'elementsJS': ['imports', 'element', 'hasAncestor', 'isDOMElement', 'go', 'el', 'inspect', 'log', 'err', 'info', 'url', 'ajax', 'on', 'click', 'mouse', 'show', 'hide', 'scroll', '__'],
@@ -48,7 +49,7 @@ var highLitElements = [];
 
 //Necessary code to add deep links to documentation.
 function addChainLinkIcons() {
-  console.log(<'#docsMain h1, #docsMain h2'/>); 
+  console.log(<'#docsMain h1, #docsMain h2'/>);
   //Add link icons to all page links in documentation.
   <'h1 a, h2 a'/>
             .every((element)=> {
