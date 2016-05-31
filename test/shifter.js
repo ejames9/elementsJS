@@ -57,6 +57,13 @@ function fireUpRejection() {
                         .display('none').el
                         .value = '';
                   });
+  dom('.braxes')
+                  .every(function(element) {
+                    element
+                        .position('relative')
+                        .zIndex('99');
+                  });
+  move()
 
 }
 
@@ -102,7 +109,9 @@ function passCodeTerminal() {
         fireUpTests();
       }, 1000);
     } else {
-      fireUpRejection();
+      setTimeout(function() {
+        fireUpRejection();
+      }, 1000);
     }
   }
 
@@ -177,4 +186,24 @@ function passCodeTerminal() {
   }
 
 displayCodeTerminal();
+}
+
+
+
+function move(elem, dist, ms) {
+  var
+  left = dom(elem).left();
+
+  function frame() {
+    // update parameters
+    left++
+    // show frame
+    dom(elem)
+          .left(left + 'px');
+    // check finish condition
+    if (left == dist)
+      clearInterval(id)
+  }
+  // draw every 10ms
+  var id = setInterval(frame, ms)
 }
