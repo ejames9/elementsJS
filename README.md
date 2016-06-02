@@ -48,9 +48,9 @@ var foo = (bar, baz)=> {
 //use the dom() and log() functions
  if (foo(9, 99)) {
  	dom('#foobar')
- 			 .html('Hello!')
- 			 .color('blue')
- 			 .font('hack');
+ 		.html('Hello!')
+ 		.color('blue')
+ 		.font('hack');
 
  	log('Confirmation.', '#090', true);
  }
@@ -71,9 +71,9 @@ imports({
 //use any of the above functions without referencing the associated module object
 var onGo =()=> {
 	make('#comment', 'input')
-						.size('20px', '100px')
-						.borderRadius('5px)
-						.put('#footer);
+			.size('20px', '100px')
+			.borderRadius('5px)
+			.put('#footer);
 }
 go(onGo);
 
