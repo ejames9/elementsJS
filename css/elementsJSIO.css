@@ -669,6 +669,7 @@ iframe {
   /*color: #52218A;*/
   left: 0;
   font-family: bpmono;
+  font-size: 10px;
   padding-top: 0px;
   padding-bottom: 0px;
 
@@ -680,20 +681,29 @@ iframe {
   /*padding-bottom: 10px;*/
 }
 
-#editor1 {
+/*#editor1 {
   border: 1px solid #52218A;
   height: 160px;
   width: 280px;
   border-radius: 7px;
   font-family: bpmono, source code pro, hack, monaco;
   margin-bottom: 5px;
-}
+}*/
 
 .col-md-4:hover > h2,
 .col-md-4:hover > h4,
 .col-md-4:hover > ul li,
 .col-md-4:hover > p {
   color: #FF8A22;
+}
+
+#editor {
+  font-family: bpmono, source code pro, hack, monaco;
+  font-size: 12px;
+  background-color: #39175E;
+  border: 1px solid #52218A;
+  border-radius: 7px;
+  color: white;
 }
 
 
@@ -920,7 +930,7 @@ iframe {
 }
 
 .colorp {
-  color: #52218A;
+  color: #cda6ec;
 }
 .colory {
   color: #FF8A22;

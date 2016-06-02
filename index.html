@@ -171,17 +171,20 @@
           <div id='col3' class="col-md-4">
             <h2>elements Syntax.</h2>
             <p>If you use a build system like gulp or grunt, you can try out the optional element syntax! It's guaranteed to melt your face! See below:</p>
-            <div id='editor1'>
+            <pre id='editor'>
 
-  <'#nav'<'#list'<<span>li='.items'=3/></span><span id='r'>/>/></span>
-
-  <'#super-cool-footer'/>
-                .color('white')
-                .click(()=> {
-                  onClick();
-                })
-                .height('40px');
-            </div>
+  <span class='colorr'><</span><span class='colory'>'#list-items, #sideNav ul'</span><span class='colorr'>/></span>
+                 <span class='colory'>.every</span>((element)<span class='colorr'>=></span> {
+                       <span class='colorp'>element</span>
+                           .bgColor(<span class='colory'>'#FFF'</span>)
+                           .color(<span class='colory'>'blue'</span>)
+                           .fontFamily(<span class='colory'>'hack'</span>);
+                     });
+                     
+  <span class='colorp'>click</span>(<span class='colorr'><</span><span class='colory'>'#submit'</span><span class='colorr'>></span>, ()<span class='colorr'>=></span> {
+    handleClick();
+  });
+            </pre>
             <p><a class="btn btn-default" href="#" role="button">What's this again? &raquo;</a></p>
           </div>
         </div>

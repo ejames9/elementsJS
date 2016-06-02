@@ -440,12 +440,6 @@
 
 	//Initialization code to be run after DOM content is loaded.
 	go(function () {
-	  //initialize ace code editor.
-	  var editor1 = ace.edit("editor1");
-	  editor1.setTheme("ace/theme/elementsJSIO");
-	  editor1.renderer.setShowGutter(false);
-	  editor1.getSession().setMode("ace/mode/javascript");
-
 	  //Set default display setting for the bower/npm installation bar.
 	  (function () {
 	    var elem14 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
@@ -477,42 +471,37 @@
 	    }
 	  });
 
-	  ///<======Tests======>///
-
-	  var val = testy(90, 9);
-	  info(val);
-
-	  log(isDOMElement(el('#col3')), 'green');
-
-	  var elem = el('#npm-bar');
-
-	  log(isDOMElement(function () {
-	    var elem17 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	    return elem17;
-	  }()), 'red');
-	  inspect(function () {
-	    var elem18 = _$('#api-butn') ? dom('#api-butn') : make('#api-butn').put("body");
-	    return elem18;
-	  }());
-	  inspect(function () {
-	    var elem19 = _$('#navBarLogo') ? dom('#navBarLogo') : make('#navBarLogo').put("body");
-	    return elem19;
-	  }());
-	  inspect(function () {
-	    var elem20 = _$('#fluffButt') ? dom('#fluffButt') : make('#fluffButt').put("body");
-	    return elem20;
-	  }());
-
-	  inspect(dom('#col3 h2, #col3 h4, #col3 p, #col3 ul li'));
-
-	  inspect(dom('[class~=active]'));
-
-	  _$('#shazz') ? dom('#shazz') : make('#shazz').put("body");
-	  element([make('.puts', "input").put('#shazz'), make('.puts', "input").put('#shazz')]).every(function (element) {
-	    element.size('50px', '50px').html('shitballs');
-	  });
-
-	  inspect(element(989));
+	  //
+	  // ///<======Tests======>///
+	  //
+	  // var val = testy(90, 9);
+	  //           info(val);
+	  //
+	  // log(isDOMElement(el('#col3')), 'green');
+	  //
+	  // var elem = el('#npm-bar');
+	  //
+	  // log(isDOMElement(<html/>), 'red');
+	  // inspect(<'#api-butn'/>);
+	  // inspect(<'#navBarLogo'/>);
+	  // inspect(<'#fluffButt'/>);
+	  //
+	  //
+	  //
+	  //
+	  //
+	  // inspect(<'#col3 h2, #col3 h4, #col3 p, #col3 ul li'/>);
+	  //
+	  // inspect( dom('[class~=active]'));
+	  //
+	  //
+	  //
+	  // <'#shazz'<input='.puts'=2/>/>
+	  //                 .every((element)=> {
+	  //                   element
+	  //                       .size('50px', '50px')
+	  //                       .html('shitballs');
+	  //                 });
 	});
 
 /***/ },

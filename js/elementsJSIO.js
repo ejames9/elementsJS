@@ -23,7 +23,6 @@ imports({
      'highlight.js': 'hljs',
 '../../js/testy.js': ['testy'],
            'bowser': 'browser'
-       'ace-builds': 'ace'
 });
 //<<===============================>>
 
@@ -385,13 +384,6 @@ function clickController() {
 
 //Initialization code to be run after DOM content is loaded.
 go(()=> {
-  //initialize ace code editor.
-  var editor1 = ace.edit("editor1");
-      editor1.setTheme("ace/theme/elementsJSIO");
-      editor1.renderer.setShowGutter(false);
-      editor1.getSession()
-             .setMode("ace/mode/javascript");
-
   //Set default display setting for the bower/npm installation bar.
   <'#npm-bar'/>.display('none');
   //Initialize the click controller.
@@ -416,38 +408,36 @@ go(()=> {
     }
   });
 
+  //
+  // ///<======Tests======>///
+  //
+  // var val = testy(90, 9);
+  //           info(val);
+  //
+  // log(isDOMElement(<'#col3'>), 'green');
+  //
+  // var elem = <'#npm-bar'>;
+  //
+  // log(isDOMElement(<html/>), 'red');
+  // inspect(<'#api-butn'/>);
+  // inspect(<'#navBarLogo'/>);
+  // inspect(<'#fluffButt'/>);
+  //
+  //
+  //
+  //
+  //
+  // inspect(<'#col3 h2, #col3 h4, #col3 p, #col3 ul li'/>);
+  //
+  // inspect(<'[class~=active]'/>);
+  //
+  //
+  //
+  // <'#shazz'<input='.puts'=2/>/>
+  //                 .every((element)=> {
+  //                   element
+  //                       .size('50px', '50px')
+  //                       .html('shitballs');
+  //                 });
 
-
-  ///<======Tests======>///
-
-  var val = testy(90, 9);
-            info(val);
-
-  log(isDOMElement(<'#col3'>), 'green');
-
-  var elem = <'#npm-bar'>;
-
-  log(isDOMElement(<html/>), 'red');
-  inspect(<'#api-butn'/>);
-  inspect(<'#navBarLogo'/>);
-  inspect(<'#fluffButt'/>);
-
-
-
-
-
-  inspect(<'#col3 h2, #col3 h4, #col3 p, #col3 ul li'/>);
-
-  inspect(<'[class~=active]'/>);
-
-
-
-  <'#shazz'<input='.puts'=2/>/>
-                  .every((element)=> {
-                    element
-                        .size('50px', '50px')
-                        .html('shitballs');
-                  });
-
-  inspect(element(989));
 });
