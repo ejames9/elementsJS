@@ -74,7 +74,7 @@ gulp.task('elementsJSLibTests-Bundle', ()=> {
 
 
 gulp.task('elemsJSIO', ()=> {
-  return run('elementsJSLibTests-elemsJS-Babel', 'elementsJSLibTests-Bundle', 'elemsJSIO-elemsJS-Babel', 'elemsJSIO-Bundle');
+  return run('elementsJSLibTests-elemsJS-Babel', 'elemsJSIO-elemsJS-Babel', 'elemsJSIO-Bundle');
 });
 
 //Babelify eJS index.js
