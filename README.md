@@ -32,7 +32,7 @@ foo(9, 99);
 
 ```
 
-The above is a perfectly fine way to use elementsJS, however, the library was written in the spirit of making code more legible and perhaps, more aesthetically pleasing. That said, I reccomend using either [EcmaScript 2015(es6)'s ***import***](http://exploringjs.com/es6/ch_modules.html#_importing-and-exporting-in-detail) functionality or a custom elementsJS [**`imports()`**](#) function to import the individual functions, so that the elements object doesn't need referencing every time a library function is used. See below:
+The above is a perfectly fine way to use elementsJS, however, the library was written in the spirit of making code more legible and perhaps, more aesthetically pleasing. That said, I reccomend using either [EcmaScript 2015(es6)'s ***import***](http://exploringjs.com/es6/ch_modules.html#_importing-and-exporting-in-detail) functionality or a custom elementsJS [**`imports()`**](https://www.npmjs.com/package/gulp-elementsjs-interpreter) function to import the individual functions, so that the elements object doesn't need referencing every time a library function is used. See below:
 
 ### ES2015:
 
@@ -79,7 +79,7 @@ go(onGo);
 
 ```
 
-Both of these options, though require an additional compilation step. To use *es6* functionality, code must be compiled with [babel](https://babeljs.io/), and the elementsJS *imports()* function needs to be compiled using the [elementsJS-interpreter](#interpreter-install). If you are using a build system such as [gulp](http://gulpjs.com/) or [grunt](http://gruntjs.com/)(coming soon), however, this step is a breeze ([Click here](#) to learn about using a build system in your development).
+Both of these options, though require an additional compilation step. To use *es6* functionality, code must be compiled with [babel](https://babeljs.io/), and the elementsJS *imports()* function needs to be compiled using the [elementsJS-interpreter](https://www.npmjs.com/package/gulp-elementsjs-interpreter). If you are using a build system such as [gulp](http://gulpjs.com/) or [grunt](http://gruntjs.com/)(coming soon), however, this step is a breeze ([Click here](#) to learn about using a build system in your development).
 
 If you do decide to use the elementsJS *imports()* function, you can also try out the elements syntax, as the elementsJS-interpreter will parse your code for this syntax as well as the *imports()* function.
 
