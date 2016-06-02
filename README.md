@@ -69,11 +69,11 @@ imports({
      'jQuery': '$'
 });
 //use any of the above functions without referencing the associated module object
-var onGo =()=> {
+var onGo = function() {
 	make('#comment', 'input')
 			.size('20px', '100px')
 			.borderRadius('5px)
-			.put('#footer);
+			.put('#footer');
 }
 go(onGo);
 
