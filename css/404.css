@@ -20,6 +20,13 @@ h1 span {
   color:  #9d2635;
 }
 
+input {
+  outline: 0;
+  outline-style: none;
+  /*outline-color:  #FF8A22;*/
+
+}
+
 /*
 ==============================404 Page Styles========>>>>
 */
@@ -66,7 +73,7 @@ h1 span {
 
 #codeTerminal {
   position: relative;
-  top: -380px;
+  top: -360px;
   z-index: 10;
 }
 
@@ -76,16 +83,12 @@ h1 span {
   border: 1px solid #cda6ec;
   border-radius: 50%;
   background-color: transparent;
-  color: #cda6ec;
+  color: #FF8A22;
   margin-right: 15px;
   font-size: 100px;
   text-align: center;
   opacity: 1;
 }
-
-
-
-
 
 
 
@@ -167,21 +170,84 @@ h1 span {
 }
 
 
+
+
 /*
 ==============================TEST Page Styles========>>>>
 */
+#mocha-stats em {
+  color: white;
+}
+#mocha-stats li canvas {
+  color: white;
+}
+
+.replay a {
+  color: #cda6ec;
+}
+
+#mocha {
+  text-align: justify;
+  color: #FF8A22;
+}
+
+#mocha-stats  {
+  color: #9d2635;
+}
+
+
+
 #delCookie {
   position: absolute;
   height: 20px;
-  width: 60px;
+  width: 20px;
   border: 1px solid #cda6ec;
-  border-radius: 5px;
+  border-radius: 50%;
   background-color: transparent;
   right: 100px;
   bottom: 100px;
 }
-
-#delCookie:active {
+#delCookie:hover {
   border: 1px solid #fff;
 
 }
+
+#delCookie:active {
+  border: 1px solid #9d2635;
+
+}
+
+#nope {
+  color: #9d2635;
+  font-size: 88px;
+  margin: auto;
+  z-index: 101;
+  left: 597px;
+  /*left: 640px;*/
+  top: 470px;
+  font-family: economica;
+}
+
+#circle {
+  height: 185px;
+  width: 185px;
+  border: 22px solid #9d2635;
+  border-radius: 50%;
+  z-index: 100;
+  left: 555px;
+  /*left: 598px;*/
+  top: 252px;
+}
+
+.noShadow {
+  text-shadow: none;
+}
+.progress {
+  color: #fff;
+}
+/*
+.shadowFlash {
+  text-shadow: 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22;
+  box-shadow: 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #FF8A22, 0 0 0.2em #52218A;
+
+}*/

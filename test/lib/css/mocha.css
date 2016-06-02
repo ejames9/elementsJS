@@ -261,7 +261,8 @@ body {
 #mocha-stats .progress {
   float: right;
   padding-top: 0;
-  
+  color: #fff;
+
   /**
    * Set safe initial values, so mochas .progress does not inherit these
    * properties from Bootstrap .progress (which causes .progress height to
@@ -273,7 +274,7 @@ body {
 }
 
 #mocha-stats em {
-  color: black;
+  color: #fff;
 }
 
 #mocha-stats a {
@@ -295,6 +296,9 @@ body {
 #mocha-stats canvas {
   width: 40px;
   height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  color: red;
 }
 
 #mocha code .comment { color: #ddd; }

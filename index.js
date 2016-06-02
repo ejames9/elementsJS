@@ -34,6 +34,12 @@ URL: ""
 //DONE: transform methods. i.e. this.turnX(), this.turnY.
 //TODO: .do(), do() animation functionality.
 //DONE: be able to create element object from e.target.....
+//TODO: getCookie, setCookie, checkCookie functions....
+//TODO: move functions........
+//TODO: Needed polyfills.
+//TODO: element.classList()....
+
+
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -46,9 +52,16 @@ import * as utils from './lib/utilities';
 import * as DOM from './lib/DOM';
 
 
-// require('babel-polyfill');
-
-
+//Index of polyfill for IE...........
+if (!Array.prototype.indexOf) {
+   Array.prototype.indexOf = function(item) {
+      var i = this.length;
+      while (i--) {
+         if (this[i] === item) return i;
+      }
+      return -1;
+   };
+}
 
 
 var element = function(el) {
