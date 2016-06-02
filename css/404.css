@@ -222,8 +222,8 @@ input {
   font-size: 88px;
   margin: auto;
   z-index: 101;
-  left: 597px;
-  /*left: 640px;*/
+  /*left: 597px;*/
+  left: 640px;
   top: 470px;
   font-family: economica;
 }
@@ -235,7 +235,7 @@ input {
   border-radius: 50%;
   z-index: 100;
   left: 555px;
-  /*left: 598px;*/
+  left: 598px;
   top: 252px;
 }
 
