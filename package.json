@@ -1,6 +1,6 @@
 {
   "name": "elementsJS",
-  "version": "0.9.19",
+  "version": "0.9.20",
   "description": "A JavaScript DOM Manipulation/Alias Function Library.",
   "main": "./dist/index.js",
   "dependencies": {
