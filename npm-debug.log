@@ -7,13 +7,8 @@
 3 info using node@v5.0.0
 4 info git [ 'status', '--porcelain' ]
 5 verbose stack Error: Git working directory not clean.
-5 verbose stack D README.rst
-5 verbose stack M css/404.css
-5 verbose stack M index.js
-5 verbose stack D md/passArray.js
-5 verbose stack M package.json
-5 verbose stack M test/lib/css/mocha.css
-5 verbose stack M test/shifter.js
+5 verbose stack D elementsJS.md
+5 verbose stack D npm-debug.log
 5 verbose stack     at /usr/local/lib/node_modules/npm/lib/version.js:172:21
 5 verbose stack     at ChildProcess.exithandler (child_process.js:194:7)
 5 verbose stack     at emitTwo (events.js:87:13)
@@ -29,13 +24,8 @@
 9 error node v5.0.0
 10 error npm  v3.3.9
 11 error Git working directory not clean.
-11 error D README.rst
-11 error M css/404.css
-11 error M index.js
-11 error D md/passArray.js
-11 error M package.json
-11 error M test/lib/css/mocha.css
-11 error M test/shifter.js
+11 error D elementsJS.md
+11 error D npm-debug.log
 12 error If you need help, you may report this error at:
 12 error     <https://github.com/npm/npm/issues>
 13 verbose exit [ 1, true ]
