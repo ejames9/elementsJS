@@ -78,12 +78,12 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; } /*
 	                                                                                                                                                                                                                  Elements.js
-
+	                                                                                                                                                                                                                  
 	                                                                                                                                                                                                                  A JavaScript DOM manipulation/Alias function Library.
 	                                                                                                                                                                                                                  This is the index file for the library. It contains alias functions for
 	                                                                                                                                                                                                                  all of the librarys' public functions. This makes it easy to import the
 	                                                                                                                                                                                                                  functions without a module prefix es6 style.
-
+	                                                                                                                                                                                                                  
 	                                                                                                                                                                                                                  Author: Eric James Foster
 	                                                                                                                                                                                                                  EMail: maniphestival@gmail.com
 	                                                                                                                                                                                                                  License: MIT
@@ -112,12 +112,25 @@
 	//DONE: transform methods. i.e. this.turnX(), this.turnY.
 	//TODO: .do(), do() animation functionality.
 	//DONE: be able to create element object from e.target.....
+	//TODO: getCookie, setCookie, checkCookie functions....
+	//TODO: move functions........
+	//TODO: Needed polyfills.
+	//TODO: element.classList()....
 
 	//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
-	// require('babel-polyfill');
+	//Index of polyfill for IE...........
+	if (!Array.prototype.indexOf) {
+	  Array.prototype.indexOf = function (item) {
+	    var i = this.length;
+	    while (i--) {
+	      if (this[i] === item) return i;
+	    }
+	    return -1;
+	  };
+	}
 
-window.element = function element(el) {
+	var element = function element(el) {
 	  if (isDOMElement(el)) {
 	    return new _element2.default(el);
 	  } else if (utils.isArray(el)) {
@@ -137,33 +150,33 @@ window.element = function element(el) {
 	  }
 	};
 
-window.isElement = function isElement(el) {
+	var isElement = function isElement(el) {
 	  return utils.isElement(el);
 	};
 
-window.isDOMElement = function isDOMElement(el) {
+	var isDOMElement = function isDOMElement(el) {
 	  return utils.isDOMElement(el);
 	};
 
 	/*This function copies the prototype object of a superConstructor to the prototype object
 	of a constructor. It functions just like nodes' util.inherits function, it copies methods only,
 	not internal properties.*/
-window.proto = function proto(construct, superConstruct) {
+	var proto = function proto(construct, superConstruct) {
 	  return utils.proto(construct, superConstruct);
 	};
 
 	//This function will simply return true if the given element exists in the DOM, and false otherwise. not a public function.
-window._$ = function _$(el) {
+	var _$ = function _$(el) {
 	  return null !== utils.queryDOM(el);
 	};
 
-window.isArray = function isArray(arr) {
+	var isArray = function isArray(arr) {
 	  return utils.isArray(arr);
 	};
 
 	//This function queries the dom, getting one element for each query (i.e. class/tags), creates
 	//an Element object with it and returns it, so that it may be easily styled.
-window.dom = function dom(el) {
+	var dom = function dom(el) {
 	  var rv = void 0;
 
 	  el = utils.queryDOM(el);
@@ -192,99 +205,99 @@ window.dom = function dom(el) {
 	`);
 
 	*/
-window.__ = function __(tempLit) {
+	var __ = function __(tempLit) {
 	  var el = arguments.length <= 1 || arguments[1] === undefined ? 'body' : arguments[1];
 
 	  return DOM.bones(tempLit, el);
 	};
 
 	//Create element alias function.
-window.make = function make(el, tag) {
+	var make = function make(el, tag) {
 	  return DOM.make(el, tag);
 	};
 
 	//DOM querying alias function. Will automatically narrow class or tag queries down to one result. It will not return an array.
-window.el = function el(l) {
+	var el = function el(l) {
 	  return utils.queryDOM(l);
 	};
 
 	//Function for appending elements to other elements.
-window.put = function put(el, mom) {
+	var put = function put(el, mom) {
 	  return DOM.put(el, mom);
 	};
 
 	//Function for deleting elements from the DOM tree.
-window.x = function x(el) {
+	var x = function x(el) {
 	  return DOM.kill(el);
 	};
 
-window.fore = function fore(ref, elem) {
+	var fore = function fore(ref, elem) {
 	  return DOM.fore(ref, elem);
 	};
 
-window.aft = function aft(ref, elem) {
+	var aft = function aft(ref, elem) {
 	  return DOM.aft(ref, elem);
 	};
 
-window.show = function show(elem, disp) {
+	var show = function show(elem, disp) {
 	  return DOM.show(elem);
 	};
 
-window.hide = function hide(elem) {
+	var hide = function hide(elem) {
 	  return DOM.hide(elem);
 	};
 
-window.size = function size(elem, h, w) {
+	var size = function size(elem, h, w) {
 	  return DOM.size(elem, h, w);
 	};
 
-window.clone = function clone(elem, deep) {
+	var clone = function clone(elem, deep) {
 	  return DOM.clone(elem, deep);
 	};
 
 	//console.log alias function.
-window.log = function log(text, style, tyme) {
+	var log = function log(text, style, tyme) {
 	  return consol.log(text, style, tyme);
 	};
 
 	//console.error alias function.
-window.err = function err(text, tyme) {
+	var err = function err(text, tyme) {
 	  return consol.err(text, tyme);
 	};
 
 	//console.info alias function.
-window.info = function info(text, tyme) {
+	var info = function info(text, tyme) {
 	  return consol.info(text, tyme);
 	};
 
 	//console.warn alias function.
-window.warn = function warn(text, tyme) {
+	var warn = function warn(text, tyme) {
 	  return consol.warn(text, tyme);
 	};
 
-window.inspect = function inspect(obj) {
+	var inspect = function inspect(obj) {
 	  return consol.inspect(obj);
 	};
 
-window.shifter = function shifter(onFunc, offFunc) {
+	var shifter = function shifter(onFunc, offFunc) {
 	  return utils.shifter(onFunc, offFunc);
 	};
 
-window.hasAncestor = function hasAncestor(l, ance) {
+	var hasAncestor = function hasAncestor(l, ance) {
 	  return utils.hasAncestor(l, ance);
 	};
 
-window.lookBehind = function lookBehind(leftContextRE, matchRE, subject) {
+	var lookBehind = function lookBehind(leftContextRE, matchRE, subject) {
 	  return utils.lookBehind(leftContextRE, matchRE, subject);
 	};
 
 	//This practically useless function will lock up the browser for a preset amount of time.
-window.sleep = function sleep(milliseconds) {
+	var sleep = function sleep(milliseconds) {
 	  return utils.sleep(milliseconds);
 	};
 
 	//A function for combining strings for urls
-window.url = function url(bit1, bit2) {
+	var url = function url(bit1, bit2) {
 	  var bit3 = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
 	  var bit4 = arguments.length <= 3 || arguments[3] === undefined ? '' : arguments[3];
 
@@ -292,18 +305,18 @@ window.url = function url(bit1, bit2) {
 	};
 
 	//This is a synchronous alias function for XMLHttpRequests.
-window.xhr = function xhr(url, fd, method) {
+	var xhr = function xhr(url, fd, method) {
 	  return requests.xhr(url, fd, method);
 	};
 
 	//This is an asynchronous alias function for XMLHttpRequests.
-window.ajax = function ajax(url, fd, callback, method) {
+	var ajax = function ajax(url, fd, callback, method) {
 	  return requests.ajax(url, fd, callback, method);
 	};
 
 	/*---------Event Functions-----------*/
 
-window.go = function go(cb) {
+	var go = function go(cb) {
 	  if (document.addEventListener) {
 	    return events.go(cb);
 	  } else {
@@ -312,7 +325,7 @@ window.go = function go(cb) {
 	};
 
 	//Function for setting event listeners.
-window.on = function on(event, el, callback) {
+	var on = function on(event, el, callback) {
 	  if (document.addEventListener) {
 	    return events.on(event, el, callback);
 	  } else {
@@ -321,7 +334,7 @@ window.on = function on(event, el, callback) {
 	};
 
 	//Function for removing event listeners.
-window.off = function off(event, el, callback) {
+	var off = function off(event, el, callback) {
 	  if (document.addEventListener) {
 	    return events.off(event, el, callback);
 	  } else {
@@ -329,7 +342,7 @@ window.off = function off(event, el, callback) {
 	  }
 	};
 
-window.once = function once(event, el, callback) {
+	var once = function once(event, el, callback) {
 	  //DONE:50 Finish once function.
 	  if (document.addEventListener) {
 	    return events.once(event, el, callback);
@@ -338,7 +351,7 @@ window.once = function once(event, el, callback) {
 	  } //TEST:70 Test once function.
 	};
 
-window.spark = function spark(evt, el) {
+	var spark = function spark(evt, el) {
 	  el = utils.queryDOM(el);
 
 	  if (document.addEventListener) {
@@ -348,7 +361,7 @@ window.spark = function spark(evt, el) {
 	  }
 	};
 
-window.blur = function blur(el) {
+	var blur = function blur(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -360,7 +373,7 @@ window.blur = function blur(el) {
 	  }
 	};
 
-window.click = function click(el) {
+	var click = function click(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -372,7 +385,7 @@ window.click = function click(el) {
 	  }
 	};
 
-window.dblClick = function dblClick(el) {
+	var dblClick = function dblClick(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -384,7 +397,7 @@ window.dblClick = function dblClick(el) {
 	  }
 	};
 
-window.error = function error(el) {
+	var error = function error(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -396,7 +409,7 @@ window.error = function error(el) {
 	  }
 	};
 
-window.focus = function focus(el) {
+	var focus = function focus(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -408,7 +421,7 @@ window.focus = function focus(el) {
 	  }
 	};
 
-window.focusIn = function focusIn(el) {
+	var focusIn = function focusIn(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -420,7 +433,7 @@ window.focusIn = function focusIn(el) {
 	  }
 	};
 
-window.focusOut = function focusOut(el) {
+	var focusOut = function focusOut(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -432,7 +445,7 @@ window.focusOut = function focusOut(el) {
 	  }
 	};
 
-window.keyUp = function keyUp(el) {
+	var keyUp = function keyUp(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -444,7 +457,7 @@ window.keyUp = function keyUp(el) {
 	  }
 	};
 
-window.keyDown = function keyDown(el) {
+	var keyDown = function keyDown(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -456,7 +469,7 @@ window.keyDown = function keyDown(el) {
 	  }
 	};
 
-window.load = function load(el) {
+	var load = function load(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -468,7 +481,7 @@ window.load = function load(el) {
 	  }
 	};
 
-window.unLoad = function unLoad(el) {
+	var unLoad = function unLoad(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -480,7 +493,7 @@ window.unLoad = function unLoad(el) {
 	  }
 	};
 
-window.mouse = function mouse(sfx, el) {
+	var mouse = function mouse(sfx, el) {
 	  var cb = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
 	  el = utils.queryDOM(el);
@@ -492,7 +505,7 @@ window.mouse = function mouse(sfx, el) {
 	  }
 	};
 
-window.resize = function resize(el) {
+	var resize = function resize(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -504,7 +517,7 @@ window.resize = function resize(el) {
 	  }
 	};
 
-window.scroll = function scroll(el) {
+	var scroll = function scroll(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -516,7 +529,7 @@ window.scroll = function scroll(el) {
 	  }
 	};
 
-window.select = function select(el) {
+	var select = function select(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
