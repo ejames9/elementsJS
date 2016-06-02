@@ -1,3 +1,5 @@
+## [Click Here for the Full API Documentation.](http://elementsjs.io) 
+
 # <a class='titleLinks' id='installation'>Installation</a> 
 There are a couple different ways to use elementsJS. The first is by simply using the function library. The second, is to make use of the new convenient elements syntax. If you would like to use the elements syntax, a simple compilation step is necessary. If you'd like to learn more, [click here](https://www.npmjs.com/package/gulp-elementsjs-interpreter).
 
@@ -12,7 +14,7 @@ The first step, however, is to simply install the library. elementsJS can be ins
 
 ### npm:
 ```
-$ npm install elementsJS
+$ npm i elementsJS
 ```
 
 ## <a class='titleLinks' id='Usage'>Usage</a> <a id='huh'></a>
@@ -81,4 +83,4 @@ Both of these options, though require an additional compilation step. To use *es
 
 If you do decide to use the elementsJS *imports()* function, you can also try out the elements syntax, as the elementsJS-interpreter will parse your code for this syntax as well as the *imports()* function.
 
-# [Click Here](elementsjs.io) for the full API Documentation.
+# [Click Here for the full API Documentation.](http://elementsjs.io) 
