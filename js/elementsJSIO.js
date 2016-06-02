@@ -23,6 +23,7 @@ imports({
      'highlight.js': 'hljs',
 '../../js/testy.js': ['testy'],
            'bowser': 'browser'
+       'ace-builds': 'ace'
 });
 //<<===============================>>
 
