@@ -1683,6 +1683,9 @@ Hopefully by now you've gotten the hang of what the above line would do. Either 
 20. url()
 21. lookBehind()
 22. isElement()
-23. 
+23. use and use as..... import syntax.
+24. isDOMElement()
+25. installs npm packages automagically!
+25. 
 
 </a>
