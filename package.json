@@ -1,6 +1,6 @@
 {
   "name": "elementsJS",
-  "version": "0.9.27",
+  "version": "0.9.28",
   "description": "A Very Unique and Modern JavaScript DOM Manipulation/Convenience Function Library.",
   "main": "./dist/index.js",
   "dependencies": {
