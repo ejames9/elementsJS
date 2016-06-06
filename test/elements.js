@@ -2621,7 +2621,7 @@
 	  var returnMatch, match, leftContext;
 
 	  match = matchRE.exec(subject);
-	  leftContext = substring(0, subject.indexOf(match));
+	  leftContext = subject.substring(0, subject.indexOf(match));
 
 	  if (leftContextRE.test(leftContext)) {
 	    returnMatch = match;
