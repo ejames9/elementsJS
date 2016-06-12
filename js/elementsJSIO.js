@@ -232,7 +232,7 @@ function clickController() {
           e.preventDefault();
 
           offSets = SNC.getOffSets(),
-             hash = String(<'#' + e.target.parentNode.id/>.hash());
+             hash = String(dom('#' + e.target.parentNode.id).hash());
            hashSS = hash.substring(1, hash.length);
 
            if (browser.gecko) {
@@ -251,7 +251,7 @@ function clickController() {
           e.preventDefault();
 
           offSets = SNC.getOffSets(),
-             hash = String(<'#' + e.target.parentNode.id/>.hash());
+             hash = String(dom('#' + e.target.parentNode.id).hash());
            hashSS = hash.substring(1, hash.length);
 
            if (browser.gecko) {

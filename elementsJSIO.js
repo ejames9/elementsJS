@@ -294,7 +294,7 @@
 	      case e.target.tagName === 'I':
 	        e.preventDefault();
 
-	        offSets = SNC.getOffSets(), hash = String(element(e.target.parentNode.id).hash());
+	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
 	        hashSS = hash.substring(1, hash.length);
 
 	        if (browser.gecko) {
@@ -316,7 +316,7 @@
 	      case e.target.tagName === 'CODE':
 	        e.preventDefault();
 
-	        offSets = SNC.getOffSets(), hash = String(element(e.target.parentNode.id).hash());
+	        offSets = SNC.getOffSets(), hash = String(dom('#' + e.target.parentNode.id).hash());
 	        hashSS = hash.substring(1, hash.length);
 
 	        if (browser.gecko) {
@@ -1596,7 +1596,12 @@
 	      throw new Error('Invalid Array.');
 	    }
 	  } else {
-	    err('Invalid Argument.');
+	    log(el, 'green');
+	    if (isDOMElement(utils.queryDOM(el))) {
+	      return new _element2.default(utils.queryDOM(el));
+	    } else {
+	      err('Invalid Argument.');
+	    }
 	  }
 	};
 
