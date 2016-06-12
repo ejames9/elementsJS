@@ -454,23 +454,24 @@
 
 	  //Reset scrollTop on load.
 	  on('load', window, function () {
-	    //Make sure page loads at proper scrollTop.
-	    if (browser.gecko) {
-	      (function () {
-	        var elem15 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	        return elem15;
-	      })().scrolled(0);
-	    } else if (browser.webkit) {
-	      setTimeout(function () {
-	        (function () {
-	          var elem16 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	          return elem16;
-	        })().scrolled(0);
-	      }, 50);
-	    }
 	    //Allow specific hashes to be loaded from the address bar.
 	    if (window.location.hash.length > 1) {
 	      initDocsPage(window.location.hash);
+	    } else {
+	      //Make sure page loads at proper scrollTop.
+	      if (browser.gecko) {
+	        (function () {
+	          var elem15 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	          return elem15;
+	        })().scrolled(0);
+	      } else if (browser.webkit) {
+	        setTimeout(function () {
+	          (function () {
+	            var elem16 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	            return elem16;
+	          })().scrolled(0);
+	        }, 50);
+	      }
 	    }
 	  });
 

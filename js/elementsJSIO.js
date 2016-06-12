@@ -395,19 +395,20 @@ go(()=> {
 
   //Reset scrollTop on load.
   on('load', window, ()=> {
-    //Make sure page loads at proper scrollTop.
-    if (browser.gecko) {
-      <html/>
-          .scrolled(0);
-    } else if (browser.webkit) {
-      setTimeout(()=> {
-        <body/>
-            .scrolled(0);
-      }, 50);
-    }
     //Allow specific hashes to be loaded from the address bar.
     if (window.location.hash.length > 1) {
       initDocsPage(window.location.hash);
+    } else {
+      //Make sure page loads at proper scrollTop.
+      if (browser.gecko) {
+        <html/>
+            .scrolled(0);
+      } else if (browser.webkit) {
+        setTimeout(()=> {
+          <body/>
+              .scrolled(0);
+        }, 50);
+      }
     }
   });
 
