@@ -10,16 +10,16 @@ elementsJS.io 404.html =>>>>
 <head>
   <meta charset="utf-8">
   <title>404 - You're out of your elementsJS.</title>
-  <!--Bowser Browser Detector---------------------------------------------->
+  <!--Bowser Browser Detector============================================-->
   <script src="./test/lib/js/bowser.js"      type="text/javascript"></script>
-  <!--CSS------------------------------------------------------------------>
+  <!--CSS================================================================-->
   <link href="./test/lib/css/mocha.css"      rel="stylesheet" />
   <link href="./css/404.css"                 rel="stylesheet" />
 </head>
 <body>
   <!--
     HTML Content for 404 Page.
-  ------------------------------------------------------------------------->
+  ========================================================================-->
   <section id='_404_content'>
     <h1 id='_404'><span id='braxLeft' class='braxes'><</span>404<span id='braxRight' class='braxes'>></span></h1>
     <h3 id='message'>You're out of your elementsJS.</h3>
@@ -33,15 +33,15 @@ elementsJS.io 404.html =>>>>
   </section>
   <!--
     elementsJS Library Unit Tests with Mocha, Chai and  PhantomJS.
-  ------------------------------------------------------------------------->
-  <!--Container element, required by mocha--------------------------------->
+  =======================================================================-->
+  <!--Container element, required by mocha===============================-->
   <div id='mocha' style='visibility: hidden;'><a id='delCookie'></a></div>
   <div id="element"></div>
-  <!--Load Test Framework, Assertion Library and elementsJS---------------->
+  <!--Load Test Framework, Assertion Library and elementsJS==============-->
   <script src="./test/lib/js/mocha.js"       type="text/javascript"></script>
   <script src="./test/lib/js/chai.js"        type="text/javascript"></script>
   <script src="./test/elements.js"           type="text/javascript"></script>
-  <!--Initiate mochaPhantomJS, configure mocha and chai-------------------->
+  <!--Initiate mochaPhantomJS, configure mocha and chai==================-->
   <script                                    type="text/javascript">
     // window.initMochaPhantomJS();
 
@@ -50,10 +50,10 @@ elementsJS.io 404.html =>>>>
     expect = chai.expect;
 
   </script>
-  <!--Load elementJS Library Tests----------------------------------------->
+  <!--Load elementJS Library Tests=======================================-->
   <script src="./test/elementsJSLibTests.js" type="text/javascript"></script>
   <script src="./test/shifter.js"            type="text/javascript"></script>
-  <!--Run Tests, With either mochaPhantomJS or just mocha------------------>
+  <!--Run Tests, With either mochaPhantomJS or just mocha================-->
   <script                                    type="text/javascript">
     if ('mochaPhantomJS' in window) {
       mochaPhantomJS.run();
