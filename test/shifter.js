@@ -294,7 +294,8 @@ displayCodeTerminal();
 
 
 //Run Once DOM is loaded.
-go(function() {
+go
+(function() {
   var
   moka  = el('#mocha'),
   logo  = el('#logo'),
