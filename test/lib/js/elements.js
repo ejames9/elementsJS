@@ -78,12 +78,12 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; } /*
 	                                                                                                                                                                                                                  Elements.js
-	                                                                                                                                                                                                                  
+
 	                                                                                                                                                                                                                  A JavaScript DOM manipulation/Alias function Library.
 	                                                                                                                                                                                                                  This is the index file for the library. It contains alias functions for
 	                                                                                                                                                                                                                  all of the librarys' public functions. This makes it easy to import the
 	                                                                                                                                                                                                                  functions without a module prefix es6 style.
-	                                                                                                                                                                                                                  
+
 	                                                                                                                                                                                                                  Author: Eric James Foster
 	                                                                                                                                                                                                                  EMail: maniphestival@gmail.com
 	                                                                                                                                                                                                                  License: MIT
@@ -93,6 +93,10 @@
 
 	//DONE: elements syntax not working in parenthesis.
 	//FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
+	//FIXME: eJS Interpreter hangs when eJS element is within brackets, and directly adjacent to one of them.
+	//FIXME: cannot create element from variable representing a string.
+	//FIXME: Find out why module imports are printing twice..
+
 	//DONE: Can't put elements in comments.
 	//DONE: HTML interfering with regExp's.
 	//DONE: can't use file blobs with import() func.
@@ -110,12 +114,15 @@
 	//TODO: more .transform() methods.
 	//DONE: += html method.
 	//DONE: transform methods. i.e. this.turnX(), this.turnY.
-	//TODO: .do(), do() animation functionality.
+	//TODO: .do(), do() animation functionality. (with tween.js?)
 	//DONE: be able to create element object from e.target.....
 	//TODO: getCookie, setCookie, checkCookie functions....
 	//TODO: move functions........
 	//TODO: Needed polyfills.
 	//TODO: element.classList()....
+	//TODO: hover(mouseOverFunc, mouseOutFunc) func.....
+	//TODO: element.name() function.....
+	//TODO: add functionality to make() function to allow creating nameless, id less divs.
 
 	//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -130,7 +137,7 @@
 	  };
 	}
 
-	var element = function element(el) {
+window.element = function element(el) {
 	  if (isDOMElement(el)) {
 	    return new _element2.default(el);
 	  } else if (utils.isArray(el)) {
@@ -150,33 +157,33 @@
 	  }
 	};
 
-	var isElement = function isElement(el) {
+window.isElement = function isElement(el) {
 	  return utils.isElement(el);
 	};
 
-	var isDOMElement = function isDOMElement(el) {
+window.isDOMElement = function isDOMElement(el) {
 	  return utils.isDOMElement(el);
 	};
 
 	/*This function copies the prototype object of a superConstructor to the prototype object
 	of a constructor. It functions just like nodes' util.inherits function, it copies methods only,
 	not internal properties.*/
-	var proto = function proto(construct, superConstruct) {
+window.proto = function proto(construct, superConstruct) {
 	  return utils.proto(construct, superConstruct);
 	};
 
 	//This function will simply return true if the given element exists in the DOM, and false otherwise. not a public function.
-	var _$ = function _$(el) {
+window._$ = function _$(el) {
 	  return null !== utils.queryDOM(el);
 	};
 
-	var isArray = function isArray(arr) {
+window.isArray = function isArray(arr) {
 	  return utils.isArray(arr);
 	};
 
 	//This function queries the dom, getting one element for each query (i.e. class/tags), creates
 	//an Element object with it and returns it, so that it may be easily styled.
-	var dom = function dom(el) {
+window.dom = function dom(el) {
 	  var rv = void 0;
 
 	  el = utils.queryDOM(el);
@@ -205,99 +212,99 @@
 	`);
 
 	*/
-	var __ = function __(tempLit) {
+window.__ = function __(tempLit) {
 	  var el = arguments.length <= 1 || arguments[1] === undefined ? 'body' : arguments[1];
 
 	  return DOM.bones(tempLit, el);
 	};
 
 	//Create element alias function.
-	var make = function make(el, tag) {
+window.make = function make(el, tag) {
 	  return DOM.make(el, tag);
 	};
 
 	//DOM querying alias function. Will automatically narrow class or tag queries down to one result. It will not return an array.
-	var el = function el(l) {
+window.el = function el(l) {
 	  return utils.queryDOM(l);
 	};
 
 	//Function for appending elements to other elements.
-	var put = function put(el, mom) {
+window.put = function put(el, mom) {
 	  return DOM.put(el, mom);
 	};
 
 	//Function for deleting elements from the DOM tree.
-	var x = function x(el) {
+window.x = function x(el) {
 	  return DOM.kill(el);
 	};
 
-	var fore = function fore(ref, elem) {
+window.fore = function fore(ref, elem) {
 	  return DOM.fore(ref, elem);
 	};
 
-	var aft = function aft(ref, elem) {
+window.aft = function aft(ref, elem) {
 	  return DOM.aft(ref, elem);
 	};
 
-	var show = function show(elem, disp) {
+window.show = function show(elem, disp) {
 	  return DOM.show(elem);
 	};
 
-	var hide = function hide(elem) {
+window.hide = function hide(elem) {
 	  return DOM.hide(elem);
 	};
 
-	var size = function size(elem, h, w) {
+window.size = function size(elem, h, w) {
 	  return DOM.size(elem, h, w);
 	};
 
-	var clone = function clone(elem, deep) {
+window.clone = function clone(elem, deep) {
 	  return DOM.clone(elem, deep);
 	};
 
 	//console.log alias function.
-	var log = function log(text, style, tyme) {
+window.log = function log(text, style, tyme) {
 	  return consol.log(text, style, tyme);
 	};
 
 	//console.error alias function.
-	var err = function err(text, tyme) {
+window.err = function err(text, tyme) {
 	  return consol.err(text, tyme);
 	};
 
 	//console.info alias function.
-	var info = function info(text, tyme) {
+window.info = function info(text, tyme) {
 	  return consol.info(text, tyme);
 	};
 
 	//console.warn alias function.
-	var warn = function warn(text, tyme) {
+window.warn = function warn(text, tyme) {
 	  return consol.warn(text, tyme);
 	};
 
-	var inspect = function inspect(obj) {
+window.inspect = function inspect(obj) {
 	  return consol.inspect(obj);
 	};
 
-	var shifter = function shifter(onFunc, offFunc) {
+window.shifter = function shifter(onFunc, offFunc) {
 	  return utils.shifter(onFunc, offFunc);
 	};
 
-	var hasAncestor = function hasAncestor(l, ance) {
+window.hasAncestor = function hasAncestor(l, ance) {
 	  return utils.hasAncestor(l, ance);
 	};
 
-	var lookBehind = function lookBehind(leftContextRE, matchRE, subject) {
+window.lookBehind = function lookBehind(leftContextRE, matchRE, subject) {
 	  return utils.lookBehind(leftContextRE, matchRE, subject);
 	};
 
 	//This practically useless function will lock up the browser for a preset amount of time.
-	var sleep = function sleep(milliseconds) {
+window.sleep = function sleep(milliseconds) {
 	  return utils.sleep(milliseconds);
 	};
 
 	//A function for combining strings for urls
-	var url = function url(bit1, bit2) {
+window.url = function url(bit1, bit2) {
 	  var bit3 = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
 	  var bit4 = arguments.length <= 3 || arguments[3] === undefined ? '' : arguments[3];
 
@@ -305,18 +312,18 @@
 	};
 
 	//This is a synchronous alias function for XMLHttpRequests.
-	var xhr = function xhr(url, fd, method) {
+window.xhr = function xhr(url, fd, method) {
 	  return requests.xhr(url, fd, method);
 	};
 
 	//This is an asynchronous alias function for XMLHttpRequests.
-	var ajax = function ajax(url, fd, callback, method) {
+window.ajax = function ajax(url, fd, callback, method) {
 	  return requests.ajax(url, fd, callback, method);
 	};
 
 	/*---------Event Functions-----------*/
 
-	var go = function go(cb) {
+window.go = function go(cb) {
 	  if (document.addEventListener) {
 	    return events.go(cb);
 	  } else {
@@ -325,7 +332,7 @@
 	};
 
 	//Function for setting event listeners.
-	var on = function on(event, el, callback) {
+window.on = function on(event, el, callback) {
 	  if (document.addEventListener) {
 	    return events.on(event, el, callback);
 	  } else {
@@ -334,7 +341,7 @@
 	};
 
 	//Function for removing event listeners.
-	var off = function off(event, el, callback) {
+window.off = function off(event, el, callback) {
 	  if (document.addEventListener) {
 	    return events.off(event, el, callback);
 	  } else {
@@ -342,7 +349,7 @@
 	  }
 	};
 
-	var once = function once(event, el, callback) {
+window.once = function once(event, el, callback) {
 	  //DONE:50 Finish once function.
 	  if (document.addEventListener) {
 	    return events.once(event, el, callback);
@@ -351,7 +358,7 @@
 	  } //TEST:70 Test once function.
 	};
 
-	var spark = function spark(evt, el) {
+window.spark = function spark(evt, el) {
 	  el = utils.queryDOM(el);
 
 	  if (document.addEventListener) {
@@ -361,7 +368,7 @@
 	  }
 	};
 
-	var blur = function blur(el) {
+window.blur = function blur(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -373,7 +380,7 @@
 	  }
 	};
 
-	var click = function click(el) {
+window.click = function click(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -385,7 +392,7 @@
 	  }
 	};
 
-	var dblClick = function dblClick(el) {
+window.dblClick = function dblClick(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -397,7 +404,7 @@
 	  }
 	};
 
-	var error = function error(el) {
+window.error = function error(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -409,7 +416,7 @@
 	  }
 	};
 
-	var focus = function focus(el) {
+window.focus = function focus(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -421,7 +428,7 @@
 	  }
 	};
 
-	var focusIn = function focusIn(el) {
+window.focusIn = function focusIn(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -433,7 +440,7 @@
 	  }
 	};
 
-	var focusOut = function focusOut(el) {
+window.focusOut = function focusOut(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -445,7 +452,7 @@
 	  }
 	};
 
-	var keyUp = function keyUp(el) {
+window.keyUp = function keyUp(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -457,7 +464,7 @@
 	  }
 	};
 
-	var keyDown = function keyDown(el) {
+window.keyDown = function keyDown(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -469,7 +476,7 @@
 	  }
 	};
 
-	var load = function load(el) {
+window.load = function load(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -481,7 +488,7 @@
 	  }
 	};
 
-	var unLoad = function unLoad(el) {
+window.unLoad = function unLoad(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -493,7 +500,7 @@
 	  }
 	};
 
-	var mouse = function mouse(sfx, el) {
+window.mouse = function mouse(sfx, el) {
 	  var cb = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
 	  el = utils.queryDOM(el);
@@ -505,7 +512,7 @@
 	  }
 	};
 
-	var resize = function resize(el) {
+window.resize = function resize(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -517,7 +524,7 @@
 	  }
 	};
 
-	var scroll = function scroll(el) {
+window.scroll = function scroll(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -529,7 +536,7 @@
 	  }
 	};
 
-	var select = function select(el) {
+window.select = function select(el) {
 	  var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
 	  el = utils.queryDOM(el);
@@ -2620,7 +2627,7 @@
 	function lookBehind(leftContextRE, matchRE, subject) {
 	  var returnMatch, match, leftContext;
 
-	  match = matchRE.exec(subject);
+	  match = matchRE.exec(subject)[0];
 	  leftContext = subject.substring(0, subject.indexOf(match));
 
 	  if (leftContextRE.test(leftContext)) {

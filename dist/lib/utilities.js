@@ -183,7 +183,7 @@ function hasAncestor(l, ance) {
 function lookBehind(leftContextRE, matchRE, subject) {
   var returnMatch, match, leftContext;
 
-  match = matchRE.exec(subject);
+  match = matchRE.exec(subject)[0];
   leftContext = subject.substring(0, subject.indexOf(match));
 
   if (leftContextRE.test(leftContext)) {
