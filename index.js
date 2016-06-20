@@ -15,6 +15,11 @@ URL: ""
 
 //DONE: elements syntax not working in parenthesis.
 //FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
+//FIXME: eJS Interpreter hangs when eJS element is within brackets, and directly adjacent to one of them.
+//FIXME: cannot create element from variable representing a string.
+//FIXME: Find out why module imports are printing twice..
+
+
 //DONE: Can't put elements in comments.
 //DONE: HTML interfering with regExp's.
 //DONE: can't use file blobs with import() func.
@@ -32,12 +37,17 @@ URL: ""
 //TODO: more .transform() methods.
 //DONE: += html method.
 //DONE: transform methods. i.e. this.turnX(), this.turnY.
-//TODO: .do(), do() animation functionality.
+//TODO: .do(), do() animation functionality. (with tween.js?)
 //DONE: be able to create element object from e.target.....
 //TODO: getCookie, setCookie, checkCookie functions....
 //TODO: move functions........
 //TODO: Needed polyfills.
 //TODO: element.classList()....
+//TODO: hover(mouseOverFunc, mouseOutFunc) func.....
+//TODO: element.name() function.....
+//TODO: add functionality to make() function to allow creating nameless, id less divs.
+
+
 
 
 
