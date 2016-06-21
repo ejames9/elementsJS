@@ -53,9 +53,6 @@ var marked = require("marked");
 
 var hljs = require("highlight.js");
 
-var _testy = require("../../js/testy.js");
-var testy = _testy.testy;
-
 var browser = require("bowser");
 
 ///End Module requires///
@@ -291,6 +288,8 @@ function clickController() {
         break;
       case e.target.tagName === 'A':
         log(e.target.tagName, 'red');
+        if (/gthbBtn/.test(e.target.classList)) break;
+
         e.preventDefault();
 
         offSets = SNC.getOffSets();

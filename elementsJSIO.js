@@ -95,14 +95,11 @@
 	var scroll = elementsJS.scroll;
 	var __ = elementsJS.__;
 
-	var marked = __webpack_require__(10);
+	var marked = __webpack_require__(11);
 
-	var hljs = __webpack_require__(11);
+	var hljs = __webpack_require__(12);
 
-	var _testy = __webpack_require__(165);
-	var testy = _testy.testy;
-
-	var browser = __webpack_require__(166);
+	var browser = __webpack_require__(10);
 
 	///End Module requires///
 
@@ -337,6 +334,8 @@
 	        break;
 	      case e.target.tagName === 'A':
 	        log(e.target.tagName, 'red');
+	        if (/gthbBtn/.test(e.target.classList)) break;
+
 	        e.preventDefault();
 
 	        offSets = SNC.getOffSets();
@@ -530,6 +529,8 @@
 	Author: Eric James Foster
 	License: MIT
 	*/
+
+	var browser = __webpack_require__(10);
 
 	//global that documents what state the menu is currently in.
 	window.sideNavState = [];
@@ -1031,6 +1032,7 @@
 
 	function sideNavController() {
 	      // console.log(dom('[name=hidden]'));
+	      sideNavSticky();
 
 	      var offSets = getOffSets(),
 	          diff = 466;
@@ -1515,6 +1517,37 @@
 
 	                  default:
 	                        break;
+	            }
+	      });
+	}
+
+	function sideNavSticky() {
+	      if (browser.chrome) (0, _elementsJS.log)('hollo there');
+	      var _3Col = function () {
+	            var elem6 = _$('#threeCol') ? dom('#threeCol') : make('#threeCol').put("body");
+	            return elem6;
+	      }(),
+	          _sideNav = function () {
+	            var elem7 = _$('#sideNav') ? dom('#sideNav') : make('#sideNav').put("body");
+	            return elem7;
+	      }(),
+	          _html = function () {
+	            var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	            return elem8;
+	      }(),
+	          _body = function () {
+	            var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	            return elem9;
+	      }();
+	      (0, _elementsJS.log)(sideNav.offsetTop);
+
+	      (0, _elementsJS.scroll)(window, function () {
+	            (0, _elementsJS.log)(_body.scrolled());
+	            if (_html.scrolled() > _3Col.fromTop() || _body.scrolled() > _3Col.fromTop()) {
+	                  _sideNav.position('fixed').top('25px').left('50px');
+	            }
+	            if (_html.scrolled() < _3Col.fromTop() && _html.scrolled() > _3Col.fromTop() - 550 || _body.scrolled() < _3Col.fromTop() && _body.scrolled() > _3Col.fromTop() - 550) {
+	                  _sideNav.position('').top('25px').left('50px');
 	            }
 	      });
 	}
@@ -5097,6 +5130,349 @@
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Bowser - a browser detector
+	 * https://github.com/ded/bowser
+	 * MIT License | (c) Dustin Diaz 2015
+	 */
+
+	!function (name, definition) {
+	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
+	  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+	  else this[name] = definition()
+	}('bowser', function () {
+	  /**
+	    * See useragents.js for examples of navigator.userAgent
+	    */
+
+	  var t = true
+
+	  function detect(ua) {
+
+	    function getFirstMatch(regex) {
+	      var match = ua.match(regex);
+	      return (match && match.length > 1 && match[1]) || '';
+	    }
+
+	    function getSecondMatch(regex) {
+	      var match = ua.match(regex);
+	      return (match && match.length > 1 && match[2]) || '';
+	    }
+
+	    var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
+	      , likeAndroid = /like android/i.test(ua)
+	      , android = !likeAndroid && /android/i.test(ua)
+	      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
+	      , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
+	      , chromeos = /CrOS/.test(ua)
+	      , silk = /silk/i.test(ua)
+	      , sailfish = /sailfish/i.test(ua)
+	      , tizen = /tizen/i.test(ua)
+	      , webos = /(web|hpw)os/i.test(ua)
+	      , windowsphone = /windows phone/i.test(ua)
+	      , windows = !windowsphone && /windows/i.test(ua)
+	      , mac = !iosdevice && !silk && /macintosh/i.test(ua)
+	      , linux = !android && !sailfish && !tizen && !webos && /linux/i.test(ua)
+	      , edgeVersion = getFirstMatch(/edge\/(\d+(\.\d+)?)/i)
+	      , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
+	      , tablet = /tablet/i.test(ua)
+	      , mobile = !tablet && /[^-]mobi/i.test(ua)
+	      , result
+
+	    if (/opera|opr/i.test(ua)) {
+	      result = {
+	        name: 'Opera'
+	      , opera: t
+	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/yabrowser/i.test(ua)) {
+	      result = {
+	        name: 'Yandex Browser'
+	      , yandexbrowser: t
+	      , version: versionIdentifier || getFirstMatch(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/ucbrowser/i.test(ua)) {
+	      result = {
+	          name: 'UC Browser'
+	        , ucbrowser: t
+	        , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (windowsphone) {
+	      result = {
+	        name: 'Windows Phone'
+	      , windowsphone: t
+	      }
+	      if (edgeVersion) {
+	        result.msedge = t
+	        result.version = edgeVersion
+	      }
+	      else {
+	        result.msie = t
+	        result.version = getFirstMatch(/iemobile\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/msie|trident/i.test(ua)) {
+	      result = {
+	        name: 'Internet Explorer'
+	      , msie: t
+	      , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
+	      }
+	    } else if (chromeos) {
+	      result = {
+	        name: 'Chrome'
+	      , chromeos: t
+	      , chromeBook: t
+	      , chrome: t
+	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+	      }
+	    } else if (/chrome.+? edge/i.test(ua)) {
+	      result = {
+	        name: 'Microsoft Edge'
+	      , msedge: t
+	      , version: edgeVersion
+	      }
+	    }
+		else if (/vivaldi/i.test(ua)) {
+			result = {
+				name: 'Vivaldi'
+				, vivaldi: t
+				, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
+			}
+		}
+	    else if (/chrome|crios|crmo/i.test(ua)) {
+	      result = {
+	        name: 'Chrome'
+	      , chrome: t
+	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (iosdevice) {
+	      result = {
+	        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
+	      }
+	      // WTF: version is not part of user agent in web apps
+	      if (versionIdentifier) {
+	        result.version = versionIdentifier
+	      }
+	    }
+	    else if (sailfish) {
+	      result = {
+	        name: 'Sailfish'
+	      , sailfish: t
+	      , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/seamonkey\//i.test(ua)) {
+	      result = {
+	        name: 'SeaMonkey'
+	      , seamonkey: t
+	      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/firefox|iceweasel/i.test(ua)) {
+	      result = {
+	        name: 'Firefox'
+	      , firefox: t
+	      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
+	      }
+	      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
+	        result.firefoxos = t
+	      }
+	    }
+	    else if (silk) {
+	      result =  {
+	        name: 'Amazon Silk'
+	      , silk: t
+	      , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (android) {
+	      result = {
+	        name: 'Android'
+	      , version: versionIdentifier
+	      }
+	    }
+	    else if (/phantom/i.test(ua)) {
+	      result = {
+	        name: 'PhantomJS'
+	      , phantom: t
+	      , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
+	      result = {
+	        name: 'BlackBerry'
+	      , blackberry: t
+	      , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (webos) {
+	      result = {
+	        name: 'WebOS'
+	      , webos: t
+	      , version: versionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)
+	      };
+	      /touchpad\//i.test(ua) && (result.touchpad = t)
+	    }
+	    else if (/bada/i.test(ua)) {
+	      result = {
+	        name: 'Bada'
+	      , bada: t
+	      , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
+	      };
+	    }
+	    else if (tizen) {
+	      result = {
+	        name: 'Tizen'
+	      , tizen: t
+	      , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
+	      };
+	    }
+	    else if (/qupzilla/i.test(ua)) {
+	      result = {
+	        name: 'QupZilla'
+	        , qupzilla: t
+	        , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
+	      }
+	    }
+	    else if (/safari/i.test(ua)) {
+	      result = {
+	        name: 'Safari'
+	      , safari: t
+	      , version: versionIdentifier
+	      }
+	    }
+	    else if(/googlebot/i.test(ua)) {
+	      result = {
+	        name: 'Googlebot'
+	      , googlebot: t
+	      , version: getFirstMatch(/googlebot\/(\d+(\.\d+))/i) || versionIdentifier
+	      }
+	    }
+	    else {
+	      result = {
+	        name: getFirstMatch(/^(.*)\/(.*) /),
+	        version: getSecondMatch(/^(.*)\/(.*) /)
+	     };
+	   }
+
+	    // set webkit or gecko flag for browsers based on these engines
+	    if (!result.msedge && /(apple)?webkit/i.test(ua)) {
+	      result.name = result.name || "Webkit"
+	      result.webkit = t
+	      if (!result.version && versionIdentifier) {
+	        result.version = versionIdentifier
+	      }
+	    } else if (!result.opera && /gecko\//i.test(ua)) {
+	      result.name = result.name || "Gecko"
+	      result.gecko = t
+	      result.version = result.version || getFirstMatch(/gecko\/(\d+(\.\d+)?)/i)
+	    }
+
+	    // set OS flags for platforms that have multiple browsers
+	    if (!result.msedge && (android || result.silk)) {
+	      result.android = t
+	    } else if (iosdevice) {
+	      result[iosdevice] = t
+	      result.ios = t
+	    } else if (windows) {
+	      result.windows = t
+	    } else if (mac) {
+	      result.mac = t
+	    } else if (linux) {
+	      result.linux = t
+	    }
+
+	    // OS version extraction
+	    var osVersion = '';
+	    if (result.windowsphone) {
+	      osVersion = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i);
+	    } else if (iosdevice) {
+	      osVersion = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i);
+	      osVersion = osVersion.replace(/[_\s]/g, '.');
+	    } else if (android) {
+	      osVersion = getFirstMatch(/android[ \/-](\d+(\.\d+)*)/i);
+	    } else if (result.webos) {
+	      osVersion = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i);
+	    } else if (result.blackberry) {
+	      osVersion = getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i);
+	    } else if (result.bada) {
+	      osVersion = getFirstMatch(/bada\/(\d+(\.\d+)*)/i);
+	    } else if (result.tizen) {
+	      osVersion = getFirstMatch(/tizen[\/\s](\d+(\.\d+)*)/i);
+	    }
+	    if (osVersion) {
+	      result.osversion = osVersion;
+	    }
+
+	    // device type extraction
+	    var osMajorVersion = osVersion.split('.')[0];
+	    if (tablet || nexusTablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
+	      result.tablet = t
+	    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || nexusMobile || result.blackberry || result.webos || result.bada) {
+	      result.mobile = t
+	    }
+
+	    // Graded Browser Support
+	    // http://developer.yahoo.com/yui/articles/gbs
+	    if (result.msedge ||
+	        (result.msie && result.version >= 10) ||
+	        (result.yandexbrowser && result.version >= 15) ||
+			(result.vivaldi && result.version >= 1.0) ||
+	        (result.chrome && result.version >= 20) ||
+	        (result.firefox && result.version >= 20.0) ||
+	        (result.safari && result.version >= 6) ||
+	        (result.opera && result.version >= 10.0) ||
+	        (result.ios && result.osversion && result.osversion.split(".")[0] >= 6) ||
+	        (result.blackberry && result.version >= 10.1)
+	        ) {
+	      result.a = t;
+	    }
+	    else if ((result.msie && result.version < 10) ||
+	        (result.chrome && result.version < 20) ||
+	        (result.firefox && result.version < 20.0) ||
+	        (result.safari && result.version < 6) ||
+	        (result.opera && result.version < 10.0) ||
+	        (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
+	        ) {
+	      result.c = t
+	    } else result.x = t
+
+	    return result
+	  }
+
+	  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')
+
+	  bowser.test = function (browserList) {
+	    for (var i = 0; i < browserList.length; ++i) {
+	      var browserItem = browserList[i];
+	      if (typeof browserItem=== 'string') {
+	        if (browserItem in bowser) {
+	          return true;
+	        }
+	      }
+	    }
+	    return false;
+	  }
+
+	  /*
+	   * Set our detect method to the main bowser object so we can
+	   * reuse it to test other user agents.
+	   * This is needed to implement future tests.
+	   */
+	  bowser._detect = detect;
+
+	  return bowser
+	});
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * marked - a markdown parser
 	 * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
@@ -6386,168 +6762,168 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(12);
+	var hljs = __webpack_require__(13);
 
-	hljs.registerLanguage('1c', __webpack_require__(13));
-	hljs.registerLanguage('accesslog', __webpack_require__(14));
-	hljs.registerLanguage('actionscript', __webpack_require__(15));
-	hljs.registerLanguage('apache', __webpack_require__(16));
-	hljs.registerLanguage('applescript', __webpack_require__(17));
-	hljs.registerLanguage('arduino', __webpack_require__(18));
-	hljs.registerLanguage('armasm', __webpack_require__(19));
-	hljs.registerLanguage('xml', __webpack_require__(20));
-	hljs.registerLanguage('asciidoc', __webpack_require__(21));
-	hljs.registerLanguage('aspectj', __webpack_require__(22));
-	hljs.registerLanguage('autohotkey', __webpack_require__(23));
-	hljs.registerLanguage('autoit', __webpack_require__(24));
-	hljs.registerLanguage('avrasm', __webpack_require__(25));
-	hljs.registerLanguage('axapta', __webpack_require__(26));
-	hljs.registerLanguage('bash', __webpack_require__(27));
-	hljs.registerLanguage('basic', __webpack_require__(28));
-	hljs.registerLanguage('brainfuck', __webpack_require__(29));
-	hljs.registerLanguage('cal', __webpack_require__(30));
-	hljs.registerLanguage('capnproto', __webpack_require__(31));
-	hljs.registerLanguage('ceylon', __webpack_require__(32));
-	hljs.registerLanguage('clojure', __webpack_require__(33));
-	hljs.registerLanguage('clojure-repl', __webpack_require__(34));
-	hljs.registerLanguage('cmake', __webpack_require__(35));
-	hljs.registerLanguage('coffeescript', __webpack_require__(36));
-	hljs.registerLanguage('cos', __webpack_require__(37));
-	hljs.registerLanguage('cpp', __webpack_require__(38));
-	hljs.registerLanguage('crmsh', __webpack_require__(39));
-	hljs.registerLanguage('crystal', __webpack_require__(40));
-	hljs.registerLanguage('cs', __webpack_require__(41));
-	hljs.registerLanguage('csp', __webpack_require__(42));
-	hljs.registerLanguage('css', __webpack_require__(43));
-	hljs.registerLanguage('d', __webpack_require__(44));
-	hljs.registerLanguage('markdown', __webpack_require__(45));
-	hljs.registerLanguage('dart', __webpack_require__(46));
-	hljs.registerLanguage('delphi', __webpack_require__(47));
-	hljs.registerLanguage('diff', __webpack_require__(48));
-	hljs.registerLanguage('django', __webpack_require__(49));
-	hljs.registerLanguage('dns', __webpack_require__(50));
-	hljs.registerLanguage('dockerfile', __webpack_require__(51));
-	hljs.registerLanguage('dos', __webpack_require__(52));
-	hljs.registerLanguage('dts', __webpack_require__(53));
-	hljs.registerLanguage('dust', __webpack_require__(54));
-	hljs.registerLanguage('elixir', __webpack_require__(55));
-	hljs.registerLanguage('elm', __webpack_require__(56));
-	hljs.registerLanguage('ruby', __webpack_require__(57));
-	hljs.registerLanguage('erb', __webpack_require__(58));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(59));
-	hljs.registerLanguage('erlang', __webpack_require__(60));
-	hljs.registerLanguage('fix', __webpack_require__(61));
-	hljs.registerLanguage('fortran', __webpack_require__(62));
-	hljs.registerLanguage('fsharp', __webpack_require__(63));
-	hljs.registerLanguage('gams', __webpack_require__(64));
-	hljs.registerLanguage('gauss', __webpack_require__(65));
-	hljs.registerLanguage('gcode', __webpack_require__(66));
-	hljs.registerLanguage('gherkin', __webpack_require__(67));
-	hljs.registerLanguage('glsl', __webpack_require__(68));
-	hljs.registerLanguage('go', __webpack_require__(69));
-	hljs.registerLanguage('golo', __webpack_require__(70));
-	hljs.registerLanguage('gradle', __webpack_require__(71));
-	hljs.registerLanguage('groovy', __webpack_require__(72));
-	hljs.registerLanguage('haml', __webpack_require__(73));
-	hljs.registerLanguage('handlebars', __webpack_require__(74));
-	hljs.registerLanguage('haskell', __webpack_require__(75));
-	hljs.registerLanguage('haxe', __webpack_require__(76));
-	hljs.registerLanguage('hsp', __webpack_require__(77));
-	hljs.registerLanguage('htmlbars', __webpack_require__(78));
-	hljs.registerLanguage('http', __webpack_require__(79));
-	hljs.registerLanguage('inform7', __webpack_require__(80));
-	hljs.registerLanguage('ini', __webpack_require__(81));
-	hljs.registerLanguage('irpf90', __webpack_require__(82));
-	hljs.registerLanguage('java', __webpack_require__(83));
-	hljs.registerLanguage('javascript', __webpack_require__(84));
-	hljs.registerLanguage('json', __webpack_require__(85));
-	hljs.registerLanguage('julia', __webpack_require__(86));
-	hljs.registerLanguage('kotlin', __webpack_require__(87));
-	hljs.registerLanguage('lasso', __webpack_require__(88));
-	hljs.registerLanguage('less', __webpack_require__(89));
-	hljs.registerLanguage('lisp', __webpack_require__(90));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(91));
-	hljs.registerLanguage('livescript', __webpack_require__(92));
-	hljs.registerLanguage('lua', __webpack_require__(93));
-	hljs.registerLanguage('makefile', __webpack_require__(94));
-	hljs.registerLanguage('mathematica', __webpack_require__(95));
-	hljs.registerLanguage('matlab', __webpack_require__(96));
-	hljs.registerLanguage('maxima', __webpack_require__(97));
-	hljs.registerLanguage('mel', __webpack_require__(98));
-	hljs.registerLanguage('mercury', __webpack_require__(99));
-	hljs.registerLanguage('mipsasm', __webpack_require__(100));
-	hljs.registerLanguage('mizar', __webpack_require__(101));
-	hljs.registerLanguage('perl', __webpack_require__(102));
-	hljs.registerLanguage('mojolicious', __webpack_require__(103));
-	hljs.registerLanguage('monkey', __webpack_require__(104));
-	hljs.registerLanguage('moonscript', __webpack_require__(105));
-	hljs.registerLanguage('nginx', __webpack_require__(106));
-	hljs.registerLanguage('nimrod', __webpack_require__(107));
-	hljs.registerLanguage('nix', __webpack_require__(108));
-	hljs.registerLanguage('nsis', __webpack_require__(109));
-	hljs.registerLanguage('objectivec', __webpack_require__(110));
-	hljs.registerLanguage('ocaml', __webpack_require__(111));
-	hljs.registerLanguage('openscad', __webpack_require__(112));
-	hljs.registerLanguage('oxygene', __webpack_require__(113));
-	hljs.registerLanguage('parser3', __webpack_require__(114));
-	hljs.registerLanguage('pf', __webpack_require__(115));
-	hljs.registerLanguage('php', __webpack_require__(116));
-	hljs.registerLanguage('powershell', __webpack_require__(117));
-	hljs.registerLanguage('processing', __webpack_require__(118));
-	hljs.registerLanguage('profile', __webpack_require__(119));
-	hljs.registerLanguage('prolog', __webpack_require__(120));
-	hljs.registerLanguage('protobuf', __webpack_require__(121));
-	hljs.registerLanguage('puppet', __webpack_require__(122));
-	hljs.registerLanguage('python', __webpack_require__(123));
-	hljs.registerLanguage('q', __webpack_require__(124));
-	hljs.registerLanguage('qml', __webpack_require__(125));
-	hljs.registerLanguage('r', __webpack_require__(126));
-	hljs.registerLanguage('rib', __webpack_require__(127));
-	hljs.registerLanguage('roboconf', __webpack_require__(128));
-	hljs.registerLanguage('rsl', __webpack_require__(129));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(130));
-	hljs.registerLanguage('rust', __webpack_require__(131));
-	hljs.registerLanguage('scala', __webpack_require__(132));
-	hljs.registerLanguage('scheme', __webpack_require__(133));
-	hljs.registerLanguage('scilab', __webpack_require__(134));
-	hljs.registerLanguage('scss', __webpack_require__(135));
-	hljs.registerLanguage('smali', __webpack_require__(136));
-	hljs.registerLanguage('smalltalk', __webpack_require__(137));
-	hljs.registerLanguage('sml', __webpack_require__(138));
-	hljs.registerLanguage('sqf', __webpack_require__(139));
-	hljs.registerLanguage('sql', __webpack_require__(140));
-	hljs.registerLanguage('stan', __webpack_require__(141));
-	hljs.registerLanguage('stata', __webpack_require__(142));
-	hljs.registerLanguage('step21', __webpack_require__(143));
-	hljs.registerLanguage('stylus', __webpack_require__(144));
-	hljs.registerLanguage('swift', __webpack_require__(145));
-	hljs.registerLanguage('taggerscript', __webpack_require__(146));
-	hljs.registerLanguage('tcl', __webpack_require__(147));
-	hljs.registerLanguage('tex', __webpack_require__(148));
-	hljs.registerLanguage('thrift', __webpack_require__(149));
-	hljs.registerLanguage('tp', __webpack_require__(150));
-	hljs.registerLanguage('twig', __webpack_require__(151));
-	hljs.registerLanguage('typescript', __webpack_require__(152));
-	hljs.registerLanguage('vala', __webpack_require__(153));
-	hljs.registerLanguage('vbnet', __webpack_require__(154));
-	hljs.registerLanguage('vbscript', __webpack_require__(155));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(156));
-	hljs.registerLanguage('verilog', __webpack_require__(157));
-	hljs.registerLanguage('vhdl', __webpack_require__(158));
-	hljs.registerLanguage('vim', __webpack_require__(159));
-	hljs.registerLanguage('x86asm', __webpack_require__(160));
-	hljs.registerLanguage('xl', __webpack_require__(161));
-	hljs.registerLanguage('xquery', __webpack_require__(162));
-	hljs.registerLanguage('yaml', __webpack_require__(163));
-	hljs.registerLanguage('zephir', __webpack_require__(164));
+	hljs.registerLanguage('1c', __webpack_require__(14));
+	hljs.registerLanguage('accesslog', __webpack_require__(15));
+	hljs.registerLanguage('actionscript', __webpack_require__(16));
+	hljs.registerLanguage('apache', __webpack_require__(17));
+	hljs.registerLanguage('applescript', __webpack_require__(18));
+	hljs.registerLanguage('arduino', __webpack_require__(19));
+	hljs.registerLanguage('armasm', __webpack_require__(20));
+	hljs.registerLanguage('xml', __webpack_require__(21));
+	hljs.registerLanguage('asciidoc', __webpack_require__(22));
+	hljs.registerLanguage('aspectj', __webpack_require__(23));
+	hljs.registerLanguage('autohotkey', __webpack_require__(24));
+	hljs.registerLanguage('autoit', __webpack_require__(25));
+	hljs.registerLanguage('avrasm', __webpack_require__(26));
+	hljs.registerLanguage('axapta', __webpack_require__(27));
+	hljs.registerLanguage('bash', __webpack_require__(28));
+	hljs.registerLanguage('basic', __webpack_require__(29));
+	hljs.registerLanguage('brainfuck', __webpack_require__(30));
+	hljs.registerLanguage('cal', __webpack_require__(31));
+	hljs.registerLanguage('capnproto', __webpack_require__(32));
+	hljs.registerLanguage('ceylon', __webpack_require__(33));
+	hljs.registerLanguage('clojure', __webpack_require__(34));
+	hljs.registerLanguage('clojure-repl', __webpack_require__(35));
+	hljs.registerLanguage('cmake', __webpack_require__(36));
+	hljs.registerLanguage('coffeescript', __webpack_require__(37));
+	hljs.registerLanguage('cos', __webpack_require__(38));
+	hljs.registerLanguage('cpp', __webpack_require__(39));
+	hljs.registerLanguage('crmsh', __webpack_require__(40));
+	hljs.registerLanguage('crystal', __webpack_require__(41));
+	hljs.registerLanguage('cs', __webpack_require__(42));
+	hljs.registerLanguage('csp', __webpack_require__(43));
+	hljs.registerLanguage('css', __webpack_require__(44));
+	hljs.registerLanguage('d', __webpack_require__(45));
+	hljs.registerLanguage('markdown', __webpack_require__(46));
+	hljs.registerLanguage('dart', __webpack_require__(47));
+	hljs.registerLanguage('delphi', __webpack_require__(48));
+	hljs.registerLanguage('diff', __webpack_require__(49));
+	hljs.registerLanguage('django', __webpack_require__(50));
+	hljs.registerLanguage('dns', __webpack_require__(51));
+	hljs.registerLanguage('dockerfile', __webpack_require__(52));
+	hljs.registerLanguage('dos', __webpack_require__(53));
+	hljs.registerLanguage('dts', __webpack_require__(54));
+	hljs.registerLanguage('dust', __webpack_require__(55));
+	hljs.registerLanguage('elixir', __webpack_require__(56));
+	hljs.registerLanguage('elm', __webpack_require__(57));
+	hljs.registerLanguage('ruby', __webpack_require__(58));
+	hljs.registerLanguage('erb', __webpack_require__(59));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(60));
+	hljs.registerLanguage('erlang', __webpack_require__(61));
+	hljs.registerLanguage('fix', __webpack_require__(62));
+	hljs.registerLanguage('fortran', __webpack_require__(63));
+	hljs.registerLanguage('fsharp', __webpack_require__(64));
+	hljs.registerLanguage('gams', __webpack_require__(65));
+	hljs.registerLanguage('gauss', __webpack_require__(66));
+	hljs.registerLanguage('gcode', __webpack_require__(67));
+	hljs.registerLanguage('gherkin', __webpack_require__(68));
+	hljs.registerLanguage('glsl', __webpack_require__(69));
+	hljs.registerLanguage('go', __webpack_require__(70));
+	hljs.registerLanguage('golo', __webpack_require__(71));
+	hljs.registerLanguage('gradle', __webpack_require__(72));
+	hljs.registerLanguage('groovy', __webpack_require__(73));
+	hljs.registerLanguage('haml', __webpack_require__(74));
+	hljs.registerLanguage('handlebars', __webpack_require__(75));
+	hljs.registerLanguage('haskell', __webpack_require__(76));
+	hljs.registerLanguage('haxe', __webpack_require__(77));
+	hljs.registerLanguage('hsp', __webpack_require__(78));
+	hljs.registerLanguage('htmlbars', __webpack_require__(79));
+	hljs.registerLanguage('http', __webpack_require__(80));
+	hljs.registerLanguage('inform7', __webpack_require__(81));
+	hljs.registerLanguage('ini', __webpack_require__(82));
+	hljs.registerLanguage('irpf90', __webpack_require__(83));
+	hljs.registerLanguage('java', __webpack_require__(84));
+	hljs.registerLanguage('javascript', __webpack_require__(85));
+	hljs.registerLanguage('json', __webpack_require__(86));
+	hljs.registerLanguage('julia', __webpack_require__(87));
+	hljs.registerLanguage('kotlin', __webpack_require__(88));
+	hljs.registerLanguage('lasso', __webpack_require__(89));
+	hljs.registerLanguage('less', __webpack_require__(90));
+	hljs.registerLanguage('lisp', __webpack_require__(91));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(92));
+	hljs.registerLanguage('livescript', __webpack_require__(93));
+	hljs.registerLanguage('lua', __webpack_require__(94));
+	hljs.registerLanguage('makefile', __webpack_require__(95));
+	hljs.registerLanguage('mathematica', __webpack_require__(96));
+	hljs.registerLanguage('matlab', __webpack_require__(97));
+	hljs.registerLanguage('maxima', __webpack_require__(98));
+	hljs.registerLanguage('mel', __webpack_require__(99));
+	hljs.registerLanguage('mercury', __webpack_require__(100));
+	hljs.registerLanguage('mipsasm', __webpack_require__(101));
+	hljs.registerLanguage('mizar', __webpack_require__(102));
+	hljs.registerLanguage('perl', __webpack_require__(103));
+	hljs.registerLanguage('mojolicious', __webpack_require__(104));
+	hljs.registerLanguage('monkey', __webpack_require__(105));
+	hljs.registerLanguage('moonscript', __webpack_require__(106));
+	hljs.registerLanguage('nginx', __webpack_require__(107));
+	hljs.registerLanguage('nimrod', __webpack_require__(108));
+	hljs.registerLanguage('nix', __webpack_require__(109));
+	hljs.registerLanguage('nsis', __webpack_require__(110));
+	hljs.registerLanguage('objectivec', __webpack_require__(111));
+	hljs.registerLanguage('ocaml', __webpack_require__(112));
+	hljs.registerLanguage('openscad', __webpack_require__(113));
+	hljs.registerLanguage('oxygene', __webpack_require__(114));
+	hljs.registerLanguage('parser3', __webpack_require__(115));
+	hljs.registerLanguage('pf', __webpack_require__(116));
+	hljs.registerLanguage('php', __webpack_require__(117));
+	hljs.registerLanguage('powershell', __webpack_require__(118));
+	hljs.registerLanguage('processing', __webpack_require__(119));
+	hljs.registerLanguage('profile', __webpack_require__(120));
+	hljs.registerLanguage('prolog', __webpack_require__(121));
+	hljs.registerLanguage('protobuf', __webpack_require__(122));
+	hljs.registerLanguage('puppet', __webpack_require__(123));
+	hljs.registerLanguage('python', __webpack_require__(124));
+	hljs.registerLanguage('q', __webpack_require__(125));
+	hljs.registerLanguage('qml', __webpack_require__(126));
+	hljs.registerLanguage('r', __webpack_require__(127));
+	hljs.registerLanguage('rib', __webpack_require__(128));
+	hljs.registerLanguage('roboconf', __webpack_require__(129));
+	hljs.registerLanguage('rsl', __webpack_require__(130));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(131));
+	hljs.registerLanguage('rust', __webpack_require__(132));
+	hljs.registerLanguage('scala', __webpack_require__(133));
+	hljs.registerLanguage('scheme', __webpack_require__(134));
+	hljs.registerLanguage('scilab', __webpack_require__(135));
+	hljs.registerLanguage('scss', __webpack_require__(136));
+	hljs.registerLanguage('smali', __webpack_require__(137));
+	hljs.registerLanguage('smalltalk', __webpack_require__(138));
+	hljs.registerLanguage('sml', __webpack_require__(139));
+	hljs.registerLanguage('sqf', __webpack_require__(140));
+	hljs.registerLanguage('sql', __webpack_require__(141));
+	hljs.registerLanguage('stan', __webpack_require__(142));
+	hljs.registerLanguage('stata', __webpack_require__(143));
+	hljs.registerLanguage('step21', __webpack_require__(144));
+	hljs.registerLanguage('stylus', __webpack_require__(145));
+	hljs.registerLanguage('swift', __webpack_require__(146));
+	hljs.registerLanguage('taggerscript', __webpack_require__(147));
+	hljs.registerLanguage('tcl', __webpack_require__(148));
+	hljs.registerLanguage('tex', __webpack_require__(149));
+	hljs.registerLanguage('thrift', __webpack_require__(150));
+	hljs.registerLanguage('tp', __webpack_require__(151));
+	hljs.registerLanguage('twig', __webpack_require__(152));
+	hljs.registerLanguage('typescript', __webpack_require__(153));
+	hljs.registerLanguage('vala', __webpack_require__(154));
+	hljs.registerLanguage('vbnet', __webpack_require__(155));
+	hljs.registerLanguage('vbscript', __webpack_require__(156));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(157));
+	hljs.registerLanguage('verilog', __webpack_require__(158));
+	hljs.registerLanguage('vhdl', __webpack_require__(159));
+	hljs.registerLanguage('vim', __webpack_require__(160));
+	hljs.registerLanguage('x86asm', __webpack_require__(161));
+	hljs.registerLanguage('xl', __webpack_require__(162));
+	hljs.registerLanguage('xquery', __webpack_require__(163));
+	hljs.registerLanguage('yaml', __webpack_require__(164));
+	hljs.registerLanguage('zephir', __webpack_require__(165));
 
 	module.exports = hljs;
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -7337,7 +7713,7 @@
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -7420,7 +7796,7 @@
 	};
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7462,7 +7838,7 @@
 	};
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7540,7 +7916,7 @@
 	};
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7590,7 +7966,7 @@
 	};
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7680,7 +8056,7 @@
 	};
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7838,7 +8214,7 @@
 	};
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7934,7 +8310,7 @@
 	};
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8041,7 +8417,7 @@
 	};
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8233,7 +8609,7 @@
 	};
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -8381,7 +8757,7 @@
 	};
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8433,7 +8809,7 @@
 	};
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10191,7 +10567,7 @@
 	};
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10257,7 +10633,7 @@
 	};
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10292,7 +10668,7 @@
 	};
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10371,7 +10747,7 @@
 	};
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10426,7 +10802,7 @@
 	};
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -10467,7 +10843,7 @@
 	};
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10551,7 +10927,7 @@
 	};
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10604,7 +10980,7 @@
 	};
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10675,7 +11051,7 @@
 	};
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10774,7 +11150,7 @@
 	};
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10793,7 +11169,7 @@
 	};
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10835,7 +11211,7 @@
 	};
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10978,7 +11354,7 @@
 	};
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	module.exports = function cos (hljs) {
@@ -11114,7 +11490,7 @@
 	};
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11276,7 +11652,7 @@
 	};
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11374,7 +11750,7 @@
 	};
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11556,7 +11932,7 @@
 	};
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11678,7 +12054,7 @@
 	};
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11704,7 +12080,7 @@
 	};
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11813,7 +12189,7 @@
 	};
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -12075,7 +12451,7 @@
 	};
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12186,7 +12562,7 @@
 	};
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -12291,7 +12667,7 @@
 	};
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12363,7 +12739,7 @@
 	};
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12407,7 +12783,7 @@
 	};
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12475,7 +12851,7 @@
 	};
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12508,7 +12884,7 @@
 	};
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12541,7 +12917,7 @@
 	};
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12597,7 +12973,7 @@
 	};
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12725,7 +13101,7 @@
 	};
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12761,7 +13137,7 @@
 	};
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12862,7 +13238,7 @@
 	};
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12949,7 +13325,7 @@
 	};
 
 /***/ },
-/* 57 */
+/* 58 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13126,7 +13502,7 @@
 	};
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13145,7 +13521,7 @@
 	};
 
 /***/ },
-/* 59 */
+/* 60 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13195,7 +13571,7 @@
 	};
 
 /***/ },
-/* 60 */
+/* 61 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13345,7 +13721,7 @@
 	};
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13378,7 +13754,7 @@
 	};
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13453,7 +13829,7 @@
 	};
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13516,7 +13892,7 @@
 	};
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -13673,7 +14049,7 @@
 	};
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13899,7 +14275,7 @@
 	};
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13970,7 +14346,7 @@
 	};
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -14011,7 +14387,7 @@
 	};
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14132,7 +14508,7 @@
 	};
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14174,7 +14550,7 @@
 	};
 
 /***/ },
-/* 70 */
+/* 71 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14201,7 +14577,7 @@
 	};
 
 /***/ },
-/* 71 */
+/* 72 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14240,7 +14616,7 @@
 	};
 
 /***/ },
-/* 72 */
+/* 73 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14338,7 +14714,7 @@
 	};
 
 /***/ },
-/* 73 */
+/* 74 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -14449,7 +14825,7 @@
 	};
 
 /***/ },
-/* 74 */
+/* 75 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14487,7 +14863,7 @@
 	};
 
 /***/ },
-/* 75 */
+/* 76 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14613,7 +14989,7 @@
 	};
 
 /***/ },
-/* 76 */
+/* 77 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14675,7 +15051,7 @@
 	};
 
 /***/ },
-/* 77 */
+/* 78 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14725,7 +15101,7 @@
 	};
 
 /***/ },
-/* 78 */
+/* 79 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14800,7 +15176,7 @@
 	};
 
 /***/ },
-/* 79 */
+/* 80 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14845,7 +15221,7 @@
 	};
 
 /***/ },
-/* 80 */
+/* 81 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14906,7 +15282,7 @@
 	};
 
 /***/ },
-/* 81 */
+/* 82 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14976,7 +15352,7 @@
 	};
 
 /***/ },
-/* 82 */
+/* 83 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15056,7 +15432,7 @@
 	};
 
 /***/ },
-/* 83 */
+/* 84 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15167,7 +15543,7 @@
 	};
 
 /***/ },
-/* 84 */
+/* 85 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15285,7 +15661,7 @@
 	};
 
 /***/ },
-/* 85 */
+/* 86 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15326,7 +15702,7 @@
 	};
 
 /***/ },
-/* 86 */
+/* 87 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15508,7 +15884,7 @@
 	};
 
 /***/ },
-/* 87 */
+/* 88 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -15686,7 +16062,7 @@
 	};
 
 /***/ },
-/* 88 */
+/* 89 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15858,7 +16234,7 @@
 	};
 
 /***/ },
-/* 89 */
+/* 90 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16002,7 +16378,7 @@
 	};
 
 /***/ },
-/* 90 */
+/* 91 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16109,7 +16485,7 @@
 	};
 
 /***/ },
-/* 91 */
+/* 92 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16270,7 +16646,7 @@
 	};
 
 /***/ },
-/* 92 */
+/* 93 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16423,7 +16799,7 @@
 	};
 
 /***/ },
-/* 93 */
+/* 94 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16483,7 +16859,7 @@
 	};
 
 /***/ },
-/* 94 */
+/* 95 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16532,7 +16908,7 @@
 	};
 
 /***/ },
-/* 95 */
+/* 96 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16594,7 +16970,7 @@
 	};
 
 /***/ },
-/* 96 */
+/* 97 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16686,7 +17062,7 @@
 	};
 
 /***/ },
-/* 97 */
+/* 98 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17095,7 +17471,7 @@
 	};
 
 /***/ },
-/* 98 */
+/* 99 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17324,7 +17700,7 @@
 	};
 
 /***/ },
-/* 99 */
+/* 100 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17410,7 +17786,7 @@
 	};
 
 /***/ },
-/* 100 */
+/* 101 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17500,7 +17876,7 @@
 	};
 
 /***/ },
-/* 101 */
+/* 102 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17523,7 +17899,7 @@
 	};
 
 /***/ },
-/* 102 */
+/* 103 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17684,7 +18060,7 @@
 	};
 
 /***/ },
-/* 103 */
+/* 104 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17713,7 +18089,7 @@
 	};
 
 /***/ },
-/* 104 */
+/* 105 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17792,7 +18168,7 @@
 	};
 
 /***/ },
-/* 105 */
+/* 106 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17908,7 +18284,7 @@
 	};
 
 /***/ },
-/* 106 */
+/* 107 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18005,7 +18381,7 @@
 	};
 
 /***/ },
-/* 107 */
+/* 108 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18064,7 +18440,7 @@
 	};
 
 /***/ },
-/* 108 */
+/* 109 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18117,7 +18493,7 @@
 	};
 
 /***/ },
-/* 109 */
+/* 110 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18207,7 +18583,7 @@
 	};
 
 /***/ },
-/* 110 */
+/* 111 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18289,7 +18665,7 @@
 	};
 
 /***/ },
-/* 111 */
+/* 112 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18364,7 +18740,7 @@
 	};
 
 /***/ },
-/* 112 */
+/* 113 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18425,7 +18801,7 @@
 	};
 
 /***/ },
-/* 113 */
+/* 114 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18499,7 +18875,7 @@
 	};
 
 /***/ },
-/* 114 */
+/* 115 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18551,7 +18927,7 @@
 	};
 
 /***/ },
-/* 115 */
+/* 116 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18607,7 +18983,7 @@
 	};
 
 /***/ },
-/* 116 */
+/* 117 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18735,7 +19111,7 @@
 	};
 
 /***/ },
-/* 117 */
+/* 118 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18791,7 +19167,7 @@
 	};
 
 /***/ },
-/* 118 */
+/* 119 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18843,7 +19219,7 @@
 	};
 
 /***/ },
-/* 119 */
+/* 120 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18877,7 +19253,7 @@
 	};
 
 /***/ },
-/* 120 */
+/* 121 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18969,7 +19345,7 @@
 	};
 
 /***/ },
-/* 121 */
+/* 122 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19009,7 +19385,7 @@
 	};
 
 /***/ },
-/* 122 */
+/* 123 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19128,7 +19504,7 @@
 	};
 
 /***/ },
-/* 123 */
+/* 124 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19224,7 +19600,7 @@
 	};
 
 /***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19251,7 +19627,7 @@
 	};
 
 /***/ },
-/* 125 */
+/* 126 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19424,7 +19800,7 @@
 	};
 
 /***/ },
-/* 126 */
+/* 127 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19498,7 +19874,7 @@
 	};
 
 /***/ },
-/* 127 */
+/* 128 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19529,7 +19905,7 @@
 	};
 
 /***/ },
-/* 128 */
+/* 129 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19600,7 +19976,7 @@
 	};
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19640,7 +20016,7 @@
 	};
 
 /***/ },
-/* 130 */
+/* 131 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19705,7 +20081,7 @@
 	};
 
 /***/ },
-/* 131 */
+/* 132 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19820,7 +20196,7 @@
 	};
 
 /***/ },
-/* 132 */
+/* 133 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19939,7 +20315,7 @@
 	};
 
 /***/ },
-/* 133 */
+/* 134 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20084,7 +20460,7 @@
 	};
 
 /***/ },
-/* 134 */
+/* 135 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20142,7 +20518,7 @@
 	};
 
 /***/ },
-/* 135 */
+/* 136 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20244,7 +20620,7 @@
 	};
 
 /***/ },
-/* 136 */
+/* 137 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20304,7 +20680,7 @@
 	};
 
 /***/ },
-/* 137 */
+/* 138 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20358,7 +20734,7 @@
 	};
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20428,7 +20804,7 @@
 	};
 
 /***/ },
-/* 139 */
+/* 140 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20529,7 +20905,7 @@
 	};
 
 /***/ },
-/* 140 */
+/* 141 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20693,7 +21069,7 @@
 	};
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20780,7 +21156,7 @@
 	};
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20822,7 +21198,7 @@
 	};
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20873,7 +21249,7 @@
 	};
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21331,7 +21707,7 @@
 	};
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21454,7 +21830,7 @@
 	};
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21502,7 +21878,7 @@
 	};
 
 /***/ },
-/* 147 */
+/* 148 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21567,7 +21943,7 @@
 	};
 
 /***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21633,7 +22009,7 @@
 	};
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21672,7 +22048,7 @@
 	};
 
 /***/ },
-/* 150 */
+/* 151 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21760,7 +22136,7 @@
 	};
 
 /***/ },
-/* 151 */
+/* 152 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21830,7 +22206,7 @@
 	};
 
 /***/ },
-/* 152 */
+/* 153 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21938,7 +22314,7 @@
 	};
 
 /***/ },
-/* 153 */
+/* 154 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21992,7 +22368,7 @@
 	};
 
 /***/ },
-/* 154 */
+/* 155 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22052,7 +22428,7 @@
 	};
 
 /***/ },
-/* 155 */
+/* 156 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22095,7 +22471,7 @@
 	};
 
 /***/ },
-/* 156 */
+/* 157 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22111,7 +22487,7 @@
 	};
 
 /***/ },
-/* 157 */
+/* 158 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22153,7 +22529,7 @@
 	};
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22213,7 +22589,7 @@
 	};
 
 /***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22323,7 +22699,7 @@
 	};
 
 /***/ },
-/* 160 */
+/* 161 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22461,7 +22837,7 @@
 	};
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22538,7 +22914,7 @@
 	};
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22613,7 +22989,7 @@
 	};
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22701,7 +23077,7 @@
 	};
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22810,419 +23186,6 @@
 	    ]
 	  };
 	};
-
-/***/ },
-/* 165 */
-/***/ function(module, exports) {
-
-	
-
-	function testy(a, b) {
-	  return a + b;
-	};
-
-	module.exports = {testy: testy};
-
-
-
-
-	// Selector	Example	Example description	CSS
-	// .class	.intro	Selects all elements with class="intro"	1
-	// #id	#firstname	Selects the element with id="firstname"	1
-	// *	*	Selects all elements	2
-	// element	p	Selects all <p> elements	1
-	// element,element
-	// element element	div p	Selects all <p> elements inside <div> elements	1
-	// element>element	div > p	Selects all <p> elements where the parent is a <div> element	2
-	// element+element	div + p	Selects all <p> elements that are placed immediately after <div> elements	2
-	// element1~element2	p ~ ul	Selects every <ul> element that are preceded by a <p> element	3
-	// [attribute]	[target]	Selects all elements with a target attribute	2
-	// [attribute=value]	[target=_blank]	Selects all elements with target="_blank"	2
-	// [attribute~=value]	[title~=flower]	Selects all elements with a title attribute containing the word "flower"	2
-	// [attribute|=value]	[lang|=en]	Selects all elements with a lang attribute value starting with "en"	2
-	// [attribute^=value]	a[href^="https"]	Selects every <a> element whose href attribute value begins with "https"	3
-	// [attribute$=value]	a[href$=".pdf"]	Selects every <a> element whose href attribute value ends with ".pdf"	3
-	// [attribute*=value]	a[href*="w3schools"]	Selects every <a> element whose href attribute value contains the substring "w3schools"	3
-	// :active	a:active	Selects the active link	1
-	// ::after	p::after	Insert something after the content of each <p> element	2
-	// ::before	p::before	Insert something before the content of each <p> element	2
-	// :checked	input:checked	Selects every checked <input> element	3
-	// :disabled	input:disabled	Selects every disabled <input> element	3
-	// :empty	p:empty	Selects every <p> element that has no children (including text nodes)	3
-	// :enabled
-	// :first-child	p:first-child	Selects every <p> element that is the first child of its parent	2
-	// ::first-letter	p::first-letter	Selects the first letter of every <p> element	1
-	// ::first-line	p::first-line	Selects the first line of every <p> element	1
-	// :first-of-type	p:first-of-type	Selects every <p> element that is the first <p> element of its parent	3
-	// :focus	input:focus	Selects the input element which has focus	2
-	// :hover	a:hover	Selects links on mouse over	1
-	// :in-range	input:in-range	Selects input elements with a value within a specified range	3
-	// :invalid	input:invalid	Selects all input elements with an invalid value	3
-	// :lang(language)	p:lang(it)	Selects every <p> element with a lang attribute equal to "it" (Italian)	2
-	// :last-child	p:last-child	Selects every <p> element that is the last child of its parent	3
-	// :last-of-type	p:last-of-type	Selects every <p> element that is the last <p> element of its parent	3
-	// :link	a:link	Selects all unvisited links	1
-	// :not(selector)	:not(p)	Selects every element that is not a <p> element	3
-	// :nth-child(n)	p:nth-child(2)	Selects every <p> element that is the second child of its parent	3
-	// :nth-last-child(n)	p:nth-last-child(2)	Selects every <p> element that is the second child of its parent, counting from the last child	3
-	// :nth-last-of-type(n)	p:nth-last-of-type(2)	Selects every <p> element that is the second <p> element of its parent, counting from the last child	3
-	// :nth-of-type(n)	p:nth-of-type(2)	Selects every <p> element that is the second <p> element of its parent	3
-	// :only-of-type	p:only-of-type	Selects every <p> element that is the only <p> element of its parent	3
-	// :only-child	p:only-child	Selects every <p> element that is the only child of its parent	3
-	// :optional	input:optional	Selects input elements with no "required" attribute	3
-	// :out-of-range	input:out-of-range	Selects input elements with a value outside a specified range	3
-	// :read-only	input:read-only	Selects input elements with the "readonly" attribute specified	3
-	// :read-write	input:read-write	Selects input elements with the "readonly" attribute NOT specified	3
-	// :required	input:required	Selects input elements with the "required" attribute specified	3
-	// :root	:root	Selects the document's root element	3
-	// ::selection	::selection	Selects the portion of an element that is selected by a user
-	// :target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)	3
-	// :valid
-	// :visited
-
-
-/***/ },
-/* 166 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Bowser - a browser detector
-	 * https://github.com/ded/bowser
-	 * MIT License | (c) Dustin Diaz 2015
-	 */
-
-	!function (name, definition) {
-	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
-	  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
-	  else this[name] = definition()
-	}('bowser', function () {
-	  /**
-	    * See useragents.js for examples of navigator.userAgent
-	    */
-
-	  var t = true
-
-	  function detect(ua) {
-
-	    function getFirstMatch(regex) {
-	      var match = ua.match(regex);
-	      return (match && match.length > 1 && match[1]) || '';
-	    }
-
-	    function getSecondMatch(regex) {
-	      var match = ua.match(regex);
-	      return (match && match.length > 1 && match[2]) || '';
-	    }
-
-	    var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
-	      , likeAndroid = /like android/i.test(ua)
-	      , android = !likeAndroid && /android/i.test(ua)
-	      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
-	      , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
-	      , chromeos = /CrOS/.test(ua)
-	      , silk = /silk/i.test(ua)
-	      , sailfish = /sailfish/i.test(ua)
-	      , tizen = /tizen/i.test(ua)
-	      , webos = /(web|hpw)os/i.test(ua)
-	      , windowsphone = /windows phone/i.test(ua)
-	      , windows = !windowsphone && /windows/i.test(ua)
-	      , mac = !iosdevice && !silk && /macintosh/i.test(ua)
-	      , linux = !android && !sailfish && !tizen && !webos && /linux/i.test(ua)
-	      , edgeVersion = getFirstMatch(/edge\/(\d+(\.\d+)?)/i)
-	      , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
-	      , tablet = /tablet/i.test(ua)
-	      , mobile = !tablet && /[^-]mobi/i.test(ua)
-	      , result
-
-	    if (/opera|opr/i.test(ua)) {
-	      result = {
-	        name: 'Opera'
-	      , opera: t
-	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/yabrowser/i.test(ua)) {
-	      result = {
-	        name: 'Yandex Browser'
-	      , yandexbrowser: t
-	      , version: versionIdentifier || getFirstMatch(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/ucbrowser/i.test(ua)) {
-	      result = {
-	          name: 'UC Browser'
-	        , ucbrowser: t
-	        , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
-	      }
-	    }
-	    else if (windowsphone) {
-	      result = {
-	        name: 'Windows Phone'
-	      , windowsphone: t
-	      }
-	      if (edgeVersion) {
-	        result.msedge = t
-	        result.version = edgeVersion
-	      }
-	      else {
-	        result.msie = t
-	        result.version = getFirstMatch(/iemobile\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/msie|trident/i.test(ua)) {
-	      result = {
-	        name: 'Internet Explorer'
-	      , msie: t
-	      , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
-	      }
-	    } else if (chromeos) {
-	      result = {
-	        name: 'Chrome'
-	      , chromeos: t
-	      , chromeBook: t
-	      , chrome: t
-	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
-	      }
-	    } else if (/chrome.+? edge/i.test(ua)) {
-	      result = {
-	        name: 'Microsoft Edge'
-	      , msedge: t
-	      , version: edgeVersion
-	      }
-	    }
-		else if (/vivaldi/i.test(ua)) {
-			result = {
-				name: 'Vivaldi'
-				, vivaldi: t
-				, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
-			}
-		}
-	    else if (/chrome|crios|crmo/i.test(ua)) {
-	      result = {
-	        name: 'Chrome'
-	      , chrome: t
-	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (iosdevice) {
-	      result = {
-	        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
-	      }
-	      // WTF: version is not part of user agent in web apps
-	      if (versionIdentifier) {
-	        result.version = versionIdentifier
-	      }
-	    }
-	    else if (sailfish) {
-	      result = {
-	        name: 'Sailfish'
-	      , sailfish: t
-	      , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/seamonkey\//i.test(ua)) {
-	      result = {
-	        name: 'SeaMonkey'
-	      , seamonkey: t
-	      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/firefox|iceweasel/i.test(ua)) {
-	      result = {
-	        name: 'Firefox'
-	      , firefox: t
-	      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
-	      }
-	      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
-	        result.firefoxos = t
-	      }
-	    }
-	    else if (silk) {
-	      result =  {
-	        name: 'Amazon Silk'
-	      , silk: t
-	      , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (android) {
-	      result = {
-	        name: 'Android'
-	      , version: versionIdentifier
-	      }
-	    }
-	    else if (/phantom/i.test(ua)) {
-	      result = {
-	        name: 'PhantomJS'
-	      , phantom: t
-	      , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
-	      result = {
-	        name: 'BlackBerry'
-	      , blackberry: t
-	      , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (webos) {
-	      result = {
-	        name: 'WebOS'
-	      , webos: t
-	      , version: versionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)
-	      };
-	      /touchpad\//i.test(ua) && (result.touchpad = t)
-	    }
-	    else if (/bada/i.test(ua)) {
-	      result = {
-	        name: 'Bada'
-	      , bada: t
-	      , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
-	      };
-	    }
-	    else if (tizen) {
-	      result = {
-	        name: 'Tizen'
-	      , tizen: t
-	      , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
-	      };
-	    }
-	    else if (/qupzilla/i.test(ua)) {
-	      result = {
-	        name: 'QupZilla'
-	        , qupzilla: t
-	        , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
-	      }
-	    }
-	    else if (/safari/i.test(ua)) {
-	      result = {
-	        name: 'Safari'
-	      , safari: t
-	      , version: versionIdentifier
-	      }
-	    }
-	    else if(/googlebot/i.test(ua)) {
-	      result = {
-	        name: 'Googlebot'
-	      , googlebot: t
-	      , version: getFirstMatch(/googlebot\/(\d+(\.\d+))/i) || versionIdentifier
-	      }
-	    }
-	    else {
-	      result = {
-	        name: getFirstMatch(/^(.*)\/(.*) /),
-	        version: getSecondMatch(/^(.*)\/(.*) /)
-	     };
-	   }
-
-	    // set webkit or gecko flag for browsers based on these engines
-	    if (!result.msedge && /(apple)?webkit/i.test(ua)) {
-	      result.name = result.name || "Webkit"
-	      result.webkit = t
-	      if (!result.version && versionIdentifier) {
-	        result.version = versionIdentifier
-	      }
-	    } else if (!result.opera && /gecko\//i.test(ua)) {
-	      result.name = result.name || "Gecko"
-	      result.gecko = t
-	      result.version = result.version || getFirstMatch(/gecko\/(\d+(\.\d+)?)/i)
-	    }
-
-	    // set OS flags for platforms that have multiple browsers
-	    if (!result.msedge && (android || result.silk)) {
-	      result.android = t
-	    } else if (iosdevice) {
-	      result[iosdevice] = t
-	      result.ios = t
-	    } else if (windows) {
-	      result.windows = t
-	    } else if (mac) {
-	      result.mac = t
-	    } else if (linux) {
-	      result.linux = t
-	    }
-
-	    // OS version extraction
-	    var osVersion = '';
-	    if (result.windowsphone) {
-	      osVersion = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i);
-	    } else if (iosdevice) {
-	      osVersion = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i);
-	      osVersion = osVersion.replace(/[_\s]/g, '.');
-	    } else if (android) {
-	      osVersion = getFirstMatch(/android[ \/-](\d+(\.\d+)*)/i);
-	    } else if (result.webos) {
-	      osVersion = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i);
-	    } else if (result.blackberry) {
-	      osVersion = getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i);
-	    } else if (result.bada) {
-	      osVersion = getFirstMatch(/bada\/(\d+(\.\d+)*)/i);
-	    } else if (result.tizen) {
-	      osVersion = getFirstMatch(/tizen[\/\s](\d+(\.\d+)*)/i);
-	    }
-	    if (osVersion) {
-	      result.osversion = osVersion;
-	    }
-
-	    // device type extraction
-	    var osMajorVersion = osVersion.split('.')[0];
-	    if (tablet || nexusTablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
-	      result.tablet = t
-	    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || nexusMobile || result.blackberry || result.webos || result.bada) {
-	      result.mobile = t
-	    }
-
-	    // Graded Browser Support
-	    // http://developer.yahoo.com/yui/articles/gbs
-	    if (result.msedge ||
-	        (result.msie && result.version >= 10) ||
-	        (result.yandexbrowser && result.version >= 15) ||
-			(result.vivaldi && result.version >= 1.0) ||
-	        (result.chrome && result.version >= 20) ||
-	        (result.firefox && result.version >= 20.0) ||
-	        (result.safari && result.version >= 6) ||
-	        (result.opera && result.version >= 10.0) ||
-	        (result.ios && result.osversion && result.osversion.split(".")[0] >= 6) ||
-	        (result.blackberry && result.version >= 10.1)
-	        ) {
-	      result.a = t;
-	    }
-	    else if ((result.msie && result.version < 10) ||
-	        (result.chrome && result.version < 20) ||
-	        (result.firefox && result.version < 20.0) ||
-	        (result.safari && result.version < 6) ||
-	        (result.opera && result.version < 10.0) ||
-	        (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
-	        ) {
-	      result.c = t
-	    } else result.x = t
-
-	    return result
-	  }
-
-	  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')
-
-	  bowser.test = function (browserList) {
-	    for (var i = 0; i < browserList.length; ++i) {
-	      var browserItem = browserList[i];
-	      if (typeof browserItem=== 'string') {
-	        if (browserItem in bowser) {
-	          return true;
-	        }
-	      }
-	    }
-	    return false;
-	  }
-
-	  /*
-	   * Set our detect method to the main bowser object so we can
-	   * reuse it to test other user agents.
-	   * This is needed to implement future tests.
-	   */
-	  bowser._detect = detect;
-
-	  return bowser
-	});
-
 
 /***/ }
 /******/ ]);

@@ -12,6 +12,10 @@ License: MIT
 import { el, log, err, scroll, show, mouse, hasAncestor } from 'elementsJS';
 
 
+var
+browser = require('bowser');
+
+
 //global that documents what state the menu is currently in.
 window.sideNavState = [];
 
@@ -708,6 +712,7 @@ function mouseOverController() {
 
 function sideNavController() {
   // console.log(dom('[name=hidden]'));
+  sideNavSticky();
 
   const offSets = getOffSets(),
            diff = 466;
@@ -1329,6 +1334,37 @@ function sideNavController() {
             break;
       }
     });
+}
+
+//Position sticky does not work in chrome, so this code will make the sideNav sticky under chromey conditions.
+function sideNavSticky() {
+  if (browser.chrome) {
+    const
+   _3Col    = <'#threeCol'/>,
+   _sideNav = <'#sideNav'/>,
+   _html    = <html/>,
+   _body    = <body/>;
+
+   //Scroll event function..
+    scroll(window, function() {
+      log(_body.scrolled());
+      if (_html.scrolled() > _3Col.fromTop() || _body.scrolled() > _3Col.fromTop()) {
+        _sideNav
+              .position('fixed')
+              .top('25px')
+              .left('50px');
+      }
+      if (_html.scrolled() < _3Col.fromTop() && _html.scrolled() > _3Col.fromTop() - 550 ||
+          _body.scrolled() < _3Col.fromTop() && _body.scrolled() > _3Col.fromTop() - 550)  {
+            _sideNav
+                  .position('')
+                  .top('25px')
+                  .left('50px');
+      }
+    });
+  } else {
+    log('Go CSS.', 'yellow');
+  }
 }
 
 

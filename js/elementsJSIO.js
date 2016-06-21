@@ -21,7 +21,6 @@ imports({
        'elementsJS': ['imports', 'element', 'hasAncestor', 'isDOMElement', 'go', 'el', 'inspect', 'log', 'err', 'info', 'url', 'ajax', 'on', 'click', 'mouse', 'show', 'hide', 'scroll', '__'],
            'marked': 'marked',
      'highlight.js': 'hljs',
-'../../js/testy.js': ['testy'],
            'bowser': 'browser'
 });
 //<<===============================>>
@@ -268,6 +267,8 @@ function clickController() {
           break;
       case (e.target.tagName === 'A'):
           log(e.target.tagName, 'red');
+          if (/gthbBtn/.test(e.target.classList)) break;
+
           e.preventDefault();
 
           offSets = SNC.getOffSets();

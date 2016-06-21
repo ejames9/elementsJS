@@ -17,6 +17,8 @@ Author: Eric James Foster
 License: MIT
 */
 
+var browser = require('bowser');
+
 //global that documents what state the menu is currently in.
 window.sideNavState = [];
 
@@ -517,6 +519,7 @@ function mouseOverController() {
 
 function sideNavController() {
       // console.log(dom('[name=hidden]'));
+      sideNavSticky();
 
       var offSets = getOffSets(),
           diff = 466;
@@ -1001,6 +1004,37 @@ function sideNavController() {
 
                   default:
                         break;
+            }
+      });
+}
+
+function sideNavSticky() {
+      if (browser.chrome) (0, _elementsJS.log)('hollo there');
+      var _3Col = function () {
+            var elem6 = _$('#threeCol') ? dom('#threeCol') : make('#threeCol').put("body");
+            return elem6;
+      }(),
+          _sideNav = function () {
+            var elem7 = _$('#sideNav') ? dom('#sideNav') : make('#sideNav').put("body");
+            return elem7;
+      }(),
+          _html = function () {
+            var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+            return elem8;
+      }(),
+          _body = function () {
+            var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+            return elem9;
+      }();
+      (0, _elementsJS.log)(sideNav.offsetTop);
+
+      (0, _elementsJS.scroll)(window, function () {
+            (0, _elementsJS.log)(_body.scrolled());
+            if (_html.scrolled() > _3Col.fromTop() || _body.scrolled() > _3Col.fromTop()) {
+                  _sideNav.position('fixed').top('25px').left('50px');
+            }
+            if (_html.scrolled() < _3Col.fromTop() && _html.scrolled() > _3Col.fromTop() - 550 || _body.scrolled() < _3Col.fromTop() && _body.scrolled() > _3Col.fromTop() - 550) {
+                  _sideNav.position('').top('25px').left('50px');
             }
       });
 }
