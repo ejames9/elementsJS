@@ -1,0 +1,114 @@
+
+
+/*
+elemsJSResponsive.css
+
+This file contains the CSS for Responsive Mobile Layouts..
+
+Author: Eric James Foster
+*/
+
+
+
+
+
+
+/*-------Media Queries
+============================>>*/
+
+@media screen and (max-width: 805px) {
+  #logo-text {
+    font-size: 70px;
+  }
+  #l-brack {
+    top: -4px;
+    right: -10px;
+  }
+  #r-brack {
+    top: -4px;
+    left: -25px;
+  }
+  .slsh {
+    left: -15px;
+  }
+}
+
+@media screen and (max-width: 738px) {
+  #logo-text {
+    font-size: 40px;
+  }
+  #l-brack {
+    top: -4px;
+    right: -10px;
+  }
+  #r-brack {
+    top: -4px;
+    left: -25px;
+  }
+  .slsh {
+    left: -15px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  #fork {
+    display: none;
+  }
+  .jumbotron {
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #logo-text {
+    font-size: 32px;
+  }
+  #desc {
+    font-size: 18px;
+  }
+  #l-brack {
+    top: -4px;
+    right: -7px;
+  }
+  #r-brack {
+    top: -4px;
+    left: -17px;
+  }
+  .slsh {
+    left: -10px;
+  }
+
+  #fork {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 240px) {
+  #logo-text {
+    font-size: 24px;
+
+  }
+  #l-brack {
+    top: -2px;
+    right: -5px;
+  }
+  #r-brack {
+    top: -2px;
+    left: -13px;
+  }
+  .slsh {
+    left: -8px;
+  }
+  #desc {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 240px) {
+  #logo-text {
+    font-size: 20px;
+  }
+  #desc {
+    font-size: 12px;
+  }
+}

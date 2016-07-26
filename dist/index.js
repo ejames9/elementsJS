@@ -50,6 +50,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //FIXME: eJS Interpreter hangs when eJS element is within brackets, and directly adjacent to one of them.
 //FIXME: cannot create element from variable representing a string.
 //FIXME: Find out why module imports are printing twice..
+//FIXME: Figure out why elements in square brackets slow things up...
 
 //DONE: Can't put elements in comments.
 //DONE: HTML interfering with regExp's.
@@ -77,6 +78,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //TODO: hover(mouseOverFunc, mouseOutFunc) func.....
 //TODO: element.name() function.....
 //TODO: add functionality to make() function to allow creating nameless, id less divs.
+//TODO: write scroll-snapper plugin,
+//TODO: list of plug-ins
+//TODO: touch('start', ()=> {});  touch event function, method..
 
 //DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -250,6 +254,10 @@ var hasAncestor = function hasAncestor(l, ance) {
 
 var lookBehind = function lookBehind(leftContextRE, matchRE, subject) {
   return utils.lookBehind(leftContextRE, matchRE, subject);
+};
+
+var isMobile = function isMobile() {
+  return utils.isMobile();
 };
 
 //This practically useless function will lock up the browser for a preset amount of time.
@@ -540,6 +548,7 @@ module.exports = (_module$exports = {
   // functions: functions,
   hasAncestor: hasAncestor,
   lookBehind: lookBehind,
+  isMobile: isMobile,
   put: put,
   on: on,
   off: off,

@@ -1686,6 +1686,8 @@ Hopefully by now you've gotten the hang of what the above line would do. Either 
 23. use and use as..... import syntax.
 24. isDOMElement()
 25. installs npm packages automagically!
-25. 
+25. isMobile()
+26. plugins, scroll-snapper
+27. 
 
 </a>

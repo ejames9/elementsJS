@@ -496,7 +496,6 @@ const sideNavStates = {
       err(error);
     }
   },
-
 };
 
 

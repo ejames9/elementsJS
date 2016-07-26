@@ -14,8 +14,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// require('babel-polyfill');
-
 //TODO:0 Check out querySelector() method, see if it helps out.
 //DOING:0 go() DOMREady function, Class toggling method, aft(), fore(), size(), show(), hide().
 

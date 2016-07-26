@@ -2,8 +2,6 @@
 
 var _logger = require('./logger');
 
-// require('babel-polyfill');
-
 //TODO:20 browser detection functionality, noop(), merge(), toggle().
 
 var isArray = function isArray(arr) {
@@ -195,6 +193,24 @@ function lookBehind(leftContextRE, matchRE, subject) {
   return returnMatch;
 };
 
+function isMobile() {
+  this.android = function () {
+    return navigator.userAgent.match(/Android/i);
+  };
+  this.blackBerry = function () {
+    return navigator.userAgent.match(/BlackBerry/i);
+  }, this.iOS = function () {
+    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  }, this.operaMini = function () {
+    return navigator.userAgent.match(/Opera Mini/i);
+  }, this.windowsMobile = function () {
+    return navigator.userAgent.match(/IEMobile/i);
+  }, this.any = function () {
+    return this.android() || this.blackBerry() || this.iOS() || this.operaMini() || this.windowsMobile();
+  };
+  return this.any();
+}
+
 module.exports = {
   queryDOM: queryDOM,
   functions: functions,
@@ -205,5 +221,6 @@ module.exports = {
   sleep: sleep,
   proto: proto,
   hasAncestor: hasAncestor,
-  lookBehind: lookBehind
+  lookBehind: lookBehind,
+  isMobile: isMobile
 };

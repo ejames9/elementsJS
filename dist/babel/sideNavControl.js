@@ -309,7 +309,6 @@ var sideNavStates = {
                   (0, _elementsJS.err)(error);
             }
       }
-
 };
 
 //Function for creating the offSets object, which contains the offsetTop property of all elements.
@@ -1008,35 +1007,41 @@ function sideNavController() {
       });
 }
 
+//Position sticky does not work in chrome, so this code will make the sideNav sticky under chromey conditions.
 function sideNavSticky() {
-      if (browser.chrome) (0, _elementsJS.log)('hollo there');
-      var _3Col = function () {
-            var elem6 = _$('#threeCol') ? dom('#threeCol') : make('#threeCol').put("body");
-            return elem6;
-      }(),
-          _sideNav = function () {
-            var elem7 = _$('#sideNav') ? dom('#sideNav') : make('#sideNav').put("body");
-            return elem7;
-      }(),
-          _html = function () {
-            var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-            return elem8;
-      }(),
-          _body = function () {
-            var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-            return elem9;
-      }();
-      (0, _elementsJS.log)(sideNav.offsetTop);
+      if (browser.chrome) {
+            (function () {
+                  var _3Col = function () {
+                        var elem6 = _$('#threeCol') ? dom('#threeCol') : make('#threeCol').put("body");
+                        return elem6;
+                  }(),
+                      _sideNav = function () {
+                        var elem7 = _$('#sideNav') ? dom('#sideNav') : make('#sideNav').put("body");
+                        return elem7;
+                  }(),
+                      _html = function () {
+                        var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+                        return elem8;
+                  }(),
+                      _body = function () {
+                        var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+                        return elem9;
+                  }();
 
-      (0, _elementsJS.scroll)(window, function () {
-            (0, _elementsJS.log)(_body.scrolled());
-            if (_html.scrolled() > _3Col.fromTop() || _body.scrolled() > _3Col.fromTop()) {
-                  _sideNav.position('fixed').top('25px').left('50px');
-            }
-            if (_html.scrolled() < _3Col.fromTop() && _html.scrolled() > _3Col.fromTop() - 550 || _body.scrolled() < _3Col.fromTop() && _body.scrolled() > _3Col.fromTop() - 550) {
-                  _sideNav.position('').top('25px').left('50px');
-            }
-      });
+                  //Scroll event function..
+                  (0, _elementsJS.scroll)(window, function () {
+                        (0, _elementsJS.log)(_body.scrolled());
+                        if (_html.scrolled() > _3Col.fromTop() || _body.scrolled() > _3Col.fromTop()) {
+                              _sideNav.position('fixed').top('25px').left('50px');
+                        }
+                        if (_html.scrolled() < _3Col.fromTop() && _html.scrolled() > _3Col.fromTop() - 550 || _body.scrolled() < _3Col.fromTop() && _body.scrolled() > _3Col.fromTop() - 550) {
+                              _sideNav.position('').top('25px').left('50px');
+                        }
+                  });
+            })();
+      } else {
+            (0, _elementsJS.log)('Go CSS.', 'yellow');
+      }
 }
 
 module.exports = {

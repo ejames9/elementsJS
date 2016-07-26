@@ -96,6 +96,7 @@
 	//FIXME: eJS Interpreter hangs when eJS element is within brackets, and directly adjacent to one of them.
 	//FIXME: cannot create element from variable representing a string.
 	//FIXME: Find out why module imports are printing twice..
+	//FIXME: Figure out why elements in square brackets slow things up...
 
 	//DONE: Can't put elements in comments.
 	//DONE: HTML interfering with regExp's.
@@ -123,6 +124,9 @@
 	//TODO: hover(mouseOverFunc, mouseOutFunc) func.....
 	//TODO: element.name() function.....
 	//TODO: add functionality to make() function to allow creating nameless, id less divs.
+	//TODO: write scroll-snapper plugin,
+	//TODO: list of plug-ins
+	//TODO: touch('start', ()=> {});  touch event function, method..
 
 	//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -296,6 +300,10 @@
 
 	var lookBehind = function lookBehind(leftContextRE, matchRE, subject) {
 	  return utils.lookBehind(leftContextRE, matchRE, subject);
+	};
+
+	var isMobile = function isMobile() {
+	  return utils.isMobile();
 	};
 
 	//This practically useless function will lock up the browser for a preset amount of time.
@@ -586,6 +594,7 @@
 	  // functions: functions,
 	  hasAncestor: hasAncestor,
 	  lookBehind: lookBehind,
+	  isMobile: isMobile,
 	  put: put,
 	  on: on,
 	  off: off,
@@ -645,8 +654,6 @@
 	var DOM = _interopRequireWildcard(_DOM);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	// require('babel-polyfill');
 
 	//DOING:10 List all functions that need to be added (.textContent, innerHTML etc.)
 	//DOING:20 Complete all functions for this object.
@@ -2197,7 +2204,6 @@
 	*/
 
 	var colors = __webpack_require__(3);
-	//  require('babel-polyfill');
 
 	//DONE:90 Add second argument for log ID purposes, figure best way to approach this.
 	//Console.log alias function.                                                  //DONE:140 Make sure date is logging properly.
@@ -2446,8 +2452,6 @@
 
 	var _logger = __webpack_require__(2);
 
-	// require('babel-polyfill');
-
 	//TODO:20 browser detection functionality, noop(), merge(), toggle().
 
 	var isArray = function isArray(arr) {
@@ -2639,6 +2643,24 @@
 	  return returnMatch;
 	};
 
+	function isMobile() {
+	  this.android = function () {
+	    return navigator.userAgent.match(/Android/i);
+	  };
+	  this.blackBerry = function () {
+	    return navigator.userAgent.match(/BlackBerry/i);
+	  }, this.iOS = function () {
+	    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+	  }, this.operaMini = function () {
+	    return navigator.userAgent.match(/Opera Mini/i);
+	  }, this.windowsMobile = function () {
+	    return navigator.userAgent.match(/IEMobile/i);
+	  }, this.any = function () {
+	    return this.android() || this.blackBerry() || this.iOS() || this.operaMini() || this.windowsMobile();
+	  };
+	  return this.any();
+	}
+
 	module.exports = {
 	  queryDOM: queryDOM,
 	  functions: functions,
@@ -2649,7 +2671,8 @@
 	  sleep: sleep,
 	  proto: proto,
 	  hasAncestor: hasAncestor,
-	  lookBehind: lookBehind
+	  lookBehind: lookBehind,
+	  isMobile: isMobile
 	};
 
 /***/ },
@@ -2665,8 +2688,6 @@
 	var utils = _interopRequireWildcard(_utilities);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	// require('babel-polyfill');
 
 	//DONE:10 Complete X-Browser support for these 3 functions.
 
@@ -3299,8 +3320,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// require('babel-polyfill');
-
 	//TODO:0 Check out querySelector() method, see if it helps out.
 	//DOING:0 go() DOMREady function, Class toggling method, aft(), fore(), size(), show(), hide().
 
@@ -3549,8 +3568,6 @@
 	'use strict';
 
 	var _logger = __webpack_require__(2);
-
-	// require('babel-polyfill');
 
 	//DONE:20 Complete X-Browser support for both functions.
 

@@ -46,16 +46,6 @@
 
 	"use strict";
 
-	var _sideNavControl = __webpack_require__(1);
-
-	var SNC = _interopRequireWildcard(_sideNavControl);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	//elementsJS imports <html/>
-
-	///-------Begin Module requires---------///
-	var _$ = __webpack_require__(2)._$;
 	/*
 	elementsJSIO.js
 	JavaScript file for the elementsJS project site.
@@ -67,39 +57,57 @@
 	*/
 
 	//<<=================Imports======================>>
-	//es6 import
 
-	var dom = __webpack_require__(2).dom;
-	var make = __webpack_require__(2).make;
-	var element = __webpack_require__(2).element;
+	///-------Begin Module Imports---------///
+	var _$ = __webpack_require__(1)._$;
+	var dom = __webpack_require__(1).dom;
+	var make = __webpack_require__(1).make;
+	var element = __webpack_require__(1).element;
 	///|------------------------------------|//
 
-	var elementsJS = __webpack_require__(2);
-	var imports = elementsJS.imports;
-	var element = elementsJS.element;
-	var hasAncestor = elementsJS.hasAncestor;
-	var isDOMElement = elementsJS.isDOMElement;
-	var go = elementsJS.go;
-	var el = elementsJS.el;
-	var inspect = elementsJS.inspect;
-	var log = elementsJS.log;
-	var err = elementsJS.err;
-	var info = elementsJS.info;
-	var url = elementsJS.url;
-	var ajax = elementsJS.ajax;
-	var on = elementsJS.on;
-	var click = elementsJS.click;
-	var mouse = elementsJS.mouse;
-	var show = elementsJS.show;
-	var hide = elementsJS.hide;
-	var scroll = elementsJS.scroll;
-	var __ = elementsJS.__;
+	var marked = __webpack_require__(9);
 
-	var marked = __webpack_require__(11);
+	var hljs = __webpack_require__(10);
 
-	var hljs = __webpack_require__(12);
+	var browser = __webpack_require__(164);
 
-	var browser = __webpack_require__(10);
+	///End Module requires///
+
+	///-------Begin Module Imports---------///
+	var _$ = __webpack_require__(1)._$;
+	var dom = __webpack_require__(1).dom;
+	var make = __webpack_require__(1).make;
+	var element = __webpack_require__(1).element;
+	///|------------------------------------|//
+
+	var marked = __webpack_require__(9);
+
+	var hljs = __webpack_require__(10);
+
+	var browser = __webpack_require__(164);
+
+	var SNC = __webpack_require__(165);
+
+	var highlight = __webpack_require__(1);
+	var element = highlight.element;
+	var hasAncestor = highlight.hasAncestor;
+	var isDOMElement = highlight.isDOMElement;
+	var isMobile = highlight.isMobile;
+	var go = highlight.go;
+	var el = highlight.el;
+	var inspect = highlight.inspect;
+	var log = highlight.log;
+	var err = highlight.err;
+	var info = highlight.info;
+	var url = highlight.url;
+	var ajax = highlight.ajax;
+	var on = highlight.on;
+	var click = highlight.click;
+	var mouse = highlight.mouse;
+	var show = highlight.show;
+	var hide = highlight.hide;
+	var scroll = highlight.scroll;
+	var __ = highlight.__;
 
 	///End Module requires///
 
@@ -145,8 +153,7 @@
 	//Custom fork me ribbon.
 	function forkMeBaby() {
 	  //Add forkme ribbon html.
-	  _$(".jumbotron") ? __("<a id='fmLink'> <div id='forkMe'> <p>Fork Me on GitHub! </p> </div> </a>", ".jumbotron") : __("<div class='jumbotron'> <a id='fmLink'> <div id='forkMe'> <p>Fork Me on GitHub! </p> </div> </a> </div>");
-
+	  _$(".jumbotron") ? __("<a id='fmLink'><div id='forkMe'><p>Fork Me on GitHub!</p></div></a>", ".jumbotron") : __("<div class='jumbotron'><a id='fmLink'><div id='forkMe'><p>Fork Me on GitHub!</p></div></a></div>");
 	  //Make adjustments to #fmLink.
 	  (function () {
 	    var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
@@ -278,6 +285,11 @@
 	        e.preventDefault();
 
 	        window.location.reload();
+	        break;
+	      case e.target.id === 'whatsThis':
+	        e.preventDefault();
+
+	        initDocsPage('#elements-syntax');
 	        break;
 	      case e.target.className === 'dropDown' || e.target.className === 'navMenu':
 	        e.preventDefault();
@@ -451,6 +463,10 @@
 	  //Create/install custom fork me ribbon.
 	  forkMeBaby();
 
+	  if (isMobile()) {
+	    log('helloskis', 'blue');
+	  }
+
 	  //Reset scrollTop on load.
 	  on('load', window, function () {
 	    //Allow specific hashes to be loaded from the address bar.
@@ -473,1121 +489,37 @@
 	      }
 	    }
 	  });
-
-	  //
-	  // ///<======Tests======>///
-	  //
-	  // var val = testy(90, 9);
-	  //           info(val);
-	  //
-	  // log(isDOMElement(el('#col3')), 'green');
-	  //
-	  // var elem = el('#npm-bar');
-	  //
-	  // log(isDOMElement(<html/>), 'red');
-	  // inspect(<'#api-butn'/>);
-	  // inspect(<'#navBarLogo'/>);
-	  // inspect(<'#fluffButt'/>);
-	  //
-	  //
-	  //
-	  //
-	  //
-	  // inspect(<'#col3 h2, #col3 h4, #col3 p, #col3 ul li'/>);
-	  //
-	  // inspect( dom('[class~=active]'));
-	  //
-	  //
-	  //
-	  // <'#shazz'<input='.puts'=2/>/>
-	  //                 .every((element)=> {
-	  //                   element
-	  //                       .size('50px', '50px')
-	  //                       .html('shitballs');
-	  //                 });
 	});
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-
-	var _elementsJS = __webpack_require__(2);
-
-	///-------elementsJS requires---------///
-	var _$ = __webpack_require__(2)._$;
-	var dom = __webpack_require__(2).dom;
-	var make = __webpack_require__(2).make;
-	var element = __webpack_require__(2).element;
-	///|------------------------------------|//
-
-	/*
-	sideNavControl.js
-	This file Makes the side-nav menu on the elementsJS.io
-	project-site docs page work.
-	Author: Eric James Foster
-	License: MIT
-	*/
-
-	var browser = __webpack_require__(10);
-
-	//global that documents what state the menu is currently in.
-	window.sideNavState = [];
-
-	//The control states for the sideNav Menu.
-	var sideNavStates = {
-	      stateOne: function stateOne(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // Do Nothing at all.
-	            } else {
-	                        //Make cold.
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            dom('[class~=hot2]').class('hot2', '-');
-	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	            dom('[name=hotCode]').title('hotCode').class('hot2', '+');
-	            dom('[class~=hot]').color('#52218A').class('hot', '-');
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            try {
-	                  var tick = 0;
-	                  dom('#gsList ul li a').every(function (element) {
-	                        element.func(function () {
-	                              if (element.title() !== 'hotCode') {
-	                                    element.color('#52218A');
-	                              }
-	                        });
-	                  });
-	            } catch (error) {
-	                  (0, _elementsJS.err)(error);
-	            }
-	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
-	            });
-	            //Make hot.
-	            dom(elem).class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
-	      },
-
-	      stateTwo: function stateTwo(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // return;
-	            } else {
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            //Make cold.
-	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	            dom('[class~=hot]').color('#52218A').class('hot', '-');
-	            dom('[class~=hot2]').class('hot2', '-');
-	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
-	            });
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            try {
-	                  var tick = 0;
-	                  dom('#gsList ul li a').every(function (element) {
-	                        element.func(function () {
-	                              if (element.title() !== 'hotCode') {
-	                                    element.color('#52218A');
-	                              }
-	                        });
-	                  });
-	            } catch (error) {
-	                  (0, _elementsJS.err)(error);
-	            }
-	            //Make hot.
-	            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
-	            dom(elem + ' a').title('hotCode').color('#FF8A22');
-	      },
-
-	      stateThree: function stateThree(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // return;
-	            } else {
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            //Make cold.
-	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	            dom('[class~=hot]').color('#52218A').class('hot', '-');
-	            dom('[class~=hot2]').class('hot2', '-');
-	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
-	            });
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            try {
-	                  var tick = 0;
-	                  dom('#gsList ul li a').every(function (element) {
-	                        element.func(function () {
-	                              if (element.title() !== 'hotCode') {
-	                                    element.color('#52218A');
-	                              }
-	                        });
-	                  });
-	            } catch (error) {
-	                  (0, _elementsJS.err)(error);
-	            }
-	            //Make hot.
-	            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
-	            dom(elem + ' a code').title('hotCode').bgColor('#52218A').color('#fff');
-	      },
-
-	      stateFour: function stateFour(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // return;
-	            } else {
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            //Make cold.
-	            dom('[class~=hot2]').class('hot2', '-');
-	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	            dom('[name=hotCode]')
-	            // .title('hotCode')
-	            .class('hot2', '+');
-	            dom('[class~=hot]').color('#52218A').class('hot', '-');
-	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
-	            });
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            try {
-	                  var tick = 0;
-	                  dom('#gsList ul li a').every(function (element, a) {
-	                        element.func(function () {
-	                              if (element.title() !== 'hotCode') {
-	                                    element.color('#52218A');
-	                              }
-	                        });
-	                  });
-	            } catch (error) {
-	                  (0, _elementsJS.err)(error);
-	            }
-	            //Make hot.
-	            dom(elem).class('hot').color('#FF8A22').first().title('hotCode').bgColor('#52218A').color('#fff');
-	      },
-
-	      stateFive: function stateFive(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // return;
-	            } else {
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            //Make cold.
-	            dom('[class~=hot2]').class('hot2', '-');
-	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	            dom('[name=hotCode]').title('hotCode').class('hot2', '+');
-	            dom('[class~=hot]').color('#52218A').class('hot', '-');
-	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
-	            });
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            try {
-	                  var tick = 0;
-	                  dom('#gsList ul li a').every(function (element, a) {
-	                        element.func(function () {
-	                              if (element.title() !== 'hotCode') {
-	                                    element.color('#52218A');
-	                              }
-	                        });
-	                  });
-	            } catch (error) {
-	                  (0, _elementsJS.err)(error);
-	            }
-	            //Make hot.
-	            dom(elem).class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
-	      },
-
-	      stateSix: function stateSix(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // return;
-	            } else {
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	            dom('[class~=hot2]').class('hot2', '-');
-	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide');
-	            });
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            try {
-	                  var tick = 0;
-	                  dom('#gsList ul li a').every(function (element, a) {
-	                        element.func(function () {
-	                              if (element.title() !== 'hotCode') {
-	                                    element.color('#52218A');
-	                              }
-	                        });
-	                  });
-	            } catch (error) {
-	                  (0, _elementsJS.err)(error);
-	            }
-	            //Make hot.
-	            dom('#instLink a').title('hotCode').color('#FF8A22');
-	            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22');
-	      },
-
-	      stateSeven: function stateSeven(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // return;
-	            } else {
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide', '+');
-	            });
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            dom('[class=hot]').color('#FF8A22');
-	            dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
-	      },
-
-	      stateEight: function stateEight(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // return;
-	            } else {
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            dom('[title~=shorts]').every(function (element) {
-	                  element.class('hide', '+');
-	            });
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            dom('[class=hot]').color('#FF8A22');
-	            dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
-	      },
-
-	      stateNine: function stateNine(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // Do nothing;
-	            } else {
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            //Make cold.
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            //Make hot.
-	            dom('[class=hot]').color('#FF8A22');
-
-	            dom(elem).color('#FF8A22').first().bgColor('#52218A').color('#fff');
-	      },
-
-	      stateTen: function stateTen(elem) {
-	            //Logic.
-	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
-	                  // Do nothing;
-	            } else {
-	                        dom('#imps code').bgColor('#39175E').color('#52218A');
-	                  }
-	            //Make cold.
-	            dom('[name=hidden]').every(function (element) {
-	                  element.class('hide', '+');
-	            });
-	            dom('[name=listHead]').every(function (element) {
-	                  element.color('#52218A');
-	            });
-	            dom('#gsList ul li a').every(function (element) {
-	                  element.func(function () {
-	                        if (element.title() !== 'hotCode') {
-	                              element.color('#52218A');
-	                        }
-	                  });
-	            });
-	            //Make Hot.
-	            dom('[class=hot]').color('#FF8A22');
-	            dom('#gsList').first().color('#FF8A22').sib('next').class('hide', '-');
-	            try {
-	                  dom(elem).first().color('#FF8A22');
-	            } catch (error) {
-	                  (0, _elementsJS.err)(error);
-	            }
-	      }
-
-	};
-
-	//Function for creating the offSets object, which contains the offsetTop property of all elements.
-	function getOffSets() {
-
-	      var offSets = {};
-	      offSets['installation'] = (0, _elementsJS.el)('#installation').offsetTop;
-	      offSets['Usage'] = (0, _elementsJS.el)('#Usage').offsetTop;
-	      offSets['interpreter-install'] = (0, _elementsJS.el)('#interpreter-install').offsetTop;
-	      offSets['imports'] = (0, _elementsJS.el)('#imports').offsetTop;
-	      offSets['DOM'] = (0, _elementsJS.el)('#DOM').offsetTop;
-	      offSets['el-func'] = (0, _elementsJS.el)('#el-func').offsetTop;
-	      offSets['dom-func'] = (0, _elementsJS.el)('#dom-func').offsetTop;
-	      offSets['__-func'] = (0, _elementsJS.el)('#__-func').offsetTop;
-	      offSets['make-func'] = (0, _elementsJS.el)('#make-func').offsetTop;
-	      offSets['put-func'] = (0, _elementsJS.el)('#put-func').offsetTop;
-	      offSets['x-func'] = (0, _elementsJS.el)('#x-func').offsetTop;
-	      offSets['fore-func'] = (0, _elementsJS.el)('#fore-func').offsetTop;
-	      offSets['aft-func'] = (0, _elementsJS.el)('#aft-func').offsetTop;
-	      offSets['show-func'] = (0, _elementsJS.el)('#show-func').offsetTop;
-	      offSets['hide-func'] = (0, _elementsJS.el)('#hide-func').offsetTop;
-	      offSets['size-func'] = (0, _elementsJS.el)('#size-func').offsetTop;
-	      offSets['event-handle'] = (0, _elementsJS.el)('#event-handle').offsetTop;
-	      offSets['go-func'] = (0, _elementsJS.el)('#go-func').offsetTop;
-	      offSets['on-func'] = (0, _elementsJS.el)('#on-func').offsetTop;
-	      offSets['off-func'] = (0, _elementsJS.el)('#off-func').offsetTop;
-	      offSets['once-func'] = (0, _elementsJS.el)('#once-func').offsetTop;
-	      offSets['spark-func'] = (0, _elementsJS.el)('#spark-func').offsetTop;
-	      offSets['click-func'] = (0, _elementsJS.el)('#click-func').offsetTop;
-	      offSets['dblClick-func'] = (0, _elementsJS.el)('#dblClick-func').offsetTop;
-	      offSets['blur-func'] = (0, _elementsJS.el)('#blur-func').offsetTop;
-	      offSets['error-func'] = (0, _elementsJS.el)('#error-func').offsetTop;
-	      offSets['focus-func'] = (0, _elementsJS.el)('#focus-func').offsetTop;
-	      offSets['focusIn-func'] = (0, _elementsJS.el)('#focusIn-func').offsetTop;
-	      offSets['focusOut-func'] = (0, _elementsJS.el)('#focusOut-func').offsetTop;
-	      offSets['keyUp-func'] = (0, _elementsJS.el)('#keyUp-func').offsetTop;
-	      offSets['keyDown-func'] = (0, _elementsJS.el)('#keyDown-func').offsetTop;
-	      offSets['load-func'] = (0, _elementsJS.el)('#load-func').offsetTop;
-	      offSets['unLoad-func'] = (0, _elementsJS.el)('#unLoad-func').offsetTop;
-	      offSets['mouse-func'] = (0, _elementsJS.el)('#mouse-func').offsetTop;
-	      offSets['resize-func'] = (0, _elementsJS.el)('#resize-func').offsetTop;
-	      offSets['scroll-func'] = (0, _elementsJS.el)('#scroll-func').offsetTop;
-	      offSets['select-func'] = (0, _elementsJS.el)('#select-func').offsetTop;
-	      offSets['http'] = (0, _elementsJS.el)('#http').offsetTop;
-	      offSets['xhr-func'] = (0, _elementsJS.el)('#xhr-func').offsetTop;
-	      offSets['ajax-func'] = (0, _elementsJS.el)('#ajax-func').offsetTop;
-	      offSets['loggers'] = (0, _elementsJS.el)('#loggers').offsetTop;
-	      offSets['log-func'] = (0, _elementsJS.el)('#log-func').offsetTop;
-	      offSets['info-func'] = (0, _elementsJS.el)('#info-func').offsetTop;
-	      offSets['warn-func'] = (0, _elementsJS.el)('#warn-func').offsetTop;
-	      offSets['err-func'] = (0, _elementsJS.el)('#err-func').offsetTop;
-	      offSets['utils'] = (0, _elementsJS.el)('#utils').offsetTop;
-	      offSets['proto-func'] = (0, _elementsJS.el)('#proto-func').offsetTop;
-	      offSets['shifter-func'] = (0, _elementsJS.el)('#shifter-func').offsetTop;
-	      offSets['elem-obj'] = (0, _elementsJS.el)('#elem-obj').offsetTop;
-	      offSets['element-const'] = (0, _elementsJS.el)('#element-const').offsetTop;
-	      offSets['dom2-func'] = (0, _elementsJS.el)('#dom2-func').offsetTop;
-	      offSets['make2-func'] = (0, _elementsJS.el)('#make2-func').offsetTop;
-	      offSets['elem-obj-methods'] = (0, _elementsJS.el)('#elem-obj-methods').offsetTop;
-	      offSets['element-font-ex'] = (0, _elementsJS.el)('#element-font-ex').offsetTop;
-	      offSets['exs'] = (0, _elementsJS.el)('#exs').offsetTop;
-	      offSets['style-methods'] = (0, _elementsJS.el)('#style-methods').offsetTop;
-	      offSets['core-func'] = (0, _elementsJS.el)('#core-func').offsetTop;
-	      offSets['DOM-Elem-Methods'] = (0, _elementsJS.el)('#DOM-Elem-Methods').offsetTop;
-	      offSets['event-methods'] = (0, _elementsJS.el)('#event-methods').offsetTop;
-	      offSets['Util-Methods'] = (0, _elementsJS.el)('#Util-Methods').offsetTop;
-	      offSets['elements-syntax'] = (0, _elementsJS.el)('#elements-syntax').offsetTop;
-	      offSets['elemsyntax-func1'] = (0, _elementsJS.el)('#elemsyntax-func1').offsetTop;
-	      offSets['elemsyntax-func2'] = (0, _elementsJS.el)('#elemsyntax-func2').offsetTop;
-	      offSets['elemsyntax-func3'] = (0, _elementsJS.el)('#elemsyntax-func3').offsetTop;
-	      offSets['elemsyntax-func4'] = (0, _elementsJS.el)('#elemsyntax-func4').offsetTop;
-	      offSets['elemsyntax-func5'] = (0, _elementsJS.el)('#elemsyntax-func5').offsetTop;
-	      offSets['elemsyntax-func6'] = (0, _elementsJS.el)('#elemsyntax-func6').offsetTop;
-	      offSets['append-syntax'] = (0, _elementsJS.el)('#append-syntax').offsetTop;
-	      offSets['elemsyntax-func7'] = (0, _elementsJS.el)('#elemsyntax-func7').offsetTop;
-
-	      return offSets;
-	}
-
-	//Boolean function returns true if given function has given ancestor, and false otherwise. Checks 6 parents deep.
-	// function hasAncestor(l, ance) {
-	//   var tick, ancestor = el(ance),
-	//            ancestors = [];
-	//
-	//   try {
-	//     ancestors.push(l.parentNode);
-	//     ancestors.push(ancestors[0].parentNode);
-	//     ancestors.push(ancestors[1].parentNode);
-	//     ancestors.push(ancestors[2].parentNode);
-	//     ancestors.push(ancestors[3].parentNode);
-	//     ancestors.push(ancestors[4].parentNode);
-	//   }
-	//   catch(error) {
-	//     err(error);
-	//   }
-	//
-	//   // console.log(ancestors);
-	//   tick = 0;
-	//
-	//   for (var i = 0; i < ancestors.length; i++) {
-	//     if (ancestors[i] === ancestor) tick++;
-	//   }
-	//   if (tick > 0) return true;
-	//
-	//   else return false;
-	// }
-
-	//Function for controlling when the #sideNav doc menu collapses.
-	function mouseOutController() {
-	      //Mouse out event delegation =======================>>
-	      var html = (0, _elementsJS.el)('html');
-
-	      (0, _elementsJS.mouse)('out', html, function (e) {
-	            if ((0, _elementsJS.hasAncestor)(e.target, '#sideNav')) {
-	                  return;
-	            } else {
-	                  switch (sideNavState[0]) {
-	                        case 1:
-	                              sideNavStates.stateOne(sideNavState[1]);
-	                              break;
-	                        case 2:
-	                              sideNavStates.stateTwo(sideNavState[1]);
-	                              break;
-	                        case 3:
-	                              sideNavStates.stateThree(sideNavState[1]);
-	                              break;
-	                        case 4:
-	                              sideNavStates.stateFour(sideNavState[1]);
-	                              break;
-	                        case 5:
-	                              sideNavStates.stateFive(sideNavState[1]);
-	                              break;
-	                        case 6:
-	                              sideNavStates.stateSix(sideNavState[1]);
-	                              break;
-	                        default:
-	                              break;
-	                  }
-	            }
-	      });
-	}
-
-	//Function for controlling the expanding (on hover) of #sideNav menu lists.
-	function mouseOverController() {
-	      //Mouse over event Delegation ======================>>
-	      var html = (0, _elementsJS.el)('html');
-
-	      (0, _elementsJS.mouse)('over', html, function (e) {
-	            // console.log(e);
-	            // console.log(e.target);
-	            // console.log(e.relatedTarget);
-
-	            switch (9 + 9 === 18) {
-	                  case e.target === (0, _elementsJS.el)('#gsList') || e.target.parentNode === (0, _elementsJS.el)('#gsList') || e.target.parentNode.parentNode === (0, _elementsJS.el)('#gsList'):
-	                        console.log('#' + e.target.id);
-	                        sideNavStates.stateTen('#' + e.target.id);
-
-	                        break;
-	                  case e.target === (0, _elementsJS.el)('#imps') || e.target.parentNode === (0, _elementsJS.el)('#imps'):
-
-	                        sideNavStates.stateNine('#imps');
-
-	                        break;
-	                  case e.target === (0, _elementsJS.el)('#domList') || e.target.parentNode === (0, _elementsJS.el)('#domList'):
-
-	                        sideNavStates.stateSeven('#domList');
-	                        break;
-	                  case e.target === (0, _elementsJS.el)('#eventList') || e.target.parentNode === (0, _elementsJS.el)('#eventList'):
-
-	                        sideNavStates.stateSeven('#eventList');
-
-	                        break;
-	                  case e.target === (0, _elementsJS.el)('#httpList') || e.target.parentNode === (0, _elementsJS.el)('#httpList'):
-
-	                        sideNavStates.stateEight('#httpList');
-
-	                        break;
-	                  case e.target === (0, _elementsJS.el)('#loggList') || e.target.parentNode === (0, _elementsJS.el)('#loggList'):
-
-	                        sideNavStates.stateEight('#loggList');
-
-	                        break;
-	                  case e.target === (0, _elementsJS.el)('#utilsList') || e.target.parentNode === (0, _elementsJS.el)('#utilsList'):
-
-	                        sideNavStates.stateEight('#utilsList');
-
-	                        break;
-	                  case e.target === (0, _elementsJS.el)('#elemObjList') || e.target.parentNode === (0, _elementsJS.el)('#elemObjList'):
-
-	                        sideNavStates.stateEight('#elemObjList');
-
-	                        break;
-	                  case e.target === (0, _elementsJS.el)('#eOMethodsList') || e.target.parentNode === (0, _elementsJS.el)('#eOMethodsList'):
-
-	                        sideNavStates.stateEight('#eOMethodsList');
-
-	                        break;
-	                  case e.target === (0, _elementsJS.el)('#eStaxList') || e.target.parentNode === (0, _elementsJS.el)('#eStaxList'):
-
-	                        sideNavStates.stateEight('#eStaxList');
-
-	                        break;
-
-	            };
-	      });
-	}
-
-	function sideNavController() {
-	      // console.log(dom('[name=hidden]'));
-	      sideNavSticky();
-
-	      var offSets = getOffSets(),
-	          diff = 466;
-
-	      (0, _elementsJS.scroll)(window, function () {
-	            switch (true) {
-	                  //0 - 13 Getting Started
-	                  case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff:
-	                        //Find active list item, deactivate it.
-	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	                        dom('[name=hotCode]').title('hotCode');
-	                        dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
-
-	                        //Find all menu lists, hide them.
-	                        dom('[name=hidden]').every(function (element) {
-	                              element.class('hide');
-	                        });
-	                        //Activate Getting Started list item.
-	                        (function () {
-	                              var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
-	                              return elem0;
-	                        })().class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
-
-	                        sideNavState = [5, '#getStart'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['Usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff:
-	                        // log('YES', ['red', 'blue'] + diff);
-	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	                        //Find active list item, deactivate it.
-	                        dom('[class~=hot2]').class('hot2', '-');
-	                        //Find all menu lists, hide them.
-	                        dom('[name=hidden]').every(function (element) {
-	                              element.class('hide');
-	                        });
-	                        dom('#instLink a').title('hotCode').color('#FF8A22');
-	                        //Activate Installation list item. Open parent list by removing .hide class.
-	                        (function () {
-	                              var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
-	                              return elem1;
-	                        })().class('hot2').ma().class('hide', '-').sib('prev').fontWeight('500');
-
-	                        sideNavState = [6, '#instLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
-	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	                        dom('[class~=hot2]').class('hot2', '-');
-	                        (function () {
-	                              var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
-	                              return elem2;
-	                        })().class('hot2');
-	                        dom('#useLink a').title('hotCode').color('#FF8A22');
-
-	                        sideNavState = [2, '#useLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff:
-	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	                        dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
-	                        dom('[class~=hot2]').class('hot2', '-');
-	                        dom('[name=hidden]').every(function (element) {
-	                              element.class('hide');
-	                        });
-	                        (function () {
-	                              var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
-	                              return elem3;
-	                        })().class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot', '+');
-	                        dom('#interpInstallLink a').title('hotCode').color('#FF8A22');
-
-	                        sideNavState = [2, '#interpInstallLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff:
-	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	                        dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
-
-	                        dom('[name=hidden]').every(function (element) {
-	                              element.class('hide');
-	                        });
-	                        dom('[name=listHead]').every(function (element) {
-	                              element.color('#52218A');
-	                        });
-	                        (function () {
-	                              var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
-	                              return elem4;
-	                        })().class('hot').color('#FF8A22').first().title('hotCode').bgColor('#52218A').color('#fff');
-
-	                        sideNavState = [4, '#imps'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff:
-	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
-	                        dom('[name=hotCode]').title('hotCode');
-	                        dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
-	                        dom('[name=hidden]').every(function (element) {
-	                              element.class('hide');
-	                        });
-	                        dom('[name=listHead]').every(function (element) {
-	                              element.color('#52218A');
-	                        });
-	                        (function () {
-	                              var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
-	                              return elem5;
-	                        })().class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
-
-	                        sideNavState = [1, '#domManip'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['el-func'] + diff && dom('html').scrolled() < offSets['dom-func'] + diff || dom('body').scrolled() > offSets['el-func'] + diff && dom('body').scrolled() < offSets['dom-func'] + diff:
-
-	                        sideNavStates.stateThree('#elLink');
-
-	                        sideNavState = [3, '#elLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['dom-func'] + diff && dom('html').scrolled() < offSets['__-func'] + diff || dom('body').scrolled() > offSets['dom-func'] + diff && dom('body').scrolled() < offSets['__-func'] + diff:
-
-	                        sideNavStates.stateThree('#domLink');
-
-	                        sideNavState = [3, '#domLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['__-func'] + diff && dom('html').scrolled() < offSets['make-func'] + diff || dom('body').scrolled() > offSets['__-func'] + diff && dom('body').scrolled() < offSets['make-func'] + diff:
-
-	                        sideNavStates.stateThree('#__Link');
-
-	                        sideNavState = [3, '#__Link'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['make-func'] + diff && dom('html').scrolled() < offSets['put-func'] + diff || dom('body').scrolled() > offSets['make-func'] + diff && dom('body').scrolled() < offSets['put-func'] + diff:
-
-	                        sideNavStates.stateThree('#makeLink');
-
-	                        sideNavState = [3, '#makeLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['put-func'] + diff && dom('html').scrolled() < offSets['x-func'] + diff || dom('body').scrolled() > offSets['put-func'] + diff && dom('body').scrolled() < offSets['x-func'] + diff:
-
-	                        sideNavStates.stateThree('#putLink');
-
-	                        sideNavState = [3, '#putLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['x-func'] + diff && dom('html').scrolled() < offSets['fore-func'] + diff || dom('body').scrolled() > offSets['x-func'] + diff && dom('body').scrolled() < offSets['fore-func'] + diff:
-
-	                        sideNavStates.stateThree('#xLink');
-
-	                        sideNavState = [3, '#xLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['fore-func'] + diff && dom('html').scrolled() < offSets['aft-func'] + diff || dom('body').scrolled() > offSets['fore-func'] + diff && dom('body').scrolled() < offSets['aft-func'] + diff:
-
-	                        sideNavStates.stateThree('#foreLink');
-
-	                        sideNavState = [3, '#foreLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['aft-func'] + diff && dom('html').scrolled() < offSets['show-func'] + diff || dom('body').scrolled() > offSets['aft-func'] + diff && dom('body').scrolled() < offSets['show-func'] + diff:
-
-	                        sideNavStates.stateThree('#aftLink');
-
-	                        sideNavState = [3, '#aftLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['show-func'] + diff && dom('html').scrolled() < offSets['hide-func'] + diff || dom('body').scrolled() > offSets['show-func'] + diff && dom('body').scrolled() < offSets['hide-func'] + diff:
-
-	                        sideNavStates.stateThree('#showLink');
-
-	                        sideNavState = [3, '#showLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['hide-func'] + diff && dom('html').scrolled() < offSets['size-func'] + diff || dom('body').scrolled() > offSets['hide-func'] + diff && dom('body').scrolled() < offSets['size-func'] + diff:
-
-	                        sideNavStates.stateThree('#hydeLink');
-
-	                        sideNavState = [3, '#hydeLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff || dom('body').scrolled() > offSets['size-func'] + diff && dom('body').scrolled() < offSets['event-handle'] + diff:
-
-	                        sideNavStates.stateThree('#sizeLink');
-
-	                        sideNavState = [3, '#sizeLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['event-handle'] + diff && dom('html').scrolled() < offSets['go-func'] + diff || dom('body').scrolled() > offSets['event-handle'] + diff && dom('body').scrolled() < offSets['go-func'] + diff:
-
-	                        sideNavStates.stateOne('#eventHand');
-
-	                        sideNavState = [1, '#eventHand'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['go-func'] + diff && dom('html').scrolled() < offSets['on-func'] + diff || dom('body').scrolled() > offSets['go-func'] + diff && dom('body').scrolled() < offSets['on-func'] + diff:
-
-	                        sideNavStates.stateThree('#goLink');
-
-	                        sideNavState = [3, '#goLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['on-func'] + diff && dom('html').scrolled() < offSets['off-func'] + diff || dom('body').scrolled() > offSets['on-func'] + diff && dom('body').scrolled() < offSets['off-func'] + diff:
-
-	                        sideNavStates.stateThree('#onLink');
-
-	                        sideNavState = [3, '#onLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['off-func'] + diff && dom('html').scrolled() < offSets['once-func'] + diff || dom('body').scrolled() > offSets['off-func'] + diff && dom('body').scrolled() < offSets['once-func'] + diff:
-
-	                        sideNavStates.stateThree('#offLink');
-
-	                        sideNavState = [3, '#offLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['once-func'] + diff && dom('html').scrolled() < offSets['spark-func'] + diff || dom('body').scrolled() > offSets['once-func'] + diff && dom('body').scrolled() < offSets['spark-func'] + diff:
-
-	                        sideNavStates.stateThree('#onceLink');
-
-	                        sideNavState = [3, '#onceLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['spark-func'] + diff && dom('html').scrolled() < offSets['click-func'] + diff || dom('body').scrolled() > offSets['spark-func'] + diff && dom('body').scrolled() < offSets['click-func'] + diff:
-
-	                        sideNavStates.stateThree('#sparkLink');
-
-	                        sideNavState = [3, '#sparkLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['click-func'] + diff && dom('html').scrolled() < offSets['dblClick-func'] + diff || dom('body').scrolled() > offSets['click-func'] + diff && dom('body').scrolled() < offSets['dblClick-func'] + diff:
-
-	                        sideNavStates.stateThree('#clickLink');
-
-	                        sideNavState = [3, '#clickLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['dblClick-func'] + diff && dom('html').scrolled() < offSets['blur-func'] + diff || dom('body').scrolled() > offSets['dblClick-func'] + diff && dom('body').scrolled() < offSets['blur-func'] + diff:
-
-	                        sideNavStates.stateThree('#dblLink');
-
-	                        sideNavState = [3, '#dblLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['blur-func'] + diff && dom('html').scrolled() < offSets['error-func'] + diff || dom('body').scrolled() > offSets['blur-func'] + diff && dom('body').scrolled() < offSets['error-func'] + diff:
-
-	                        sideNavStates.stateThree('#blurLink');
-
-	                        sideNavState = [3, '#blurLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['error-func'] + diff && dom('html').scrolled() < offSets['focus-func'] + diff || dom('body').scrolled() > offSets['error-func'] + diff && dom('body').scrolled() < offSets['focus-func'] + diff:
-
-	                        sideNavStates.stateThree('#errorLink');
-
-	                        sideNavState = [3, '#errorLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['focus-func'] + diff && dom('html').scrolled() < offSets['focusIn-func'] + diff || dom('body').scrolled() > offSets['focus-func'] + diff && dom('body').scrolled() < offSets['focusIn-func'] + diff:
-
-	                        sideNavStates.stateThree('#focusLink');
-
-	                        sideNavState = [3, '#focusLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['focusIn-func'] + diff && dom('html').scrolled() < offSets['focusOut-func'] + diff || dom('body').scrolled() > offSets['focusIn-func'] + diff && dom('body').scrolled() < offSets['focusOut-func'] + diff:
-
-	                        sideNavStates.stateThree('#focusInLink');
-
-	                        sideNavState = [3, '#focusInLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['focusOut-func'] + diff && dom('html').scrolled() < offSets['keyUp-func'] + diff || dom('body').scrolled() > offSets['focusOut-func'] + diff && dom('body').scrolled() < offSets['keyUp-func'] + diff:
-
-	                        sideNavStates.stateThree('#focusOutLink');
-
-	                        sideNavState = [3, '#focusOutLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['keyUp-func'] + diff && dom('html').scrolled() < offSets['keyDown-func'] + diff || dom('body').scrolled() > offSets['keyUp-func'] + diff && dom('body').scrolled() < offSets['keyDown-func'] + diff:
-
-	                        sideNavStates.stateThree('#keyUpLink');
-
-	                        sideNavState = [3, '#keyUpLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['keyDown-func'] + diff && dom('html').scrolled() < offSets['load-func'] + diff || dom('body').scrolled() > offSets['keyDown-func'] + diff && dom('body').scrolled() < offSets['load-func'] + diff:
-
-	                        sideNavStates.stateThree('#keyDownLink');
-
-	                        sideNavState = [3, '#keyDownLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['load-func'] + diff && dom('html').scrolled() < offSets['unLoad-func'] + diff || dom('body').scrolled() > offSets['load-func'] + diff && dom('body').scrolled() < offSets['unLoad-func'] + diff:
-
-	                        sideNavStates.stateThree('#loadLink');
-
-	                        sideNavState = [3, '#loadLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['unLoad-func'] + diff && dom('html').scrolled() < offSets['mouse-func'] + diff || dom('body').scrolled() > offSets['unLoad-func'] + diff && dom('body').scrolled() < offSets['mouse-func'] + diff:
-
-	                        sideNavStates.stateThree('#unLoadLink');
-
-	                        sideNavState = [3, '#unLoadLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['mouse-func'] + diff && dom('html').scrolled() < offSets['resize-func'] + diff || dom('body').scrolled() > offSets['mouse-func'] + diff && dom('body').scrolled() < offSets['resize-func'] + diff:
-
-	                        sideNavStates.stateThree('#mouseLink');
-
-	                        sideNavState = [3, '#mouseLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['resize-func'] + diff && dom('html').scrolled() < offSets['scroll-func'] + diff || dom('body').scrolled() > offSets['resize-func'] + diff && dom('body').scrolled() < offSets['scroll-func'] + diff:
-
-	                        sideNavStates.stateThree('#resizeLink');
-
-	                        sideNavState = [3, '#resizeLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['scroll-func'] + diff && dom('html').scrolled() < offSets['select-func'] + diff || dom('body').scrolled() > offSets['scroll-func'] + diff && dom('body').scrolled() < offSets['select-func'] + diff:
-
-	                        sideNavStates.stateThree('#scrollLink');
-
-	                        sideNavState = [3, '#scrollLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['select-func'] + diff && dom('html').scrolled() < offSets['http'] + diff || dom('body').scrolled() > offSets['select-func'] + diff && dom('body').scrolled() < offSets['http'] + diff:
-
-	                        sideNavStates.stateThree('#selectLink');
-
-	                        sideNavState = [3, '#selectLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['http'] + diff && dom('html').scrolled() < offSets['xhr-func'] + diff || dom('body').scrolled() > offSets['http'] + diff && dom('body').scrolled() < offSets['xhr-func'] + diff:
-
-	                        sideNavStates.stateOne('#httpReq');
-
-	                        sideNavState = [1, '#httpReq'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['xhr-func'] + diff && dom('html').scrolled() < offSets['ajax-func'] + diff || dom('body').scrolled() > offSets['xhr-func'] + diff && dom('body').scrolled() < offSets['ajax-func'] + diff:
-
-	                        sideNavStates.stateThree('#xhrLink');
-
-	                        sideNavState = [3, '#xhrLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['ajax-func'] + diff && dom('html').scrolled() < offSets['loggers'] + diff || dom('body').scrolled() > offSets['ajax-func'] + diff && dom('body').scrolled() < offSets['loggers'] + diff:
-
-	                        sideNavStates.stateThree('#ajaxLink');
-
-	                        sideNavState = [3, '#ajaxLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['loggers'] + diff && dom('html').scrolled() < offSets['log-func'] + diff || dom('body').scrolled() > offSets['loggers'] + diff && dom('body').scrolled() < offSets['log-func'] + diff:
-
-	                        sideNavStates.stateOne('#logg');
-
-	                        sideNavState = [1, '#logg'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['log-func'] + diff && dom('html').scrolled() < offSets['info-func'] + diff || dom('body').scrolled() > offSets['log-func'] + diff && dom('body').scrolled() < offSets['info-func'] + diff:
-
-	                        sideNavStates.stateThree('#logLink');
-
-	                        sideNavState = [3, '#logLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['info-func'] + diff && dom('html').scrolled() < offSets['warn-func'] + diff || dom('body').scrolled() > offSets['info-func'] + diff && dom('body').scrolled() < offSets['warn-func'] + diff:
-
-	                        sideNavStates.stateThree('#infoLink');
-
-	                        sideNavState = [3, '#infoLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['warn-func'] + diff && dom('html').scrolled() < offSets['err-func'] + diff || dom('body').scrolled() > offSets['warn-func'] + diff && dom('body').scrolled() < offSets['err-func'] + diff:
-
-	                        sideNavStates.stateThree('#warnLink');
-
-	                        sideNavState = [3, '#warnLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['err-func'] + diff && dom('html').scrolled() < offSets['utils'] + diff || dom('body').scrolled() > offSets['err-func'] + diff && dom('body').scrolled() < offSets['utils'] + diff:
-
-	                        sideNavStates.stateThree('#errLink');
-
-	                        sideNavState = [3, '#errLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['utils'] + diff && dom('html').scrolled() < offSets['proto-func'] + diff || dom('body').scrolled() > offSets['utils'] + diff && dom('body').scrolled() < offSets['proto-func'] + diff:
-
-	                        sideNavStates.stateOne('#utilFunc');
-
-	                        sideNavState = [1, '#utilFunc'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['proto-func'] + diff && dom('html').scrolled() < offSets['shifter-func'] + diff || dom('body').scrolled() > offSets['proto-func'] + diff && dom('body').scrolled() < offSets['shifter-func'] + diff:
-
-	                        sideNavStates.stateThree('#protoLink');
-
-	                        sideNavState = [3, '#protoLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['shifter-func'] + diff && dom('html').scrolled() < offSets['elem-obj'] + diff || dom('body').scrolled() > offSets['shifter-func'] + diff && dom('body').scrolled() < offSets['elem-obj'] + diff:
-
-	                        sideNavStates.stateThree('#shifterLink');
-
-	                        sideNavState = [3, '#shifterLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elem-obj'] + diff && dom('html').scrolled() < offSets['element-const'] + diff || dom('body').scrolled() > offSets['elem-obj'] + diff && dom('body').scrolled() < offSets['element-const'] + diff:
-
-	                        sideNavStates.stateOne('#elemObj');
-
-	                        sideNavState = [1, '#elemObj'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['element-const'] + diff && dom('html').scrolled() < offSets['dom2-func'] + diff || dom('body').scrolled() > offSets['element-const'] + diff && dom('body').scrolled() < offSets['dom2-func'] + diff:
-
-	                        sideNavStates.stateThree('#elemConstLink');
-
-	                        sideNavState = [3, '#elemConstLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['dom2-func'] + diff && dom('html').scrolled() < offSets['make2-func'] + diff || dom('body').scrolled() > offSets['dom2-func'] + diff && dom('body').scrolled() < offSets['make2-func'] + diff:
-
-	                        sideNavStates.stateThree('#dom2Link');
-
-	                        sideNavState = [3, '#dom2Link'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['make2-func'] + diff && dom('html').scrolled() < offSets['elem-obj-methods'] + diff || dom('body').scrolled() > offSets['make2-func'] + diff && dom('body').scrolled() < offSets['elem-obj-methods'] + diff:
-
-	                        sideNavStates.stateThree('#make2Link');
-
-	                        sideNavState = [3, '#make2Link'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elem-obj-methods'] + diff && dom('html').scrolled() < offSets['element-font-ex'] + diff || dom('body').scrolled() > offSets['elem-obj-methods'] + diff && dom('body').scrolled() < offSets['element-font-ex'] + diff:
-
-	                        sideNavStates.stateOne('#elemObjMethods');
-
-	                        sideNavState = [1, '#elemObjMethods'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['element-font-ex'] + diff && dom('html').scrolled() < offSets['style-methods'] + diff || dom('body').scrolled() > offSets['element-font-ex'] + diff && dom('body').scrolled() < offSets['style-methods'] + diff:
-
-	                        sideNavStates.stateThree('#fontExampLink');
-
-	                        sideNavState = [3, '#fontExampLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['style-methods'] + diff && dom('html').scrolled() < offSets['core-func'] + diff || dom('body').scrolled() > offSets['style-methods'] + diff && dom('body').scrolled() < offSets['core-func'] + diff:
-
-	                        sideNavStates.stateTwo('#stylMethodsLink');
-
-	                        sideNavState = [2, '#stylMethodsLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['core-func'] + diff && dom('html').scrolled() < offSets['DOM-Elem-Methods'] + diff || dom('body').scrolled() > offSets['core-func'] + diff && dom('body').scrolled() < offSets['DOM-Elem-Methods'] + diff:
-
-	                        sideNavStates.stateTwo('#coreLink');
-
-	                        sideNavState = [2, '#coreLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('html').scrolled() < offSets['event-methods'] + diff || dom('body').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('body').scrolled() < offSets['event-methods'] + diff:
-
-	                        sideNavStates.stateTwo('#domMethodsLink');
-
-	                        sideNavState = [2, '#domMethodsLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['event-methods'] + diff && dom('html').scrolled() < offSets['Util-Methods'] + diff || dom('body').scrolled() > offSets['event-methods'] + diff && dom('body').scrolled() < offSets['Util-Methods'] + diff:
-
-	                        sideNavStates.stateTwo('#eventMethodsLink');
-
-	                        sideNavState = [2, '#eventMethodsLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['Util-Methods'] + diff && dom('html').scrolled() < offSets['elements-syntax'] + diff || dom('body').scrolled() > offSets['Util-Methods'] + diff && dom('body').scrolled() < offSets['elements-syntax'] + diff:
-
-	                        sideNavStates.stateTwo('#utilMethodsLink');
-
-	                        sideNavState = [2, '#utilMethodsLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elements-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func1'] + diff || dom('body').scrolled() > offSets['elements-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func1'] + diff:
-
-	                        sideNavStates.stateOne('#elemsSyntax');
-
-	                        sideNavState = [1, '#elemsSyntax'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elemsyntax-func1'] + diff && dom('html').scrolled() < offSets['elemsyntax-func2'] + diff || dom('body').scrolled() > offSets['elemsyntax-func1'] + diff && dom('body').scrolled() < offSets['elemsyntax-func2'] + diff:
-
-	                        sideNavStates.stateThree('#func1Link');
-
-	                        sideNavState = [3, '#func1Link'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elemsyntax-func2'] + diff && dom('html').scrolled() < offSets['elemsyntax-func3'] + diff || dom('body').scrolled() > offSets['elemsyntax-func2'] + diff && dom('body').scrolled() < offSets['elemsyntax-func3'] + diff:
-
-	                        sideNavStates.stateThree('#func2Link');
-
-	                        sideNavState = [3, '#func2Link'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elemsyntax-func3'] + diff && dom('html').scrolled() < offSets['elemsyntax-func4'] + diff || dom('body').scrolled() > offSets['elemsyntax-func3'] + diff && dom('body').scrolled() < offSets['elemsyntax-func4'] + diff:
-
-	                        sideNavStates.stateThree('#func3Link');
-
-	                        sideNavState = [3, '#func3Link'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elemsyntax-func4'] + diff && dom('html').scrolled() < offSets['elemsyntax-func5'] + diff || dom('body').scrolled() > offSets['elemsyntax-func4'] + diff && dom('body').scrolled() < offSets['elemsyntax-func5'] + diff:
-
-	                        sideNavStates.stateThree('#func4Link');
-
-	                        sideNavState = [3, '#func4Link'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elemsyntax-func5'] + diff && dom('html').scrolled() < offSets['elemsyntax-func6'] + diff || dom('body').scrolled() > offSets['elemsyntax-func5'] + diff && dom('body').scrolled() < offSets['elemsyntax-func6'] + diff:
-
-	                        sideNavStates.stateThree('#func5Link');
-
-	                        sideNavState = [3, '#func5Link'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elemsyntax-func6'] + diff && dom('html').scrolled() < offSets['append-syntax'] + diff || dom('body').scrolled() > offSets['elemsyntax-func6'] + diff && dom('body').scrolled() < offSets['append-syntax'] + diff:
-
-	                        sideNavStates.stateThree('#func6Link');
-
-	                        sideNavState = [3, '#func6Link'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['append-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func7'] + diff || dom('body').scrolled() > offSets['append-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func7'] + diff:
-
-	                        sideNavStates.stateThree('#appendStaxLink');
-
-	                        sideNavState = [3, '#appendStaxLink'];
-	                        break;
-	                  case dom('html').scrolled() > offSets['elemsyntax-func7'] + diff || dom('body').scrolled() > offSets['elemsyntax-func7'] + diff:
-
-	                        sideNavStates.stateThree('#func7Link');
-
-	                        sideNavState = [3, '#func7Link'];
-	                        break;
-
-	                  default:
-	                        break;
-	            }
-	      });
-	}
-
-	function sideNavSticky() {
-	      if (browser.chrome) (0, _elementsJS.log)('hollo there');
-	      var _3Col = function () {
-	            var elem6 = _$('#threeCol') ? dom('#threeCol') : make('#threeCol').put("body");
-	            return elem6;
-	      }(),
-	          _sideNav = function () {
-	            var elem7 = _$('#sideNav') ? dom('#sideNav') : make('#sideNav').put("body");
-	            return elem7;
-	      }(),
-	          _html = function () {
-	            var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	            return elem8;
-	      }(),
-	          _body = function () {
-	            var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	            return elem9;
-	      }();
-	      (0, _elementsJS.log)(sideNav.offsetTop);
-
-	      (0, _elementsJS.scroll)(window, function () {
-	            (0, _elementsJS.log)(_body.scrolled());
-	            if (_html.scrolled() > _3Col.fromTop() || _body.scrolled() > _3Col.fromTop()) {
-	                  _sideNav.position('fixed').top('25px').left('50px');
-	            }
-	            if (_html.scrolled() < _3Col.fromTop() && _html.scrolled() > _3Col.fromTop() - 550 || _body.scrolled() < _3Col.fromTop() && _body.scrolled() > _3Col.fromTop() - 550) {
-	                  _sideNav.position('').top('25px').left('50px');
-	            }
-	      });
-	}
-
-	module.exports = {
-	      getOffSets: getOffSets,
-	      sideNavController: sideNavController,
-	      mouseOverController: mouseOverController,
-	      mouseOutController: mouseOutController
-	};
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
 	var _module$exports;
 
-	var _element = __webpack_require__(3);
+	var _element = __webpack_require__(2);
 
 	var _element2 = _interopRequireDefault(_element);
 
-	var _httpRequests = __webpack_require__(9);
+	var _httpRequests = __webpack_require__(8);
 
 	var requests = _interopRequireWildcard(_httpRequests);
 
-	var _events = __webpack_require__(7);
+	var _events = __webpack_require__(6);
 
 	var events = _interopRequireWildcard(_events);
 
-	var _logger = __webpack_require__(4);
+	var _logger = __webpack_require__(3);
 
 	var consol = _interopRequireWildcard(_logger);
 
-	var _utilities = __webpack_require__(6);
+	var _utilities = __webpack_require__(5);
 
 	var utils = _interopRequireWildcard(_utilities);
 
-	var _DOM = __webpack_require__(8);
+	var _DOM = __webpack_require__(7);
 
 	var DOM = _interopRequireWildcard(_DOM);
 
@@ -1610,12 +542,51 @@
 	                                                                                                                                                                                                                  URL: ""
 	                                                                                                                                                                                                                  */
 
-	//FIXME: elements syntax not working in case condition of switch statement.
+	//DONE: elements syntax not working in parenthesis.
 	//FIXME: reg exp did not find element with CSS Selector, <'[class=active]'/>.
+	//FIXME: eJS Interpreter hangs when eJS element is within brackets, and directly adjacent to one of them.
+	//FIXME: cannot create element from variable representing a string.
+	//FIXME: Find out why module imports are printing twice..
+
+	//DONE: Can't put elements in comments.
+	//DONE: HTML interfering with regExp's.
+	//DONE: can't use file blobs with import() func.
+
+	//DONE: Should be able to use variables inside of elementJS elements.
+	//TODO: make some functions complete operations for arrays automagically, instead of needing .every().
+	//TODO: Make all event functions like once(), .once().
+	//TODO: Complete <elem> syntax docs.
+	//TODO: change apropo methods to properties.
+	//DONE: .sib() does not return element.......
+	//DONE: addClass() method.
+	//DONE: new log.dir() function.
+	//DONE: .src, .href() etc.
+	//DONE: add a class method, remove a class method.
+	//TODO: more .transform() methods.
+	//DONE: += html method.
+	//DONE: transform methods. i.e. this.turnX(), this.turnY.
+	//TODO: .do(), do() animation functionality. (with tween.js?)
+	//DONE: be able to create element object from e.target.....
+	//TODO: getCookie, setCookie, checkCookie functions....
+	//TODO: move functions........
+	//TODO: Needed polyfills.
+	//TODO: element.classList()....
+	//TODO: hover(mouseOverFunc, mouseOutFunc) func.....
+	//TODO: element.name() function.....
+	//TODO: add functionality to make() function to allow creating nameless, id less divs.
 
 	//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
-	// require('babel-polyfill');
+	//Index of polyfill for IE...........
+	if (!Array.prototype.indexOf) {
+	  Array.prototype.indexOf = function (item) {
+	    var i = this.length;
+	    while (i--) {
+	      if (this[i] === item) return i;
+	    }
+	    return -1;
+	  };
+	}
 
 	var element = function element(el) {
 	  if (isDOMElement(el)) {
@@ -1633,12 +604,7 @@
 	      throw new Error('Invalid Array.');
 	    }
 	  } else {
-	    log(el, 'green');
-	    if (isDOMElement(utils.queryDOM(el))) {
-	      return new _element2.default(utils.queryDOM(el));
-	    } else {
-	      err('Invalid Argument.');
-	    }
+	    throw new Error('Invalid Argument.');
 	  }
 	};
 
@@ -1657,30 +623,9 @@
 	  return utils.proto(construct, superConstruct);
 	};
 
-	/*This convenience function sets imported module function names as global variables, so that
-	the module variable doesn't need to preface every function.*/
-	var functions = function functions(funcs, mod) {
-	  //TEST:110 Test this with other node_modules.
-	  var context = mod || this;
-
-	  if (Array.isArray(funcs)) {
-	    log(mod, 'red');
-
-	    funcs.forEach(function (func) {
-	      var evil = new Function('window.' + func + ' = ' + 'this.' + func + ';');
-	      evil.call(context);
-	    }, context);
-	  } else {
-	    (function () {
-	      var evil = new Function('window.' + funcs + ' = ' + 'this.' + funcs + ';');
-	      evil.call(context);
-	    }).apply(context);
-	  }
-	};
-
+	//This function will simply return true if the given element exists in the DOM, and false otherwise. not a public function.
 	var _$ = function _$(el) {
-	  var l = null !== utils.queryDOM(el);
-	  return l;
+	  return null !== utils.queryDOM(el);
 	};
 
 	var isArray = function isArray(arr) {
@@ -1706,7 +651,7 @@
 	  return rv;
 	};
 
-	/*function for insterting template literals into the DOM.
+	/*function for inserting template literals into the DOM.
 
 	bones(`
 
@@ -1788,7 +733,6 @@
 	  return consol.warn(text, tyme);
 	};
 
-	//console.dir-like function.
 	var inspect = function inspect(obj) {
 	  return consol.inspect(obj);
 	};
@@ -2055,6 +999,27 @@
 	  }
 	};
 
+	//<<=================May have found a better solution.======================================>>//
+	/*This convenience function sets imported module function names as global variables, so that
+	the module variable doesn't need to preface every function.*/
+	// var functions = function(funcs, mod) {
+	//   var context = mod || this;
+	//
+	//   if (Array.isArray(funcs)) {
+	//     log(mod, 'red');
+	//
+	//     funcs.forEach(function(func) {
+	//       var evil = new Function('window.' + func + ' = ' + 'this.' + func + ';');
+	//           evil.call(context);
+	//     }, context);
+	//   } else {
+	//     (function() {
+	//       var evil = new Function('window.' + funcs + ' = ' + 'this.' + funcs + ';');
+	//           evil.call(context);
+	//     }).apply(context);
+	//   }
+	// };
+
 	module.exports = (_module$exports = {
 	  element: element,
 	  _$: _$,
@@ -2069,7 +1034,7 @@
 	  isArray: isArray,
 	  isElement: isElement,
 	  isDOMElement: isDOMElement,
-	  functions: functions,
+	  // functions: functions,
 	  hasAncestor: hasAncestor,
 	  lookBehind: lookBehind,
 	  put: put,
@@ -2077,18 +1042,26 @@
 	  off: off,
 	  once: once,
 	  el: el,
+	  log: log,
+	  url: url,
+	  xhr: xhr,
+	  err: err,
+	  info: info,
+	  warn: warn,
+	  inspect: inspect,
+	  ajax: ajax,
 	  fore: fore,
 	  aft: aft,
 	  show: show,
 	  hide: hide,
 	  size: size
-	}, _defineProperty(_module$exports, 'clone', clone), _defineProperty(_module$exports, 'log', log), _defineProperty(_module$exports, 'url', url), _defineProperty(_module$exports, 'xhr', xhr), _defineProperty(_module$exports, 'err', err), _defineProperty(_module$exports, 'info', info), _defineProperty(_module$exports, 'warn', warn), _defineProperty(_module$exports, 'inspect', inspect), _defineProperty(_module$exports, 'ajax', ajax), _defineProperty(_module$exports, 'spark', spark), _defineProperty(_module$exports, 'blur', blur), _defineProperty(_module$exports, 'click', click), _defineProperty(_module$exports, 'dblClick', dblClick), _defineProperty(_module$exports, 'error', error), _defineProperty(_module$exports, 'focus', focus), _defineProperty(_module$exports, 'focusIn', focusIn), _defineProperty(_module$exports, 'focusOut', focusOut), _defineProperty(_module$exports, 'keyUp', keyUp), _defineProperty(_module$exports, 'keyDown', keyDown), _defineProperty(_module$exports, 'load', load), _defineProperty(_module$exports, 'unLoad', unLoad), _defineProperty(_module$exports, 'mouse', mouse), _defineProperty(_module$exports, 'resize', resize), _defineProperty(_module$exports, 'scroll', scroll), _defineProperty(_module$exports, 'select', select), _module$exports);
+	}, _defineProperty(_module$exports, 'clone', clone), _defineProperty(_module$exports, 'spark', spark), _defineProperty(_module$exports, 'blur', blur), _defineProperty(_module$exports, 'click', click), _defineProperty(_module$exports, 'dblClick', dblClick), _defineProperty(_module$exports, 'error', error), _defineProperty(_module$exports, 'focus', focus), _defineProperty(_module$exports, 'focusIn', focusIn), _defineProperty(_module$exports, 'focusOut', focusOut), _defineProperty(_module$exports, 'keyUp', keyUp), _defineProperty(_module$exports, 'keyDown', keyDown), _defineProperty(_module$exports, 'load', load), _defineProperty(_module$exports, 'unLoad', unLoad), _defineProperty(_module$exports, 'mouse', mouse), _defineProperty(_module$exports, 'resize', resize), _defineProperty(_module$exports, 'scroll', scroll), _defineProperty(_module$exports, 'select', select), _module$exports);
 
 	//DONE:30 functions: err(), info(), warn().
 	//DONE:130 Complete all standalone style functions.
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2110,15 +1083,15 @@
 
 	exports.default = Element;
 
-	var _logger = __webpack_require__(4);
+	var _logger = __webpack_require__(3);
 
-	var _utilities = __webpack_require__(6);
+	var _utilities = __webpack_require__(5);
 
-	var _events = __webpack_require__(7);
+	var _events = __webpack_require__(6);
 
 	var events = _interopRequireWildcard(_events);
 
-	var _DOM = __webpack_require__(8);
+	var _DOM = __webpack_require__(7);
 
 	var DOM = _interopRequireWildcard(_DOM);
 
@@ -2128,7 +1101,6 @@
 
 	//DOING:10 List all functions that need to be added (.textContent, innerHTML etc.)
 	//DOING:20 Complete all functions for this object.
-	//IDEA: A method that incorporates jquery methods into El object (animation?).
 
 	function Element(el) {
 	  if ((0, _utilities.isArray)(el)) {
@@ -2990,7 +1962,7 @@
 	  this.children = function (s) {
 	    var count = void 0,
 	        arr = [];
-	    if (s === 'nodes') {
+	    if (s === 'all') {
 	      count = this.el.childNodes;
 	    } else {
 	      count = this.el.children;
@@ -3019,9 +1991,7 @@
 	  };
 
 	  this.second = function (s) {
-	    console.log(this.el);
-	    (0, _logger.log)(el.firstChild, 'red'); //TEST:30 Make sure this works.
-	    (0, _logger.log)(this.el.firstElementChild, 'yellow');
+	    //TEST:30 Make sure this works.
 	    var sib = s === 'node' ? this.el.firstChild.nextSibling : this.el.firstElementChild.nextElementSibling;
 	    return new Element(sib);
 	  };
@@ -3055,8 +2025,6 @@
 
 	    if (val !== undefined) {
 	      if (null !== mod) {
-	        mod = String(mod);
-
 	        if (mod === '+') {
 	          this.el.classList.add(val);
 	          return this;
@@ -3208,14 +2176,12 @@
 	  };
 
 	  this.fromLeft = function () {
-	    //TODO
 	    var r = this.el.offsetLeft;
 
 	    return r;
 	  };
 
 	  this.offset = function () {
-	    //TODO
 	    var off = {};
 
 	    off.top = this.el.offsetTop;
@@ -3292,8 +2258,7 @@
 	  this.fore = function (elem) {
 	    var ref = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 
-	    elem = (0, _utilities.queryDOM)(elem);
-	    //TEST:20 Make sure this works.
+	    elem = (0, _utilities.queryDOM)(elem); //TEST:20 Make sure this works.
 	    ref === null ? elem.parentNode.insertBefore(this.el, elem) : this.el.parentNode.insertBefore(elem, this.el);
 
 	    return this;
@@ -3556,7 +2521,6 @@
 	    this.els.forEach(function (elem, i, a) {
 	      eachFunc(elem, a, i);
 	    });
-
 	    return this;
 	  };
 
@@ -3603,7 +2567,7 @@
 	    return this;
 	  };
 
-	  //<<============Attribute Methods==========================>>//
+	  //<<================Attribute Methods==================>>//
 
 	  this.attrib = function (attrib, val) {
 	    //TEST:0 Make sure this works
@@ -3668,7 +2632,7 @@
 	};
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3683,7 +2647,7 @@
 	License: ISC
 	*/
 
-	var colors = __webpack_require__(5);
+	var colors = __webpack_require__(4);
 	//  require('babel-polyfill');
 
 	//DONE:90 Add second argument for log ID purposes, figure best way to approach this.
@@ -3761,6 +2725,11 @@
 
 	    return console.error('%c' + text + '%s', css, '   '.repeat(10) + t);
 	  }
+	};
+
+	//Console.error alias function.
+	var error = function error(text) {
+	  return console.error(text);
 	};
 
 	//Console.info alias function.
@@ -3855,7 +2824,7 @@
 	};
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3921,12 +2890,12 @@
 
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _logger = __webpack_require__(4);
+	var _logger = __webpack_require__(3);
 
 	// require('babel-polyfill');
 
@@ -4079,6 +3048,7 @@
 
 	  ancestors[0] = l.parentNode;
 	  ancestors[1] = ancestors[0].parentNode;
+
 	  if (!!ancestors[1].parentNode) {
 	    ancestors[2] = ancestors[1].parentNode;
 	  }
@@ -4108,8 +3078,8 @@
 	function lookBehind(leftContextRE, matchRE, subject) {
 	  var returnMatch, match, leftContext;
 
-	  match = matchRE.exec(subject);
-	  leftContext = substring(0, subject.indexOf(match));
+	  match = matchRE.exec(subject)[0];
+	  leftContext = subject.substring(0, subject.indexOf(match));
 
 	  if (leftContextRE.test(leftContext)) {
 	    returnMatch = match;
@@ -4134,14 +3104,14 @@
 	};
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _logger = __webpack_require__(4);
+	var _logger = __webpack_require__(3);
 
-	var _utilities = __webpack_require__(6);
+	var _utilities = __webpack_require__(5);
 
 	var utils = _interopRequireWildcard(_utilities);
 
@@ -4616,7 +3586,7 @@
 	    el.addEventListener('mouse' + sufx, cb);
 	  }
 	}
-	function mouseIE(sfx, el) {
+	function mouseIE(sufx, el) {
 	  var cb = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
 
@@ -4761,18 +3731,18 @@
 	};
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _element = __webpack_require__(3);
+	var _element = __webpack_require__(2);
 
 	var _element2 = _interopRequireDefault(_element);
 
-	var _logger = __webpack_require__(4);
+	var _logger = __webpack_require__(3);
 
-	var _utilities = __webpack_require__(6);
+	var _utilities = __webpack_require__(5);
 
 	var utils = _interopRequireWildcard(_utilities);
 
@@ -4845,9 +3815,9 @@
 	/*DOM querying alias function. Will return an array if there is more than one result. If there is
 	 only 1 it will NOT, even if the CSS Selector is a className or tagName.*/
 	//NOTE: Now referencing queryDOM() function from index.js.
-	// var el = function(el) {
-	//   return utils.queryDOM(el);
-	// };
+	var el = function el(_el) {
+	  return utils.queryDOM(_el);
+	};
 
 	//------------------------------This function is not being used in the current build ---------------------------//
 	//DOM querying function, same as above, but it will return an array if a tag or class name are given as argument.
@@ -5024,12 +3994,12 @@
 	};
 
 /***/ },
-/* 9 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _logger = __webpack_require__(4);
+	var _logger = __webpack_require__(3);
 
 	// require('babel-polyfill');
 
@@ -5127,350 +4097,7 @@
 	};
 
 /***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Bowser - a browser detector
-	 * https://github.com/ded/bowser
-	 * MIT License | (c) Dustin Diaz 2015
-	 */
-
-	!function (name, definition) {
-	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
-	  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
-	  else this[name] = definition()
-	}('bowser', function () {
-	  /**
-	    * See useragents.js for examples of navigator.userAgent
-	    */
-
-	  var t = true
-
-	  function detect(ua) {
-
-	    function getFirstMatch(regex) {
-	      var match = ua.match(regex);
-	      return (match && match.length > 1 && match[1]) || '';
-	    }
-
-	    function getSecondMatch(regex) {
-	      var match = ua.match(regex);
-	      return (match && match.length > 1 && match[2]) || '';
-	    }
-
-	    var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
-	      , likeAndroid = /like android/i.test(ua)
-	      , android = !likeAndroid && /android/i.test(ua)
-	      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
-	      , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
-	      , chromeos = /CrOS/.test(ua)
-	      , silk = /silk/i.test(ua)
-	      , sailfish = /sailfish/i.test(ua)
-	      , tizen = /tizen/i.test(ua)
-	      , webos = /(web|hpw)os/i.test(ua)
-	      , windowsphone = /windows phone/i.test(ua)
-	      , windows = !windowsphone && /windows/i.test(ua)
-	      , mac = !iosdevice && !silk && /macintosh/i.test(ua)
-	      , linux = !android && !sailfish && !tizen && !webos && /linux/i.test(ua)
-	      , edgeVersion = getFirstMatch(/edge\/(\d+(\.\d+)?)/i)
-	      , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
-	      , tablet = /tablet/i.test(ua)
-	      , mobile = !tablet && /[^-]mobi/i.test(ua)
-	      , result
-
-	    if (/opera|opr/i.test(ua)) {
-	      result = {
-	        name: 'Opera'
-	      , opera: t
-	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/yabrowser/i.test(ua)) {
-	      result = {
-	        name: 'Yandex Browser'
-	      , yandexbrowser: t
-	      , version: versionIdentifier || getFirstMatch(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/ucbrowser/i.test(ua)) {
-	      result = {
-	          name: 'UC Browser'
-	        , ucbrowser: t
-	        , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
-	      }
-	    }
-	    else if (windowsphone) {
-	      result = {
-	        name: 'Windows Phone'
-	      , windowsphone: t
-	      }
-	      if (edgeVersion) {
-	        result.msedge = t
-	        result.version = edgeVersion
-	      }
-	      else {
-	        result.msie = t
-	        result.version = getFirstMatch(/iemobile\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/msie|trident/i.test(ua)) {
-	      result = {
-	        name: 'Internet Explorer'
-	      , msie: t
-	      , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
-	      }
-	    } else if (chromeos) {
-	      result = {
-	        name: 'Chrome'
-	      , chromeos: t
-	      , chromeBook: t
-	      , chrome: t
-	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
-	      }
-	    } else if (/chrome.+? edge/i.test(ua)) {
-	      result = {
-	        name: 'Microsoft Edge'
-	      , msedge: t
-	      , version: edgeVersion
-	      }
-	    }
-		else if (/vivaldi/i.test(ua)) {
-			result = {
-				name: 'Vivaldi'
-				, vivaldi: t
-				, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
-			}
-		}
-	    else if (/chrome|crios|crmo/i.test(ua)) {
-	      result = {
-	        name: 'Chrome'
-	      , chrome: t
-	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (iosdevice) {
-	      result = {
-	        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
-	      }
-	      // WTF: version is not part of user agent in web apps
-	      if (versionIdentifier) {
-	        result.version = versionIdentifier
-	      }
-	    }
-	    else if (sailfish) {
-	      result = {
-	        name: 'Sailfish'
-	      , sailfish: t
-	      , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/seamonkey\//i.test(ua)) {
-	      result = {
-	        name: 'SeaMonkey'
-	      , seamonkey: t
-	      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/firefox|iceweasel/i.test(ua)) {
-	      result = {
-	        name: 'Firefox'
-	      , firefox: t
-	      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
-	      }
-	      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
-	        result.firefoxos = t
-	      }
-	    }
-	    else if (silk) {
-	      result =  {
-	        name: 'Amazon Silk'
-	      , silk: t
-	      , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (android) {
-	      result = {
-	        name: 'Android'
-	      , version: versionIdentifier
-	      }
-	    }
-	    else if (/phantom/i.test(ua)) {
-	      result = {
-	        name: 'PhantomJS'
-	      , phantom: t
-	      , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
-	      result = {
-	        name: 'BlackBerry'
-	      , blackberry: t
-	      , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (webos) {
-	      result = {
-	        name: 'WebOS'
-	      , webos: t
-	      , version: versionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)
-	      };
-	      /touchpad\//i.test(ua) && (result.touchpad = t)
-	    }
-	    else if (/bada/i.test(ua)) {
-	      result = {
-	        name: 'Bada'
-	      , bada: t
-	      , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
-	      };
-	    }
-	    else if (tizen) {
-	      result = {
-	        name: 'Tizen'
-	      , tizen: t
-	      , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
-	      };
-	    }
-	    else if (/qupzilla/i.test(ua)) {
-	      result = {
-	        name: 'QupZilla'
-	        , qupzilla: t
-	        , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
-	      }
-	    }
-	    else if (/safari/i.test(ua)) {
-	      result = {
-	        name: 'Safari'
-	      , safari: t
-	      , version: versionIdentifier
-	      }
-	    }
-	    else if(/googlebot/i.test(ua)) {
-	      result = {
-	        name: 'Googlebot'
-	      , googlebot: t
-	      , version: getFirstMatch(/googlebot\/(\d+(\.\d+))/i) || versionIdentifier
-	      }
-	    }
-	    else {
-	      result = {
-	        name: getFirstMatch(/^(.*)\/(.*) /),
-	        version: getSecondMatch(/^(.*)\/(.*) /)
-	     };
-	   }
-
-	    // set webkit or gecko flag for browsers based on these engines
-	    if (!result.msedge && /(apple)?webkit/i.test(ua)) {
-	      result.name = result.name || "Webkit"
-	      result.webkit = t
-	      if (!result.version && versionIdentifier) {
-	        result.version = versionIdentifier
-	      }
-	    } else if (!result.opera && /gecko\//i.test(ua)) {
-	      result.name = result.name || "Gecko"
-	      result.gecko = t
-	      result.version = result.version || getFirstMatch(/gecko\/(\d+(\.\d+)?)/i)
-	    }
-
-	    // set OS flags for platforms that have multiple browsers
-	    if (!result.msedge && (android || result.silk)) {
-	      result.android = t
-	    } else if (iosdevice) {
-	      result[iosdevice] = t
-	      result.ios = t
-	    } else if (windows) {
-	      result.windows = t
-	    } else if (mac) {
-	      result.mac = t
-	    } else if (linux) {
-	      result.linux = t
-	    }
-
-	    // OS version extraction
-	    var osVersion = '';
-	    if (result.windowsphone) {
-	      osVersion = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i);
-	    } else if (iosdevice) {
-	      osVersion = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i);
-	      osVersion = osVersion.replace(/[_\s]/g, '.');
-	    } else if (android) {
-	      osVersion = getFirstMatch(/android[ \/-](\d+(\.\d+)*)/i);
-	    } else if (result.webos) {
-	      osVersion = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i);
-	    } else if (result.blackberry) {
-	      osVersion = getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i);
-	    } else if (result.bada) {
-	      osVersion = getFirstMatch(/bada\/(\d+(\.\d+)*)/i);
-	    } else if (result.tizen) {
-	      osVersion = getFirstMatch(/tizen[\/\s](\d+(\.\d+)*)/i);
-	    }
-	    if (osVersion) {
-	      result.osversion = osVersion;
-	    }
-
-	    // device type extraction
-	    var osMajorVersion = osVersion.split('.')[0];
-	    if (tablet || nexusTablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
-	      result.tablet = t
-	    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || nexusMobile || result.blackberry || result.webos || result.bada) {
-	      result.mobile = t
-	    }
-
-	    // Graded Browser Support
-	    // http://developer.yahoo.com/yui/articles/gbs
-	    if (result.msedge ||
-	        (result.msie && result.version >= 10) ||
-	        (result.yandexbrowser && result.version >= 15) ||
-			(result.vivaldi && result.version >= 1.0) ||
-	        (result.chrome && result.version >= 20) ||
-	        (result.firefox && result.version >= 20.0) ||
-	        (result.safari && result.version >= 6) ||
-	        (result.opera && result.version >= 10.0) ||
-	        (result.ios && result.osversion && result.osversion.split(".")[0] >= 6) ||
-	        (result.blackberry && result.version >= 10.1)
-	        ) {
-	      result.a = t;
-	    }
-	    else if ((result.msie && result.version < 10) ||
-	        (result.chrome && result.version < 20) ||
-	        (result.firefox && result.version < 20.0) ||
-	        (result.safari && result.version < 6) ||
-	        (result.opera && result.version < 10.0) ||
-	        (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
-	        ) {
-	      result.c = t
-	    } else result.x = t
-
-	    return result
-	  }
-
-	  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')
-
-	  bowser.test = function (browserList) {
-	    for (var i = 0; i < browserList.length; ++i) {
-	      var browserItem = browserList[i];
-	      if (typeof browserItem=== 'string') {
-	        if (browserItem in bowser) {
-	          return true;
-	        }
-	      }
-	    }
-	    return false;
-	  }
-
-	  /*
-	   * Set our detect method to the main bowser object so we can
-	   * reuse it to test other user agents.
-	   * This is needed to implement future tests.
-	   */
-	  bowser._detect = detect;
-
-	  return bowser
-	});
-
-
-/***/ },
-/* 11 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -6762,168 +5389,168 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 12 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(13);
+	var hljs = __webpack_require__(11);
 
-	hljs.registerLanguage('1c', __webpack_require__(14));
-	hljs.registerLanguage('accesslog', __webpack_require__(15));
-	hljs.registerLanguage('actionscript', __webpack_require__(16));
-	hljs.registerLanguage('apache', __webpack_require__(17));
-	hljs.registerLanguage('applescript', __webpack_require__(18));
-	hljs.registerLanguage('arduino', __webpack_require__(19));
-	hljs.registerLanguage('armasm', __webpack_require__(20));
-	hljs.registerLanguage('xml', __webpack_require__(21));
-	hljs.registerLanguage('asciidoc', __webpack_require__(22));
-	hljs.registerLanguage('aspectj', __webpack_require__(23));
-	hljs.registerLanguage('autohotkey', __webpack_require__(24));
-	hljs.registerLanguage('autoit', __webpack_require__(25));
-	hljs.registerLanguage('avrasm', __webpack_require__(26));
-	hljs.registerLanguage('axapta', __webpack_require__(27));
-	hljs.registerLanguage('bash', __webpack_require__(28));
-	hljs.registerLanguage('basic', __webpack_require__(29));
-	hljs.registerLanguage('brainfuck', __webpack_require__(30));
-	hljs.registerLanguage('cal', __webpack_require__(31));
-	hljs.registerLanguage('capnproto', __webpack_require__(32));
-	hljs.registerLanguage('ceylon', __webpack_require__(33));
-	hljs.registerLanguage('clojure', __webpack_require__(34));
-	hljs.registerLanguage('clojure-repl', __webpack_require__(35));
-	hljs.registerLanguage('cmake', __webpack_require__(36));
-	hljs.registerLanguage('coffeescript', __webpack_require__(37));
-	hljs.registerLanguage('cos', __webpack_require__(38));
-	hljs.registerLanguage('cpp', __webpack_require__(39));
-	hljs.registerLanguage('crmsh', __webpack_require__(40));
-	hljs.registerLanguage('crystal', __webpack_require__(41));
-	hljs.registerLanguage('cs', __webpack_require__(42));
-	hljs.registerLanguage('csp', __webpack_require__(43));
-	hljs.registerLanguage('css', __webpack_require__(44));
-	hljs.registerLanguage('d', __webpack_require__(45));
-	hljs.registerLanguage('markdown', __webpack_require__(46));
-	hljs.registerLanguage('dart', __webpack_require__(47));
-	hljs.registerLanguage('delphi', __webpack_require__(48));
-	hljs.registerLanguage('diff', __webpack_require__(49));
-	hljs.registerLanguage('django', __webpack_require__(50));
-	hljs.registerLanguage('dns', __webpack_require__(51));
-	hljs.registerLanguage('dockerfile', __webpack_require__(52));
-	hljs.registerLanguage('dos', __webpack_require__(53));
-	hljs.registerLanguage('dts', __webpack_require__(54));
-	hljs.registerLanguage('dust', __webpack_require__(55));
-	hljs.registerLanguage('elixir', __webpack_require__(56));
-	hljs.registerLanguage('elm', __webpack_require__(57));
-	hljs.registerLanguage('ruby', __webpack_require__(58));
-	hljs.registerLanguage('erb', __webpack_require__(59));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(60));
-	hljs.registerLanguage('erlang', __webpack_require__(61));
-	hljs.registerLanguage('fix', __webpack_require__(62));
-	hljs.registerLanguage('fortran', __webpack_require__(63));
-	hljs.registerLanguage('fsharp', __webpack_require__(64));
-	hljs.registerLanguage('gams', __webpack_require__(65));
-	hljs.registerLanguage('gauss', __webpack_require__(66));
-	hljs.registerLanguage('gcode', __webpack_require__(67));
-	hljs.registerLanguage('gherkin', __webpack_require__(68));
-	hljs.registerLanguage('glsl', __webpack_require__(69));
-	hljs.registerLanguage('go', __webpack_require__(70));
-	hljs.registerLanguage('golo', __webpack_require__(71));
-	hljs.registerLanguage('gradle', __webpack_require__(72));
-	hljs.registerLanguage('groovy', __webpack_require__(73));
-	hljs.registerLanguage('haml', __webpack_require__(74));
-	hljs.registerLanguage('handlebars', __webpack_require__(75));
-	hljs.registerLanguage('haskell', __webpack_require__(76));
-	hljs.registerLanguage('haxe', __webpack_require__(77));
-	hljs.registerLanguage('hsp', __webpack_require__(78));
-	hljs.registerLanguage('htmlbars', __webpack_require__(79));
-	hljs.registerLanguage('http', __webpack_require__(80));
-	hljs.registerLanguage('inform7', __webpack_require__(81));
-	hljs.registerLanguage('ini', __webpack_require__(82));
-	hljs.registerLanguage('irpf90', __webpack_require__(83));
-	hljs.registerLanguage('java', __webpack_require__(84));
-	hljs.registerLanguage('javascript', __webpack_require__(85));
-	hljs.registerLanguage('json', __webpack_require__(86));
-	hljs.registerLanguage('julia', __webpack_require__(87));
-	hljs.registerLanguage('kotlin', __webpack_require__(88));
-	hljs.registerLanguage('lasso', __webpack_require__(89));
-	hljs.registerLanguage('less', __webpack_require__(90));
-	hljs.registerLanguage('lisp', __webpack_require__(91));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(92));
-	hljs.registerLanguage('livescript', __webpack_require__(93));
-	hljs.registerLanguage('lua', __webpack_require__(94));
-	hljs.registerLanguage('makefile', __webpack_require__(95));
-	hljs.registerLanguage('mathematica', __webpack_require__(96));
-	hljs.registerLanguage('matlab', __webpack_require__(97));
-	hljs.registerLanguage('maxima', __webpack_require__(98));
-	hljs.registerLanguage('mel', __webpack_require__(99));
-	hljs.registerLanguage('mercury', __webpack_require__(100));
-	hljs.registerLanguage('mipsasm', __webpack_require__(101));
-	hljs.registerLanguage('mizar', __webpack_require__(102));
-	hljs.registerLanguage('perl', __webpack_require__(103));
-	hljs.registerLanguage('mojolicious', __webpack_require__(104));
-	hljs.registerLanguage('monkey', __webpack_require__(105));
-	hljs.registerLanguage('moonscript', __webpack_require__(106));
-	hljs.registerLanguage('nginx', __webpack_require__(107));
-	hljs.registerLanguage('nimrod', __webpack_require__(108));
-	hljs.registerLanguage('nix', __webpack_require__(109));
-	hljs.registerLanguage('nsis', __webpack_require__(110));
-	hljs.registerLanguage('objectivec', __webpack_require__(111));
-	hljs.registerLanguage('ocaml', __webpack_require__(112));
-	hljs.registerLanguage('openscad', __webpack_require__(113));
-	hljs.registerLanguage('oxygene', __webpack_require__(114));
-	hljs.registerLanguage('parser3', __webpack_require__(115));
-	hljs.registerLanguage('pf', __webpack_require__(116));
-	hljs.registerLanguage('php', __webpack_require__(117));
-	hljs.registerLanguage('powershell', __webpack_require__(118));
-	hljs.registerLanguage('processing', __webpack_require__(119));
-	hljs.registerLanguage('profile', __webpack_require__(120));
-	hljs.registerLanguage('prolog', __webpack_require__(121));
-	hljs.registerLanguage('protobuf', __webpack_require__(122));
-	hljs.registerLanguage('puppet', __webpack_require__(123));
-	hljs.registerLanguage('python', __webpack_require__(124));
-	hljs.registerLanguage('q', __webpack_require__(125));
-	hljs.registerLanguage('qml', __webpack_require__(126));
-	hljs.registerLanguage('r', __webpack_require__(127));
-	hljs.registerLanguage('rib', __webpack_require__(128));
-	hljs.registerLanguage('roboconf', __webpack_require__(129));
-	hljs.registerLanguage('rsl', __webpack_require__(130));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(131));
-	hljs.registerLanguage('rust', __webpack_require__(132));
-	hljs.registerLanguage('scala', __webpack_require__(133));
-	hljs.registerLanguage('scheme', __webpack_require__(134));
-	hljs.registerLanguage('scilab', __webpack_require__(135));
-	hljs.registerLanguage('scss', __webpack_require__(136));
-	hljs.registerLanguage('smali', __webpack_require__(137));
-	hljs.registerLanguage('smalltalk', __webpack_require__(138));
-	hljs.registerLanguage('sml', __webpack_require__(139));
-	hljs.registerLanguage('sqf', __webpack_require__(140));
-	hljs.registerLanguage('sql', __webpack_require__(141));
-	hljs.registerLanguage('stan', __webpack_require__(142));
-	hljs.registerLanguage('stata', __webpack_require__(143));
-	hljs.registerLanguage('step21', __webpack_require__(144));
-	hljs.registerLanguage('stylus', __webpack_require__(145));
-	hljs.registerLanguage('swift', __webpack_require__(146));
-	hljs.registerLanguage('taggerscript', __webpack_require__(147));
-	hljs.registerLanguage('tcl', __webpack_require__(148));
-	hljs.registerLanguage('tex', __webpack_require__(149));
-	hljs.registerLanguage('thrift', __webpack_require__(150));
-	hljs.registerLanguage('tp', __webpack_require__(151));
-	hljs.registerLanguage('twig', __webpack_require__(152));
-	hljs.registerLanguage('typescript', __webpack_require__(153));
-	hljs.registerLanguage('vala', __webpack_require__(154));
-	hljs.registerLanguage('vbnet', __webpack_require__(155));
-	hljs.registerLanguage('vbscript', __webpack_require__(156));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(157));
-	hljs.registerLanguage('verilog', __webpack_require__(158));
-	hljs.registerLanguage('vhdl', __webpack_require__(159));
-	hljs.registerLanguage('vim', __webpack_require__(160));
-	hljs.registerLanguage('x86asm', __webpack_require__(161));
-	hljs.registerLanguage('xl', __webpack_require__(162));
-	hljs.registerLanguage('xquery', __webpack_require__(163));
-	hljs.registerLanguage('yaml', __webpack_require__(164));
-	hljs.registerLanguage('zephir', __webpack_require__(165));
+	hljs.registerLanguage('1c', __webpack_require__(12));
+	hljs.registerLanguage('accesslog', __webpack_require__(13));
+	hljs.registerLanguage('actionscript', __webpack_require__(14));
+	hljs.registerLanguage('apache', __webpack_require__(15));
+	hljs.registerLanguage('applescript', __webpack_require__(16));
+	hljs.registerLanguage('arduino', __webpack_require__(17));
+	hljs.registerLanguage('armasm', __webpack_require__(18));
+	hljs.registerLanguage('xml', __webpack_require__(19));
+	hljs.registerLanguage('asciidoc', __webpack_require__(20));
+	hljs.registerLanguage('aspectj', __webpack_require__(21));
+	hljs.registerLanguage('autohotkey', __webpack_require__(22));
+	hljs.registerLanguage('autoit', __webpack_require__(23));
+	hljs.registerLanguage('avrasm', __webpack_require__(24));
+	hljs.registerLanguage('axapta', __webpack_require__(25));
+	hljs.registerLanguage('bash', __webpack_require__(26));
+	hljs.registerLanguage('basic', __webpack_require__(27));
+	hljs.registerLanguage('brainfuck', __webpack_require__(28));
+	hljs.registerLanguage('cal', __webpack_require__(29));
+	hljs.registerLanguage('capnproto', __webpack_require__(30));
+	hljs.registerLanguage('ceylon', __webpack_require__(31));
+	hljs.registerLanguage('clojure', __webpack_require__(32));
+	hljs.registerLanguage('clojure-repl', __webpack_require__(33));
+	hljs.registerLanguage('cmake', __webpack_require__(34));
+	hljs.registerLanguage('coffeescript', __webpack_require__(35));
+	hljs.registerLanguage('cos', __webpack_require__(36));
+	hljs.registerLanguage('cpp', __webpack_require__(37));
+	hljs.registerLanguage('crmsh', __webpack_require__(38));
+	hljs.registerLanguage('crystal', __webpack_require__(39));
+	hljs.registerLanguage('cs', __webpack_require__(40));
+	hljs.registerLanguage('csp', __webpack_require__(41));
+	hljs.registerLanguage('css', __webpack_require__(42));
+	hljs.registerLanguage('d', __webpack_require__(43));
+	hljs.registerLanguage('markdown', __webpack_require__(44));
+	hljs.registerLanguage('dart', __webpack_require__(45));
+	hljs.registerLanguage('delphi', __webpack_require__(46));
+	hljs.registerLanguage('diff', __webpack_require__(47));
+	hljs.registerLanguage('django', __webpack_require__(48));
+	hljs.registerLanguage('dns', __webpack_require__(49));
+	hljs.registerLanguage('dockerfile', __webpack_require__(50));
+	hljs.registerLanguage('dos', __webpack_require__(51));
+	hljs.registerLanguage('dts', __webpack_require__(52));
+	hljs.registerLanguage('dust', __webpack_require__(53));
+	hljs.registerLanguage('elixir', __webpack_require__(54));
+	hljs.registerLanguage('elm', __webpack_require__(55));
+	hljs.registerLanguage('ruby', __webpack_require__(56));
+	hljs.registerLanguage('erb', __webpack_require__(57));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(58));
+	hljs.registerLanguage('erlang', __webpack_require__(59));
+	hljs.registerLanguage('fix', __webpack_require__(60));
+	hljs.registerLanguage('fortran', __webpack_require__(61));
+	hljs.registerLanguage('fsharp', __webpack_require__(62));
+	hljs.registerLanguage('gams', __webpack_require__(63));
+	hljs.registerLanguage('gauss', __webpack_require__(64));
+	hljs.registerLanguage('gcode', __webpack_require__(65));
+	hljs.registerLanguage('gherkin', __webpack_require__(66));
+	hljs.registerLanguage('glsl', __webpack_require__(67));
+	hljs.registerLanguage('go', __webpack_require__(68));
+	hljs.registerLanguage('golo', __webpack_require__(69));
+	hljs.registerLanguage('gradle', __webpack_require__(70));
+	hljs.registerLanguage('groovy', __webpack_require__(71));
+	hljs.registerLanguage('haml', __webpack_require__(72));
+	hljs.registerLanguage('handlebars', __webpack_require__(73));
+	hljs.registerLanguage('haskell', __webpack_require__(74));
+	hljs.registerLanguage('haxe', __webpack_require__(75));
+	hljs.registerLanguage('hsp', __webpack_require__(76));
+	hljs.registerLanguage('htmlbars', __webpack_require__(77));
+	hljs.registerLanguage('http', __webpack_require__(78));
+	hljs.registerLanguage('inform7', __webpack_require__(79));
+	hljs.registerLanguage('ini', __webpack_require__(80));
+	hljs.registerLanguage('irpf90', __webpack_require__(81));
+	hljs.registerLanguage('java', __webpack_require__(82));
+	hljs.registerLanguage('javascript', __webpack_require__(83));
+	hljs.registerLanguage('json', __webpack_require__(84));
+	hljs.registerLanguage('julia', __webpack_require__(85));
+	hljs.registerLanguage('kotlin', __webpack_require__(86));
+	hljs.registerLanguage('lasso', __webpack_require__(87));
+	hljs.registerLanguage('less', __webpack_require__(88));
+	hljs.registerLanguage('lisp', __webpack_require__(89));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(90));
+	hljs.registerLanguage('livescript', __webpack_require__(91));
+	hljs.registerLanguage('lua', __webpack_require__(92));
+	hljs.registerLanguage('makefile', __webpack_require__(93));
+	hljs.registerLanguage('mathematica', __webpack_require__(94));
+	hljs.registerLanguage('matlab', __webpack_require__(95));
+	hljs.registerLanguage('maxima', __webpack_require__(96));
+	hljs.registerLanguage('mel', __webpack_require__(97));
+	hljs.registerLanguage('mercury', __webpack_require__(98));
+	hljs.registerLanguage('mipsasm', __webpack_require__(99));
+	hljs.registerLanguage('mizar', __webpack_require__(100));
+	hljs.registerLanguage('perl', __webpack_require__(101));
+	hljs.registerLanguage('mojolicious', __webpack_require__(102));
+	hljs.registerLanguage('monkey', __webpack_require__(103));
+	hljs.registerLanguage('moonscript', __webpack_require__(104));
+	hljs.registerLanguage('nginx', __webpack_require__(105));
+	hljs.registerLanguage('nimrod', __webpack_require__(106));
+	hljs.registerLanguage('nix', __webpack_require__(107));
+	hljs.registerLanguage('nsis', __webpack_require__(108));
+	hljs.registerLanguage('objectivec', __webpack_require__(109));
+	hljs.registerLanguage('ocaml', __webpack_require__(110));
+	hljs.registerLanguage('openscad', __webpack_require__(111));
+	hljs.registerLanguage('oxygene', __webpack_require__(112));
+	hljs.registerLanguage('parser3', __webpack_require__(113));
+	hljs.registerLanguage('pf', __webpack_require__(114));
+	hljs.registerLanguage('php', __webpack_require__(115));
+	hljs.registerLanguage('powershell', __webpack_require__(116));
+	hljs.registerLanguage('processing', __webpack_require__(117));
+	hljs.registerLanguage('profile', __webpack_require__(118));
+	hljs.registerLanguage('prolog', __webpack_require__(119));
+	hljs.registerLanguage('protobuf', __webpack_require__(120));
+	hljs.registerLanguage('puppet', __webpack_require__(121));
+	hljs.registerLanguage('python', __webpack_require__(122));
+	hljs.registerLanguage('q', __webpack_require__(123));
+	hljs.registerLanguage('qml', __webpack_require__(124));
+	hljs.registerLanguage('r', __webpack_require__(125));
+	hljs.registerLanguage('rib', __webpack_require__(126));
+	hljs.registerLanguage('roboconf', __webpack_require__(127));
+	hljs.registerLanguage('rsl', __webpack_require__(128));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(129));
+	hljs.registerLanguage('rust', __webpack_require__(130));
+	hljs.registerLanguage('scala', __webpack_require__(131));
+	hljs.registerLanguage('scheme', __webpack_require__(132));
+	hljs.registerLanguage('scilab', __webpack_require__(133));
+	hljs.registerLanguage('scss', __webpack_require__(134));
+	hljs.registerLanguage('smali', __webpack_require__(135));
+	hljs.registerLanguage('smalltalk', __webpack_require__(136));
+	hljs.registerLanguage('sml', __webpack_require__(137));
+	hljs.registerLanguage('sqf', __webpack_require__(138));
+	hljs.registerLanguage('sql', __webpack_require__(139));
+	hljs.registerLanguage('stan', __webpack_require__(140));
+	hljs.registerLanguage('stata', __webpack_require__(141));
+	hljs.registerLanguage('step21', __webpack_require__(142));
+	hljs.registerLanguage('stylus', __webpack_require__(143));
+	hljs.registerLanguage('swift', __webpack_require__(144));
+	hljs.registerLanguage('taggerscript', __webpack_require__(145));
+	hljs.registerLanguage('tcl', __webpack_require__(146));
+	hljs.registerLanguage('tex', __webpack_require__(147));
+	hljs.registerLanguage('thrift', __webpack_require__(148));
+	hljs.registerLanguage('tp', __webpack_require__(149));
+	hljs.registerLanguage('twig', __webpack_require__(150));
+	hljs.registerLanguage('typescript', __webpack_require__(151));
+	hljs.registerLanguage('vala', __webpack_require__(152));
+	hljs.registerLanguage('vbnet', __webpack_require__(153));
+	hljs.registerLanguage('vbscript', __webpack_require__(154));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(155));
+	hljs.registerLanguage('verilog', __webpack_require__(156));
+	hljs.registerLanguage('vhdl', __webpack_require__(157));
+	hljs.registerLanguage('vim', __webpack_require__(158));
+	hljs.registerLanguage('x86asm', __webpack_require__(159));
+	hljs.registerLanguage('xl', __webpack_require__(160));
+	hljs.registerLanguage('xquery', __webpack_require__(161));
+	hljs.registerLanguage('yaml', __webpack_require__(162));
+	hljs.registerLanguage('zephir', __webpack_require__(163));
 
 	module.exports = hljs;
 
 /***/ },
-/* 13 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -7713,7 +6340,7 @@
 
 
 /***/ },
-/* 14 */
+/* 12 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -7796,7 +6423,7 @@
 	};
 
 /***/ },
-/* 15 */
+/* 13 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7838,7 +6465,7 @@
 	};
 
 /***/ },
-/* 16 */
+/* 14 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7916,7 +6543,7 @@
 	};
 
 /***/ },
-/* 17 */
+/* 15 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7966,7 +6593,7 @@
 	};
 
 /***/ },
-/* 18 */
+/* 16 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8056,7 +6683,7 @@
 	};
 
 /***/ },
-/* 19 */
+/* 17 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8214,7 +6841,7 @@
 	};
 
 /***/ },
-/* 20 */
+/* 18 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8310,7 +6937,7 @@
 	};
 
 /***/ },
-/* 21 */
+/* 19 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8417,7 +7044,7 @@
 	};
 
 /***/ },
-/* 22 */
+/* 20 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8609,7 +7236,7 @@
 	};
 
 /***/ },
-/* 23 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -8757,7 +7384,7 @@
 	};
 
 /***/ },
-/* 24 */
+/* 22 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8809,7 +7436,7 @@
 	};
 
 /***/ },
-/* 25 */
+/* 23 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10567,7 +9194,7 @@
 	};
 
 /***/ },
-/* 26 */
+/* 24 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10633,7 +9260,7 @@
 	};
 
 /***/ },
-/* 27 */
+/* 25 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10668,7 +9295,7 @@
 	};
 
 /***/ },
-/* 28 */
+/* 26 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10747,7 +9374,7 @@
 	};
 
 /***/ },
-/* 29 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10802,7 +9429,7 @@
 	};
 
 /***/ },
-/* 30 */
+/* 28 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -10843,7 +9470,7 @@
 	};
 
 /***/ },
-/* 31 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10927,7 +9554,7 @@
 	};
 
 /***/ },
-/* 32 */
+/* 30 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10980,7 +9607,7 @@
 	};
 
 /***/ },
-/* 33 */
+/* 31 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11051,7 +9678,7 @@
 	};
 
 /***/ },
-/* 34 */
+/* 32 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11150,7 +9777,7 @@
 	};
 
 /***/ },
-/* 35 */
+/* 33 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11169,7 +9796,7 @@
 	};
 
 /***/ },
-/* 36 */
+/* 34 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11211,7 +9838,7 @@
 	};
 
 /***/ },
-/* 37 */
+/* 35 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11354,7 +9981,7 @@
 	};
 
 /***/ },
-/* 38 */
+/* 36 */
 /***/ function(module, exports) {
 
 	module.exports = function cos (hljs) {
@@ -11490,7 +10117,7 @@
 	};
 
 /***/ },
-/* 39 */
+/* 37 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11652,7 +10279,7 @@
 	};
 
 /***/ },
-/* 40 */
+/* 38 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11750,7 +10377,7 @@
 	};
 
 /***/ },
-/* 41 */
+/* 39 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11932,7 +10559,7 @@
 	};
 
 /***/ },
-/* 42 */
+/* 40 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12054,7 +10681,7 @@
 	};
 
 /***/ },
-/* 43 */
+/* 41 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12080,7 +10707,7 @@
 	};
 
 /***/ },
-/* 44 */
+/* 42 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12189,7 +10816,7 @@
 	};
 
 /***/ },
-/* 45 */
+/* 43 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -12451,7 +11078,7 @@
 	};
 
 /***/ },
-/* 46 */
+/* 44 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12562,7 +11189,7 @@
 	};
 
 /***/ },
-/* 47 */
+/* 45 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -12667,7 +11294,7 @@
 	};
 
 /***/ },
-/* 48 */
+/* 46 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12739,7 +11366,7 @@
 	};
 
 /***/ },
-/* 49 */
+/* 47 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12783,7 +11410,7 @@
 	};
 
 /***/ },
-/* 50 */
+/* 48 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12851,7 +11478,7 @@
 	};
 
 /***/ },
-/* 51 */
+/* 49 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12884,7 +11511,7 @@
 	};
 
 /***/ },
-/* 52 */
+/* 50 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12917,7 +11544,7 @@
 	};
 
 /***/ },
-/* 53 */
+/* 51 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12973,7 +11600,7 @@
 	};
 
 /***/ },
-/* 54 */
+/* 52 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13101,7 +11728,7 @@
 	};
 
 /***/ },
-/* 55 */
+/* 53 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13137,7 +11764,7 @@
 	};
 
 /***/ },
-/* 56 */
+/* 54 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13238,7 +11865,7 @@
 	};
 
 /***/ },
-/* 57 */
+/* 55 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13325,7 +11952,7 @@
 	};
 
 /***/ },
-/* 58 */
+/* 56 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13502,7 +12129,7 @@
 	};
 
 /***/ },
-/* 59 */
+/* 57 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13521,7 +12148,7 @@
 	};
 
 /***/ },
-/* 60 */
+/* 58 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13571,7 +12198,7 @@
 	};
 
 /***/ },
-/* 61 */
+/* 59 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13721,7 +12348,7 @@
 	};
 
 /***/ },
-/* 62 */
+/* 60 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13754,7 +12381,7 @@
 	};
 
 /***/ },
-/* 63 */
+/* 61 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13829,7 +12456,7 @@
 	};
 
 /***/ },
-/* 64 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13892,7 +12519,7 @@
 	};
 
 /***/ },
-/* 65 */
+/* 63 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -14049,7 +12676,7 @@
 	};
 
 /***/ },
-/* 66 */
+/* 64 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14275,7 +12902,7 @@
 	};
 
 /***/ },
-/* 67 */
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14346,7 +12973,7 @@
 	};
 
 /***/ },
-/* 68 */
+/* 66 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -14387,7 +13014,7 @@
 	};
 
 /***/ },
-/* 69 */
+/* 67 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14508,7 +13135,7 @@
 	};
 
 /***/ },
-/* 70 */
+/* 68 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14550,7 +13177,7 @@
 	};
 
 /***/ },
-/* 71 */
+/* 69 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14577,7 +13204,7 @@
 	};
 
 /***/ },
-/* 72 */
+/* 70 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14616,7 +13243,7 @@
 	};
 
 /***/ },
-/* 73 */
+/* 71 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14714,7 +13341,7 @@
 	};
 
 /***/ },
-/* 74 */
+/* 72 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -14825,7 +13452,7 @@
 	};
 
 /***/ },
-/* 75 */
+/* 73 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14863,7 +13490,7 @@
 	};
 
 /***/ },
-/* 76 */
+/* 74 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14989,7 +13616,7 @@
 	};
 
 /***/ },
-/* 77 */
+/* 75 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15051,7 +13678,7 @@
 	};
 
 /***/ },
-/* 78 */
+/* 76 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15101,7 +13728,7 @@
 	};
 
 /***/ },
-/* 79 */
+/* 77 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15176,7 +13803,7 @@
 	};
 
 /***/ },
-/* 80 */
+/* 78 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15221,7 +13848,7 @@
 	};
 
 /***/ },
-/* 81 */
+/* 79 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15282,7 +13909,7 @@
 	};
 
 /***/ },
-/* 82 */
+/* 80 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15352,7 +13979,7 @@
 	};
 
 /***/ },
-/* 83 */
+/* 81 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15432,7 +14059,7 @@
 	};
 
 /***/ },
-/* 84 */
+/* 82 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15543,7 +14170,7 @@
 	};
 
 /***/ },
-/* 85 */
+/* 83 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15661,7 +14288,7 @@
 	};
 
 /***/ },
-/* 86 */
+/* 84 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15702,7 +14329,7 @@
 	};
 
 /***/ },
-/* 87 */
+/* 85 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15884,7 +14511,7 @@
 	};
 
 /***/ },
-/* 88 */
+/* 86 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -16062,7 +14689,7 @@
 	};
 
 /***/ },
-/* 89 */
+/* 87 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16234,7 +14861,7 @@
 	};
 
 /***/ },
-/* 90 */
+/* 88 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16378,7 +15005,7 @@
 	};
 
 /***/ },
-/* 91 */
+/* 89 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16485,7 +15112,7 @@
 	};
 
 /***/ },
-/* 92 */
+/* 90 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16646,7 +15273,7 @@
 	};
 
 /***/ },
-/* 93 */
+/* 91 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16799,7 +15426,7 @@
 	};
 
 /***/ },
-/* 94 */
+/* 92 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16859,7 +15486,7 @@
 	};
 
 /***/ },
-/* 95 */
+/* 93 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16908,7 +15535,7 @@
 	};
 
 /***/ },
-/* 96 */
+/* 94 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16970,7 +15597,7 @@
 	};
 
 /***/ },
-/* 97 */
+/* 95 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17062,7 +15689,7 @@
 	};
 
 /***/ },
-/* 98 */
+/* 96 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17471,7 +16098,7 @@
 	};
 
 /***/ },
-/* 99 */
+/* 97 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17700,7 +16327,7 @@
 	};
 
 /***/ },
-/* 100 */
+/* 98 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17786,7 +16413,7 @@
 	};
 
 /***/ },
-/* 101 */
+/* 99 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17876,7 +16503,7 @@
 	};
 
 /***/ },
-/* 102 */
+/* 100 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -17899,7 +16526,7 @@
 	};
 
 /***/ },
-/* 103 */
+/* 101 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18060,7 +16687,7 @@
 	};
 
 /***/ },
-/* 104 */
+/* 102 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18089,7 +16716,7 @@
 	};
 
 /***/ },
-/* 105 */
+/* 103 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18168,7 +16795,7 @@
 	};
 
 /***/ },
-/* 106 */
+/* 104 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18284,7 +16911,7 @@
 	};
 
 /***/ },
-/* 107 */
+/* 105 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18381,7 +17008,7 @@
 	};
 
 /***/ },
-/* 108 */
+/* 106 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18440,7 +17067,7 @@
 	};
 
 /***/ },
-/* 109 */
+/* 107 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18493,7 +17120,7 @@
 	};
 
 /***/ },
-/* 110 */
+/* 108 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18583,7 +17210,7 @@
 	};
 
 /***/ },
-/* 111 */
+/* 109 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18665,7 +17292,7 @@
 	};
 
 /***/ },
-/* 112 */
+/* 110 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18740,7 +17367,7 @@
 	};
 
 /***/ },
-/* 113 */
+/* 111 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18801,7 +17428,7 @@
 	};
 
 /***/ },
-/* 114 */
+/* 112 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18875,7 +17502,7 @@
 	};
 
 /***/ },
-/* 115 */
+/* 113 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18927,7 +17554,7 @@
 	};
 
 /***/ },
-/* 116 */
+/* 114 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -18983,7 +17610,7 @@
 	};
 
 /***/ },
-/* 117 */
+/* 115 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19111,7 +17738,7 @@
 	};
 
 /***/ },
-/* 118 */
+/* 116 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19167,7 +17794,7 @@
 	};
 
 /***/ },
-/* 119 */
+/* 117 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19219,7 +17846,7 @@
 	};
 
 /***/ },
-/* 120 */
+/* 118 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19253,7 +17880,7 @@
 	};
 
 /***/ },
-/* 121 */
+/* 119 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19345,7 +17972,7 @@
 	};
 
 /***/ },
-/* 122 */
+/* 120 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19385,7 +18012,7 @@
 	};
 
 /***/ },
-/* 123 */
+/* 121 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19504,7 +18131,7 @@
 	};
 
 /***/ },
-/* 124 */
+/* 122 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19600,7 +18227,7 @@
 	};
 
 /***/ },
-/* 125 */
+/* 123 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19627,7 +18254,7 @@
 	};
 
 /***/ },
-/* 126 */
+/* 124 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19800,7 +18427,7 @@
 	};
 
 /***/ },
-/* 127 */
+/* 125 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19874,7 +18501,7 @@
 	};
 
 /***/ },
-/* 128 */
+/* 126 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19905,7 +18532,7 @@
 	};
 
 /***/ },
-/* 129 */
+/* 127 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -19976,7 +18603,7 @@
 	};
 
 /***/ },
-/* 130 */
+/* 128 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20016,7 +18643,7 @@
 	};
 
 /***/ },
-/* 131 */
+/* 129 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20081,7 +18708,7 @@
 	};
 
 /***/ },
-/* 132 */
+/* 130 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20196,7 +18823,7 @@
 	};
 
 /***/ },
-/* 133 */
+/* 131 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20315,7 +18942,7 @@
 	};
 
 /***/ },
-/* 134 */
+/* 132 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20460,7 +19087,7 @@
 	};
 
 /***/ },
-/* 135 */
+/* 133 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20518,7 +19145,7 @@
 	};
 
 /***/ },
-/* 136 */
+/* 134 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20620,7 +19247,7 @@
 	};
 
 /***/ },
-/* 137 */
+/* 135 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20680,7 +19307,7 @@
 	};
 
 /***/ },
-/* 138 */
+/* 136 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20734,7 +19361,7 @@
 	};
 
 /***/ },
-/* 139 */
+/* 137 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20804,7 +19431,7 @@
 	};
 
 /***/ },
-/* 140 */
+/* 138 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -20905,7 +19532,7 @@
 	};
 
 /***/ },
-/* 141 */
+/* 139 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21069,7 +19696,7 @@
 	};
 
 /***/ },
-/* 142 */
+/* 140 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21156,7 +19783,7 @@
 	};
 
 /***/ },
-/* 143 */
+/* 141 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21198,7 +19825,7 @@
 	};
 
 /***/ },
-/* 144 */
+/* 142 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21249,7 +19876,7 @@
 	};
 
 /***/ },
-/* 145 */
+/* 143 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21707,7 +20334,7 @@
 	};
 
 /***/ },
-/* 146 */
+/* 144 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21830,7 +20457,7 @@
 	};
 
 /***/ },
-/* 147 */
+/* 145 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21878,7 +20505,7 @@
 	};
 
 /***/ },
-/* 148 */
+/* 146 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -21943,7 +20570,7 @@
 	};
 
 /***/ },
-/* 149 */
+/* 147 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22009,7 +20636,7 @@
 	};
 
 /***/ },
-/* 150 */
+/* 148 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22048,7 +20675,7 @@
 	};
 
 /***/ },
-/* 151 */
+/* 149 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22136,7 +20763,7 @@
 	};
 
 /***/ },
-/* 152 */
+/* 150 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22206,7 +20833,7 @@
 	};
 
 /***/ },
-/* 153 */
+/* 151 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22314,7 +20941,7 @@
 	};
 
 /***/ },
-/* 154 */
+/* 152 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22368,7 +20995,7 @@
 	};
 
 /***/ },
-/* 155 */
+/* 153 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22428,7 +21055,7 @@
 	};
 
 /***/ },
-/* 156 */
+/* 154 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22471,7 +21098,7 @@
 	};
 
 /***/ },
-/* 157 */
+/* 155 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22487,7 +21114,7 @@
 	};
 
 /***/ },
-/* 158 */
+/* 156 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22529,7 +21156,7 @@
 	};
 
 /***/ },
-/* 159 */
+/* 157 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22589,7 +21216,7 @@
 	};
 
 /***/ },
-/* 160 */
+/* 158 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22699,7 +21326,7 @@
 	};
 
 /***/ },
-/* 161 */
+/* 159 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22837,7 +21464,7 @@
 	};
 
 /***/ },
-/* 162 */
+/* 160 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22914,7 +21541,7 @@
 	};
 
 /***/ },
-/* 163 */
+/* 161 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -22989,7 +21616,7 @@
 	};
 
 /***/ },
-/* 164 */
+/* 162 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -23077,7 +21704,7 @@
 	};
 
 /***/ },
-/* 165 */
+/* 163 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -23185,6 +21812,1406 @@
 	      NUMBER
 	    ]
 	  };
+	};
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Bowser - a browser detector
+	 * https://github.com/ded/bowser
+	 * MIT License | (c) Dustin Diaz 2015
+	 */
+
+	!function (name, definition) {
+	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
+	  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+	  else this[name] = definition()
+	}('bowser', function () {
+	  /**
+	    * See useragents.js for examples of navigator.userAgent
+	    */
+
+	  var t = true
+
+	  function detect(ua) {
+
+	    function getFirstMatch(regex) {
+	      var match = ua.match(regex);
+	      return (match && match.length > 1 && match[1]) || '';
+	    }
+
+	    function getSecondMatch(regex) {
+	      var match = ua.match(regex);
+	      return (match && match.length > 1 && match[2]) || '';
+	    }
+
+	    var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
+	      , likeAndroid = /like android/i.test(ua)
+	      , android = !likeAndroid && /android/i.test(ua)
+	      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
+	      , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
+	      , chromeos = /CrOS/.test(ua)
+	      , silk = /silk/i.test(ua)
+	      , sailfish = /sailfish/i.test(ua)
+	      , tizen = /tizen/i.test(ua)
+	      , webos = /(web|hpw)os/i.test(ua)
+	      , windowsphone = /windows phone/i.test(ua)
+	      , windows = !windowsphone && /windows/i.test(ua)
+	      , mac = !iosdevice && !silk && /macintosh/i.test(ua)
+	      , linux = !android && !sailfish && !tizen && !webos && /linux/i.test(ua)
+	      , edgeVersion = getFirstMatch(/edge\/(\d+(\.\d+)?)/i)
+	      , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
+	      , tablet = /tablet/i.test(ua)
+	      , mobile = !tablet && /[^-]mobi/i.test(ua)
+	      , result
+
+	    if (/opera|opr/i.test(ua)) {
+	      result = {
+	        name: 'Opera'
+	      , opera: t
+	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/yabrowser/i.test(ua)) {
+	      result = {
+	        name: 'Yandex Browser'
+	      , yandexbrowser: t
+	      , version: versionIdentifier || getFirstMatch(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/ucbrowser/i.test(ua)) {
+	      result = {
+	          name: 'UC Browser'
+	        , ucbrowser: t
+	        , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (windowsphone) {
+	      result = {
+	        name: 'Windows Phone'
+	      , windowsphone: t
+	      }
+	      if (edgeVersion) {
+	        result.msedge = t
+	        result.version = edgeVersion
+	      }
+	      else {
+	        result.msie = t
+	        result.version = getFirstMatch(/iemobile\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/msie|trident/i.test(ua)) {
+	      result = {
+	        name: 'Internet Explorer'
+	      , msie: t
+	      , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
+	      }
+	    } else if (chromeos) {
+	      result = {
+	        name: 'Chrome'
+	      , chromeos: t
+	      , chromeBook: t
+	      , chrome: t
+	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+	      }
+	    } else if (/chrome.+? edge/i.test(ua)) {
+	      result = {
+	        name: 'Microsoft Edge'
+	      , msedge: t
+	      , version: edgeVersion
+	      }
+	    }
+		else if (/vivaldi/i.test(ua)) {
+			result = {
+				name: 'Vivaldi'
+				, vivaldi: t
+				, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
+			}
+		}
+	    else if (/chrome|crios|crmo/i.test(ua)) {
+	      result = {
+	        name: 'Chrome'
+	      , chrome: t
+	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (iosdevice) {
+	      result = {
+	        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
+	      }
+	      // WTF: version is not part of user agent in web apps
+	      if (versionIdentifier) {
+	        result.version = versionIdentifier
+	      }
+	    }
+	    else if (sailfish) {
+	      result = {
+	        name: 'Sailfish'
+	      , sailfish: t
+	      , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/seamonkey\//i.test(ua)) {
+	      result = {
+	        name: 'SeaMonkey'
+	      , seamonkey: t
+	      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/firefox|iceweasel/i.test(ua)) {
+	      result = {
+	        name: 'Firefox'
+	      , firefox: t
+	      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
+	      }
+	      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
+	        result.firefoxos = t
+	      }
+	    }
+	    else if (silk) {
+	      result =  {
+	        name: 'Amazon Silk'
+	      , silk: t
+	      , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (android) {
+	      result = {
+	        name: 'Android'
+	      , version: versionIdentifier
+	      }
+	    }
+	    else if (/phantom/i.test(ua)) {
+	      result = {
+	        name: 'PhantomJS'
+	      , phantom: t
+	      , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
+	      result = {
+	        name: 'BlackBerry'
+	      , blackberry: t
+	      , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (webos) {
+	      result = {
+	        name: 'WebOS'
+	      , webos: t
+	      , version: versionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)
+	      };
+	      /touchpad\//i.test(ua) && (result.touchpad = t)
+	    }
+	    else if (/bada/i.test(ua)) {
+	      result = {
+	        name: 'Bada'
+	      , bada: t
+	      , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
+	      };
+	    }
+	    else if (tizen) {
+	      result = {
+	        name: 'Tizen'
+	      , tizen: t
+	      , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
+	      };
+	    }
+	    else if (/qupzilla/i.test(ua)) {
+	      result = {
+	        name: 'QupZilla'
+	        , qupzilla: t
+	        , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
+	      }
+	    }
+	    else if (/safari/i.test(ua)) {
+	      result = {
+	        name: 'Safari'
+	      , safari: t
+	      , version: versionIdentifier
+	      }
+	    }
+	    else if(/googlebot/i.test(ua)) {
+	      result = {
+	        name: 'Googlebot'
+	      , googlebot: t
+	      , version: getFirstMatch(/googlebot\/(\d+(\.\d+))/i) || versionIdentifier
+	      }
+	    }
+	    else {
+	      result = {
+	        name: getFirstMatch(/^(.*)\/(.*) /),
+	        version: getSecondMatch(/^(.*)\/(.*) /)
+	     };
+	   }
+
+	    // set webkit or gecko flag for browsers based on these engines
+	    if (!result.msedge && /(apple)?webkit/i.test(ua)) {
+	      result.name = result.name || "Webkit"
+	      result.webkit = t
+	      if (!result.version && versionIdentifier) {
+	        result.version = versionIdentifier
+	      }
+	    } else if (!result.opera && /gecko\//i.test(ua)) {
+	      result.name = result.name || "Gecko"
+	      result.gecko = t
+	      result.version = result.version || getFirstMatch(/gecko\/(\d+(\.\d+)?)/i)
+	    }
+
+	    // set OS flags for platforms that have multiple browsers
+	    if (!result.msedge && (android || result.silk)) {
+	      result.android = t
+	    } else if (iosdevice) {
+	      result[iosdevice] = t
+	      result.ios = t
+	    } else if (windows) {
+	      result.windows = t
+	    } else if (mac) {
+	      result.mac = t
+	    } else if (linux) {
+	      result.linux = t
+	    }
+
+	    // OS version extraction
+	    var osVersion = '';
+	    if (result.windowsphone) {
+	      osVersion = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i);
+	    } else if (iosdevice) {
+	      osVersion = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i);
+	      osVersion = osVersion.replace(/[_\s]/g, '.');
+	    } else if (android) {
+	      osVersion = getFirstMatch(/android[ \/-](\d+(\.\d+)*)/i);
+	    } else if (result.webos) {
+	      osVersion = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i);
+	    } else if (result.blackberry) {
+	      osVersion = getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i);
+	    } else if (result.bada) {
+	      osVersion = getFirstMatch(/bada\/(\d+(\.\d+)*)/i);
+	    } else if (result.tizen) {
+	      osVersion = getFirstMatch(/tizen[\/\s](\d+(\.\d+)*)/i);
+	    }
+	    if (osVersion) {
+	      result.osversion = osVersion;
+	    }
+
+	    // device type extraction
+	    var osMajorVersion = osVersion.split('.')[0];
+	    if (tablet || nexusTablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
+	      result.tablet = t
+	    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || nexusMobile || result.blackberry || result.webos || result.bada) {
+	      result.mobile = t
+	    }
+
+	    // Graded Browser Support
+	    // http://developer.yahoo.com/yui/articles/gbs
+	    if (result.msedge ||
+	        (result.msie && result.version >= 10) ||
+	        (result.yandexbrowser && result.version >= 15) ||
+			(result.vivaldi && result.version >= 1.0) ||
+	        (result.chrome && result.version >= 20) ||
+	        (result.firefox && result.version >= 20.0) ||
+	        (result.safari && result.version >= 6) ||
+	        (result.opera && result.version >= 10.0) ||
+	        (result.ios && result.osversion && result.osversion.split(".")[0] >= 6) ||
+	        (result.blackberry && result.version >= 10.1)
+	        ) {
+	      result.a = t;
+	    }
+	    else if ((result.msie && result.version < 10) ||
+	        (result.chrome && result.version < 20) ||
+	        (result.firefox && result.version < 20.0) ||
+	        (result.safari && result.version < 6) ||
+	        (result.opera && result.version < 10.0) ||
+	        (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
+	        ) {
+	      result.c = t
+	    } else result.x = t
+
+	    return result
+	  }
+
+	  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')
+
+	  bowser.test = function (browserList) {
+	    for (var i = 0; i < browserList.length; ++i) {
+	      var browserItem = browserList[i];
+	      if (typeof browserItem=== 'string') {
+	        if (browserItem in bowser) {
+	          return true;
+	        }
+	      }
+	    }
+	    return false;
+	  }
+
+	  /*
+	   * Set our detect method to the main bowser object so we can
+	   * reuse it to test other user agents.
+	   * This is needed to implement future tests.
+	   */
+	  bowser._detect = detect;
+
+	  return bowser
+	});
+
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _elementsJS = __webpack_require__(1);
+
+	///-------elementsJS requires---------///
+	var _$ = __webpack_require__(1)._$;
+	var dom = __webpack_require__(1).dom;
+	var make = __webpack_require__(1).make;
+	var element = __webpack_require__(1).element;
+	///|------------------------------------|//
+
+	/*
+	sideNavControl.js
+	This file Makes the side-nav menu on the elementsJS.io
+	project-site docs page work.
+	Author: Eric James Foster
+	License: MIT
+	*/
+
+	var browser = __webpack_require__(164);
+
+	//global that documents what state the menu is currently in.
+	window.sideNavState = [];
+
+	//The control states for the sideNav Menu.
+	var sideNavStates = {
+	      stateOne: function stateOne(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // Do Nothing at all.
+	            } else {
+	                        //Make cold.
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            dom('[class~=hot2]').class('hot2', '-');
+	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	            dom('[name=hotCode]').title('hotCode').class('hot2', '+');
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            try {
+	                  var tick = 0;
+	                  dom('#gsList ul li a').every(function (element) {
+	                        element.func(function () {
+	                              if (element.title() !== 'hotCode') {
+	                                    element.color('#52218A');
+	                              }
+	                        });
+	                  });
+	            } catch (error) {
+	                  (0, _elementsJS.err)(error);
+	            }
+	            dom('[name=hidden]').every(function (element) {
+	                  element.class('hide');
+	            });
+	            //Make hot.
+	            dom(elem).class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
+	      },
+
+	      stateTwo: function stateTwo(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // return;
+	            } else {
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            //Make cold.
+	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
+	            dom('[class~=hot2]').class('hot2', '-');
+	            dom('[name=hidden]').every(function (element) {
+	                  element.class('hide');
+	            });
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            try {
+	                  var tick = 0;
+	                  dom('#gsList ul li a').every(function (element) {
+	                        element.func(function () {
+	                              if (element.title() !== 'hotCode') {
+	                                    element.color('#52218A');
+	                              }
+	                        });
+	                  });
+	            } catch (error) {
+	                  (0, _elementsJS.err)(error);
+	            }
+	            //Make hot.
+	            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
+	            dom(elem + ' a').title('hotCode').color('#FF8A22');
+	      },
+
+	      stateThree: function stateThree(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // return;
+	            } else {
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            //Make cold.
+	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
+	            dom('[class~=hot2]').class('hot2', '-');
+	            dom('[name=hidden]').every(function (element) {
+	                  element.class('hide');
+	            });
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            try {
+	                  var tick = 0;
+	                  dom('#gsList ul li a').every(function (element) {
+	                        element.func(function () {
+	                              if (element.title() !== 'hotCode') {
+	                                    element.color('#52218A');
+	                              }
+	                        });
+	                  });
+	            } catch (error) {
+	                  (0, _elementsJS.err)(error);
+	            }
+	            //Make hot.
+	            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot');
+	            dom(elem + ' a code').title('hotCode').bgColor('#52218A').color('#fff');
+	      },
+
+	      stateFour: function stateFour(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // return;
+	            } else {
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            //Make cold.
+	            dom('[class~=hot2]').class('hot2', '-');
+	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	            dom('[name=hotCode]')
+	            // .title('hotCode')
+	            .class('hot2', '+');
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
+	            dom('[name=hidden]').every(function (element) {
+	                  element.class('hide');
+	            });
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            try {
+	                  var tick = 0;
+	                  dom('#gsList ul li a').every(function (element, a) {
+	                        element.func(function () {
+	                              if (element.title() !== 'hotCode') {
+	                                    element.color('#52218A');
+	                              }
+	                        });
+	                  });
+	            } catch (error) {
+	                  (0, _elementsJS.err)(error);
+	            }
+	            //Make hot.
+	            dom(elem).class('hot').color('#FF8A22').first().title('hotCode').bgColor('#52218A').color('#fff');
+	      },
+
+	      stateFive: function stateFive(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // return;
+	            } else {
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            //Make cold.
+	            dom('[class~=hot2]').class('hot2', '-');
+	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	            dom('[name=hotCode]').title('hotCode').class('hot2', '+');
+	            dom('[class~=hot]').color('#52218A').class('hot', '-');
+	            dom('[name=hidden]').every(function (element) {
+	                  element.class('hide');
+	            });
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            try {
+	                  var tick = 0;
+	                  dom('#gsList ul li a').every(function (element, a) {
+	                        element.func(function () {
+	                              if (element.title() !== 'hotCode') {
+	                                    element.color('#52218A');
+	                              }
+	                        });
+	                  });
+	            } catch (error) {
+	                  (0, _elementsJS.err)(error);
+	            }
+	            //Make hot.
+	            dom(elem).class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
+	      },
+
+	      stateSix: function stateSix(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // return;
+	            } else {
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	            dom('[class~=hot2]').class('hot2', '-');
+	            dom('[name=hidden]').every(function (element) {
+	                  element.class('hide');
+	            });
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            try {
+	                  var tick = 0;
+	                  dom('#gsList ul li a').every(function (element, a) {
+	                        element.func(function () {
+	                              if (element.title() !== 'hotCode') {
+	                                    element.color('#52218A');
+	                              }
+	                        });
+	                  });
+	            } catch (error) {
+	                  (0, _elementsJS.err)(error);
+	            }
+	            //Make hot.
+	            dom('#instLink a').title('hotCode').color('#FF8A22');
+	            dom(elem).class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22');
+	      },
+
+	      stateSeven: function stateSeven(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // return;
+	            } else {
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            dom('[name=hidden]').every(function (element) {
+	                  element.class('hide', '+');
+	            });
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            dom('[class=hot]').color('#FF8A22');
+	            dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
+	      },
+
+	      stateEight: function stateEight(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // return;
+	            } else {
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            dom('[title~=shorts]').every(function (element) {
+	                  element.class('hide', '+');
+	            });
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            dom('[class=hot]').color('#FF8A22');
+	            dom(elem).first().fontWeight('500').color('#FF8A22').sib('next').class('hide', '-');
+	      },
+
+	      stateNine: function stateNine(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // Do nothing;
+	            } else {
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            //Make cold.
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            //Make hot.
+	            dom('[class=hot]').color('#FF8A22');
+
+	            dom(elem).color('#FF8A22').first().bgColor('#52218A').color('#fff');
+	      },
+
+	      stateTen: function stateTen(elem) {
+	            //Logic.
+	            if (String(dom('[class~=hot]')) === String(dom('#imps'))) {
+	                  // Do nothing;
+	            } else {
+	                        dom('#imps code').bgColor('#39175E').color('#52218A');
+	                  }
+	            //Make cold.
+	            dom('[name=hidden]').every(function (element) {
+	                  element.class('hide', '+');
+	            });
+	            dom('[name=listHead]').every(function (element) {
+	                  element.color('#52218A');
+	            });
+	            dom('#gsList ul li a').every(function (element) {
+	                  element.func(function () {
+	                        if (element.title() !== 'hotCode') {
+	                              element.color('#52218A');
+	                        }
+	                  });
+	            });
+	            //Make Hot.
+	            dom('[class=hot]').color('#FF8A22');
+	            dom('#gsList').first().color('#FF8A22').sib('next').class('hide', '-');
+	            try {
+	                  dom(elem).first().color('#FF8A22');
+	            } catch (error) {
+	                  (0, _elementsJS.err)(error);
+	            }
+	      }
+	};
+
+	//Function for creating the offSets object, which contains the offsetTop property of all elements.
+	function getOffSets() {
+
+	      var offSets = {};
+	      offSets['installation'] = (0, _elementsJS.el)('#installation').offsetTop;
+	      offSets['Usage'] = (0, _elementsJS.el)('#Usage').offsetTop;
+	      offSets['interpreter-install'] = (0, _elementsJS.el)('#interpreter-install').offsetTop;
+	      offSets['imports'] = (0, _elementsJS.el)('#imports').offsetTop;
+	      offSets['DOM'] = (0, _elementsJS.el)('#DOM').offsetTop;
+	      offSets['el-func'] = (0, _elementsJS.el)('#el-func').offsetTop;
+	      offSets['dom-func'] = (0, _elementsJS.el)('#dom-func').offsetTop;
+	      offSets['__-func'] = (0, _elementsJS.el)('#__-func').offsetTop;
+	      offSets['make-func'] = (0, _elementsJS.el)('#make-func').offsetTop;
+	      offSets['put-func'] = (0, _elementsJS.el)('#put-func').offsetTop;
+	      offSets['x-func'] = (0, _elementsJS.el)('#x-func').offsetTop;
+	      offSets['fore-func'] = (0, _elementsJS.el)('#fore-func').offsetTop;
+	      offSets['aft-func'] = (0, _elementsJS.el)('#aft-func').offsetTop;
+	      offSets['show-func'] = (0, _elementsJS.el)('#show-func').offsetTop;
+	      offSets['hide-func'] = (0, _elementsJS.el)('#hide-func').offsetTop;
+	      offSets['size-func'] = (0, _elementsJS.el)('#size-func').offsetTop;
+	      offSets['event-handle'] = (0, _elementsJS.el)('#event-handle').offsetTop;
+	      offSets['go-func'] = (0, _elementsJS.el)('#go-func').offsetTop;
+	      offSets['on-func'] = (0, _elementsJS.el)('#on-func').offsetTop;
+	      offSets['off-func'] = (0, _elementsJS.el)('#off-func').offsetTop;
+	      offSets['once-func'] = (0, _elementsJS.el)('#once-func').offsetTop;
+	      offSets['spark-func'] = (0, _elementsJS.el)('#spark-func').offsetTop;
+	      offSets['click-func'] = (0, _elementsJS.el)('#click-func').offsetTop;
+	      offSets['dblClick-func'] = (0, _elementsJS.el)('#dblClick-func').offsetTop;
+	      offSets['blur-func'] = (0, _elementsJS.el)('#blur-func').offsetTop;
+	      offSets['error-func'] = (0, _elementsJS.el)('#error-func').offsetTop;
+	      offSets['focus-func'] = (0, _elementsJS.el)('#focus-func').offsetTop;
+	      offSets['focusIn-func'] = (0, _elementsJS.el)('#focusIn-func').offsetTop;
+	      offSets['focusOut-func'] = (0, _elementsJS.el)('#focusOut-func').offsetTop;
+	      offSets['keyUp-func'] = (0, _elementsJS.el)('#keyUp-func').offsetTop;
+	      offSets['keyDown-func'] = (0, _elementsJS.el)('#keyDown-func').offsetTop;
+	      offSets['load-func'] = (0, _elementsJS.el)('#load-func').offsetTop;
+	      offSets['unLoad-func'] = (0, _elementsJS.el)('#unLoad-func').offsetTop;
+	      offSets['mouse-func'] = (0, _elementsJS.el)('#mouse-func').offsetTop;
+	      offSets['resize-func'] = (0, _elementsJS.el)('#resize-func').offsetTop;
+	      offSets['scroll-func'] = (0, _elementsJS.el)('#scroll-func').offsetTop;
+	      offSets['select-func'] = (0, _elementsJS.el)('#select-func').offsetTop;
+	      offSets['http'] = (0, _elementsJS.el)('#http').offsetTop;
+	      offSets['xhr-func'] = (0, _elementsJS.el)('#xhr-func').offsetTop;
+	      offSets['ajax-func'] = (0, _elementsJS.el)('#ajax-func').offsetTop;
+	      offSets['loggers'] = (0, _elementsJS.el)('#loggers').offsetTop;
+	      offSets['log-func'] = (0, _elementsJS.el)('#log-func').offsetTop;
+	      offSets['info-func'] = (0, _elementsJS.el)('#info-func').offsetTop;
+	      offSets['warn-func'] = (0, _elementsJS.el)('#warn-func').offsetTop;
+	      offSets['err-func'] = (0, _elementsJS.el)('#err-func').offsetTop;
+	      offSets['utils'] = (0, _elementsJS.el)('#utils').offsetTop;
+	      offSets['proto-func'] = (0, _elementsJS.el)('#proto-func').offsetTop;
+	      offSets['shifter-func'] = (0, _elementsJS.el)('#shifter-func').offsetTop;
+	      offSets['elem-obj'] = (0, _elementsJS.el)('#elem-obj').offsetTop;
+	      offSets['element-const'] = (0, _elementsJS.el)('#element-const').offsetTop;
+	      offSets['dom2-func'] = (0, _elementsJS.el)('#dom2-func').offsetTop;
+	      offSets['make2-func'] = (0, _elementsJS.el)('#make2-func').offsetTop;
+	      offSets['elem-obj-methods'] = (0, _elementsJS.el)('#elem-obj-methods').offsetTop;
+	      offSets['element-font-ex'] = (0, _elementsJS.el)('#element-font-ex').offsetTop;
+	      offSets['exs'] = (0, _elementsJS.el)('#exs').offsetTop;
+	      offSets['style-methods'] = (0, _elementsJS.el)('#style-methods').offsetTop;
+	      offSets['core-func'] = (0, _elementsJS.el)('#core-func').offsetTop;
+	      offSets['DOM-Elem-Methods'] = (0, _elementsJS.el)('#DOM-Elem-Methods').offsetTop;
+	      offSets['event-methods'] = (0, _elementsJS.el)('#event-methods').offsetTop;
+	      offSets['Util-Methods'] = (0, _elementsJS.el)('#Util-Methods').offsetTop;
+	      offSets['elements-syntax'] = (0, _elementsJS.el)('#elements-syntax').offsetTop;
+	      offSets['elemsyntax-func1'] = (0, _elementsJS.el)('#elemsyntax-func1').offsetTop;
+	      offSets['elemsyntax-func2'] = (0, _elementsJS.el)('#elemsyntax-func2').offsetTop;
+	      offSets['elemsyntax-func3'] = (0, _elementsJS.el)('#elemsyntax-func3').offsetTop;
+	      offSets['elemsyntax-func4'] = (0, _elementsJS.el)('#elemsyntax-func4').offsetTop;
+	      offSets['elemsyntax-func5'] = (0, _elementsJS.el)('#elemsyntax-func5').offsetTop;
+	      offSets['elemsyntax-func6'] = (0, _elementsJS.el)('#elemsyntax-func6').offsetTop;
+	      offSets['append-syntax'] = (0, _elementsJS.el)('#append-syntax').offsetTop;
+	      offSets['elemsyntax-func7'] = (0, _elementsJS.el)('#elemsyntax-func7').offsetTop;
+
+	      return offSets;
+	}
+
+	//Boolean function returns true if given function has given ancestor, and false otherwise. Checks 6 parents deep.
+	// function hasAncestor(l, ance) {
+	//   var tick, ancestor = el(ance),
+	//            ancestors = [];
+	//
+	//   try {
+	//     ancestors.push(l.parentNode);
+	//     ancestors.push(ancestors[0].parentNode);
+	//     ancestors.push(ancestors[1].parentNode);
+	//     ancestors.push(ancestors[2].parentNode);
+	//     ancestors.push(ancestors[3].parentNode);
+	//     ancestors.push(ancestors[4].parentNode);
+	//   }
+	//   catch(error) {
+	//     err(error);
+	//   }
+	//
+	//   // console.log(ancestors);
+	//   tick = 0;
+	//
+	//   for (var i = 0; i < ancestors.length; i++) {
+	//     if (ancestors[i] === ancestor) tick++;
+	//   }
+	//   if (tick > 0) return true;
+	//
+	//   else return false;
+	// }
+
+	//Function for controlling when the #sideNav doc menu collapses.
+	function mouseOutController() {
+	      //Mouse out event delegation =======================>>
+	      var html = (0, _elementsJS.el)('html');
+
+	      (0, _elementsJS.mouse)('out', html, function (e) {
+	            if ((0, _elementsJS.hasAncestor)(e.target, '#sideNav')) {
+	                  return;
+	            } else {
+	                  switch (sideNavState[0]) {
+	                        case 1:
+	                              sideNavStates.stateOne(sideNavState[1]);
+	                              break;
+	                        case 2:
+	                              sideNavStates.stateTwo(sideNavState[1]);
+	                              break;
+	                        case 3:
+	                              sideNavStates.stateThree(sideNavState[1]);
+	                              break;
+	                        case 4:
+	                              sideNavStates.stateFour(sideNavState[1]);
+	                              break;
+	                        case 5:
+	                              sideNavStates.stateFive(sideNavState[1]);
+	                              break;
+	                        case 6:
+	                              sideNavStates.stateSix(sideNavState[1]);
+	                              break;
+	                        default:
+	                              break;
+	                  }
+	            }
+	      });
+	}
+
+	//Function for controlling the expanding (on hover) of #sideNav menu lists.
+	function mouseOverController() {
+	      //Mouse over event Delegation ======================>>
+	      var html = (0, _elementsJS.el)('html');
+
+	      (0, _elementsJS.mouse)('over', html, function (e) {
+	            // console.log(e);
+	            // console.log(e.target);
+	            // console.log(e.relatedTarget);
+
+	            switch (9 + 9 === 18) {
+	                  case e.target === (0, _elementsJS.el)('#gsList') || e.target.parentNode === (0, _elementsJS.el)('#gsList') || e.target.parentNode.parentNode === (0, _elementsJS.el)('#gsList'):
+	                        console.log('#' + e.target.id);
+	                        sideNavStates.stateTen('#' + e.target.id);
+
+	                        break;
+	                  case e.target === (0, _elementsJS.el)('#imps') || e.target.parentNode === (0, _elementsJS.el)('#imps'):
+
+	                        sideNavStates.stateNine('#imps');
+
+	                        break;
+	                  case e.target === (0, _elementsJS.el)('#domList') || e.target.parentNode === (0, _elementsJS.el)('#domList'):
+
+	                        sideNavStates.stateSeven('#domList');
+	                        break;
+	                  case e.target === (0, _elementsJS.el)('#eventList') || e.target.parentNode === (0, _elementsJS.el)('#eventList'):
+
+	                        sideNavStates.stateSeven('#eventList');
+
+	                        break;
+	                  case e.target === (0, _elementsJS.el)('#httpList') || e.target.parentNode === (0, _elementsJS.el)('#httpList'):
+
+	                        sideNavStates.stateEight('#httpList');
+
+	                        break;
+	                  case e.target === (0, _elementsJS.el)('#loggList') || e.target.parentNode === (0, _elementsJS.el)('#loggList'):
+
+	                        sideNavStates.stateEight('#loggList');
+
+	                        break;
+	                  case e.target === (0, _elementsJS.el)('#utilsList') || e.target.parentNode === (0, _elementsJS.el)('#utilsList'):
+
+	                        sideNavStates.stateEight('#utilsList');
+
+	                        break;
+	                  case e.target === (0, _elementsJS.el)('#elemObjList') || e.target.parentNode === (0, _elementsJS.el)('#elemObjList'):
+
+	                        sideNavStates.stateEight('#elemObjList');
+
+	                        break;
+	                  case e.target === (0, _elementsJS.el)('#eOMethodsList') || e.target.parentNode === (0, _elementsJS.el)('#eOMethodsList'):
+
+	                        sideNavStates.stateEight('#eOMethodsList');
+
+	                        break;
+	                  case e.target === (0, _elementsJS.el)('#eStaxList') || e.target.parentNode === (0, _elementsJS.el)('#eStaxList'):
+
+	                        sideNavStates.stateEight('#eStaxList');
+
+	                        break;
+
+	            };
+	      });
+	}
+
+	function sideNavController() {
+	      // console.log(dom('[name=hidden]'));
+	      sideNavSticky();
+
+	      var offSets = getOffSets(),
+	          diff = 466;
+
+	      (0, _elementsJS.scroll)(window, function () {
+	            switch (true) {
+	                  //0 - 13 Getting Started
+	                  case dom('html').scrolled() > 0 + diff && dom('html').scrolled() < offSets['installation'] + diff || dom('body').scrolled() > 0 + diff && dom('body').scrolled() < offSets['installation'] + diff:
+	                        //Find active list item, deactivate it.
+	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	                        dom('[name=hotCode]').title('hotCode');
+	                        dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
+
+	                        //Find all menu lists, hide them.
+	                        dom('[name=hidden]').every(function (element) {
+	                              element.class('hide');
+	                        });
+	                        //Activate Getting Started list item.
+	                        (function () {
+	                              var elem0 = _$('#getStart') ? dom('#getStart') : make('#getStart').put("body");
+	                              return elem0;
+	                        })().class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '+');
+
+	                        sideNavState = [5, '#getStart'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['installation'] + diff && dom('html').scrolled() < offSets['Usage'] + diff || dom('body').scrolled() > offSets['installation'] + diff && dom('body').scrolled() < offSets['Usage'] + diff:
+	                        // log('YES', ['red', 'blue'] + diff);
+	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	                        //Find active list item, deactivate it.
+	                        dom('[class~=hot2]').class('hot2', '-');
+	                        //Find all menu lists, hide them.
+	                        dom('[name=hidden]').every(function (element) {
+	                              element.class('hide');
+	                        });
+	                        dom('#instLink a').title('hotCode').color('#FF8A22');
+	                        //Activate Installation list item. Open parent list by removing .hide class.
+	                        (function () {
+	                              var elem1 = _$('#instLink') ? dom('#instLink') : make('#instLink').put("body");
+	                              return elem1;
+	                        })().class('hot2').ma().class('hide', '-').sib('prev').fontWeight('500');
+
+	                        sideNavState = [6, '#instLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['Usage'] + diff && dom('html').scrolled() < offSets['interpreter-install'] + diff || dom('body').scrolled() > offSets['Usage'] + diff && dom('body').scrolled() < offSets['interpreter-install'] + diff:
+	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	                        dom('[class~=hot2]').class('hot2', '-');
+	                        (function () {
+	                              var elem2 = _$('#useLink') ? dom('#useLink') : make('#useLink').put("body");
+	                              return elem2;
+	                        })().class('hot2');
+	                        dom('#useLink a').title('hotCode').color('#FF8A22');
+
+	                        sideNavState = [2, '#useLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['interpreter-install'] + diff && dom('html').scrolled() < offSets['imports'] + diff || dom('body').scrolled() > offSets['interpreter-install'] + diff && dom('body').scrolled() < offSets['imports'] + diff:
+	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	                        dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
+	                        dom('[class~=hot2]').class('hot2', '-');
+	                        dom('[name=hidden]').every(function (element) {
+	                              element.class('hide');
+	                        });
+	                        (function () {
+	                              var elem3 = _$('#interpInstallLink') ? dom('#interpInstallLink') : make('#interpInstallLink').put("body");
+	                              return elem3;
+	                        })().class('hot2').ma().class('hide', '-').sib('prev').color('#FF8A22').fontWeight('500').class('hot', '+');
+	                        dom('#interpInstallLink a').title('hotCode').color('#FF8A22');
+
+	                        sideNavState = [2, '#interpInstallLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['imports'] + diff && dom('html').scrolled() < offSets['DOM'] + diff || dom('body').scrolled() > offSets['imports'] + diff && dom('body').scrolled() < offSets['DOM'] + diff:
+	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	                        dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
+
+	                        dom('[name=hidden]').every(function (element) {
+	                              element.class('hide');
+	                        });
+	                        dom('[name=listHead]').every(function (element) {
+	                              element.color('#52218A');
+	                        });
+	                        (function () {
+	                              var elem4 = _$('#imps') ? dom('#imps') : make('#imps').put("body");
+	                              return elem4;
+	                        })().class('hot').color('#FF8A22').first().title('hotCode').bgColor('#52218A').color('#fff');
+
+	                        sideNavState = [4, '#imps'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['DOM'] + diff && dom('html').scrolled() < offSets['el-func'] + diff || dom('body').scrolled() > offSets['DOM'] + diff && dom('body').scrolled() < offSets['el-func'] + diff:
+	                        dom('[title=hotCode]').title('').bgColor('#39175E').color('#52218A');
+	                        dom('[name=hotCode]').title('hotCode');
+	                        dom('[class~=hot]').color('#52218A').fontWeight('300').class('hot', '-');
+	                        dom('[name=hidden]').every(function (element) {
+	                              element.class('hide');
+	                        });
+	                        dom('[name=listHead]').every(function (element) {
+	                              element.color('#52218A');
+	                        });
+	                        (function () {
+	                              var elem5 = _$('#domManip') ? dom('#domManip') : make('#domManip').put("body");
+	                              return elem5;
+	                        })().class('hot').color('#FF8A22').fontWeight('500').sib('next').class('hide', '-');
+
+	                        sideNavState = [1, '#domManip'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['el-func'] + diff && dom('html').scrolled() < offSets['dom-func'] + diff || dom('body').scrolled() > offSets['el-func'] + diff && dom('body').scrolled() < offSets['dom-func'] + diff:
+
+	                        sideNavStates.stateThree('#elLink');
+
+	                        sideNavState = [3, '#elLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['dom-func'] + diff && dom('html').scrolled() < offSets['__-func'] + diff || dom('body').scrolled() > offSets['dom-func'] + diff && dom('body').scrolled() < offSets['__-func'] + diff:
+
+	                        sideNavStates.stateThree('#domLink');
+
+	                        sideNavState = [3, '#domLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['__-func'] + diff && dom('html').scrolled() < offSets['make-func'] + diff || dom('body').scrolled() > offSets['__-func'] + diff && dom('body').scrolled() < offSets['make-func'] + diff:
+
+	                        sideNavStates.stateThree('#__Link');
+
+	                        sideNavState = [3, '#__Link'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['make-func'] + diff && dom('html').scrolled() < offSets['put-func'] + diff || dom('body').scrolled() > offSets['make-func'] + diff && dom('body').scrolled() < offSets['put-func'] + diff:
+
+	                        sideNavStates.stateThree('#makeLink');
+
+	                        sideNavState = [3, '#makeLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['put-func'] + diff && dom('html').scrolled() < offSets['x-func'] + diff || dom('body').scrolled() > offSets['put-func'] + diff && dom('body').scrolled() < offSets['x-func'] + diff:
+
+	                        sideNavStates.stateThree('#putLink');
+
+	                        sideNavState = [3, '#putLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['x-func'] + diff && dom('html').scrolled() < offSets['fore-func'] + diff || dom('body').scrolled() > offSets['x-func'] + diff && dom('body').scrolled() < offSets['fore-func'] + diff:
+
+	                        sideNavStates.stateThree('#xLink');
+
+	                        sideNavState = [3, '#xLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['fore-func'] + diff && dom('html').scrolled() < offSets['aft-func'] + diff || dom('body').scrolled() > offSets['fore-func'] + diff && dom('body').scrolled() < offSets['aft-func'] + diff:
+
+	                        sideNavStates.stateThree('#foreLink');
+
+	                        sideNavState = [3, '#foreLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['aft-func'] + diff && dom('html').scrolled() < offSets['show-func'] + diff || dom('body').scrolled() > offSets['aft-func'] + diff && dom('body').scrolled() < offSets['show-func'] + diff:
+
+	                        sideNavStates.stateThree('#aftLink');
+
+	                        sideNavState = [3, '#aftLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['show-func'] + diff && dom('html').scrolled() < offSets['hide-func'] + diff || dom('body').scrolled() > offSets['show-func'] + diff && dom('body').scrolled() < offSets['hide-func'] + diff:
+
+	                        sideNavStates.stateThree('#showLink');
+
+	                        sideNavState = [3, '#showLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['hide-func'] + diff && dom('html').scrolled() < offSets['size-func'] + diff || dom('body').scrolled() > offSets['hide-func'] + diff && dom('body').scrolled() < offSets['size-func'] + diff:
+
+	                        sideNavStates.stateThree('#hydeLink');
+
+	                        sideNavState = [3, '#hydeLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['size-func'] + diff && dom('html').scrolled() < offSets['event-handle'] + diff || dom('body').scrolled() > offSets['size-func'] + diff && dom('body').scrolled() < offSets['event-handle'] + diff:
+
+	                        sideNavStates.stateThree('#sizeLink');
+
+	                        sideNavState = [3, '#sizeLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['event-handle'] + diff && dom('html').scrolled() < offSets['go-func'] + diff || dom('body').scrolled() > offSets['event-handle'] + diff && dom('body').scrolled() < offSets['go-func'] + diff:
+
+	                        sideNavStates.stateOne('#eventHand');
+
+	                        sideNavState = [1, '#eventHand'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['go-func'] + diff && dom('html').scrolled() < offSets['on-func'] + diff || dom('body').scrolled() > offSets['go-func'] + diff && dom('body').scrolled() < offSets['on-func'] + diff:
+
+	                        sideNavStates.stateThree('#goLink');
+
+	                        sideNavState = [3, '#goLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['on-func'] + diff && dom('html').scrolled() < offSets['off-func'] + diff || dom('body').scrolled() > offSets['on-func'] + diff && dom('body').scrolled() < offSets['off-func'] + diff:
+
+	                        sideNavStates.stateThree('#onLink');
+
+	                        sideNavState = [3, '#onLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['off-func'] + diff && dom('html').scrolled() < offSets['once-func'] + diff || dom('body').scrolled() > offSets['off-func'] + diff && dom('body').scrolled() < offSets['once-func'] + diff:
+
+	                        sideNavStates.stateThree('#offLink');
+
+	                        sideNavState = [3, '#offLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['once-func'] + diff && dom('html').scrolled() < offSets['spark-func'] + diff || dom('body').scrolled() > offSets['once-func'] + diff && dom('body').scrolled() < offSets['spark-func'] + diff:
+
+	                        sideNavStates.stateThree('#onceLink');
+
+	                        sideNavState = [3, '#onceLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['spark-func'] + diff && dom('html').scrolled() < offSets['click-func'] + diff || dom('body').scrolled() > offSets['spark-func'] + diff && dom('body').scrolled() < offSets['click-func'] + diff:
+
+	                        sideNavStates.stateThree('#sparkLink');
+
+	                        sideNavState = [3, '#sparkLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['click-func'] + diff && dom('html').scrolled() < offSets['dblClick-func'] + diff || dom('body').scrolled() > offSets['click-func'] + diff && dom('body').scrolled() < offSets['dblClick-func'] + diff:
+
+	                        sideNavStates.stateThree('#clickLink');
+
+	                        sideNavState = [3, '#clickLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['dblClick-func'] + diff && dom('html').scrolled() < offSets['blur-func'] + diff || dom('body').scrolled() > offSets['dblClick-func'] + diff && dom('body').scrolled() < offSets['blur-func'] + diff:
+
+	                        sideNavStates.stateThree('#dblLink');
+
+	                        sideNavState = [3, '#dblLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['blur-func'] + diff && dom('html').scrolled() < offSets['error-func'] + diff || dom('body').scrolled() > offSets['blur-func'] + diff && dom('body').scrolled() < offSets['error-func'] + diff:
+
+	                        sideNavStates.stateThree('#blurLink');
+
+	                        sideNavState = [3, '#blurLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['error-func'] + diff && dom('html').scrolled() < offSets['focus-func'] + diff || dom('body').scrolled() > offSets['error-func'] + diff && dom('body').scrolled() < offSets['focus-func'] + diff:
+
+	                        sideNavStates.stateThree('#errorLink');
+
+	                        sideNavState = [3, '#errorLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['focus-func'] + diff && dom('html').scrolled() < offSets['focusIn-func'] + diff || dom('body').scrolled() > offSets['focus-func'] + diff && dom('body').scrolled() < offSets['focusIn-func'] + diff:
+
+	                        sideNavStates.stateThree('#focusLink');
+
+	                        sideNavState = [3, '#focusLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['focusIn-func'] + diff && dom('html').scrolled() < offSets['focusOut-func'] + diff || dom('body').scrolled() > offSets['focusIn-func'] + diff && dom('body').scrolled() < offSets['focusOut-func'] + diff:
+
+	                        sideNavStates.stateThree('#focusInLink');
+
+	                        sideNavState = [3, '#focusInLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['focusOut-func'] + diff && dom('html').scrolled() < offSets['keyUp-func'] + diff || dom('body').scrolled() > offSets['focusOut-func'] + diff && dom('body').scrolled() < offSets['keyUp-func'] + diff:
+
+	                        sideNavStates.stateThree('#focusOutLink');
+
+	                        sideNavState = [3, '#focusOutLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['keyUp-func'] + diff && dom('html').scrolled() < offSets['keyDown-func'] + diff || dom('body').scrolled() > offSets['keyUp-func'] + diff && dom('body').scrolled() < offSets['keyDown-func'] + diff:
+
+	                        sideNavStates.stateThree('#keyUpLink');
+
+	                        sideNavState = [3, '#keyUpLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['keyDown-func'] + diff && dom('html').scrolled() < offSets['load-func'] + diff || dom('body').scrolled() > offSets['keyDown-func'] + diff && dom('body').scrolled() < offSets['load-func'] + diff:
+
+	                        sideNavStates.stateThree('#keyDownLink');
+
+	                        sideNavState = [3, '#keyDownLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['load-func'] + diff && dom('html').scrolled() < offSets['unLoad-func'] + diff || dom('body').scrolled() > offSets['load-func'] + diff && dom('body').scrolled() < offSets['unLoad-func'] + diff:
+
+	                        sideNavStates.stateThree('#loadLink');
+
+	                        sideNavState = [3, '#loadLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['unLoad-func'] + diff && dom('html').scrolled() < offSets['mouse-func'] + diff || dom('body').scrolled() > offSets['unLoad-func'] + diff && dom('body').scrolled() < offSets['mouse-func'] + diff:
+
+	                        sideNavStates.stateThree('#unLoadLink');
+
+	                        sideNavState = [3, '#unLoadLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['mouse-func'] + diff && dom('html').scrolled() < offSets['resize-func'] + diff || dom('body').scrolled() > offSets['mouse-func'] + diff && dom('body').scrolled() < offSets['resize-func'] + diff:
+
+	                        sideNavStates.stateThree('#mouseLink');
+
+	                        sideNavState = [3, '#mouseLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['resize-func'] + diff && dom('html').scrolled() < offSets['scroll-func'] + diff || dom('body').scrolled() > offSets['resize-func'] + diff && dom('body').scrolled() < offSets['scroll-func'] + diff:
+
+	                        sideNavStates.stateThree('#resizeLink');
+
+	                        sideNavState = [3, '#resizeLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['scroll-func'] + diff && dom('html').scrolled() < offSets['select-func'] + diff || dom('body').scrolled() > offSets['scroll-func'] + diff && dom('body').scrolled() < offSets['select-func'] + diff:
+
+	                        sideNavStates.stateThree('#scrollLink');
+
+	                        sideNavState = [3, '#scrollLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['select-func'] + diff && dom('html').scrolled() < offSets['http'] + diff || dom('body').scrolled() > offSets['select-func'] + diff && dom('body').scrolled() < offSets['http'] + diff:
+
+	                        sideNavStates.stateThree('#selectLink');
+
+	                        sideNavState = [3, '#selectLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['http'] + diff && dom('html').scrolled() < offSets['xhr-func'] + diff || dom('body').scrolled() > offSets['http'] + diff && dom('body').scrolled() < offSets['xhr-func'] + diff:
+
+	                        sideNavStates.stateOne('#httpReq');
+
+	                        sideNavState = [1, '#httpReq'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['xhr-func'] + diff && dom('html').scrolled() < offSets['ajax-func'] + diff || dom('body').scrolled() > offSets['xhr-func'] + diff && dom('body').scrolled() < offSets['ajax-func'] + diff:
+
+	                        sideNavStates.stateThree('#xhrLink');
+
+	                        sideNavState = [3, '#xhrLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['ajax-func'] + diff && dom('html').scrolled() < offSets['loggers'] + diff || dom('body').scrolled() > offSets['ajax-func'] + diff && dom('body').scrolled() < offSets['loggers'] + diff:
+
+	                        sideNavStates.stateThree('#ajaxLink');
+
+	                        sideNavState = [3, '#ajaxLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['loggers'] + diff && dom('html').scrolled() < offSets['log-func'] + diff || dom('body').scrolled() > offSets['loggers'] + diff && dom('body').scrolled() < offSets['log-func'] + diff:
+
+	                        sideNavStates.stateOne('#logg');
+
+	                        sideNavState = [1, '#logg'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['log-func'] + diff && dom('html').scrolled() < offSets['info-func'] + diff || dom('body').scrolled() > offSets['log-func'] + diff && dom('body').scrolled() < offSets['info-func'] + diff:
+
+	                        sideNavStates.stateThree('#logLink');
+
+	                        sideNavState = [3, '#logLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['info-func'] + diff && dom('html').scrolled() < offSets['warn-func'] + diff || dom('body').scrolled() > offSets['info-func'] + diff && dom('body').scrolled() < offSets['warn-func'] + diff:
+
+	                        sideNavStates.stateThree('#infoLink');
+
+	                        sideNavState = [3, '#infoLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['warn-func'] + diff && dom('html').scrolled() < offSets['err-func'] + diff || dom('body').scrolled() > offSets['warn-func'] + diff && dom('body').scrolled() < offSets['err-func'] + diff:
+
+	                        sideNavStates.stateThree('#warnLink');
+
+	                        sideNavState = [3, '#warnLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['err-func'] + diff && dom('html').scrolled() < offSets['utils'] + diff || dom('body').scrolled() > offSets['err-func'] + diff && dom('body').scrolled() < offSets['utils'] + diff:
+
+	                        sideNavStates.stateThree('#errLink');
+
+	                        sideNavState = [3, '#errLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['utils'] + diff && dom('html').scrolled() < offSets['proto-func'] + diff || dom('body').scrolled() > offSets['utils'] + diff && dom('body').scrolled() < offSets['proto-func'] + diff:
+
+	                        sideNavStates.stateOne('#utilFunc');
+
+	                        sideNavState = [1, '#utilFunc'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['proto-func'] + diff && dom('html').scrolled() < offSets['shifter-func'] + diff || dom('body').scrolled() > offSets['proto-func'] + diff && dom('body').scrolled() < offSets['shifter-func'] + diff:
+
+	                        sideNavStates.stateThree('#protoLink');
+
+	                        sideNavState = [3, '#protoLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['shifter-func'] + diff && dom('html').scrolled() < offSets['elem-obj'] + diff || dom('body').scrolled() > offSets['shifter-func'] + diff && dom('body').scrolled() < offSets['elem-obj'] + diff:
+
+	                        sideNavStates.stateThree('#shifterLink');
+
+	                        sideNavState = [3, '#shifterLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elem-obj'] + diff && dom('html').scrolled() < offSets['element-const'] + diff || dom('body').scrolled() > offSets['elem-obj'] + diff && dom('body').scrolled() < offSets['element-const'] + diff:
+
+	                        sideNavStates.stateOne('#elemObj');
+
+	                        sideNavState = [1, '#elemObj'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['element-const'] + diff && dom('html').scrolled() < offSets['dom2-func'] + diff || dom('body').scrolled() > offSets['element-const'] + diff && dom('body').scrolled() < offSets['dom2-func'] + diff:
+
+	                        sideNavStates.stateThree('#elemConstLink');
+
+	                        sideNavState = [3, '#elemConstLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['dom2-func'] + diff && dom('html').scrolled() < offSets['make2-func'] + diff || dom('body').scrolled() > offSets['dom2-func'] + diff && dom('body').scrolled() < offSets['make2-func'] + diff:
+
+	                        sideNavStates.stateThree('#dom2Link');
+
+	                        sideNavState = [3, '#dom2Link'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['make2-func'] + diff && dom('html').scrolled() < offSets['elem-obj-methods'] + diff || dom('body').scrolled() > offSets['make2-func'] + diff && dom('body').scrolled() < offSets['elem-obj-methods'] + diff:
+
+	                        sideNavStates.stateThree('#make2Link');
+
+	                        sideNavState = [3, '#make2Link'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elem-obj-methods'] + diff && dom('html').scrolled() < offSets['element-font-ex'] + diff || dom('body').scrolled() > offSets['elem-obj-methods'] + diff && dom('body').scrolled() < offSets['element-font-ex'] + diff:
+
+	                        sideNavStates.stateOne('#elemObjMethods');
+
+	                        sideNavState = [1, '#elemObjMethods'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['element-font-ex'] + diff && dom('html').scrolled() < offSets['style-methods'] + diff || dom('body').scrolled() > offSets['element-font-ex'] + diff && dom('body').scrolled() < offSets['style-methods'] + diff:
+
+	                        sideNavStates.stateThree('#fontExampLink');
+
+	                        sideNavState = [3, '#fontExampLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['style-methods'] + diff && dom('html').scrolled() < offSets['core-func'] + diff || dom('body').scrolled() > offSets['style-methods'] + diff && dom('body').scrolled() < offSets['core-func'] + diff:
+
+	                        sideNavStates.stateTwo('#stylMethodsLink');
+
+	                        sideNavState = [2, '#stylMethodsLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['core-func'] + diff && dom('html').scrolled() < offSets['DOM-Elem-Methods'] + diff || dom('body').scrolled() > offSets['core-func'] + diff && dom('body').scrolled() < offSets['DOM-Elem-Methods'] + diff:
+
+	                        sideNavStates.stateTwo('#coreLink');
+
+	                        sideNavState = [2, '#coreLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('html').scrolled() < offSets['event-methods'] + diff || dom('body').scrolled() > offSets['DOM-Elem-Methods'] + diff && dom('body').scrolled() < offSets['event-methods'] + diff:
+
+	                        sideNavStates.stateTwo('#domMethodsLink');
+
+	                        sideNavState = [2, '#domMethodsLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['event-methods'] + diff && dom('html').scrolled() < offSets['Util-Methods'] + diff || dom('body').scrolled() > offSets['event-methods'] + diff && dom('body').scrolled() < offSets['Util-Methods'] + diff:
+
+	                        sideNavStates.stateTwo('#eventMethodsLink');
+
+	                        sideNavState = [2, '#eventMethodsLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['Util-Methods'] + diff && dom('html').scrolled() < offSets['elements-syntax'] + diff || dom('body').scrolled() > offSets['Util-Methods'] + diff && dom('body').scrolled() < offSets['elements-syntax'] + diff:
+
+	                        sideNavStates.stateTwo('#utilMethodsLink');
+
+	                        sideNavState = [2, '#utilMethodsLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elements-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func1'] + diff || dom('body').scrolled() > offSets['elements-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func1'] + diff:
+
+	                        sideNavStates.stateOne('#elemsSyntax');
+
+	                        sideNavState = [1, '#elemsSyntax'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elemsyntax-func1'] + diff && dom('html').scrolled() < offSets['elemsyntax-func2'] + diff || dom('body').scrolled() > offSets['elemsyntax-func1'] + diff && dom('body').scrolled() < offSets['elemsyntax-func2'] + diff:
+
+	                        sideNavStates.stateThree('#func1Link');
+
+	                        sideNavState = [3, '#func1Link'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elemsyntax-func2'] + diff && dom('html').scrolled() < offSets['elemsyntax-func3'] + diff || dom('body').scrolled() > offSets['elemsyntax-func2'] + diff && dom('body').scrolled() < offSets['elemsyntax-func3'] + diff:
+
+	                        sideNavStates.stateThree('#func2Link');
+
+	                        sideNavState = [3, '#func2Link'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elemsyntax-func3'] + diff && dom('html').scrolled() < offSets['elemsyntax-func4'] + diff || dom('body').scrolled() > offSets['elemsyntax-func3'] + diff && dom('body').scrolled() < offSets['elemsyntax-func4'] + diff:
+
+	                        sideNavStates.stateThree('#func3Link');
+
+	                        sideNavState = [3, '#func3Link'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elemsyntax-func4'] + diff && dom('html').scrolled() < offSets['elemsyntax-func5'] + diff || dom('body').scrolled() > offSets['elemsyntax-func4'] + diff && dom('body').scrolled() < offSets['elemsyntax-func5'] + diff:
+
+	                        sideNavStates.stateThree('#func4Link');
+
+	                        sideNavState = [3, '#func4Link'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elemsyntax-func5'] + diff && dom('html').scrolled() < offSets['elemsyntax-func6'] + diff || dom('body').scrolled() > offSets['elemsyntax-func5'] + diff && dom('body').scrolled() < offSets['elemsyntax-func6'] + diff:
+
+	                        sideNavStates.stateThree('#func5Link');
+
+	                        sideNavState = [3, '#func5Link'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elemsyntax-func6'] + diff && dom('html').scrolled() < offSets['append-syntax'] + diff || dom('body').scrolled() > offSets['elemsyntax-func6'] + diff && dom('body').scrolled() < offSets['append-syntax'] + diff:
+
+	                        sideNavStates.stateThree('#func6Link');
+
+	                        sideNavState = [3, '#func6Link'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['append-syntax'] + diff && dom('html').scrolled() < offSets['elemsyntax-func7'] + diff || dom('body').scrolled() > offSets['append-syntax'] + diff && dom('body').scrolled() < offSets['elemsyntax-func7'] + diff:
+
+	                        sideNavStates.stateThree('#appendStaxLink');
+
+	                        sideNavState = [3, '#appendStaxLink'];
+	                        break;
+	                  case dom('html').scrolled() > offSets['elemsyntax-func7'] + diff || dom('body').scrolled() > offSets['elemsyntax-func7'] + diff:
+
+	                        sideNavStates.stateThree('#func7Link');
+
+	                        sideNavState = [3, '#func7Link'];
+	                        break;
+
+	                  default:
+	                        break;
+	            }
+	      });
+	}
+
+	//Position sticky does not work in chrome, so this code will make the sideNav sticky under chromey conditions.
+	function sideNavSticky() {
+	      if (browser.chrome) {
+	            (function () {
+	                  var _3Col = function () {
+	                        var elem6 = _$('#threeCol') ? dom('#threeCol') : make('#threeCol').put("body");
+	                        return elem6;
+	                  }(),
+	                      _sideNav = function () {
+	                        var elem7 = _$('#sideNav') ? dom('#sideNav') : make('#sideNav').put("body");
+	                        return elem7;
+	                  }(),
+	                      _html = function () {
+	                        var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	                        return elem8;
+	                  }(),
+	                      _body = function () {
+	                        var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	                        return elem9;
+	                  }();
+
+	                  //Scroll event function..
+	                  (0, _elementsJS.scroll)(window, function () {
+	                        (0, _elementsJS.log)(_body.scrolled());
+	                        if (_html.scrolled() > _3Col.fromTop() || _body.scrolled() > _3Col.fromTop()) {
+	                              _sideNav.position('fixed').top('25px').left('50px');
+	                        }
+	                        if (_html.scrolled() < _3Col.fromTop() && _html.scrolled() > _3Col.fromTop() - 550 || _body.scrolled() < _3Col.fromTop() && _body.scrolled() > _3Col.fromTop() - 550) {
+	                              _sideNav.position('').top('25px').left('50px');
+	                        }
+	                  });
+	            })();
+	      } else {
+	            (0, _elementsJS.log)('Go CSS.', 'yellow');
+	      }
+	}
+
+	module.exports = {
+	      getOffSets: getOffSets,
+	      sideNavController: sideNavController,
+	      mouseOverController: mouseOverController,
+	      mouseOutController: mouseOutController
 	};
 
 /***/ }

@@ -5,7 +5,7 @@ var babel = require('gulp-babel');
 var run = require('run-sequence');
 var webpack = require('webpack');
 var gulpWebpack = require('gulp-webpack');
-var elemsJS = require('gulp-elementsJS-interpreter');
+var elemsJS = require('gulp-elementsjs-interpreter');
 
 
 const webpackConfig = {

@@ -11,18 +11,12 @@ https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 
 
 //<<=================Imports======================>>
-//es6 import
-import * as SNC from './sideNavControl.js';
+use 'marked' as marked
+use 'highlight.js' as hljs
+use 'bowser' as browser
 
-
-
-//elementsJS imports <html/>
-imports({
-       'elementsJS': ['imports', 'element', 'hasAncestor', 'isDOMElement', 'go', 'el', 'inspect', 'log', 'err', 'info', 'url', 'ajax', 'on', 'click', 'mouse', 'show', 'hide', 'scroll', '__'],
-           'marked': 'marked',
-     'highlight.js': 'hljs',
-           'bowser': 'browser'
-});
+use './sideNavControl' as SNC
+use 'elementsJS' element, hasAncestor, isDOMElement, isMobile, go, el, inspect, log, err, info, url, ajax, on, click, mouse, show, hide, scroll, __
 //<<===============================>>
 
 
@@ -215,6 +209,11 @@ function clickController() {
 
           window.location.reload();
           break;
+      case (e.target.id === 'whatsThis'):
+          e.preventDefault();
+
+          initDocsPage('#elements-syntax');
+          break;
       case (e.target.className === 'dropDown' || e.target.className === 'navMenu'):
           e.preventDefault();
 
@@ -394,6 +393,10 @@ go(()=> {
   //Create/install custom fork me ribbon.
   forkMeBaby();
 
+  if(isMobile()) {
+    log('helloskis', 'blue');
+  }
+
   //Reset scrollTop on load.
   on('load', window, ()=> {
     //Allow specific hashes to be loaded from the address bar.
@@ -413,36 +416,5 @@ go(()=> {
     }
   });
 
-  //
-  // ///<======Tests======>///
-  //
-  // var val = testy(90, 9);
-  //           info(val);
-  //
-  // log(isDOMElement(<'#col3'>), 'green');
-  //
-  // var elem = <'#npm-bar'>;
-  //
-  // log(isDOMElement(<html/>), 'red');
-  // inspect(<'#api-butn'/>);
-  // inspect(<'#navBarLogo'/>);
-  // inspect(<'#fluffButt'/>);
-  //
-  //
-  //
-  //
-  //
-  // inspect(<'#col3 h2, #col3 h4, #col3 p, #col3 ul li'/>);
-  //
-  // inspect(<'[class~=active]'/>);
-  //
-  //
-  //
-  // <'#shazz'<input='.puts'=2/>/>
-  //                 .every((element)=> {
-  //                   element
-  //                       .size('50px', '50px')
-  //                       .html('shitballs');
-  //                 });
 
 });

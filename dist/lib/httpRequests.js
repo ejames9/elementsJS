@@ -2,8 +2,6 @@
 
 var _logger = require('./logger');
 
-// require('babel-polyfill');
-
 //DONE:20 Complete X-Browser support for both functions.
 
 //This is an alias function for XMLHttpRequests.

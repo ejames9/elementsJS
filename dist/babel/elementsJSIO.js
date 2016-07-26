@@ -1,15 +1,5 @@
 "use strict";
 
-var _sideNavControl = require("./sideNavControl.js");
-
-var SNC = _interopRequireWildcard(_sideNavControl);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-//elementsJS imports <html/>
-
-///-------Begin Module requires---------///
-var _$ = require("elementsJS")._$;
 /*
 elementsJSIO.js
 JavaScript file for the elementsJS project site.
@@ -21,39 +11,57 @@ https://cdn.rawgit.com/ejames9/elementsJS/5f9f194/html/docsMenu.html
 */
 
 //<<=================Imports======================>>
-//es6 import
 
+///-------Begin Module Imports---------///
+var _$ = require("elementsJS")._$;
 var dom = require("elementsJS").dom;
 var make = require("elementsJS").make;
 var element = require("elementsJS").element;
 ///|------------------------------------|//
-
-var elementsJS = require("elementsJS");
-var imports = elementsJS.imports;
-var element = elementsJS.element;
-var hasAncestor = elementsJS.hasAncestor;
-var isDOMElement = elementsJS.isDOMElement;
-var go = elementsJS.go;
-var el = elementsJS.el;
-var inspect = elementsJS.inspect;
-var log = elementsJS.log;
-var err = elementsJS.err;
-var info = elementsJS.info;
-var url = elementsJS.url;
-var ajax = elementsJS.ajax;
-var on = elementsJS.on;
-var click = elementsJS.click;
-var mouse = elementsJS.mouse;
-var show = elementsJS.show;
-var hide = elementsJS.hide;
-var scroll = elementsJS.scroll;
-var __ = elementsJS.__;
 
 var marked = require("marked");
 
 var hljs = require("highlight.js");
 
 var browser = require("bowser");
+
+///End Module requires///
+
+///-------Begin Module Imports---------///
+var _$ = require("elementsJS")._$;
+var dom = require("elementsJS").dom;
+var make = require("elementsJS").make;
+var element = require("elementsJS").element;
+///|------------------------------------|//
+
+var marked = require("marked");
+
+var hljs = require("highlight.js");
+
+var browser = require("bowser");
+
+var SNC = require("./sideNavControl");
+
+var highlight = require("elementsJS");
+var element = highlight.element;
+var hasAncestor = highlight.hasAncestor;
+var isDOMElement = highlight.isDOMElement;
+var isMobile = highlight.isMobile;
+var go = highlight.go;
+var el = highlight.el;
+var inspect = highlight.inspect;
+var log = highlight.log;
+var err = highlight.err;
+var info = highlight.info;
+var url = highlight.url;
+var ajax = highlight.ajax;
+var on = highlight.on;
+var click = highlight.click;
+var mouse = highlight.mouse;
+var show = highlight.show;
+var hide = highlight.hide;
+var scroll = highlight.scroll;
+var __ = highlight.__;
 
 ///End Module requires///
 
@@ -99,8 +107,7 @@ function addChainLinkIcons() {
 //Custom fork me ribbon.
 function forkMeBaby() {
   //Add forkme ribbon html.
-  _$(".jumbotron") ? __("<a id='fmLink'> <div id='forkMe'> <p>Fork Me on GitHub! </p> </div> </a>", ".jumbotron") : __("<div class='jumbotron'> <a id='fmLink'> <div id='forkMe'> <p>Fork Me on GitHub! </p> </div> </a> </div>");
-
+  _$(".jumbotron") ? __("<a id='fmLink'><div id='forkMe'><p>Fork Me on GitHub!</p></div></a>", ".jumbotron") : __("<div class='jumbotron'><a id='fmLink'><div id='forkMe'><p>Fork Me on GitHub!</p></div></a></div>");
   //Make adjustments to #fmLink.
   (function () {
     var elem1 = _$('#fmLink') ? dom('#fmLink') : make('#fmLink').put("body");
@@ -232,6 +239,11 @@ function clickController() {
         e.preventDefault();
 
         window.location.reload();
+        break;
+      case e.target.id === 'whatsThis':
+        e.preventDefault();
+
+        initDocsPage('#elements-syntax');
         break;
       case e.target.className === 'dropDown' || e.target.className === 'navMenu':
         e.preventDefault();
@@ -405,6 +417,10 @@ go(function () {
   //Create/install custom fork me ribbon.
   forkMeBaby();
 
+  if (isMobile()) {
+    log('helloskis', 'blue');
+  }
+
   //Reset scrollTop on load.
   on('load', window, function () {
     //Allow specific hashes to be loaded from the address bar.
@@ -427,36 +443,4 @@ go(function () {
       }
     }
   });
-
-  //
-  // ///<======Tests======>///
-  //
-  // var val = testy(90, 9);
-  //           info(val);
-  //
-  // log(isDOMElement(el('#col3')), 'green');
-  //
-  // var elem = el('#npm-bar');
-  //
-  // log(isDOMElement(<html/>), 'red');
-  // inspect(<'#api-butn'/>);
-  // inspect(<'#navBarLogo'/>);
-  // inspect(<'#fluffButt'/>);
-  //
-  //
-  //
-  //
-  //
-  // inspect(<'#col3 h2, #col3 h4, #col3 p, #col3 ul li'/>);
-  //
-  // inspect( dom('[class~=active]'));
-  //
-  //
-  //
-  // <'#shazz'<input='.puts'=2/>/>
-  //                 .every((element)=> {
-  //                   element
-  //                       .size('50px', '50px')
-  //                       .html('shitballs');
-  //                 });
 });

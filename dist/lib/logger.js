@@ -11,7 +11,6 @@ License: ISC
 */
 
 var colors = require('clivi');
-//  require('babel-polyfill');
 
 //DONE:90 Add second argument for log ID purposes, figure best way to approach this.
 //Console.log alias function.                                                  //DONE:140 Make sure date is logging properly.
