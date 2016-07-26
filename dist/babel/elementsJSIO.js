@@ -135,6 +135,8 @@ function initDocsPage() {
   var hash, hashSS;
 
   function cbFuncs() {
+    var mobile = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
+
     //Call callback functions.
     forkMeBaby();
     highLightCode();
@@ -142,11 +144,14 @@ function initDocsPage() {
 
     SNC.mouseOutController();
     SNC.mouseOverController();
-    SNC.sideNavController();
+    //
+    if (!mobile) {
+      SNC.sideNavController();
 
-    dom('#sideNav li a').every(function (element) {
-      element.class('sNavLink', '+');
-    });
+      dom('#sideNav li a').every(function (element) {
+        element.class('sNavLink', '+');
+      });
+    }
 
     if (null !== elem) {
 
@@ -198,7 +203,7 @@ function initDocsPage() {
         return elem7;
       })().html(marked(markDown));
       //invoke callbacks..
-      cbFuncs();
+      cbFuncs(true);
     });
   } else {
     //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
