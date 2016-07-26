@@ -487,10 +487,6 @@
 	  //Create/install custom fork me ribbon.
 	  forkMeBaby();
 
-	  if (isMobile()) {
-	    log('helloskis', 'blue');
-	  }
-
 	  //Reset scrollTop on load.
 	  on('load', window, function () {
 	    //Allow specific hashes to be loaded from the address bar.
