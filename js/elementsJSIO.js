@@ -27,6 +27,7 @@ var rawGitCDN = 'https://cdn.rawgit.com/ejames9/elementsJS/' + commit +'/';
 
 var docsMenu = 'html/docsMenu.html';
 var mdUrl = 'md/elementsJSIODocs.md';
+var docs  = 'html/docs.html';
 
 var markDown,
     offSets;
@@ -108,12 +109,8 @@ function highLightCode() {
 function initDocsPage(elem=null) {
   var hash,
       hashSS;
-  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
-  ajax(url(rawGit, docsMenu), null, (r)=> {
-    <'#content'/>
-              .html(r);
-    <'#docsMain'/>
-              .html(marked(markDown));
+
+  function cbFuncs() {
     //Call callback functions.
     forkMeBaby();
     highLightCode();
@@ -156,7 +153,30 @@ function initDocsPage(elem=null) {
             .scrolled(0);
       }
     }
-  });
+  }
+
+  //Load documentation page according to format..
+  if (isMobile()) {
+    //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
+    ajax(url(rawGit, docs), null, (r)=> {
+      <'#content'/>
+                .html(r);
+      <'#docsMain'/>
+                .html(marked(markDown));
+      //invoke callbacks..
+      cbFuncs();
+    });
+  } else {
+    //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
+    ajax(url(rawGit, docsMenu), null, (r)=> {
+      <'#content'/>
+                .html(r);
+      <'#docsMain'/>
+                .html(marked(markDown));
+      //invoke callbacks..
+      cbFuncs();
+    });
+  }
 }
 
 
@@ -392,10 +412,6 @@ go(()=> {
   getMarkDown();
   //Create/install custom fork me ribbon.
   forkMeBaby();
-
-  if(isMobile()) {
-    log('helloskis', 'blue');
-  }
 
   //Reset scrollTop on load.
   on('load', window, ()=> {

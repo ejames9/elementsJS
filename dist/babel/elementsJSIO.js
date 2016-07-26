@@ -74,6 +74,7 @@ var rawGitCDN = 'https://cdn.rawgit.com/ejames9/elementsJS/' + commit + '/';
 
 var docsMenu = 'html/docsMenu.html';
 var mdUrl = 'md/elementsJSIODocs.md';
+var docs = 'html/docs.html';
 
 var markDown, offSets;
 
@@ -132,16 +133,8 @@ function initDocsPage() {
   var elem = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
 
   var hash, hashSS;
-  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
-  ajax(url(rawGit, docsMenu), null, function (r) {
-    (function () {
-      var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
-      return elem2;
-    })().html(r);
-    (function () {
-      var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-      return elem3;
-    })().html(marked(markDown));
+
+  function cbFuncs() {
     //Call callback functions.
     forkMeBaby();
     highLightCode();
@@ -164,14 +157,14 @@ function initDocsPage() {
       if (browser.gecko) {
 
         (function () {
-          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          return elem4;
+          var elem2 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          return elem2;
         })().scrolled(offSets[hashSS] + 470);
       } else if (browser.webkit) {
 
         (function () {
-          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          return elem5;
+          var elem3 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          return elem3;
         })().scrolled(offSets[hashSS] + 470);
       }
     } else {
@@ -179,18 +172,49 @@ function initDocsPage() {
       if (browser.gecko) {
 
         (function () {
-          var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          return elem6;
+          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          return elem4;
         })().scrolled(0);
       } else if (browser.webkit) {
 
         (function () {
-          var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-          return elem7;
+          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+          return elem5;
         })().scrolled(0);
       }
     }
-  });
+  }
+
+  //Load documentation page according to format..
+  if (isMobile()) {
+    //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
+    ajax(url(rawGit, docs), null, function (r) {
+      (function () {
+        var elem6 = _$('#content') ? dom('#content') : make('#content').put("body");
+        return elem6;
+      })().html(r);
+      (function () {
+        var elem7 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+        return elem7;
+      })().html(marked(markDown));
+      //invoke callbacks..
+      cbFuncs();
+    });
+  } else {
+    //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
+    ajax(url(rawGit, docsMenu), null, function (r) {
+      (function () {
+        var elem8 = _$('#content') ? dom('#content') : make('#content').put("body");
+        return elem8;
+      })().html(r);
+      (function () {
+        var elem9 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+        return elem9;
+      })().html(marked(markDown));
+      //invoke callbacks..
+      cbFuncs();
+    });
+  }
 }
 
 //After page loads, load elementsJSIODocs.md into a variable.
@@ -264,15 +288,15 @@ function clickController() {
           log('gecko', 'red');
 
           (function () {
-            var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-            return elem8;
+            var elem10 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+            return elem10;
           })().scrolled(offSets[hashSS] + 470);
         } else if (browser.webkit) {
           log('webkit', 'blue');
 
           (function () {
-            var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-            return elem9;
+            var elem11 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+            return elem11;
           })().scrolled(offSets[hashSS] + 470);
         }
         break;
@@ -286,15 +310,15 @@ function clickController() {
           log('gecko', 'red');
 
           (function () {
-            var elem10 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-            return elem10;
+            var elem12 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+            return elem12;
           })().scrolled(offSets[hashSS] + 470);
         } else if (browser.webkit) {
           log('webkit', 'blue');
 
           (function () {
-            var elem11 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-            return elem11;
+            var elem13 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+            return elem13;
           })().scrolled(offSets[hashSS] + 470);
         }
         break;
@@ -315,15 +339,15 @@ function clickController() {
           log('gecko', 'red');
 
           (function () {
-            var elem12 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-            return elem12;
+            var elem14 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+            return elem14;
           })().scrolled(offSets[hashSS] + 470);
         } else if (browser.webkit) {
           log('webkit', 'blue');
 
           (function () {
-            var elem13 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-            return elem13;
+            var elem15 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+            return elem15;
           })().scrolled(offSets[hashSS] + 470);
         }
         break;
@@ -407,8 +431,8 @@ function clickController() {
 go(function () {
   //Set default display setting for the bower/npm installation bar.
   (function () {
-    var elem14 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-    return elem14;
+    var elem16 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+    return elem16;
   })().display('none');
   //Initialize the click controller.
   clickController();
@@ -430,14 +454,14 @@ go(function () {
       //Make sure page loads at proper scrollTop.
       if (browser.gecko) {
         (function () {
-          var elem15 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-          return elem15;
+          var elem17 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+          return elem17;
         })().scrolled(0);
       } else if (browser.webkit) {
         setTimeout(function () {
           (function () {
-            var elem16 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-            return elem16;
+            var elem18 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+            return elem18;
           })().scrolled(0);
         }, 50);
       }

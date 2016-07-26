@@ -120,6 +120,7 @@
 
 	var docsMenu = 'html/docsMenu.html';
 	var mdUrl = 'md/elementsJSIODocs.md';
+	var docs = 'html/docs.html';
 
 	var markDown, offSets;
 
@@ -178,16 +179,8 @@
 	  var elem = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
 
 	  var hash, hashSS;
-	  //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
-	  ajax(url(rawGit, docsMenu), null, function (r) {
-	    (function () {
-	      var elem2 = _$('#content') ? dom('#content') : make('#content').put("body");
-	      return elem2;
-	    })().html(r);
-	    (function () {
-	      var elem3 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
-	      return elem3;
-	    })().html(marked(markDown));
+
+	  function cbFuncs() {
 	    //Call callback functions.
 	    forkMeBaby();
 	    highLightCode();
@@ -210,14 +203,14 @@
 	      if (browser.gecko) {
 
 	        (function () {
-	          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	          return elem4;
+	          var elem2 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	          return elem2;
 	        })().scrolled(offSets[hashSS] + 470);
 	      } else if (browser.webkit) {
 
 	        (function () {
-	          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	          return elem5;
+	          var elem3 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	          return elem3;
 	        })().scrolled(offSets[hashSS] + 470);
 	      }
 	    } else {
@@ -225,18 +218,49 @@
 	      if (browser.gecko) {
 
 	        (function () {
-	          var elem6 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	          return elem6;
+	          var elem4 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	          return elem4;
 	        })().scrolled(0);
 	      } else if (browser.webkit) {
 
 	        (function () {
-	          var elem7 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	          return elem7;
+	          var elem5 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	          return elem5;
 	        })().scrolled(0);
 	      }
 	    }
-	  });
+	  }
+
+	  //Load documentation page according to format..
+	  if (isMobile()) {
+	    //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
+	    ajax(url(rawGit, docs), null, function (r) {
+	      (function () {
+	        var elem6 = _$('#content') ? dom('#content') : make('#content').put("body");
+	        return elem6;
+	      })().html(r);
+	      (function () {
+	        var elem7 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+	        return elem7;
+	      })().html(marked(markDown));
+	      //invoke callbacks..
+	      cbFuncs();
+	    });
+	  } else {
+	    //Grab side-bar/documentation template  html from github with rawgit cdn, insert side-bar/template, and docs into their containers.
+	    ajax(url(rawGit, docsMenu), null, function (r) {
+	      (function () {
+	        var elem8 = _$('#content') ? dom('#content') : make('#content').put("body");
+	        return elem8;
+	      })().html(r);
+	      (function () {
+	        var elem9 = _$('#docsMain') ? dom('#docsMain') : make('#docsMain').put("body");
+	        return elem9;
+	      })().html(marked(markDown));
+	      //invoke callbacks..
+	      cbFuncs();
+	    });
+	  }
 	}
 
 	//After page loads, load elementsJSIODocs.md into a variable.
@@ -310,15 +334,15 @@
 	          log('gecko', 'red');
 
 	          (function () {
-	            var elem8 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	            return elem8;
+	            var elem10 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	            return elem10;
 	          })().scrolled(offSets[hashSS] + 470);
 	        } else if (browser.webkit) {
 	          log('webkit', 'blue');
 
 	          (function () {
-	            var elem9 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	            return elem9;
+	            var elem11 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	            return elem11;
 	          })().scrolled(offSets[hashSS] + 470);
 	        }
 	        break;
@@ -332,15 +356,15 @@
 	          log('gecko', 'red');
 
 	          (function () {
-	            var elem10 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	            return elem10;
+	            var elem12 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	            return elem12;
 	          })().scrolled(offSets[hashSS] + 470);
 	        } else if (browser.webkit) {
 	          log('webkit', 'blue');
 
 	          (function () {
-	            var elem11 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	            return elem11;
+	            var elem13 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	            return elem13;
 	          })().scrolled(offSets[hashSS] + 470);
 	        }
 	        break;
@@ -361,15 +385,15 @@
 	          log('gecko', 'red');
 
 	          (function () {
-	            var elem12 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	            return elem12;
+	            var elem14 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	            return elem14;
 	          })().scrolled(offSets[hashSS] + 470);
 	        } else if (browser.webkit) {
 	          log('webkit', 'blue');
 
 	          (function () {
-	            var elem13 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	            return elem13;
+	            var elem15 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	            return elem15;
 	          })().scrolled(offSets[hashSS] + 470);
 	        }
 	        break;
@@ -453,8 +477,8 @@
 	go(function () {
 	  //Set default display setting for the bower/npm installation bar.
 	  (function () {
-	    var elem14 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
-	    return elem14;
+	    var elem16 = _$('#npm-bar') ? dom('#npm-bar') : make('#npm-bar').put("body");
+	    return elem16;
 	  })().display('none');
 	  //Initialize the click controller.
 	  clickController();
@@ -476,14 +500,14 @@
 	      //Make sure page loads at proper scrollTop.
 	      if (browser.gecko) {
 	        (function () {
-	          var elem15 = _$("html") ? dom("html") : make(".html1", "html").put("body");
-	          return elem15;
+	          var elem17 = _$("html") ? dom("html") : make(".html1", "html").put("body");
+	          return elem17;
 	        })().scrolled(0);
 	      } else if (browser.webkit) {
 	        setTimeout(function () {
 	          (function () {
-	            var elem16 = _$("body") ? dom("body") : make(".body1", "body").put("body");
-	            return elem16;
+	            var elem18 = _$("body") ? dom("body") : make(".body1", "body").put("body");
+	            return elem18;
 	          })().scrolled(0);
 	        }, 50);
 	      }
@@ -547,6 +571,7 @@
 	//FIXME: eJS Interpreter hangs when eJS element is within brackets, and directly adjacent to one of them.
 	//FIXME: cannot create element from variable representing a string.
 	//FIXME: Find out why module imports are printing twice..
+	//FIXME: Figure out why elements in square brackets slow things up...
 
 	//DONE: Can't put elements in comments.
 	//DONE: HTML interfering with regExp's.
@@ -574,6 +599,9 @@
 	//TODO: hover(mouseOverFunc, mouseOutFunc) func.....
 	//TODO: element.name() function.....
 	//TODO: add functionality to make() function to allow creating nameless, id less divs.
+	//TODO: write scroll-snapper plugin,
+	//TODO: list of plug-ins
+	//TODO: touch('start', ()=> {});  touch event function, method..
 
 	//DONE:0 Complete X-Browser 'style' functions, and implement X-Browser compatibility in EventListener functions.
 
@@ -747,6 +775,10 @@
 
 	var lookBehind = function lookBehind(leftContextRE, matchRE, subject) {
 	  return utils.lookBehind(leftContextRE, matchRE, subject);
+	};
+
+	var isMobile = function isMobile() {
+	  return utils.isMobile();
 	};
 
 	//This practically useless function will lock up the browser for a preset amount of time.
@@ -1037,6 +1069,7 @@
 	  // functions: functions,
 	  hasAncestor: hasAncestor,
 	  lookBehind: lookBehind,
+	  isMobile: isMobile,
 	  put: put,
 	  on: on,
 	  off: off,
@@ -1096,8 +1129,6 @@
 	var DOM = _interopRequireWildcard(_DOM);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	// require('babel-polyfill');
 
 	//DOING:10 List all functions that need to be added (.textContent, innerHTML etc.)
 	//DOING:20 Complete all functions for this object.
@@ -2648,7 +2679,6 @@
 	*/
 
 	var colors = __webpack_require__(4);
-	//  require('babel-polyfill');
 
 	//DONE:90 Add second argument for log ID purposes, figure best way to approach this.
 	//Console.log alias function.                                                  //DONE:140 Make sure date is logging properly.
@@ -2897,8 +2927,6 @@
 
 	var _logger = __webpack_require__(3);
 
-	// require('babel-polyfill');
-
 	//TODO:20 browser detection functionality, noop(), merge(), toggle().
 
 	var isArray = function isArray(arr) {
@@ -3090,6 +3118,24 @@
 	  return returnMatch;
 	};
 
+	function isMobile() {
+	  this.android = function () {
+	    return navigator.userAgent.match(/Android/i);
+	  };
+	  this.blackBerry = function () {
+	    return navigator.userAgent.match(/BlackBerry/i);
+	  }, this.iOS = function () {
+	    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+	  }, this.operaMini = function () {
+	    return navigator.userAgent.match(/Opera Mini/i);
+	  }, this.windowsMobile = function () {
+	    return navigator.userAgent.match(/IEMobile/i);
+	  }, this.any = function () {
+	    return this.android() || this.blackBerry() || this.iOS() || this.operaMini() || this.windowsMobile();
+	  };
+	  return this.any();
+	}
+
 	module.exports = {
 	  queryDOM: queryDOM,
 	  functions: functions,
@@ -3100,7 +3146,8 @@
 	  sleep: sleep,
 	  proto: proto,
 	  hasAncestor: hasAncestor,
-	  lookBehind: lookBehind
+	  lookBehind: lookBehind,
+	  isMobile: isMobile
 	};
 
 /***/ },
@@ -3116,8 +3163,6 @@
 	var utils = _interopRequireWildcard(_utilities);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	// require('babel-polyfill');
 
 	//DONE:10 Complete X-Browser support for these 3 functions.
 
@@ -3750,8 +3795,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// require('babel-polyfill');
-
 	//TODO:0 Check out querySelector() method, see if it helps out.
 	//DOING:0 go() DOMREady function, Class toggling method, aft(), fore(), size(), show(), hide().
 
@@ -4000,8 +4043,6 @@
 	'use strict';
 
 	var _logger = __webpack_require__(3);
-
-	// require('babel-polyfill');
 
 	//DONE:20 Complete X-Browser support for both functions.
 
