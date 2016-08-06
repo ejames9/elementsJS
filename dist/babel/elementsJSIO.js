@@ -154,9 +154,11 @@ function initDocsPage() {
     }
 
     if (null !== elem) {
+      log('yupskis');
+      log(elem);
 
       offSets = SNC.getOffSets();
-      hash = String(element(elem).hash());
+      hash = String(dom(elem).hash());
       hashSS = hash.substring(1, hash.length);
 
       if (browser.gecko) {
@@ -450,6 +452,8 @@ go(function () {
   on('load', window, function () {
     //Allow specific hashes to be loaded from the address bar.
     if (window.location.hash.length > 1) {
+      log('heelloo tthheerree!!');
+      log(window.location.hash, 'green');
       initDocsPage(window.location.hash);
     } else {
       //Make sure page loads at proper scrollTop.
