@@ -32,7 +32,7 @@ if (!Array.prototype.indexOf) {
 var element = function(el) {
   if (isDOMElement(el)) {
     return new Element(el);
-  } else if (utils.isArray(el)) {
+  } else if (isArray(el)) {
     if (isElement(el[0])) {
       return new Element(el);
     } else if (isDOMElement(el[0])){
@@ -50,18 +50,18 @@ var element = function(el) {
 };
 
 var isElement = function(el) {
-  return utils.isElement(el);
+  return isElement(el);
 };
 
 var isDOMElement = function(el) {
-  return utils.isDOMElement(el);
+  return isDOMElement(el);
 };
 
 /*This function copies the prototype object of a superConstructor to the prototype object
 of a constructor. It functions just like nodes' util.inherits function, it copies methods only,
 not internal properties.*/
 var proto = function(construct, superConstruct) {
-  return utils.proto(construct, superConstruct);
+  return proto(construct, superConstruct);
 };
 
 
@@ -69,12 +69,12 @@ var proto = function(construct, superConstruct) {
 
 //This function will simply return true if the given element exists in the DOM, and false otherwise. not a public function.
 var _$ = function(el) {
-  return null !== utils.queryDOM(el);
+  return null !== queryDOM(el);
 };
 
 
 var isArray = function(arr) {
-  return utils.isArray(arr);
+  return isArray(arr);
 };
 
 
@@ -83,7 +83,7 @@ var isArray = function(arr) {
 var dom = function(el) {
   let rv;
 
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (el.length !== undefined) {
     rv = [];
@@ -98,7 +98,7 @@ var dom = function(el) {
 };
 
 
-/*function for inserting template literals into the DOM.
+/*function for inserting template literals into the
 
 bones(`
 
@@ -111,114 +111,114 @@ bones(`
 
 */
 var __ = function(tempLit, el='body') {
-  return DOM.bones(tempLit, el);
+  return bones(tempLit, el);
 };
 
 
 
 //Create element alias function.
 var make = function(el, tag) {
-  return DOM.make(el, tag);
+  return make(el, tag);
 };
 
 
 //DOM querying alias function. Will automatically narrow class or tag queries down to one result. It will not return an array.
 var el = function(l) {
-  return utils.queryDOM(l);
+  return queryDOM(l);
 };
 
 
 
 //Function for appending elements to other elements.
 var put = function(el, mom) {
-  return DOM.put(el, mom);
+  return put(el, mom);
 };
 
 
 //Function for deleting elements from the DOM tree.
 var x = function(el) {
-  return DOM.kill(el);
+  return kill(el);
 };
 
 
 var fore = function(ref, elem) {
-  return DOM.fore(ref, elem);
+  return fore(ref, elem);
 };
 
 
 var aft = function(ref, elem) {
-  return DOM.aft(ref, elem);
+  return aft(ref, elem);
 };
 
 
 var show = function(elem, disp) {
-  return DOM.show(elem);
+  return show(elem);
 };
 
 
 var hide = function(elem) {
-  return DOM.hide(elem);
+  return hide(elem);
 };
 
 
 var size = function(elem, h, w) {
-  return DOM.size(elem, h, w);
+  return size(elem, h, w);
 };
 
 var clone = function(elem, deep) {
-  return DOM.clone(elem, deep);
+  return clone(elem, deep);
 };
 
 
 //console.log alias function.
 var log = function(text, style, tyme) {
-  return consol.log(text, style, tyme);
+  return log(text, style, tyme);
 };
 
 
 //console.error alias function.
 var err = function(text, tyme) {
-  return consol.err(text, tyme);
+  return err(text, tyme);
 };
 
 
 //console.info alias function.
 var info = function(text, tyme) {
-  return consol.info(text, tyme);
+  return info(text, tyme);
 };
 
 
 
 //console.warn alias function.
 var warn = function(text, tyme) {
-  return consol.warn(text, tyme);
+  return warn(text, tyme);
 };
 
 var inspect = function(obj) {
-  return consol.inspect(obj);
+  return inspect(obj);
 };
 
 
 
 var shifter = function(onFunc, offFunc) {
-  return utils.shifter(onFunc, offFunc);
+  return shifter(onFunc, offFunc);
 };
 
 var hasAncestor = function(l, ance) {
-  return utils.hasAncestor(l, ance);
+  return hasAncestor(l, ance);
 };
 
 var lookBehind = function(leftContextRE, matchRE, subject) {
-  return utils.lookBehind(leftContextRE, matchRE, subject);
+  return lookBehind(leftContextRE, matchRE, subject);
 };
 
 var isMobile = function() {
-  return utils.isMobile();
+  return isMobile();
 };
 
 //This practically useless function will lock up the browser for a preset amount of time.
 var sleep = function(milliseconds) {
-  return utils.sleep(milliseconds);
+  return sleep(milliseconds);
 };
 
 //A function for combining strings for urls
@@ -229,14 +229,14 @@ var url = function(bit1, bit2, bit3='', bit4='') {
 
 //This is a synchronous alias function for XMLHttpRequests.
 var xhr = function(url, fd, method) {
-  return requests.xhr(url, fd, method);
+  return xhr(url, fd, method);
 };
 
 
 
 //This is an asynchronous alias function for XMLHttpRequests.
 var ajax = function(url, fd, callback, method) {
-  return requests.ajax(url, fd, callback, method);
+  return ajax(url, fd, callback, method);
 };
 
 
@@ -246,9 +246,9 @@ var ajax = function(url, fd, callback, method) {
 
 var go = function(cb) {
   if (document.addEventListener) {
-    return events.go(cb);
+    return go(cb);
   } else {
-    return events.goIE(cb);
+    return goIE(cb);
   }
 };
 
@@ -256,9 +256,9 @@ var go = function(cb) {
 //Function for setting event listeners.
 var on = function(event, el, callback) {
   if (document.addEventListener) {
-    return events.on(event, el, callback);
+    return on(event, el, callback);
   } else {
-    return events.onIE(event, el, callback);
+    return onIE(event, el, callback);
   }
 };
 
@@ -266,194 +266,194 @@ var on = function(event, el, callback) {
 //Function for removing event listeners.
 var off = function(event, el, callback) {
   if (document.addEventListener) {
-    return events.off(event, el, callback);
+    return off(event, el, callback);
   } else {
-    return events.offIE(event, el, callback);
+    return offIE(event, el, callback);
   }
 };
 
 
 var once = function(event, el, callback) {                                     //DONE:50 Finish once function.
   if (document.addEventListener) {
-    return events.once(event, el, callback);
+    return once(event, el, callback);
   } else {
-    return events.onceIE(event, el, callback);
+    return onceIE(event, el, callback);
   }                                                                            //TEST:70 Test once function.
 };
 
 
 var spark = function(evt, el) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.spark(evt, el);
+    return spark(evt, el);
   } else {
-    return events.sparkIE(evt, el);
+    return sparkIE(evt, el);
   }
 };
 
 
 var blur = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.blur(el, cb);
+    return blur(el, cb);
   } else {
-    return events.blurIE(el, cb);
+    return blurIE(el, cb);
   }
 };
 
 
 var click = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.click(el, cb);
+    return click(el, cb);
   } else {
-    return events.clickIE(el, cb);
+    return clickIE(el, cb);
   }
 };
 
 
 var dblClick = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.dblClick(el, cb);
+    return dblClick(el, cb);
   } else {
-    return events.dblClickIE(el, cb);
+    return dblClickIE(el, cb);
   }
 };
 
 
 var error = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.error(el, cb);
+    return error(el, cb);
   } else {
-    return events.errorIE(el, cb);
+    return errorIE(el, cb);
   }
 };
 
 
 var focus = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.focus(el, cb);
+    return focus(el, cb);
   } else {
-    return events.focusIE(el, cb);
+    return focusIE(el, cb);
   }
 };
 
 
 var focusIn = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.focusIn(el, cb);
+    return focusIn(el, cb);
   } else {
-    return events.focusInIE(el, cb);
+    return focusInIE(el, cb);
   }
 };
 
 
 var focusOut = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.focusOut(el, cb);
+    return focusOut(el, cb);
   } else {
-    return events.focusOut(el, cb);
+    return focusOut(el, cb);
   }
 };
 
 
 var keyUp = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.keyUp(el, cb);
+    return keyUp(el, cb);
   } else {
-    return events.keyUpIE(el, cb);
+    return keyUpIE(el, cb);
   }
 };
 
 
 var keyDown = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.keyDown(el, cb);
+    return keyDown(el, cb);
   } else {
-    return events.keyDownIE(el, cb);
+    return keyDownIE(el, cb);
   }
 };
 
 
 var load = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.load(el, cb);
+    return load(el, cb);
   } else {
-    return events.loadIE(el, cb);
+    return loadIE(el, cb);
   }
 };
 
 
 var unLoad = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.unLoad(el, cb);
+    return unLoad(el, cb);
   } else {
-    return events.unLoadIE(el, cb);
+    return unLoadIE(el, cb);
   }
 };
 
 
 var mouse = function(sfx, el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.mouse(sfx, el, cb);
+    return mouse(sfx, el, cb);
   } else {
-    return events.mouseIE(sfx, el, cb);
+    return mouseIE(sfx, el, cb);
   }
 };
 
 
 var resize = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.resize(el, cb);
+    return resize(el, cb);
   } else {
-    return events.resizeIE(el, cb);
+    return resizeIE(el, cb);
   }
 };
 
 
 var scroll = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.scroll(el, cb);
+    return scroll(el, cb);
   } else {
-    return events.scrollIE(el, cb);
+    return scrollIE(el, cb);
   }
 };
 
 
 var select = function(el, cb=null) {
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   if (document.addEventListener) {
-    return events.select(el, cb);
+    return select(el, cb);
   } else {
-    return events.selectIE(el, cb);
+    return selectIE(el, cb);
   }
 };
 
@@ -1383,7 +1383,7 @@ function Element(el) {
   };
 
   this.add = function(child) {
-    child = DOM.el(child);
+    child = el(child);
     this.el.appendChild(child);
     return this;
   };
@@ -1482,7 +1482,7 @@ function Element(el) {
 
 
   this.x = function(elem) {
-    const child = DOM.el(elem);
+    const child = el(elem);
     this.el.removeChild(child);
     return this;
   };
@@ -1684,7 +1684,7 @@ function Element(el) {
 
 
   this.put = function(mom) {
-    DOM.put(this.el, mom);
+    put(this.el, mom);
     return this;
   };
 
@@ -1714,11 +1714,11 @@ function Element(el) {
 
   this.on = function(ev, callback) {
     if (document.addEventListener) {
-      events.on(ev, this.el, function(e) {
+      on(ev, this.el, function(e) {
         return callback(e, new Element(el));
       });
     } else {
-      events.on(ev, this.el, function(e) {
+      on(ev, this.el, function(e) {
         return callback(e, new Element(el));
       });
     }
@@ -1728,20 +1728,20 @@ function Element(el) {
 
   this.off = function(ev, callback) {
     if (document.addEventListener) {
-      events.off(ev, this.el, callback);
+      off(ev, this.el, callback);
     } else {
-      events.offIE(ev, this.el, callback);
+      offIE(ev, this.el, callback);
     }
     return this;
   };
 
   this.once = function(ev, callback) {
     if (document.addEventListener) {
-      events.once(ev, this.el, function(e) {
+      once(ev, this.el, function(e) {
         return callback(e, new Element(el));
       });
     } else {
-      events.onceIE(ev, this.el, function(e) {
+      onceIE(ev, this.el, function(e) {
         return callback(e, new Element(el));
       });
     }
@@ -1793,9 +1793,9 @@ function Element(el) {
 
   this.blur = function(cb=null) {
     if (this.el.addEventListener) {
-      events.blur(this.el, cb);
+      blur(this.el, cb);
     } else {
-      events.blurIE(this.el, cb);
+      blurIE(this.el, cb);
     }
     return this;
   };
@@ -1803,9 +1803,9 @@ function Element(el) {
 
   this.click = function(cb=null) {
     if (this.el.addEventListener) {
-      events.click(this.el, cb);
+      click(this.el, cb);
     } else {
-      events.clickIE(this.el, cb);
+      clickIE(this.el, cb);
     }
     return this;
   };
@@ -1813,9 +1813,9 @@ function Element(el) {
 
   this.dblClick = function(cb=null) {
     if (this.el.addEventListener) {
-      events.dblClick(this.el, cb);
+      dblClick(this.el, cb);
     } else {
-      events.dblClickIE(this.el, cb);
+      dblClickIE(this.el, cb);
     }
     return this;
   };
@@ -1823,9 +1823,9 @@ function Element(el) {
 
   this.error = function(cb=null) {
     if (this.el.addEventListener) {
-      events.error(this.el, cb);
+      error(this.el, cb);
     } else {
-      events.errorIE(this.el, cb);
+      errorIE(this.el, cb);
     }
     return this;
   };
@@ -1833,9 +1833,9 @@ function Element(el) {
 
   this.focus = function(cb=null) {
     if (this.el.addEventListener) {
-      events.focus(this.el, cb);
+      focus(this.el, cb);
     } else {
-      events.focusIE(this.el, cb);
+      focusIE(this.el, cb);
     }
     return this;
   };
@@ -1843,9 +1843,9 @@ function Element(el) {
 
   this.focusIn = function(cb=null) {
     if (this.el.addEventListener) {
-      events.focusIn(this.el, cb);
+      focusIn(this.el, cb);
     } else {
-      events.focusInIE(this.el, cb);
+      focusInIE(this.el, cb);
     }
     return this;
   };
@@ -1853,9 +1853,9 @@ function Element(el) {
 
   this.focusOut = function(cb=null) {
     if (this.el.addEventListener) {
-      events.focusOut(this.el, cb);
+      focusOut(this.el, cb);
     } else {
-      events.focusOut(this.el, cb);
+      focusOut(this.el, cb);
     }
     return this;
   };
@@ -1863,9 +1863,9 @@ function Element(el) {
 
   this.keyUp = function(cb=null) {
     if (this.el.addEventListener) {
-      events.keyUp(this.el, cb);
+      keyUp(this.el, cb);
     } else {
-      events.keyUpIE(this.el, cb);
+      keyUpIE(this.el, cb);
     }
     return this;
   };
@@ -1873,9 +1873,9 @@ function Element(el) {
 
   this.keyDown = function(cb=null) {
     if (this.el.addEventListener) {
-      events.keyDown(this.el, cb);
+      keyDown(this.el, cb);
     } else {
-      events.keyDownIE(this.el, cb);
+      keyDownIE(this.el, cb);
     }
     return this;
   };
@@ -1883,9 +1883,9 @@ function Element(el) {
 
   this.load = function(cb=null) {
     if (this.el.addEventListener) {
-      events.load(this.el, cb);
+      load(this.el, cb);
     } else {
-      events.loadIE(this.el, cb);
+      loadIE(this.el, cb);
     }
     return this;
   };
@@ -1893,9 +1893,9 @@ function Element(el) {
 
   this.unLoad = function(cb=null) {
     if (this.el.addEventListener) {
-      events.unLoad(this.el, cb);
+      unLoad(this.el, cb);
     } else {
-      events.unLoadIE(this.el, cb);
+      unLoadIE(this.el, cb);
     }
     return this;
   };
@@ -1903,9 +1903,9 @@ function Element(el) {
 
   this.mouse = function(sfx, cb=null) {
     if (this.el.addEventListener) {
-      events.mouse(sfx, this.el, cb);
+      mouse(sfx, this.el, cb);
     } else {
-      events.mouseIE(sfx, this.el, cb);
+      mouseIE(sfx, this.el, cb);
     }
     return this;
   };
@@ -1913,9 +1913,9 @@ function Element(el) {
 
   this.resize = function(cb=null) {
     if (this.el.addEventListener) {
-      events.resize(this.el, cb);
+      resize(this.el, cb);
     } else {
-      events.resizeIE(this.el, cb);
+      resizeIE(this.el, cb);
     }
     return this;
   };
@@ -1923,9 +1923,9 @@ function Element(el) {
 
   this.scroll = function(cb=null) {
     if (this.el.addEventListener) {
-      events.scroll(this.el, cb);
+      scroll(this.el, cb);
     } else {
-      events.scrollIE(this.el, cb);
+      scrollIE(this.el, cb);
     }
     return this;
   };
@@ -1933,9 +1933,9 @@ function Element(el) {
 
   this.select = function(cb=null) {
     if (this.el.addEventListener) {
-      events.select(this.el, cb);
+      select(this.el, cb);
     } else {
-      events.selectIE(this.el, cb);
+      selectIE(this.el, cb);
     }
     return this;
   };
@@ -2104,7 +2104,7 @@ bones(`
 
 */
 var bones = function(tempLit, elem='body') {
-  elem = utils.queryDOM(elem);
+  elem = queryDOM(elem);
   elem.innerHTML += tempLit;
 
   return elem;
@@ -2133,7 +2133,7 @@ var make = function(l, tag) {
  only 1 it will NOT, even if the CSS Selector is a className or tagName.*/
  //NOTE: Now referencing queryDOM() function from index.js.
 var el = function(el) {
-  return utils.queryDOM(el);
+  return queryDOM(el);
 };
 
 
@@ -2141,7 +2141,7 @@ var el = function(el) {
 //------------------------------This function is not being used in the current build ---------------------------//
 //DOM querying function, same as above, but it will return an array if a tag or class name are given as argument.
 // var all = function(l) {
-//   return utils.queryDOM(el, 'all');
+//   return queryDOM(el, 'all');
 // };
 
 
@@ -2232,20 +2232,20 @@ var kill = function(el) {
 //DOM function for inserting an element before a specified node.
 
 var fore = function(ref, elem) {
-  return utils.queryDOM(ref).parentNode.insertBefore(utils.queryDOM(elem), utils.queryDOM(ref));
+  return queryDOM(ref).parentNode.insertBefore(queryDOM(elem), queryDOM(ref));
 };
 
 //DOM function for inserting an element after a specified node.
 var aft = function(ref, elem) {
-  ref = utils.queryDOM(ref);
+  ref = queryDOM(ref);
   ref = ref.nextElementSibling;
 
-  return ref.parentNode.insertBefore(utils.queryDOM(elem), ref);
+  return ref.parentNode.insertBefore(queryDOM(elem), ref);
 };
 
 //DOM function for showing an element, or a list of elements.
 var show = function(elem, disp='block') {
-  elem = utils.queryDOM(elem);
+  elem = queryDOM(elem);
   if (Array.isArray(elem)) {
     elem.forEach((l)=> {
       l.style.display = disp;
@@ -2257,7 +2257,7 @@ var show = function(elem, disp='block') {
 
 //DOM function for hiding an element, or a list of elements.
 var hide = function(elem) {
-  elem = utils.queryDOM(elem);
+  elem = queryDOM(elem);
 
   if (Array.isArray(elem)) {
     elem.forEach((l)=> {
@@ -2270,7 +2270,7 @@ var hide = function(elem) {
 
 //DOM function for setting height and width of an element. 's' is an object, with height and width as keys.
 var size = function(elem, h, w) {
-  elem = utils.queryDOM(elem);
+  elem = queryDOM(elem);
 
   elem.style.height = h;
   elem.style.width  = w;
@@ -2306,7 +2306,7 @@ var clone = function(elem, deep) {
 //==============================================================================
 
 /*
-events.js
+js
 
 This file contains code for the librarys' convenience EventListener
 alias functions.
@@ -2411,7 +2411,7 @@ var once = function(event, el, callback) {                                     /
     el.removeEventListener(event, callBack);
   };
 
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   return el.addEventListener(event, callBack);
 };
@@ -2425,7 +2425,7 @@ var onceIE = function(event, el, callback) {
     el.detachEvent('on' + event, callBack);
   };
 
-  el = utils.queryDOM(el);
+  el = queryDOM(el);
 
   return el.attachEvent('on' + event, callBack);
 };
