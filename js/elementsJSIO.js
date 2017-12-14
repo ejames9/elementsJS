@@ -130,8 +130,6 @@ function initDocsPage(elem=null) {
     }
 
     if (null !== elem) {
-      log('yupskis');
-      log(elem);
 
       offSets = SNC.getOffSets();
          hash = String(dom(elem).hash());
@@ -422,8 +420,7 @@ go(()=> {
   on('load', window, ()=> {
     //Allow specific hashes to be loaded from the address bar.
     if (window.location.hash.length > 1) {
-      log('heelloo tthheerree!!');
-      log(window.location.hash, 'green');
+
       initDocsPage(window.location.hash);
     } else {
       //Make sure page loads at proper scrollTop.

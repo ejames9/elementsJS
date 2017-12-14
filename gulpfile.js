@@ -102,14 +102,14 @@ gulp.task('dist2', ()=> {
     .pipe(gulp.dest(dest));
 });
 //Bundle the library for such purposes that would require it.
-gulp.task('elementsJSLib-Bundle', ()=> {
+gulp.task('libBundle', ()=> {
   var compiler = gulpWebpack(webpackConfig3, webpack),
          srcJS = './dist/index.js',
-          dest = './test/';
+          dest = './';
   return gulp.src(srcJS)
     .pipe(compiler)
     .pipe(gulp.dest(dest));
 })
 gulp.task('default', ()=> {
-  return run('dist1', 'dist2', 'elementsJSLib-Bundle');
+  return run('dist1', 'dist2', 'libBundle');
 });
