@@ -246,9 +246,9 @@ var ajax = function(url, fd, callback, method) {
 
 var go = function(cb) {
   if (document.addEventListener) {
-    return go(cb);
+    return _go(cb);
   } else {
-    return goIE(cb);
+    return _goIE(cb);
   }
 };
 
@@ -256,9 +256,9 @@ var go = function(cb) {
 //Function for setting event listeners.
 var on = function(event, el, callback) {
   if (document.addEventListener) {
-    return on(event, el, callback);
+    return _on(event, el, callback);
   } else {
-    return onIE(event, el, callback);
+    return _onIE(event, el, callback);
   }
 };
 
@@ -266,18 +266,18 @@ var on = function(event, el, callback) {
 //Function for removing event listeners.
 var off = function(event, el, callback) {
   if (document.addEventListener) {
-    return off(event, el, callback);
+    return _off(event, el, callback);
   } else {
-    return offIE(event, el, callback);
+    return _offIE(event, el, callback);
   }
 };
 
 
 var once = function(event, el, callback) {                                     //DONE:50 Finish once function.
   if (document.addEventListener) {
-    return once(event, el, callback);
+    return _once(event, el, callback);
   } else {
-    return onceIE(event, el, callback);
+    return _onceIE(event, el, callback);
   }                                                                            //TEST:70 Test once function.
 };
 
@@ -286,9 +286,9 @@ var spark = function(evt, el) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return spark(evt, el);
+    return _spark(evt, el);
   } else {
-    return sparkIE(evt, el);
+    return _sparkIE(evt, el);
   }
 };
 
@@ -297,9 +297,9 @@ var blur = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return blur(el, cb);
+    return _blur(el, cb);
   } else {
-    return blurIE(el, cb);
+    return _blurIE(el, cb);
   }
 };
 
@@ -308,9 +308,9 @@ var click = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return click(el, cb);
+    return _click(el, cb);
   } else {
-    return clickIE(el, cb);
+    return _clickIE(el, cb);
   }
 };
 
@@ -319,9 +319,9 @@ var dblClick = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return dblClick(el, cb);
+    return _dblClick(el, cb);
   } else {
-    return dblClickIE(el, cb);
+    return _dblClickIE(el, cb);
   }
 };
 
@@ -330,9 +330,9 @@ var error = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return error(el, cb);
+    return _error(el, cb);
   } else {
-    return errorIE(el, cb);
+    return _errorIE(el, cb);
   }
 };
 
@@ -341,9 +341,9 @@ var focus = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return focus(el, cb);
+    return _focus(el, cb);
   } else {
-    return focusIE(el, cb);
+    return _focusIE(el, cb);
   }
 };
 
@@ -352,9 +352,9 @@ var focusIn = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return focusIn(el, cb);
+    return _focusIn(el, cb);
   } else {
-    return focusInIE(el, cb);
+    return _focusInIE(el, cb);
   }
 };
 
@@ -363,9 +363,9 @@ var focusOut = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return focusOut(el, cb);
+    return _focusOut(el, cb);
   } else {
-    return focusOut(el, cb);
+    return _focusOut(el, cb);
   }
 };
 
@@ -374,9 +374,9 @@ var keyUp = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return keyUp(el, cb);
+    return _keyUp(el, cb);
   } else {
-    return keyUpIE(el, cb);
+    return _keyUpIE(el, cb);
   }
 };
 
@@ -385,9 +385,9 @@ var keyDown = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return keyDown(el, cb);
+    return _keyDown(el, cb);
   } else {
-    return keyDownIE(el, cb);
+    return _keyDownIE(el, cb);
   }
 };
 
@@ -396,9 +396,9 @@ var load = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return load(el, cb);
+    return _load(el, cb);
   } else {
-    return loadIE(el, cb);
+    return _loadIE(el, cb);
   }
 };
 
@@ -407,9 +407,9 @@ var unLoad = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return unLoad(el, cb);
+    return _unLoad(el, cb);
   } else {
-    return unLoadIE(el, cb);
+    return _unLoadIE(el, cb);
   }
 };
 
@@ -418,9 +418,9 @@ var mouse = function(sfx, el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return mouse(sfx, el, cb);
+    return _mouse(sfx, el, cb);
   } else {
-    return mouseIE(sfx, el, cb);
+    return _mouseIE(sfx, el, cb);
   }
 };
 
@@ -429,9 +429,9 @@ var resize = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return resize(el, cb);
+    return _resize(el, cb);
   } else {
-    return resizeIE(el, cb);
+    return _resizeIE(el, cb);
   }
 };
 
@@ -440,9 +440,9 @@ var scroll = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return scroll(el, cb);
+    return _scroll(el, cb);
   } else {
-    return scrollIE(el, cb);
+    return _scrollIE(el, cb);
   }
 };
 
@@ -451,9 +451,9 @@ var select = function(el, cb=null) {
   el = queryDOM(el);
 
   if (document.addEventListener) {
-    return select(el, cb);
+    return _select(el, cb);
   } else {
-    return selectIE(el, cb);
+    return _selectIE(el, cb);
   }
 };
 
@@ -2324,17 +2324,17 @@ License: ISC
 
 
 
-var go = function(cb) {
+var _go = function(cb) {
   return document.addEventListener('DOMContentLoaded', cb());
 };
 
 
-var goIE = function(cb) {
+var _goIE = function(cb) {
   return document.attachEvent('onDOMContentLoaded', cb());
 };
 
 //Function for setting event listeners.
-var on = function(event, el, callback) {                                       //TODO: allow arg 'el' to be an array.
+var _on = function(event, el, callback) {                                       //TODO: allow arg 'el' to be an array.
   if (typeof el === 'string') {
     if (el[0] === '#') {
       el = el.slice(1);
@@ -2351,7 +2351,7 @@ var on = function(event, el, callback) {                                       /
 };
 
 
-var onIE = function(event, el, callback) {
+var _onIE = function(event, el, callback) {
   if (typeof el === 'string') {
     if (el[0] === '#') {
       el = el.slice(1);
@@ -2368,7 +2368,7 @@ var onIE = function(event, el, callback) {
 };
 
 //Function for removing event listeners.
-var off = function(event, el, callback) {
+var _off = function(event, el, callback) {
   if (typeof el === 'string') {
     if (el[0] === '#') {
       el = el.slice(1);
@@ -2386,7 +2386,7 @@ var off = function(event, el, callback) {
 
 
 //Function for removing event listeners.
-var offIE = function(event, el, callback) {
+var _offIE = function(event, el, callback) {
   if (typeof el === 'string') {
     if (el[0] === '#') {
       el = el.slice(1);
@@ -2403,7 +2403,7 @@ var offIE = function(event, el, callback) {
 };
 
 
-var once = function(event, el, callback) {                                     //DONE:60 Finish once function.
+var _once = function(event, el, callback) {                                     //DONE:60 Finish once function.
   var cb = callback;
                                                                         //DONE:80 Test once function.
   var callBack = function(e) {
@@ -2417,7 +2417,7 @@ var once = function(event, el, callback) {                                     /
 };
 
 
-var onceIE = function(event, el, callback) {
+var _onceIE = function(event, el, callback) {
   var cb = callback;
                                                                              //DONE:90 Test onceIE function.
   var callBack = function(e) {
@@ -2431,7 +2431,7 @@ var onceIE = function(event, el, callback) {
 };
 
 
-function spark(evt, el) {
+function _spark(evt, el) {
 
   const ev = new MouseEvent(evt, {
     bubbles: true,
@@ -2440,7 +2440,7 @@ function spark(evt, el) {
   });
   el.dispatchEvent(ev);
 }
-function sparkIE(evt, el) {
+function _sparkIE(evt, el) {
   const ev = document.createEventObject();
          l = document.querySelector(el);
 
@@ -2449,7 +2449,7 @@ function sparkIE(evt, el) {
 }
 
 
-function blur(el, cb=null) {
+function _blur(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('blur', {
@@ -2462,7 +2462,7 @@ function blur(el, cb=null) {
     el.addEventListener('blur', cb);
   }
 }
-function blurIE(el, cb=null) {
+function _blurIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2474,7 +2474,7 @@ function blurIE(el, cb=null) {
   }
 }
 
-function click(el, cb=null) {
+function _click(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('click', {
@@ -2488,7 +2488,7 @@ function click(el, cb=null) {
   }
 }
 
-function clickIE(el, cb=null) {
+function _clickIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2500,7 +2500,7 @@ function clickIE(el, cb=null) {
   }
 }
 
-function dblClick(el, cb=null) {
+function _dblClick(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('dblclick', {
@@ -2513,7 +2513,7 @@ function dblClick(el, cb=null) {
     el.addEventListener('dblclick', cb);
   }
 }
-function dblClickIE(el, cb=null) {
+function _dblClickIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2525,7 +2525,7 @@ function dblClickIE(el, cb=null) {
   }
 }
 
-function error(el, cb=null) {
+function _error(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('error', {
@@ -2538,7 +2538,7 @@ function error(el, cb=null) {
     el.addEventListener('error', cb);
   }
 }
-function errorIE(el, cb=null) {
+function _errorIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2550,7 +2550,7 @@ function errorIE(el, cb=null) {
   }
 }
 
-function focus(el, cb=null) {
+function _focus(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('focus', {
@@ -2563,7 +2563,7 @@ function focus(el, cb=null) {
     el.addEventListener('focus', cb);
   }
 }
-function focusIE(el, cb=null) {
+function _focusIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2575,7 +2575,7 @@ function focusIE(el, cb=null) {
   }
 }
 
-function focusIn(el, cb=null) {
+function _focusIn(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('focusin', {
@@ -2588,7 +2588,7 @@ function focusIn(el, cb=null) {
     el.addEventListener('focusin', cb);
   }
 }
-function focusInIE(el, cb=null) {
+function _focusInIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2600,7 +2600,7 @@ function focusInIE(el, cb=null) {
   }
 }
 
-function focusOut(el, cb=null) {
+function _focusOut(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('focusout', {
@@ -2613,7 +2613,7 @@ function focusOut(el, cb=null) {
     el.addEventListener('focusout', cb);
   }
 }
-function focusOutIE(el, cb=null) {
+function _focusOutIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2625,7 +2625,7 @@ function focusOutIE(el, cb=null) {
   }
 }
 
-function keyUp(el, cb=null) {
+function _keyUp(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('keyup', {
@@ -2638,7 +2638,7 @@ function keyUp(el, cb=null) {
     el.addEventListener('keyup', cb);
   }
 }
-function keyUpIE(el, cb=null) {
+function _keyUpIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2650,7 +2650,7 @@ function keyUpIE(el, cb=null) {
   }
 }
 
-function keyDown(el, cb=null) {
+function _keyDown(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('keydown', {
@@ -2663,7 +2663,7 @@ function keyDown(el, cb=null) {
     el.addEventListener('keydown', cb);
   }
 }
-function keyDownIE(el, cb=null) {
+function _keyDownIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2675,7 +2675,7 @@ function keyDownIE(el, cb=null) {
   }
 }
 
-function load(el, cb=null) {
+function _load(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('load', {
@@ -2688,7 +2688,7 @@ function load(el, cb=null) {
     el.addEventListener('load', cb);
   }
 }
-function loadIE(el, cb=null) {
+function _loadIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2700,7 +2700,7 @@ function loadIE(el, cb=null) {
   }
 }
 
-function unLoad(el, cb=null) {
+function _unLoad(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('unload', {
@@ -2713,7 +2713,7 @@ function unLoad(el, cb=null) {
     el.addEventListener('unload', cb);
   }
 }
-function unLoadIE(el, cb=null) {
+function _unLoadIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2725,7 +2725,7 @@ function unLoadIE(el, cb=null) {
   }
 }
 
-function mouse(sufx, el, cb=null) { //sufx is string, options are 'up', 'down', 'enter', 'leave', 'over', 'out' and 'move'.
+function _mouse(sufx, el, cb=null) { //sufx is string, options are 'up', 'down', 'enter', 'leave', 'over', 'out' and 'move'.
 
   if (cb === null) {
     const evt = new MouseEvent('mouse' + sufx, {
@@ -2738,7 +2738,7 @@ function mouse(sufx, el, cb=null) { //sufx is string, options are 'up', 'down', 
     el.addEventListener('mouse' + sufx, cb);
   }
 }
-function mouseIE(sufx, el, cb=null) {
+function _mouseIE(sufx, el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2750,7 +2750,7 @@ function mouseIE(sufx, el, cb=null) {
   }
 }
 
-function reSize(el, cb=null) {
+function _reSize(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('resize', {
@@ -2763,7 +2763,7 @@ function reSize(el, cb=null) {
     el.addEventListener('resize', cb);
   }
 }
-function reSizeIE(el, cb=null) {
+function _reSizeIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2775,7 +2775,7 @@ function reSizeIE(el, cb=null) {
   }
 }
 
-function scroll(el, cb=null) {
+function _scroll(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('scroll', {
@@ -2788,7 +2788,7 @@ function scroll(el, cb=null) {
     el.addEventListener('scroll', cb);
   }
 }
-function scrollIE(el, cb=null) {
+function _scrollIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
@@ -2800,7 +2800,7 @@ function scrollIE(el, cb=null) {
   }
 }
 
-function select(el, cb=null) {
+function _select(el, cb=null) {
 
   if (cb === null) {
     const evt = new MouseEvent('select', {
@@ -2813,7 +2813,7 @@ function select(el, cb=null) {
     el.addEventListener('select', cb);
   }
 }
-function selectIE(el, cb=null) {
+function _selectIE(el, cb=null) {
 
   if (cb === null) {
     const evt = document.createEventObject();
