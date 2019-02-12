@@ -2853,7 +2853,7 @@ License: ISC
 
 
 //This is an alias function for XMLHttpRequests.
-var xhr = function(url, fd, method) {                                          //DONE:80 Perfect this function.
+var xhr = function(url, fd, options) {                                          //DONE:80 Perfect this function.
     var formData;
                                                                                //DONE:100 Build FormData in function from object that user passes as an argument.
     if (fd) {                                                                  //DONE:70 Need async ajax function
@@ -2869,7 +2869,7 @@ var xhr = function(url, fd, method) {                                          /
       formData = null;
     }
                                                                                //log('fd'); log(formData);
-  var m = method || 'get';
+  var m = options.method || 'get';
   // var data = fd || null;
   var val;
 
@@ -2882,6 +2882,8 @@ var xhr = function(url, fd, method) {                                          /
         }
       };
       ajax.open(m, url, false);
+      if (options.header)
+        ajax.setRequestHeader(options.header)
       ajax.send(formData);
   };
   ajax();
@@ -2890,7 +2892,7 @@ var xhr = function(url, fd, method) {                                          /
 };
 
 
-var ajax = function(url, fd, callback, method) {                               //TEST:60 Test this function.
+var ajax = function(url, fd, callback, method, header) {                               //TEST:60 Test this function.
   var formData;
 
     if (fd) {
@@ -2921,9 +2923,10 @@ var ajax = function(url, fd, callback, method) {                               /
     }
   };
   req.open(m, url);
+  if (header)
+    req.setRequestHeader(header);
   req.send(formData);
 };
-
 //==============================================================================
 //==============================================================================
 //==============================================================================
